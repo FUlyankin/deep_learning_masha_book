@@ -23,7 +23,7 @@ $$
 
 Получается, что на первом слое находится два нейрона, которые передают свои выходы в третий:
 
-<img src="../images/problem_set_01/img03_net.png" alt="dobronet_forward" height="270px" align="center">
+<img src="../images/problem_set_01/img03_net.png" alt="dobronet_forward" width="70%" align="center">
 
 
 ```

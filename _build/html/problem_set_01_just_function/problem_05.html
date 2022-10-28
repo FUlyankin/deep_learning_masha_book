@@ -616,7 +616,7 @@ title="Print to PDF"
 <h1>5. Логические функции<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <p>Маша вчера поссорилась с Пашей. Он сказал, что у неё нет логики. Чтобы доказать Паше обратное, Маша нашла теорему, которая говорит о том, что с помощью нейросетки можно аппроксимировать почти любую функцию, и теперь собирается заняться аппроксимацией логических функций. Для начала она взяла самые простые логические функции, заданные следующими таблицами истинности</p>
 <figure class="align-default" id="log-table">
-<a class="reference internal image-reference" href="../_images/img05_log_table.png"><img alt="../_images/img05_log_table.png" src="../_images/img05_log_table.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="../_images/img05_log_table.png"><img alt="../_images/img05_log_table.png" src="../_images/img05_log_table.png" style="width: 95%;" /></a>
 </figure>
 <p>Первые два столбика идут на вход, третий получается на выходе. Первая операция — логическое «и», вторая — «или».   Операция из третьей таблицы называется «исключающим или», XoR. Если внимательно приглядеться, то можно заметить, что XoR — это то же самое что и <span class="math notranslate nohighlight">\([x_1 \ne x_2].\)</span> Квадратные скобки обозначают индикатор. Он выдаёт <span class="math notranslate nohighlight">\(1\)</span>, если внутри него стоит правда и <span class="math notranslate nohighlight">\(0\)</span>, если ложь. Такая запись называется скобкой Айверсона. Попробуйте записать через неё единичную ступеньку Хевисайда, а затем помогите Маше с нейросетями.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -627,7 +627,7 @@ title="Print to PDF"
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">В предыдущем упражнении мы уже построили нейрон для пересечения. Он располагался на последнем слое нейросети. Посмотрим на тот же нейрон под другим углом.</p>
-<a class="reference internal image-reference" href="../_images/img05_sol1.png"><img alt="sol1" class="align-center" src="../_images/img05_sol1.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/img05_sol1.png"><img alt="sol1" class="align-center" src="../_images/img05_sol1.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Если нарисовать все наши четыре точки на плоскости, становится ясно, что мы хотим отделить точку <span class="math notranslate nohighlight">\((1,1)\)</span> от всех остальных. Сделать это можно большим числом способов. Например, в нейроне выше задана линия <span class="math notranslate nohighlight">\(x_2 = 1.5 - x_1\)</span>. Подойдёт и любая другая линия, отделяющая <span class="math notranslate nohighlight">\((1,1)\)</span> от остальных точек. Пропустим ради приличия точки через наш нейрон и убедимся, что он работает корректно:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -639,9 +639,9 @@ title="Print to PDF"
 \end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">С объединением та же ситуация, только на этот раз линия должна пройти чуть ниже. Подойдёт <span class="math notranslate nohighlight">\(x_2 = 0.5 - x_1\)</span>.</p>
-<a class="reference internal image-reference" href="../_images/img05_sol2.png"><img alt="sol2" class="align-center" src="../_images/img05_sol2.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/img05_sol2.png"><img alt="sol2" class="align-center" src="../_images/img05_sol2.png" style="width: 95%;" /></a>
 <p class="sd-card-text">С третьей операцией, исключающим или, начинаются проблемы. Чтобы разделить точки, нужно строить две линии. Сделать это можно многими способами. Но линий всегда будет две. Надо посмотреть первым слоем нейросетки, где мы оказались относительно каждой из линий, а вторым слоем соединить результаты.</p>
-<a class="reference internal image-reference" href="../_images/img05_sol3.png"><img alt="sol3" class="align-center" src="../_images/img05_sol3.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/img05_sol3.png"><img alt="sol3" class="align-center" src="../_images/img05_sol3.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Можно даже записать эту нейросеть через объединение и пересечение:</p>
 <div class="math notranslate nohighlight">
 \[
