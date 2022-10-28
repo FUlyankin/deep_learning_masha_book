@@ -1,0 +1,986 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1. Учимся искать производные &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Несколько стандартных производных" href="problem_02.html" />
+    <link rel="prev" title="Листочек 10: матричное дифФфФфФференцирование" href="intro_10.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Тятя! Тятя! Нейросети заменили продавца!</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Тятя! Тятя! Нейросети заменили продавца!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_01_just_function/intro_01.html">
+   Листочек 1: всего лишь функция
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_01.html">
+     1. От регрессии к нейросетке
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_02.html">
+     2. От картинки к формуле
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_03.html">
+     3. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_04.html">
+     4. Армия регрессий
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_05.html">
+     5. Логические функции
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_06.html">
+     6. Ещё немного про XoR
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_07.html">
+     7. Избыток
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_08.html">
+     8. Минималочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_09.html">
+     9. Универсальный регрессор
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_01_just_function/problem_10.html">
+     10. Число параметров
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_02_gradient/intro_02.html">
+   Листочек 2: пятьдесят оттенков градиентного спуска
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_02_gradient/problem_01.html">
+     1. Пятьдесят оттенков градиентного спуска
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_02_gradient/problem_02.html">
+     2. Логистическая регрессия
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_02_gradient/problem_03.html">
+     3. Вопросики
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_02_gradient/problem_04.html">
+     4. Квадратное уравнение
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_02_gradient/problem_05.html">
+     5. Скорости обучения*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_02_gradient/problem_06.html">
+     6. Adam и его формула*
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_03_backprop/intro_03.html">
+   Листочек 3: алгоритм обратного распространения ошибки
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_03_backprop/problem_01.html">
+     1. Граф вычислений
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_03_backprop/problem_02.html">
+     2. Придумываем бэкпроп
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_03_backprop/problem_03.html">
+     3. Сигмоида
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_03_backprop/problem_04.html">
+     4. Линейный слой
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_03_backprop/problem_05.html">
+     5. Бэкпроп в матричном виде
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_03_backprop/problem_06.html">
+     6. Бэкпроп своими руками
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_03_backprop/problem_07.html">
+     7. Незаметный бэкпроп
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_03_backprop/problem_08.html">
+     8. Нестеров и бэкпроп
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
+   Листочек 6: свёрточные сети
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_01.html">
+     1. Свёртка своими руками
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_02.html">
+     2. Классификатор слэшей
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_03.html">
+     3. Ядра
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_04.html">
+     4. Крестики и нолики
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_05.html">
+     5. Свёрточный и полносвязный
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_06.html">
+     6. Число параметров
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_07.html">
+     7. Поле обзора
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_08.html">
+     8. Мелкие задачки
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_09.html">
+     9. Скользящее среднее
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_05_conv/problem_10.html">
+     10. Порядок слоёв
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
+   Листочек 5: нейросети – конструктор LEGO
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
+   Листочек 7: рекуррентные сети
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
+     1. Туда и обратно
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
+     2. Число параметров
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
+     3. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
+     4. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
+     5. Лишние части
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">
+   Листочек 8: тут будет листочек про эмбединг
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../problem_set_09_transformers/intro_09.html">
+   Листочек 9: тут будет листочек про трансформеры
+  </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro_10.html">
+   Листочек 10: матричное дифФфФфФференцирование
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1. Учимся искать производные
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_02.html">
+     2. Несколько стандартных производных
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_03.html">
+     3. Линейная регрессия
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_04.html">
+     4. Больше производных
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_05.html">
+     5. Производная сложной функции
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_06.html">
+     6. Метод максимального правдоподобия
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_07.html">
+     7. Матричный лагранжиан
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fproblem_set_10_matrix_diff/problem_01.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/problem_set_10_matrix_diff/problem_01.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>1. Учимся искать производные</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>1. Учимся искать производные<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>Когда мы работаем с одномерными функциями, для поиска любых производных нам хватает небольшой таблицы со стандартными случаями и пары правил. Для случая матриц все эти правила можно обобщить, а таблицы дополнить специфическими функциями вроде определителя.</p>
+<p>Удобнее всего оказывается работать в терминах «дифференциала» — с ним можно не задумываться о промежуточных размерностях, а просто применять стандартные правила.</p>
+<p>Мы будем работать в этом конспекте со скалярами, векторами и матрицами. Нас будет интересовать, что именно мы дифференцируем, по чему мы дифференцируем и что получается в итоге.</p>
+<p>Строчными буквами мы будем обозначать векторы-столбцы и константы. Заглавными буквами мы будем обозначать матрицы. Производная столбца — это столбец. Производная по столбцу — это столбец.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x = \begin{pmatrix}x_1 \\ \ldots \\ x_n \end{pmatrix} \qquad X = \begin{pmatrix}x_{11} &amp; \ldots &amp; x_{1n} \\ \ldots &amp; \ddots &amp; \ldots \\ x_{n1} &amp; \ldots &amp; x_{nn}  \end{pmatrix}.
+\end{split}\]</div>
+<p>Мы рассмотрим постепенно много разных входов и выходов,  и получим таблицу из канонических случаев. По строчкам будем откладывать то, откуда бьёт функция, то есть входы. По столбцам будем откладывать то, куда бьёт функция, то есть выходы. Для ситуаций обозначенных прочерками обобщения получить не выйдет.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p></p></th>
+<th class="text-align:center head"><p>скаляр</p></th>
+<th class="text-align:center head"><p>вектор</p></th>
+<th class="text-align:center head"><p>матрица</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>скаляр</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(f'(x) dx\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\mathfrak{J} dx\)</span></p></td>
+<td class="text-align:center"><p>–</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>вектор</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\nabla_x f(x)^T dx\)</span></p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(\mathfrak{J} dx\)</span></p></td>
+<td class="text-align:center"><p>–</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>матрица</p></td>
+<td class="text-align:center"><p><span class="math notranslate nohighlight">\(tr(\nabla_X f(X)^T dX)\)</span></p></td>
+<td class="text-align:center"><p>–</p></td>
+<td class="text-align:center"><p>–</p></td>
+</tr>
+</tbody>
+</table>
+<p>Символом <span class="math notranslate nohighlight">\(\nabla_x f\)</span> обозначается градиент (вектор из производных). Символом <span class="math notranslate nohighlight">\(\mathfrak{J}\)</span> обозначена матрица Якоби. Символом <span class="math notranslate nohighlight">\(H\)</span> мы будем обозначать матрицу Гессе из вторых производных.</p>
+<p>Найдём производную и дифференциал функции <span class="math notranslate nohighlight">\(f(x) = x^2\)</span>, где <span class="math notranslate nohighlight">\(x\)</span> скаляр. Функция бьёт из скаляров в скаляры</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) : \mathbb{R} \to \mathbb{R}.
+\]</div>
+<p>Примером такой функции может быть <span class="math notranslate nohighlight">\(f(x) = x^2\)</span>. Мы знаем, что по таблице производных <span class="math notranslate nohighlight">\(f'(x) = 2x\)</span>. Также мы знаем, что <strong>дифференциал</strong> – это линейная часть приращения функции, а <strong>производная</strong> – это предел отношения приращения функции к приращению аргумента при приращении аргумента стремящемся к нулю.</p>
+<p>Грубо говоря,  дифференциал помогает представить приращение функции в линейном виде</p>
+<div class="math notranslate nohighlight">
+\[
+d{f(x)} = f'(x) dx.
+\]</div>
+<p>Если мы находимся в какой-то точке <span class="math notranslate nohighlight">\(x_0\)</span> и делаем из неё небольшое приращение <span class="math notranslate nohighlight">\(dx,\)</span> то наша функция изменится примерно на <span class="math notranslate nohighlight">\(df(x)\)</span>. <strong>Оказывается, что именно в терминах дифференциалов удобно работать с матричными производными.</strong></p>
+<p>Свойства матричных дифференциалов очень похожи на свойства обычных. Надо только не забыть, что мы работаем с матрицами.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    \begin{aligned} 
+    &amp; d{(XY)} = d{X}Y + X \cdot d{Y}, \quad d{X} \cdot Y \ne Y \cdot d{X} \\
+    &amp; d{(\alpha X + \beta Y)} = \alpha d{X} + \beta d{Y} \\
+    &amp; d{(X^T)} = (d{X})^T \\
+    &amp; d{A} = 0, \quad A - \text{матрица из констант}
+    \end{aligned} 
+\end{equation*}\]</div>
+<p>Чтобы доказать все эти свойства достаточно просто аккуратно расписать их. Кроме этих правил нам понадобится пара трюков по работе со скалярами. Если <span class="math notranslate nohighlight">\(s\)</span> — скаляр размера <span class="math notranslate nohighlight">\(1 \times 1\)</span>, тогда <span class="math notranslate nohighlight">\(s^T = s\)</span> и <span class="math notranslate nohighlight">\(tr(s) = s\)</span>, где <span class="math notranslate nohighlight">\(tr\)</span> — операция взятия следа матрицы.</p>
+<p>С помощью этих преобразований мы будем приводить дифференциалы к каноническому виду и вытаскивать из них производные.</p>
+<p><strong>а)</strong> Найдите производную <span class="math notranslate nohighlight">\(\nabla_x f(x)\)</span>, где <span class="math notranslate nohighlight">\(f(x) = a^T x\)</span>, где  <span class="math notranslate nohighlight">\(a\)</span>  и <span class="math notranslate nohighlight">\(x\)</span> векторы размера <span class="math notranslate nohighlight">\(1 \times n\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Рассмотрим вторую ситуацию из таблицы, функция бьёт из векторов в скаляры. Это обычная функция от нескольких аргументов</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) : \mathbb{R}^n \to \mathbb{R}.
+\]</div>
+<p class="sd-card-text">Мы уже умеем брать такие производные. Если мы хотим найти производную функции <span class="math notranslate nohighlight">\(f(x_1, x_2, \ldots, x_n)\)</span>, нам надо взять производную по каждому аргументу и записать их все в виде вектора. Такой вектор <strong>называют градиентом.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla_x f(x) = \begin{pmatrix} \frac{\partial f(x)}{\partial x_1} \\ \frac{\partial f(x)}{\partial x_2} \\ \ldots  \\ \frac{\partial f(x)}{\partial x_n} \end{pmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">Если умножить градиент на вектор приращений, у нас получится дифференциал</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{multline*}
+d{f(x)} = \nabla_x f(x)^T dx = \begin{pmatrix} \frac{\partial f(x)}{\partial x_1} &amp; \frac{\partial f(x)}{\partial x_2} &amp; \ldots  &amp; \frac{\partial f(x)}{\partial x_n} \end{pmatrix} \begin{pmatrix} dx_1 \\ dx_2 \\ \ldots  \\ dx_n \end{pmatrix} =  \\ = \frac{\partial f(x)}{\partial x_1} \cdot dx_1 + \frac{\partial f(x)}{\partial x_2} \cdot dx_2 + \ldots +\frac{\partial f(x)}{\partial x_n} \cdot dx_n.
+\end{multline*}\]</div>
+<p class="sd-card-text">При маленьком изменении <span class="math notranslate nohighlight">\(x_i\)</span> на <span class="math notranslate nohighlight">\(dx_i\)</span> функция будет при прочих равных меняться пропорционально соответствующей частной производной. Посмотрим на конкретный пример, <strong>скалярное произведение.</strong> Можно расписать умножение одного вектора на другой в виде привычной нам формулы</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	\underset{[1 \times 1]}{f(x)} = \underset{[1 \times n]}{a^T} \cdot \underset{[n \times 1]}{x} = \begin{pmatrix} a_1 &amp; a_2 &amp; \ldots &amp;a_n \end{pmatrix} \cdot \begin{pmatrix} x_1 \\ x_2 \\ \ldots  \\ x_n \end{pmatrix} = a_1 \cdot x_1 + a_2 \cdot x_2 + \ldots + a_n \cdot x_n.
+\end{equation*}\]</div>
+<p class="sd-card-text">Из неё чётко видно, что <span class="math notranslate nohighlight">\(\frac{\partial f(x)}{\partial x_i} = a_i\)</span>. Увидев это мы можем выписать градиент функции</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla_x f(x) = \begin{pmatrix} \frac{\partial f(x)}{\partial x_1} \\ \frac{\partial f(x)}{\partial x_2} \\ \ldots  \\ \frac{\partial f(x)}{\partial x_n} \end{pmatrix} = \begin{pmatrix} a_1 \\ a_2 \\ \ldots  \\ a_n \end{pmatrix} = a,
+\end{split}\]</div>
+<p class="sd-card-text">теперь можно записать дифференциал</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{multline*}
+df(x) = a^T dx = \frac{\partial f(x)}{\partial x_1} \cdot dx_1 + \frac{\partial f(x)}{\partial x_2} \cdot dx_2 + \ldots +\frac{\partial f(x)}{\partial x_n} \cdot dx_n = \\ = a_1 \cdot dx_1 + a_2 \cdot dx_2 + \ldots + a_n \cdot dx_n.
+\end{multline*}\]</div>
+<p class="sd-card-text">В то же самое время можно было бы просто воспользоваться правилами нахождения матричных дифференциалов</p>
+<div class="math notranslate nohighlight">
+\[
+df(x) =  dx{a^T x} = a^T dx = \nabla f(x)^T dx,
+\]</div>
+<p class="sd-card-text">откуда <span class="math notranslate nohighlight">\( \nabla_x f(x) = a\)</span>. Производная найдена. При таком подходе нам не надо анализировать каждую частную производную по отдельности. Мы находим одним умелым движением руки сразу же все производные.</p>
+</div>
+</details><p><strong>б)</strong> Найдите первую и вторую производные функции <span class="math notranslate nohighlight">\(f(x) = x^T A x\)</span>, где <span class="math notranslate nohighlight">\(x\)</span> вектор размера <span class="math notranslate nohighlight">\(1 \times n\)</span>, <span class="math notranslate nohighlight">\(A\)</span> матрица размера <span class="math notranslate nohighlight">\(n \times n\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Функция по-прежнему бьёт из векторов в скаляры. Попробуем перемножить все матрицы и расписать её в явном виде по аналогии со скалярным произведением</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	\underset{[1 \times 1]}{f(x)} = \underset{[1 \times n]}{x^T} \cdot \underset{[n \times n]}{A} \cdot \underset{[n \times 1]}{x} = \sum_{i = 1}^n \sum_{j=1}^n a_{ij} \cdot x_i \cdot x_j.
+\end{equation*}\]</div>
+<p class="sd-card-text">Если продолжить в том же духе, мы сможем найти все частные производные, а потом назад вернём их в матрицу. Единственное, что смущает – <strong>мы делаем что-то неестественное.</strong> Всё было записано в красивом компактном матричном виде, а мы это испортили. А что, если множителей будет больше? Тогда суммы станут совсем громоздкими, и мы легко запутаемся.</p>
+<p class="sd-card-text">При этом, если воспользоваться тут правилами работы с матричными дифференциалами, мы легко получим красивый результат</p>
+<div class="math notranslate nohighlight">
+\[
+df(x) =  d{x^T A x} = d(x^T) \cdot A \cdot x + x^T \cdot d(Ax) =  d(x^T) \cdot A \cdot x + x^T \underset{d{A} = 0}{d{(A)}} x + x^T A dx(x).
+\]</div>
+<p class="sd-card-text">Заметим, что <span class="math notranslate nohighlight">\(d(x^T) A x\)</span> это скаляр. Мы перемножаем матрицы с размерностями <span class="math notranslate nohighlight">\(1 \times n\)</span>, <span class="math notranslate nohighlight">\(n \times n\)</span> и <span class="math notranslate nohighlight">\(n \times 1\)</span>. В результате получается размерность <span class="math notranslate nohighlight">\(1 \times 1\)</span>. Мы можем смело транспонировать скаляр, когда нам это надо. Эта операция никак не повлияет на результат</p>
+<div class="math notranslate nohighlight">
+\[
+df(x) = d(x^T) A x + x^T A dx = x^T A^T dx + x^T A dx = x^T(A^T + A) dx.
+\]</div>
+<p class="sd-card-text">Мы нашли матричный дифференциал и свели его к каноничной форме</p>
+<div class="math notranslate nohighlight">
+\[
+df(x) = \nabla^T_x f dx = x^T(A^T + A) dx
+\]</div>
+<p class="sd-card-text">Получается, что искомая производная <span class="math notranslate nohighlight">\(\nabla_x f(x) = (A + A^T) x\)</span>. Обратите внимание, что размерности не нарушены и мы получили столбец из производных, то есть искомый градиент нашей функции <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
+<p class="sd-card-text">По аналогии мы легко можем найти вторую производную. Для этого надо взять производную производной. Функция <span class="math notranslate nohighlight">\(g(x) = (A + A^T) x\)</span> бьёт из векторов в вектора</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) : \mathbb{R}^n \to \mathbb{R}^m.
+\]</div>
+<p class="sd-card-text">На самом деле с такой ситуацией мы также знакомились на математическом анализе. Если <span class="math notranslate nohighlight">\(n=1\)</span> то у нас есть <span class="math notranslate nohighlight">\(m\)</span> функций, каждая из которых применяется к <span class="math notranslate nohighlight">\(x\)</span>. На выходе получается вектор</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix} f_1(x) \\ f_2(x) \\ \ldots  \\ f_m(x). \end{pmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">Если мы хотим найти производную, нужно взять частную производную каждой функции по <span class="math notranslate nohighlight">\(x\)</span> и записать в виде вектора. Дифференциал также будет представлять из себя вектор, так как при приращении аргумента на какую-то величину изменяется каждая из функций</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+df(x) = \begin{pmatrix} \frac{\partial f_1}{\partial x} \\ \frac{\partial f_2}{\partial x} \\ \ldots  \\ \frac{\partial f_m}{\partial x} \end{pmatrix} \cdot \begin{pmatrix} dx \\ dx \\ \ldots  \\ dx \end{pmatrix}  = \begin{pmatrix} \frac{\partial f_1}{\partial x} dx \\ \frac{\partial f_2}{\partial x} dx \\ \ldots  \\ \frac{\partial f_m}{\partial x} dx \end{pmatrix}.
+\end{split}\]</div>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(n &gt; 1\)</span>, то аргументов на вход в такой вектор из функций идёт несколько, на выходе получается матрица</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix} f_1(x_1) &amp; f_1(x_2) &amp; \ldots &amp; f_1(x_n) \\ f_2(x_1)  &amp; f_2(x_2) &amp; \ldots &amp; f_2(x_n)  \\ \ldots &amp; \ldots &amp; \ddots &amp; \ldots  \\ f_m(x_1)  &amp; f_m(x_2) &amp; \ldots &amp; f_m(x_n) \end{pmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">Производной такой многомерной функции будет матрица из частных производных каждой функции по каждому аргументу</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix} \frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_1}{\partial x_2} &amp; \ldots &amp; \frac{\partial f_1}{\partial x_n} \\ \frac{\partial f_2}{\partial x_1}  &amp; \frac{\partial f_2}{\partial x_2} &amp; \ldots &amp; \frac{\partial f_2}{\partial x_n}  \\ \ldots &amp; \ldots &amp; \ddots &amp; \ldots  \\ \frac{\partial f_m}{\partial x_1}  &amp; \frac{\partial f_m}{\partial x_2} &amp; \ldots &amp; \frac{\partial f_m}{\partial x_n} \end{pmatrix}.
+\end{split}\]</div>
+<p class="sd-card-text">Дифференциал снова будет представлять из себя вектор</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+df(x) =  \begin{pmatrix} \frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_1}{\partial x_2} &amp; \ldots &amp; \frac{\partial f_1}{\partial x_n} \\ \frac{\partial f_2}{\partial x_1}  &amp; \frac{\partial f_2}{\partial x_2} &amp; \ldots &amp; \frac{\partial f_2}{\partial x_n}  \\ \ldots &amp; \ldots &amp; \ddots &amp; \ldots  \\ \frac{\partial f_m}{\partial x_1}  &amp; \frac{\partial f_m}{\partial x_2} &amp; \ldots &amp; \frac{\partial f_m}{\partial x_n} \end{pmatrix} \cdot  \begin{pmatrix} dx_1 \\ dx_2 \\ \ldots  \\ dx_n \end{pmatrix} =  \begin{pmatrix} \frac{\partial f_1}{\partial x_1} dx_1 + \frac{\partial f_1}{\partial x_2} dx_2 + \ldots + \frac{\partial f_1}{\partial x_n} dx_n  \\ \frac{\partial f_2}{\partial x_1} dx_1 +  \frac{\partial f_2}{\partial x_2} dx_2 + \ldots + \frac{\partial f_2}{\partial x_n} dx_n  \\ \ldots  \\ \frac{\partial f_m}{\partial x_1} dx_1 + \frac{\partial f_m}{\partial x_2} dx_2 + \ldots + \frac{\partial f_m}{\partial x_n} dx_n \end{pmatrix}.
+\end{split}\]</div>
+<p class="sd-card-text">В обоих ситуациях мы можем записать дифференциал через матричное произведение. Вернёмся к поиску второй производной</p>
+<div class="math notranslate nohighlight">
+\[
+dg(x) = (A + A^T) dx.
+\]</div>
+<p class="sd-card-text">Выходит, что матрица из вторых производных для функции <span class="math notranslate nohighlight">\(f(x)\)</span> выглядит как <span class="math notranslate nohighlight">\(A + A^T.\)</span> Обратите внимание, что для этой ситуации в каноническом виде нет транспонирования. Когда мы вытаскиваем из записи дифференциала производную, нам не надо его применять.</p>
+</div>
+</details><p><strong>в)</strong> Найдите производную <span class="math notranslate nohighlight">\(\nabla_x f(x)\)</span>, где <span class="math notranslate nohighlight">\(f(x) = \ln(x^T A x)\)</span>, где <span class="math notranslate nohighlight">\(x\)</span> вектор размера <span class="math notranslate nohighlight">\(1 \times n\)</span>, <span class="math notranslate nohighlight">\(A\)</span> матрица размера <span class="math notranslate nohighlight">\(n \times n\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Когда мы хотим найти производную  <span class="math notranslate nohighlight">\(f(x) = \ln(x^T A x)\)</span>, мы просто можем применить правила взятия производной от сложной функции <span class="math notranslate nohighlight">\(f(y) = \ln(y).\)</span> К логарифму на вход идет скаляр, а значит его производная равна <span class="math notranslate nohighlight">\(\frac{1}{y}\)</span>. Выходит, что</p>
+<div class="math notranslate nohighlight">
+\[
+df(x) = d\ln(y) = \frac{1}{y} dy = \frac{1}{y} d(x^T A x) = \frac{1}{x^T A x} \cdot x^T(A^T + A) dx.
+\]</div>
+<p class="sd-card-text">Если отображение бьёт в матрицы или вектора, производная будет браться аналогичным образом. Надо будет чуть аккуратнее следить за размерностями. На такой кейс мы посмотрим немного позже.</p>
+</div>
+</details><p><strong>г)</strong> Найдите производную <span class="math notranslate nohighlight">\(f(x) = a^TXAXa\)</span>, где <span class="math notranslate nohighlight">\(x\)</span> вектор размера <span class="math notranslate nohighlight">\(1 \times n\)</span>, <span class="math notranslate nohighlight">\(A\)</span> матрица размера <span class="math notranslate nohighlight">\(n \times n\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Движемся к следующей ситуации. Функция бьёт из матриц в скаляры</p>
+<div class="math notranslate nohighlight">
+\[
+f(X) : \mathbb{R}^{n \times k} \to \mathbb{R}.
+\]</div>
+<p class="sd-card-text">В таком случае нам надо найти производную функции по каждому элементу матрицы, то есть дифференциал будет выглядеть как</p>
+<div class="math notranslate nohighlight">
+\[
+d{f(X)} = f'_{x_{11}} dx_{11} + f'_{x_{12}} dx_{12} + \ldots + f'_{x_{nk}} dx_{nk}.
+\]</div>
+<p class="sd-card-text">Его можно записать в компактном виде через след матрицы как</p>
+<div class="math notranslate nohighlight">
+\[
+df(X) = tr(\nabla f(X)^T dX),
+\]</div>
+<p class="sd-card-text">где</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla_X f(X) = \begin{pmatrix} f'_{x_{11}} &amp; \ldots &amp; f'_{x_{1k}} \\ 
+\ldots &amp; \ddots &amp; \ldots \\ 
+f'_{x_{n1}} &amp; \ldots &amp; f'_{x_{nk}}
+\end{pmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">Вполне естественен вопрос, <strong>почему это можно записать именно так?</strong> Давайте попробуем увидеть этот факт на каком-нибудь простом примере. Пусть у нас есть две матрицы</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A_{[2 \times 3]} = \begin{pmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \end{pmatrix} \qquad X_{[2 \times 3]} = \begin{pmatrix} x_{11} &amp; x_{12} &amp; x_{13} \\ x_{21} &amp; x_{22} &amp; x_{23} \end{pmatrix}.
+\end{split}\]</div>
+<p class="sd-card-text">Посмотрим на то, как выглядит <span class="math notranslate nohighlight">\(tr(A^T dX)\)</span>. Как это не странно, он совпадает с дифференциалом</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+tr(A^T dX) = tr \left( \begin{pmatrix} a_{11} &amp; a_{21} \\ a_{12} &amp; a_{22} \\ a_{13} &amp;  a_{23} \end{pmatrix} \begin{pmatrix} dx_{11} &amp; dx_{12} &amp; dx_{13} \\ dx_{21} &amp; dx_{22} &amp; dx_{23} \end{pmatrix} \right),
+\end{split}\]</div>
+<p class="sd-card-text">при произведении на выходе получаем матрицу размера <span class="math notranslate nohighlight">\(3 \times 3\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix} a_{11} dx_{11} +  a_{21} dx_{21} &amp; a_{11} dx_{12} +  a_{21} dx_{22} &amp; a_{11} dx_{13} +  a_{21} dx_{23} \\ a_{12} dx_{11} +  a_{22} dx_{21} &amp; a_{12} dx_{12} +  a_{22} dx_{22} &amp; a_{12} dx_{13} +  a_{22} dx_{23} \\ a_{13} dx_{11} +  a_{23} dx_{21} &amp; a_{13} dx_{12} +  a_{23} dx_{22} &amp; a_{13} dx_{13} +  a_{23} dx_{23} \end{pmatrix}.
+\end{split}\]</div>
+<p class="sd-card-text">Когда мы берём её след, остаётся сумма элементов по диагонали. Это и есть требуемый дифференциал. Дальше мы периодически будем пользоваться таким приёмом. Например, норму Фробениуса</p>
+<div class="math notranslate nohighlight">
+\[
+||X-A||_F^2 = \sum_{i,j} (x_{ij} - a_{ij})^2
+\]</div>
+<p class="sd-card-text">можно записать в матричном виде как</p>
+<div class="math notranslate nohighlight">
+\[
+||X-A||_F^2 = tr((X-A)^T (X-A)).
+\]</div>
+<p class="sd-card-text">Итак, найдём производную от <span class="math notranslate nohighlight">\(f(X) = a^TXAXa\)</span>. Нам нужно выписать дифференциал и привести его к каноническому виду</p>
+<p class="sd-card-text">Обратим внимание на то, что мы бьём из матриц в скаляры. Дифференциал будет по своей размерности совпадать со скаляром. Производная будет размера матрицы</p>
+<div class="math notranslate nohighlight">
+\[
+df(X) = d(a^TXAXa) = \underset{[1 \times 1]}{a^Td(X)AXa} + \underset{[1 \times 1]}{a^TXA \cdot d(X)a}.
+\]</div>
+<p class="sd-card-text">Оба слагаемых, которые мы получаем после перехода к дифференциалу – скаляры. Мы хотим представить дифференциал в виде <span class="math notranslate nohighlight">\(tr(\text{нечто} d{X})\)</span>. След от скаляра это снова скаляр. Получается, что мы бесплатно можем навесить над правой частью наешго равенство знак следа и воспользоваться его свойствами</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{multline*}
+df(X) = d(a^TXAXa) = tr(a^T \cdot d(X) \cdot AXa) + tr(a^TXA \cdot d(X) \cdot a) = \\ = tr(AXaa^T \cdot d(X)) + tr(aa^TXA \cdot d(X)) = \\ = tr(AXaa^T \cdot d(X) + aa^TXA \cdot dX) = tr((AXaa^T + aa^TXA)dX).
+\end{multline*}\]</div>
+<p class="sd-card-text">Производная найдена, оказалось что это</p>
+<div class="math notranslate nohighlight">
+\[
+\nabla_X f(X) = (AXaa^T + aa^TXA)^T = aa^TX^TA^T + A^TXaa^T.
+\]</div>
+<p class="sd-card-text">Как бы мы нашли это, всё по-честному перемножив, даже боюсь себе представлять.</p>
+</div>
+</details><p><strong>д)</strong> Найдите производную <span class="math notranslate nohighlight">\(f(x) = x x^T x\)</span>,  где <span class="math notranslate nohighlight">\(x\)</span> вектор размера <span class="math notranslate nohighlight">\(1 \times n\)</span></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Ещё один пример на ситуацию, когда функция бьёт из векторов в вектора</p>
+<div class="math notranslate nohighlight">
+\[
+\underset{[n \times 1]}{f(x)} = \underset{[n \times 1]}{x} \underset{[1 \times n]}{x^T}  \underset{[n \times 1]}{x}.
+\]</div>
+<p class="sd-card-text">В нём надо аккуратно вести себя со сложением матриц со скалярами. Берём дифференциал</p>
+<div class="math notranslate nohighlight">
+\[
+df(x) = d{xx^Tx} = dx \cdot x^Tx + x dx^T \cdot x + xx^T \cdot dx.
+\]</div>
+<p class="sd-card-text">В первом слагаемом пользуемся тем, что <span class="math notranslate nohighlight">\(x^Tx\)</span> скаляр и его можно вынести перед дифференциалом. Этот скаляр умножается на каждый элемент вектора. Дальше мы захотим вынести дифференциал за скобку, чтобы не испортить матричное сложение, подчеркнём факт этого перемножения на каждый элемент единичной матрицей. Во втором слагаемом пользуемся тем, что <span class="math notranslate nohighlight">\(dx^T \cdot x\)</span> скаляр и транспонируем его</p>
+<div class="math notranslate nohighlight">
+\[
+df(x) = \underset{[1 \times 1]}{x^Tx} \underset{[n \times n]}{I_n} \underset{[n \times 1]}{dx} + x x^T dx + xx^T dx = (x^Tx I_n + 2 x x^T)dx.
+\]</div>
+<p class="sd-card-text">Обратите внимание, что без единичной матрицы размерности у сложения поломаются. Получается, что наша производная выглядит как</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathfrak{J} = x^Tx I_n + 2 x x^T = \begin{pmatrix} \sum x_i^2 + 2 x_1^2 &amp; 2 x_1 x_2 &amp; \ldots &amp; 2 x_1 x_n \\
+2 x_1 x_2 &amp; \sum x_i^2 + 2 x_2^2 &amp; \ldots &amp; 2 x_2 x_n \\
+\ldots &amp; \ldots &amp; \ddots &amp;\ldots \\
+2 x_1 x_n &amp; 2 x_n x_2 &amp; \ldots &amp; \sum x_i^2 + 2 x_n^2 \\
+\end{pmatrix}.
+\end{split}\]</div>
+<p class="sd-card-text">Как и ожидалось, на выходе получилась матрица.</p>
+</div>
+</details><p>В нашей таблице. осталось ещё несколько ситуаций, которые остались вне поля нашего зрения.  Давайте их обсудим более подробно. Например, давайте посмотрим на ситуацию когда отображение бьёт из матриц в вектора</p>
+<div class="math notranslate nohighlight">
+\[
+f(X) : \mathbb{R}^{n \times k} \to \mathbb{R}^m.
+\]</div>
+<p>Тогда <span class="math notranslate nohighlight">\(X\)</span> матрица, а <span class="math notranslate nohighlight">\(f(X)\)</span> вектор. Нам надо найти производную каждого элемента из вектора <span class="math notranslate nohighlight">\(f(X)\)</span> по каждому элементу из матрицы <span class="math notranslate nohighlight">\(X\)</span>. Получается, что <span class="math notranslate nohighlight">\(\frac{\partial f}{\partial X}\)</span> – это трёхмерная структура. Обычно в таких ситуациях ограничиваются записью частных производных либо прибегают к более сложным, многомерным методикам. Мы такие ситуации опустим.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./problem_set_10_matrix_diff"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro_10.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Листочек 10: матричное дифФфФфФференцирование</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_02.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2. Несколько стандартных производных</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Ппилиф Ульянкин<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
