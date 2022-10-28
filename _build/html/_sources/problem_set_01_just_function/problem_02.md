@@ -4,7 +4,7 @@
 
 ```{figure} ../images/problem_set_01/img02_dobronet.png
 ---
-height: 270px
+width: 60%
 name: dobronet
 ---
 ```
@@ -16,7 +16,7 @@ name: dobronet
 ```{dropdown} Решение
 Будем постепенно идти по сетке и делать вычисления.
 
-<img src="../images/problem_set_01/img02_dobronet_sol.png" alt="dobronet_forward" height="270px" align="center">
+<img src="../images/problem_set_01/img02_dobronet_sol.png" alt="dobronet_forward" width="60%" align="center">
 
 
 Подаём все значения в первый нейрон, получаем
