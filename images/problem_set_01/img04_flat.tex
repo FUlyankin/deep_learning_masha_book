@@ -1,0 +1,55 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
+        \clip(-2,-5) rectangle (4,-0.5);
+        \draw [->,line width=2.pt] (1,-5) -- (1,-1);
+        \draw [->,line width=2.pt] (-2,-3) -- (4,-3);
+        \draw (2,-1.25) node[anchor=north west] {$1$};
+        \draw (-0.3,-2.4) node[anchor=north west] {$0$};
+        \draw (1.9,-4) node[anchor=north west] {$0$};
+        \draw (3.2,-2.5) node[anchor=north west] {$0$}; 
+        \draw [line width=2.pt,dash pattern=on 3pt off 3pt] (0,-5)-- (4,-1);
+        \draw [line width=2.pt,dash pattern=on 3pt off 3pt] (0,-1)-- (4,-5);
+    \end{tikzpicture}
+\end{document}

@@ -1,0 +1,80 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+% рисование крестов
+% https://tex.stackexchange.com/questions/123760/draw-crosses-in-tikz
+\tikzset{
+    cross/.pic = {
+    \draw[line width=2.pt, rotate = 45] (-#1,0) -- (#1,0);
+    \draw[line width=2.pt, rotate = 45] (0,-#1) -- (0, #1);
+    }
+}
+
+\begin{document}
+\begin{minipage}{0.49\linewidth} 
+\begin{center}
+	\begin{tikzpicture}[scale=0.7, line cap=round,line join=round,x=1.0cm,y=1.0cm]
+	\draw [line width=2.pt] (0,-5)-- (1,-1);
+	\draw [line width=2] (0,-1)-- (4,-5);
+	\draw [line width=2] (-2,-4)-- (5,-4);
+    \draw (1,-2.9) node[anchor=north west] {\color{green} $1$};
+	\end{tikzpicture}
+\end{center}
+\end{minipage} 
+\hfill
+\begin{minipage}{0.49\linewidth} 
+\begin{center}
+	\begin{tikzpicture}[scale=0.7, line cap=round,line join=round,x=1.0cm,y=1.0cm]
+	\draw [line width=2.pt] (0,-5)-- (1,-1);
+	\draw [line width=2] (0,-1)-- (4,-5);
+	\draw [line width=2] (-2,-4)-- (5,-4);
+    \draw (1.35,-3.5) node {\small \color{green} $(1, 1, 1)$};
+    \draw (-1.5,-3.5) node {\small \color{red} $(1, 0, 1)$};
+    \draw (5,-3.5) node {\small \color{red} $(1, 1, 0)$};
+    \draw (1.5,-4.6) node {\small \color{red} $(0, 1, 1)$};
+    \draw (-1.5,-4.6) node {\small \color{red} $(0, 0, 1)$};
+    \draw (5,-4.6) node {\small \color{red} $(0, 1, 0)$};
+    \draw (1,0) node {\small \color{red} $(1, 0, 0)$};
+	\end{tikzpicture}
+\end{center}
+\end{minipage} 
+\end{document}

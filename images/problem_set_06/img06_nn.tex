@@ -1,0 +1,59 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[scale=.8]
+        \tikzstyle{st}=[draw=black, opacity=0.7, minimum height=25pt,minimum width=130pt,inner sep=2pt,rotate=90];
+        
+        \node at (0, 0) [st, fill=blue] { \large $Input \quad 28 \times 28$};
+        \node at (1.5, 0) [st, fill=green] { \large $Conv2D(6, 5 \times 5)$};
+        \node at (3, 0) [st, fill=red] { \large $MaxPool(2\times2)$};
+        \node at (4.5, 0) [st, fill=green] { \large $Conv2D(16, 5 \times 5)$};
+        \node at (6, 0) [st, fill=red] { \large $MaxPool(2\times2)$};
+        \node at (7.5, 0) [st, fill=red] { \large $Flatten$};
+        \node at (9, 0) [st, fill=green] { \large $FC(120)$};
+        \node at (10.5, 0) [st, fill=green] { \large $FC(84)$};
+        \node at (12, 0) [st, fill=green] { \large $FC(10)$};
+        \node at (13.5, 0) [st, fill=red] { \large $Softmax$};
+        \node at (15, 0) [st, fill=blue] { \large $Output \quad 10$};
+    \end{tikzpicture}
+\end{document}

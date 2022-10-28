@@ -1,0 +1,67 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+    \begin{tikzpicture}
+        \tikzstyle{place}=[draw=black,ellipse,minimum height=20pt,minimum width=50pt,inner sep=2pt]
+        
+        \draw node at (0, 0) [place] (x) {$x$};
+        \draw node at (4, 0) [place] (y) {$y$};
+        \draw node at (-2, 2) [place] (a) {$a = x^2$};
+        \draw node at (1, 2) [place] (b) {$b = x \cdot y$};
+        \draw node at (5, 2) [place] (c) {$c = x + y$};
+        \draw node at (-1, 4) [place] (d) {$d = a + b$};
+        \draw node at (3, 4) [place] (e) {$e = c^2$};
+        \draw node at (1, 6) [place] (f) {$f = d + e$};
+        
+        \draw [->]  (x) to (a);
+        \draw [->]  (x) to (b);
+        \draw [->]  (x) to (c);
+        \draw [->]  (y) to (b);
+        \draw [->]  (y) to (c);
+        \draw [->]  (a) to (d);
+        \draw [->]  (b) to (d);
+        \draw [->]  (c) to (e);
+        \draw [->]  (e) to (f);
+        \draw [->]  (d) to (f);
+    \end{tikzpicture}
+\end{document}

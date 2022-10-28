@@ -1,0 +1,76 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[scale=1.4]
+        \tikzstyle{place}=[circle, draw=black, minimum size = 12mm]
+        \tikzstyle{placeh}=[draw=black, minimum height=25pt,minimum width=60pt,inner sep=2pt]
+        
+        % Input
+        \foreach \x in {1,...,2}
+        \draw node at (0, -\x*1.5) [place] (first_\x) {$x_\x$};
+        
+        % Hidden 1
+        \foreach \x in {1,...,2}
+        \node at (3, -\x*1.5) [placeh] (second_\x){$f(t)$};     
+        
+        % Hidden 2
+        \foreach \x in {1,...,2}
+        \node at (6, -\x*1.5) [placeh] (third_\x){$f(t)$};  
+        
+        % Output
+        \node at (9, -2.25) [placeh] (fourth){$y$};
+        
+        \draw [->]  (first_1) to node[above]{$w_{11}^1$} (second_1);
+        \draw [->]  (first_1) to node[above]{$w_{12}^1$} (second_2);
+        \draw [->]  (first_2) to node[below]{$w_{21}^1$} (second_1);
+        \draw [->]  (first_2) to node[below]{$w_{22}^1$} (second_2);
+        
+        \draw [->]  (second_1) to node[above]{$w_{11}^2$} (third_1);
+        \draw [->]  (second_1) to node[above]{$w_{12}^2$} (third_2);
+        \draw [->]  (second_2) to node[below]{$w_{21}^2$} (third_1);
+        \draw [->,]  (second_2) to node[below]{$w_{22}^2$} (third_2);
+        
+        \draw [->]  (third_1) to node[above]{$w_1^3$} (fourth);
+        \draw [->]  (third_2) to node[below]{$w_2^3$} (fourth);
+    \end{tikzpicture}
+\end{document}

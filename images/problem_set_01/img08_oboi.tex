@@ -1,0 +1,236 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+% рисование крестов
+% https://tex.stackexchange.com/questions/123760/draw-crosses-in-tikz
+\tikzset{
+    cross/.pic = {
+    \draw[line width=2.pt, rotate = 45] (-#1,0) -- (#1,0);
+    \draw[line width=2.pt, rotate = 45] (0,-#1) -- (0, #1);
+    }
+}
+
+\begin{document}
+\begin{minipage}{0.25\linewidth} 
+\begin{center}
+\begin{tikzpicture}[scale = 0.7, line cap=round,line join=round,x=1.0cm,y=1.0cm]
+	\draw [fill=blue] (-0.44,5.84) circle (2.5pt);
+	\draw [fill=blue] (-1.52,5.9) circle (2.5pt);
+	\draw [fill=blue] (-3.,6.) circle (2.5pt);
+	\draw [fill=blue] (-4.02,5.7) circle (2.5pt);
+	\draw [fill=blue] (-3.36,4.28) circle (2.5pt);
+	\draw [fill=blue] (-2.4,2.92) circle (2.5pt);
+	\draw [fill=blue] (-1.18,3.38) circle (2.5pt);
+	\draw [fill=blue] (-0.56,4.16) circle (2.5pt);
+	\draw [fill=blue] (0.,5.) circle (2.5pt);
+	\draw [fill=blue] (-3.52,3.32) circle (2.5pt);
+	\draw [fill=blue] (-0.44,2.5) circle (2.5pt);
+	\draw [fill=blue] (-1.44,2.78) circle (2.5pt);
+	\draw [fill=blue] (0.06,6.38) circle (2.5pt);
+	\draw [fill=blue] (-2.96,6.78) circle (2.5pt);
+	\draw [fill=blue] (-4.02,4.56) circle (2.5pt);
+	\path (-2.06,4.62) pic[red] {cross=2.5pt};
+	\path (-2.,5.) pic[red] {cross=2.5pt};	
+	\path (-1.72,4.4) pic[red] {cross=2.5pt};
+	\path (-2.46,4.42) pic[red] {cross=2.5pt};
+    \path (-2.6,4.9) pic[red] {cross=2.5pt};
+    \path (-2.,4.) pic[red] {cross=2.5pt};
+    \path (-1.42,4.9) pic[red] {cross=2.5pt};
+\end{tikzpicture}
+\end{center} 
+\end{minipage} 
+\hfill
+\begin{minipage}{0.25\linewidth} 
+\begin{center}
+\begin{tikzpicture}[scale = 0.7, line cap=round,line join=round,x=1.0cm,y=1.0cm]
+	\draw [fill=blue] (1.84,5.84) circle (2.5pt);
+	\draw [fill=blue] (1.84,4.86) circle (2.5pt);
+	\draw [fill=blue] (1.84,3.62) circle (2.5pt);
+	\draw [fill=blue] (1.84,2.62) circle (2.5pt);
+	\draw [fill=blue] (2.68,2.56) circle (2.5pt);
+	\draw [fill=blue] (2.68,3.38) circle (2.5pt);
+	\draw [fill=blue] (2.54,4.5) circle (2.5pt);
+	\draw [fill=blue] (2.64,5.72) circle (2.5pt);
+	
+	\draw [fill=blue] (5.04,5.6) circle (2.5pt);
+	\draw [fill=blue] (5.,4.56) circle (2.5pt);
+	\draw [fill=blue] (4.92,3.36) circle (2.5pt);
+	\draw [fill=blue] (4.92,2.48) circle (2.5pt);
+	\draw [fill=blue] (5.98,2.32) circle (2.5pt);
+	\draw [fill=blue] (5.98,3.16) circle (2.5pt);
+	\draw [fill=blue] (6.,4.) circle (2.5pt);
+	\draw [fill=blue] (5.94,4.76) circle (2.5pt);
+	\draw [fill=blue] (5.92,5.34) circle (2.5pt);
+	\draw [fill=blue] (5.5,4) circle (2.5pt);
+	
+	\path (3.42,5.12) pic[red] {cross=2.5pt};	
+	\path (3.44,5.94) pic[red] {cross=2.5pt};	
+	\path (4.28,5.8) pic[red] {cross=2.5pt};	
+	\path (4.28,5.3) pic[red] {cross=2.5pt};	
+	\path (3.54,3.98) pic[red] {cross=2.5pt};	
+	\path (4.,4.) pic[red] {cross=2.5pt};	
+	\path (3.5,2.98) pic[red] {cross=2.5pt};	
+	\path (4.18,2.94) pic[red] {cross=2.5pt};	
+	\path (3.4,2.32) pic[red] {cross=2.5pt};	
+	\path (4.18,2.36) pic[red] {cross=2.5pt};	
+	\path (3.98,4.56) pic[red] {cross=2.5pt};	
+	
+	\path (6.42,5.12) pic[red] {cross=2.5pt};	
+	\path (6.44,5.94) pic[red] {cross=2.5pt};	
+	\path (7.28,5.8) pic[red] {cross=2.5pt};	
+	\path (7.28,5.3) pic[red] {cross=2.5pt};	
+	\path (6.54,3.98) pic[red] {cross=2.5pt};	
+	\path (7.,4.) pic[red] {cross=2.5pt};	
+	\path (6.5,2.98) pic[red] {cross=2.5pt};	
+	\path (7.18,2.94) pic[red] {cross=2.5pt};	
+	\path (6.4,2.32) pic[red] {cross=2.5pt};	
+	\path (7.18,2.36) pic[red] {cross=2.5pt};	
+	\path (6.98,4.56) pic[red] {cross=2.5pt};
+\end{tikzpicture}
+\end{center} 
+\end{minipage} 
+\hfill
+\begin{minipage}{0.15\linewidth} 
+\begin{center}
+\begin{tikzpicture}[scale = 0.7, line cap=round,line join=round,x=1.0cm,y=1.0cm]
+\draw [fill=blue] (0,0) circle (2.5pt);
+\draw [fill=blue] (0,0.5) circle (2.5pt);
+\draw [fill=blue] (0,1) circle (2.5pt);
+\draw [fill=blue] (0,1.5) circle (2.5pt);
+\path (0,-1) pic[red] {cross=2.5pt};
+\path (0,-1.5) pic[red] {cross=2.5pt};
+\path (0,-0.5) pic[red] {cross=2.5pt};
+\path (0,-2) pic[red] {cross=2.5pt};
+
+\draw [fill=blue] (0.5,-0.5) circle (2.5pt);
+\draw [fill=blue] (0.5,-1) circle (2.5pt);
+\draw [fill=blue] (0.5,-1.5) circle (2.5pt);
+\draw [fill=blue] (0.5,-2) circle (2.5pt);
+\path (0.5,0) pic[red] {cross=2.5pt};
+\path (0.5,0.5) pic[red] {cross=2.5pt};
+\path (0.5,1) pic[red] {cross=2.5pt};
+\path (0.5,1.5) pic[red] {cross=2.5pt};
+
+\draw [fill=blue] (1,0) circle (2.5pt);
+\draw [fill=blue] (1,0.5) circle (2.5pt);
+\draw [fill=blue] (1,1) circle (2.5pt);
+\draw [fill=blue] (1,1.5) circle (2.5pt);
+\path (1,-1) pic[red] {cross=2.5pt};
+\path (1,-1.5) pic[red] {cross=2.5pt};
+\path (1,-0.5) pic[red] {cross=2.5pt};
+\path (1,-2) pic[red] {cross=2.5pt};
+
+\draw [fill=blue] (1.5,-1) circle (2.5pt);
+\draw [fill=blue] (1.5,-1.5) circle (2.5pt);
+\draw [fill=blue] (1.5,-0.5) circle (2.5pt);
+\draw [fill=blue] (1.5,-2) circle (2.5pt);
+\path (1.5,0) pic[red] {cross=2.5pt};
+\path (1.5,0.5) pic[red] {cross=2.5pt};
+\path (1.5,1) pic[red] {cross=2.5pt};
+\path (1.5,1.5) pic[red] {cross=2.5pt};
+\end{tikzpicture}
+\end{center} 
+\end{minipage} 
+\hfill
+\begin{minipage}{0.25\linewidth} 
+\begin{center}
+\begin{tikzpicture}[scale = 1, line cap=round,line join=round,x=1.0cm,y=1.0cm]
+\path (-0.4,3.1) pic[red] {cross=2.5pt};
+\path (-0.74,2.84) pic[red] {cross=2.5pt};
+\path (-0.96,2.5) pic[red] {cross=2.5pt};
+\path (-0.66,2.36) pic[red] {cross=2.5pt};
+\path (-0.36,2.62) pic[red] {cross=2.5pt};
+\path (-0.34,2.24) pic[red] {cross=2.5pt};
+
+\draw [fill=blue] (-0.02,2.6) circle (1.5pt);
+\draw [fill=blue] (-0.06,3.12) circle (1.5pt);
+\draw [fill=blue] (0.,2.22) circle (1.5pt);
+\draw [fill=blue] (0.22,2.9) circle (1.5pt);
+\draw [fill=blue] (0.32,2.34) circle (1.5pt);
+\draw [fill=blue] (0.66,2.68) circle (1.5pt);
+\draw [fill=blue] (-0.46,4.) circle (1.5pt);
+\draw [fill=blue] (-0.96,4.02) circle (1.5pt);
+\draw [fill=blue] (-1.44,4.02) circle (1.5pt);
+\draw [fill=blue] (-1.46,3.68) circle (1.5pt);
+\draw [fill=blue] (-1.46,3.2) circle (1.5pt);
+\draw [fill=blue] (-1.44,2.8) circle (1.5pt);
+\draw [fill=blue] (-1.44,2.34) circle (1.5pt);
+\draw [fill=blue] (-1.42,1.72) circle (1.5pt);
+\draw [fill=blue] (-1.42,1.26) circle (1.5pt);
+\draw [fill=blue] (-0.96,1.22) circle (1.5pt);
+\draw [fill=blue] (-0.5,1.22) circle (1.5pt);
+\draw [fill=blue] (-0.56,1.68) circle (1.5pt);
+\draw [fill=blue] (-1.04,1.68) circle (1.5pt);
+\draw [fill=blue] (-1.04,2.14) circle (1.5pt);
+\draw [fill=blue] (-1.12,2.96) circle (1.5pt);
+\draw [fill=blue] (-0.78,3.34) circle (1.5pt);
+\draw [fill=blue] (-1.14,3.62) circle (1.5pt);
+\draw [fill=blue] (-0.44,3.6) circle (1.5pt);
+\draw [fill=blue] (-0.74,2.) circle (1.5pt);
+
+\path (0.44,3.64) pic[red] {cross=2.5pt};
+\path (-0.1,4.) pic[red] {cross=2.5pt};
+\path (-0.08,3.48) pic[red] {cross=2.5pt};
+\path (0.52,3.26) pic[red] {cross=2.5pt};
+\path (0.48,3.94) pic[red] {cross=2.5pt};
+\path (0.92,3.82) pic[red] {cross=2.5pt};
+\path (0.92,3.32) pic[red] {cross=2.5pt};
+\path (1.32,3.8) pic[red] {cross=2.5pt};
+\path (1.32,3.44) pic[red] {cross=2.5pt};
+\path (1.32,3.12) pic[red] {cross=2.5pt};
+\path (0.98,3.) pic[red] {cross=2.5pt};
+\path (1.12,2.7) pic[red] {cross=2.5pt};
+\path (0.76,2.3) pic[red] {cross=2.5pt};
+\path (0.38,1.9) pic[red] {cross=2.5pt};
+\path (-0.04,1.9) pic[red] {cross=2.5pt};
+\path (-0.04,1.34) pic[red] {cross=2.5pt};
+\path (0.26,1.38) pic[red] {cross=2.5pt};
+\path (0.86,1.38) pic[red] {cross=2.5pt};
+\path (0.68,1.94) pic[red] {cross=2.5pt};
+\path (1.16,2.) pic[red] {cross=2.5pt};
+\path (1.16,2.4) pic[red] {cross=2.5pt};
+\path (1.36,1.46) pic[red] {cross=2.5pt};
+\path (0.58,1.62) pic[red] {cross=2.5pt};
+\end{tikzpicture}
+\end{center} 
+\end{minipage} 
+\end{document}

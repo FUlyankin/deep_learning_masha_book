@@ -1,0 +1,64 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+	\definecolor{zzttqq}{rgb}{0.6,0.2,0.}
+	\begin{tikzpicture}[scale=0.6]
+			\fill[line width=2.pt,color=zzttqq,fill=zzttqq,fill opacity=0.10000000149011612] (2.,8.) -- (2.,6.) -- (4.,6.) -- (4.,8.) -- cycle;
+			\draw  (3.,3.) circle (1.cm);
+			\draw [color=zzttqq] (2.,8.)-- (2.,6.);
+			\draw [color=zzttqq] (2.,6.)-- (4.,6.);
+			\draw [color=zzttqq] (4.,6.)-- (4.,8.);
+			\draw [color=zzttqq] (4.,8.)-- (2.,8.);
+			\draw (3,11) circle (1.cm);
+			\draw [->] (3,4) -- (3,6); 
+			\draw [->] (3,8) -- (3,10);
+			\draw [shift={(4.45,7.)}]  plot[domain=-2.541806576912956:2.541806576912956,variable=\t]({1.*1.7715861960215864*cos(\t r)+0.*1.7715861960215864*sin(\t r)},{0.*1.7715861960215864*cos(\t r)+1.*1.7715861960215864*sin(\t r)});
+			\draw [->] (3.4,5.6) -- (3,6.);
+			\draw (2.2,3.5) node[anchor=north west] {$y_{t-1}$};
+			\draw (2.4,11.5) node[anchor=north west] {$y_t$};
+			\draw (6.3,7.8) node[anchor=north east] {$0.5$};
+			\draw (2.4,7.6) node[anchor=north west] {$h_t$};
+			\draw (1.7,9.7) node[anchor=north west] {$0.5$};
+			\draw (1.7,5.6) node[anchor=north west] {$0.5$};
+	\end{tikzpicture}
+\end{document}

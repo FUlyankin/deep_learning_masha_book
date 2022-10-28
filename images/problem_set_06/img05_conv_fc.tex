@@ -1,0 +1,88 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[scale=1]
+        \tikzstyle{place}=[circle, draw=black, minimum size = 12mm]
+        \tikzstyle{placeh}=[draw=black, minimum height=25pt,minimum width=60pt,inner sep=2pt]
+        
+        % Input
+        \draw node at (0, -1*1.5) [place] (first_1) {$x_{11}$};
+        \draw node at (0, -2*1.5) [place] (first_2) {$x_{12}$};
+        \draw node at (0, -3*1.5) [place] (first_3) {$x_{13}$};
+        \draw node at (0, -4*1.5) [place] (first_4) {$x_{14}$};
+        \draw node at (0, -5*1.5) [place] (first_5) {$x_{21}$};
+        
+        \draw node at (-0.2, -8.5) {{\LARGE $\ldots$}};
+        
+        % Hidden 1
+        \node at (5, -1*1.8) [placeh] (second_1){$a$};
+        \node at (5, -2*1.8) [placeh] (second_2){$b$};
+        \node at (5, -3*1.8) [placeh] (second_3){$c$};
+        \node at (5, -4*1.8) [placeh] (second_4){$d$};
+        
+        \draw [->]  (first_1) to node[above]{} (second_1);
+        \draw [->]  (first_1) to node[above]{} (second_2);
+        \draw [->]  (first_1) to node[above]{} (second_3);
+        \draw [->]  (first_1) to node[above]{} (second_4);
+        
+        \draw [->]  (first_2) to node[below]{} (second_1);
+        \draw [->]  (first_2) to node[below]{} (second_2);
+        \draw [->]  (first_2) to node[below]{} (second_3);
+        \draw [->]  (first_2) to node[below]{} (second_4);
+
+        \draw [->]  (first_3) to node[below]{} (second_1);
+        \draw [->]  (first_3) to node[below]{} (second_2);
+        \draw [->]  (first_3) to node[below]{} (second_3);
+        \draw [->]  (first_3) to node[below]{} (second_4);
+        
+        \draw [->]  (first_4) to node[below]{} (second_1);
+        \draw [->]  (first_4) to node[below]{} (second_2);
+        \draw [->]  (first_4) to node[below]{} (second_3);
+        \draw [->]  (first_4) to node[below]{} (second_4);
+        
+        \draw [->]  (first_5) to node[below]{} (second_1);
+        \draw [->]  (first_5) to node[below]{} (second_2);
+        \draw [->]  (first_5) to node[below]{} (second_3);
+        \draw [->]  (first_5) to node[below]{} (second_4);
+    \end{tikzpicture}
+\end{document}

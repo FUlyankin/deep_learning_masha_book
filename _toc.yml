@@ -1,0 +1,68 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: problem_set_01_just_function/intro_01
+  sections:
+  - file: problem_set_01_just_function/problem_01
+  - file: problem_set_01_just_function/problem_02
+  - file: problem_set_01_just_function/problem_03
+  - file: problem_set_01_just_function/problem_04
+  - file: problem_set_01_just_function/problem_05
+  - file: problem_set_01_just_function/problem_06
+  - file: problem_set_01_just_function/problem_07
+  - file: problem_set_01_just_function/problem_08
+  - file: problem_set_01_just_function/problem_09
+  - file: problem_set_01_just_function/problem_10
+- file: problem_set_02_gradient/intro_02
+  sections:
+  - file: problem_set_02_gradient/problem_01
+  - file: problem_set_02_gradient/problem_02
+  - file: problem_set_02_gradient/problem_03
+  - file: problem_set_02_gradient/problem_04
+  - file: problem_set_02_gradient/problem_05
+  - file: problem_set_02_gradient/problem_06
+- file: problem_set_03_backprop/intro_03
+  sections:
+  - file: problem_set_03_backprop/problem_01
+  - file: problem_set_03_backprop/problem_02
+  - file: problem_set_03_backprop/problem_03
+  - file: problem_set_03_backprop/problem_04
+  - file: problem_set_03_backprop/problem_05
+  - file: problem_set_03_backprop/problem_06
+  - file: problem_set_03_backprop/problem_07
+  - file: problem_set_03_backprop/problem_08
+- file: problem_set_04_backprop/intro_04
+- file: problem_set_05_conv/intro_05
+  sections:
+  - file: problem_set_05_conv/problem_01
+  - file: problem_set_05_conv/problem_02
+  - file: problem_set_05_conv/problem_03
+  - file: problem_set_05_conv/problem_04
+  - file: problem_set_05_conv/problem_05
+  - file: problem_set_05_conv/problem_06
+  - file: problem_set_05_conv/problem_07
+  - file: problem_set_05_conv/problem_08
+  - file: problem_set_05_conv/problem_09
+  - file: problem_set_05_conv/problem_10
+- file: problem_set_06_lego/intro_06
+- file: problem_set_07_rnn/intro_07
+  sections:
+  - file: problem_set_07_rnn/problem_01
+  - file: problem_set_07_rnn/problem_02
+  - file: problem_set_07_rnn/problem_03
+  - file: problem_set_07_rnn/problem_04
+  - file: problem_set_07_rnn/problem_05
+- file: problem_set_08_embeddings/intro_08
+- file: problem_set_09_transformers/intro_09
+- file: problem_set_10_matrix_diff/intro_10
+  sections:
+  - file: problem_set_10_matrix_diff/problem_01
+  - file: problem_set_10_matrix_diff/problem_02
+  - file: problem_set_10_matrix_diff/problem_03
+  - file: problem_set_10_matrix_diff/problem_04
+  - file: problem_set_10_matrix_diff/problem_05
+  - file: problem_set_10_matrix_diff/problem_06
+  - file: problem_set_10_matrix_diff/problem_07

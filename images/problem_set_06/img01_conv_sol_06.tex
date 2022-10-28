@@ -1,0 +1,99 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+    \begin{minipage}{0.2\linewidth} 
+    \centering
+    \begin{tikzpicture}[scale=.5,every node/.style={minimum size=1cm}, on grid]
+            \draw[fill=green,opacity=0.4] (0,-2) rectangle (5,3);
+            \draw[draw=green,thick] (0,-2) grid (5,3);
+            \draw[fill=cyan,opacity=0.4] (1,-2) rectangle (4,1);
+            \node (00) at (0.5,2.5) {3};
+            \node (01) at (1.5,2.5) {3};
+            \node (02) at (2.5,2.5) {2};
+            \node (03) at (3.5,2.5) {1};
+            \node (04) at (4.5,2.5) {0};
+            
+            \node (10) at (0.5,1.5) {0};
+            \node (11) at (1.5,1.5) {0};
+            \node (12) at (2.5,1.5) {1};
+            \node (13) at (3.5,1.5) {3};
+            \node (14) at (4.5,1.5) {1};
+            
+            \node (20) at (0.5,0.5) {3};
+            \node (21) at (1.5,0.5) {1};
+            \node (22) at (2.5,0.5) {2};
+            \node (23) at (3.5,0.5) {2};
+            \node (24) at (4.5,0.5) {3};
+            
+            \node (30) at (0.5,-0.5) {3};
+            \node (31) at (1.5,-0.5) {1};
+            \node (32) at (2.5,-0.5) {2};
+            \node (33) at (3.5,-0.5) {2};
+            \node (34) at (4.5,-0.5) {3};
+            
+            \node (40) at (0.5,-1.5) {3};
+            \node (41) at (1.5,-1.5) {1};
+            \node (42) at (2.5,-1.5) {2};
+            \node (43) at (3.5,-1.5) {2};
+            \node (44) at (4.5,-1.5) {3};
+    \end{tikzpicture}
+    \end{minipage} 
+    $\times$
+    \begin{minipage}{0.1\linewidth} 
+        \centering
+        \begin{tikzpicture}[scale=.5,every node/.style={minimum size=1cm}, on grid]
+                \draw[fill=blue,opacity=0.4] (0,0) rectangle (3,3);
+                \draw[draw=blue,thick] (0,0) grid (3,3);
+                \node (00) at (0.5,2.5) {0};
+                \node (01) at (1.5,2.5) {1};
+                \node (02) at (2.5,2.5) {2};
+                \node (10) at (0.5,1.5) {2};
+                \node (11) at (1.5,1.5) {2};
+                \node (12) at (2.5,1.5) {0};
+                \node (20) at (0.5,0.5) {0};
+                \node (21) at (1.5,0.5) {1};
+                \node (22) at (2.5,0.5) {2};
+        \end{tikzpicture}
+    \end{minipage} 
+    \mbox{ } $ = 1 \cdot 0 +  2 \cdot 1 + 2 \cdot 2 + 1 \cdot 2 +  2 \cdot 2 + 2  \cdot 0 + 1 \cdot 0 + 2 \cdot 1 +  2 \cdot 2 = 18$
+\end{document}
