@@ -4,7 +4,7 @@
 
 ```{figure} ../images/problem_set_01/img01_regr.png
 ---
-width: 25%
+width: 30%
 name: regression
 ---
 ```
@@ -13,7 +13,7 @@ name: regression
 
 ```{figure} ../images/problem_set_01/img01_dobronet.png
 ---
-width: 25%
+width: 30%
 name: two-layer-regression
 ---
 ```

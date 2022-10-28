@@ -12,7 +12,7 @@ $$
 
 Такая линия как раз будет задавать две скрещивающиеся прямые. 
 
-<img src="../images/problem_set_01/img06_xor.png" alt="xor_features" height="200px" align="center">
+<img src="../images/problem_set_01/img06_xor.png" alt="xor_features" width="30%" align="center">
 
 \begin{equation*}
 \begin{aligned}
