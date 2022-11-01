@@ -12,11 +12,11 @@ $$
 ```{dropdown} Решение
 Нарисуем граф вычислений. 
 
-<img src="../images/problem_set_03/img01_gr1.png" alt="dobronet_forward" height="350px" align="center">
+<img src="../images/problem_set_03/img01_gr1.png" alt="dobronet_forward" width="70%" align="center">
 
 Каждому ребру припишем производную выхода по входу. Например, ребру между $x$ и $a$ будет соответствовать $\frac{\partial a}{\partial x} = 2x.$
 
-<img src="../images/problem_set_03/img01_gr2.png" alt="dobronet_forward" height="350px" align="center">
+<img src="../images/problem_set_03/img01_gr2.png" alt="dobronet_forward" width="70%" align="center">
 
 Теперь пройдём по всем траекториям из $x$ в $f$ и перемножим производные на рёбрах. После просуммируем получившиеся множители 
 

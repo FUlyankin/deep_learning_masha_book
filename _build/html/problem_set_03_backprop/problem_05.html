@@ -616,7 +616,7 @@ title="Print to PDF"
 <h1>5. Бэкпроп в матричном виде<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <p>У Маши есть нейросеть с картинки ниже, где <span class="math notranslate nohighlight">\(w_{ij}^k\)</span> — веса для <span class="math notranslate nohighlight">\(k\)</span> слоя, <span class="math notranslate nohighlight">\(f(t)\)</span> — какая-то функция активации. Маша хочет научиться делать для такой нейронной сетки градиентный спуск.</p>
 <figure class="align-default" id="one-dim-nn">
-<a class="reference internal image-reference" href="../_images/img05_task.png"><img alt="../_images/img05_task.png" src="../_images/img05_task.png" style="height: 200px;" /></a>
+<a class="reference internal image-reference" href="../_images/img05_task.png"><img alt="../_images/img05_task.png" src="../_images/img05_task.png" style="width: 95%;" /></a>
 </figure>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -689,10 +689,10 @@ O_1 = f(H_1) = f(X\cdot W_1).
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text"><strong>Делай два.</strong> Выпишем алгоритм обратного распространения ошибки в виде красивой схемки. Сначала мы делаем прямой проход по нейросети (forward pass):</p>
-<a class="reference internal image-reference" href="../_images/img05_forpass.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_forpass.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="../_images/img05_forpass.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_forpass.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Под всеми матрицами подписаны размерности. Взятие функции активации — поэлементная операция, она никак не меняет размер матрицы. Это будет важно при взятии производных. В ходе прямого прохода мы запоминаем все промежуточные результаты. Они нам пригодятся для поиска производных при обратном проходе. Например, <span class="math notranslate nohighlight">\(\frac{\partial H_2}{\partial W_2} = O_1^T.\)</span> Получается, в какой-то момент нам надо будет переиспользовать результаты вычислений, полученных при прямом проходе.</p>
 <p class="sd-card-text">Наша нейросеть — граф вычислений. Давайте запишем для каждого ребра в рамках этого графа производную.</p>
-<a class="reference internal image-reference" href="../_images/img05_backpass.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_backpass.png" style="height: 150px;" /></a>
+<a class="reference internal image-reference" href="../_images/img05_backpass.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_backpass.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Осталось только аккуратно записать обратный ход алгоритма. Заведём для накопленного значения производной переменную <span class="math notranslate nohighlight">\(d\)</span>. На первом шаге нам надо найти <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial W_3}\)</span>. Не будем забывать, как выглядят производные для линейного слоя, полученные в предыдущей задаче. Сделаем это в два хода</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 

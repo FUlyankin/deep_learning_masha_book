@@ -621,7 +621,7 @@ L(W_1, W_2, W_3) = \frac{1}{2} \cdot (\hat y - y)^2.
 \]</div>
 <p>В качестве функции активации Маша выбрала сигмоиду <span class="math notranslate nohighlight">\(\sigma(t) = \frac{e^t}{1 + e^t}\)</span>.</p>
 <figure class="align-default" id="one-dim-nn">
-<a class="reference internal image-reference" href="../_images/img06_task.png"><img alt="../_images/img06_task.png" src="../_images/img06_task.png" style="height: 180px;" /></a>
+<a class="reference internal image-reference" href="../_images/img06_task.png"><img alt="../_images/img06_task.png" src="../_images/img06_task.png" style="width: 95%;" /></a>
 </figure>
 <p>Выпишите для Машиной нейросетки алгоритм обратного распространения ошибки в общем виде. Пусть Маша инициализировала веса нейронной сети нулями. У неё есть два наблюдения.</p>
 <p>Первое: <span class="math notranslate nohighlight">\(x_1 = 1, x_2 = 1, y = 1\)</span>. И второе: <span class="math notranslate nohighlight">\(x_1 = 5, x_2 = 2, y = 0\)</span>.</p>
@@ -634,9 +634,9 @@ L(W_1, W_2, W_3) = \frac{1}{2} \cdot (\hat y - y)^2.
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Для начала запишем алгоритм в общем виде. Для этого нам надо взять схему из предыдущей задачи и записать там все производные. Для сигмоиды <span class="math notranslate nohighlight">\(\sigma'(t) = \sigma(t) \cdot (1 - \sigma(t)).\)</span> Прямой проход по нейронной сети (forward pass):</p>
-<a class="reference internal image-reference" href="../_images/img06_pass1.png"><img alt="dobronet_forward" class="align-center" src="../_images/img06_pass1.png" style="height: 80px;" /></a>
+<a class="reference internal image-reference" href="../_images/img06_pass1.png"><img alt="dobronet_forward" class="align-center" src="../_images/img06_pass1.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Обратный проход по нейронной сети (backward pass):</p>
-<a class="reference internal image-reference" href="../_images/img06_pass2.png"><img alt="dobronet_forward" class="align-center" src="../_images/img06_pass2.png" style="height: 120px;" /></a>
+<a class="reference internal image-reference" href="../_images/img06_pass2.png"><img alt="dobronet_forward" class="align-center" src="../_images/img06_pass2.png" style="width: 95%;" /></a>
 <p class="sd-card-text">По аналогии с предыдущей задачей выпишем формулы для обратного распространения ошибки. <strong>На третьем слое:</strong></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
@@ -708,7 +708,7 @@ L(W_1, W_2, W_3) = \frac{1}{2} \cdot (\hat y - y)^2.
 	\end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text"><strong>Сделаем шаг SGD для первого наблюдения.</strong> Делаем прямое распространение для второго наблюдения, напомним, что матрицы весов инициализированы нулями:</p>
-<a class="reference internal image-reference" href="../_images/img06_pass4.png"><img alt="dobronet_forward" class="align-center" src="../_images/img06_pass4.png" style="height: 70px;" /></a>
+<a class="reference internal image-reference" href="../_images/img06_pass4.png"><img alt="dobronet_forward" class="align-center" src="../_images/img06_pass4.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Делаем обратный проход.</p>
 <p class="sd-card-text"><strong>Шаг 1:</strong></p>
 <div class="amsmath math notranslate nohighlight">

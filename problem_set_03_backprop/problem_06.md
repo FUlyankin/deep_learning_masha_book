@@ -10,7 +10,7 @@ $$
 
 ```{figure} ../images/problem_set_03/img06_task.png
 ---
-height: 180px
+width: 95%
 name: one_dim_nn
 ---
 ```
@@ -24,11 +24,11 @@ name: one_dim_nn
 ```{dropdown} Решение
 Для начала запишем алгоритм в общем виде. Для этого нам надо взять схему из предыдущей задачи и записать там все производные. Для сигмоиды $\sigma'(t) = \sigma(t) \cdot (1 - \sigma(t)).$ Прямой проход по нейронной сети (forward pass):
 
-<img src="../images/problem_set_03/img06_pass1.png" alt="dobronet_forward" height="80px" align="center">
+<img src="../images/problem_set_03/img06_pass1.png" alt="dobronet_forward" width="95%" align="center">
 
 Обратный проход по нейронной сети (backward pass):
 
-<img src="../images/problem_set_03/img06_pass2.png" alt="dobronet_forward" height="120px" align="center">
+<img src="../images/problem_set_03/img06_pass2.png" alt="dobronet_forward" width="95%" align="center">
 
 По аналогии с предыдущей задачей выпишем формулы для обратного распространения ошибки. **На третьем слое:**
 
@@ -113,7 +113,7 @@ name: one_dim_nn
 
 **Сделаем шаг SGD для первого наблюдения.** Делаем прямое распространение для второго наблюдения, напомним, что матрицы весов инициализированы нулями:
 
-<img src="../images/problem_set_03/img06_pass4.png" alt="dobronet_forward" height="70px" align="center">
+<img src="../images/problem_set_03/img06_pass4.png" alt="dobronet_forward" width="95%" align="center">
 
 
 Делаем обратный проход. 

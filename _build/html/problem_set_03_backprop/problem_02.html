@@ -616,7 +616,7 @@ title="Print to PDF"
 <h1>2. Придумываем бэкпроп<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <p>У Маши есть нейросеть с картинки ниже, где <span class="math notranslate nohighlight">\(w_k\)</span> — вес для <span class="math notranslate nohighlight">\(k\)</span>-го слоя, <span class="math notranslate nohighlight">\(f(t)\)</span> — какая-то функция активации. Маша хочет научиться делать для такой нейронной сетки градиентный спуск.</p>
 <figure class="align-default" id="one-dim-nn">
-<a class="reference internal image-reference" href="../_images/img02_task.png"><img alt="../_images/img02_task.png" src="../_images/img02_task.png" style="height: 100px;" /></a>
+<a class="reference internal image-reference" href="../_images/img02_task.png"><img alt="../_images/img02_task.png" src="../_images/img02_task.png" style="width: 80%;" /></a>
 </figure>
 <p><strong>а)</strong> Запишите Машину нейросеть, как сложную функцию.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -700,9 +700,9 @@ L(w_1, w_2, w_3) = \frac{1}{2} \cdot (y - \hat y)^2 = \frac{1}{2} \cdot (y - f(f
     \end{aligned} 
 \end{equation*}\]</div>
 <p class="sd-card-text">Сначала мы делаем прямой проход по нейросети (forward pass):</p>
-<a class="reference internal image-reference" href="../_images/img02_sol1.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_sol1.png" style="height: 100px;" /></a>
+<a class="reference internal image-reference" href="../_images/img02_sol1.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_sol1.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Наша нейросеть — граф вычислений. Давайте запишем для каждого ребра в рамках этого графа производную.</p>
-<a class="reference internal image-reference" href="../_images/img02_sol2.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_sol2.png" style="height: 150px;" /></a>
+<a class="reference internal image-reference" href="../_images/img02_sol2.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_sol2.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Мы везде работаем со скалярами. Все производные довольно просто найти по графу, на котором мы делаем прямой проход. Например,</p>
 <div class="math notranslate nohighlight">
 \[

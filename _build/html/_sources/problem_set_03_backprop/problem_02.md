@@ -4,7 +4,7 @@
 
 ```{figure} ../images/problem_set_03/img02_task.png
 ---
-height: 100px
+width: 80%
 name: one_dim_nn
 ---
 ```
@@ -79,11 +79,11 @@ __г)__ Выпишите все производные в том виде, в к
 
 Сначала мы делаем прямой проход по нейросети (forward pass): 
 
-<img src="../images/problem_set_03/img02_sol1.png" alt="dobronet_forward" height="100px" align="center">
+<img src="../images/problem_set_03/img02_sol1.png" alt="dobronet_forward" width="95%" align="center">
 
 Наша нейросеть --- граф вычислений. Давайте запишем для каждого ребра в рамках этого графа производную. 
 
-<img src="../images/problem_set_03/img02_sol2.png" alt="dobronet_forward" height="150px" align="center">
+<img src="../images/problem_set_03/img02_sol2.png" alt="dobronet_forward" width="95%" align="center">
 
 Мы везде работаем со скалярами. Все производные довольно просто найти по графу, на котором мы делаем прямой проход. Например,
 

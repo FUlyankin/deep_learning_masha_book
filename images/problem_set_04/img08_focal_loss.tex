@@ -1,0 +1,77 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\usepackage{pgfplots} %http://www.ctan.org/pkg/pgfplots
+\pgfplotsset{compat=newest, set layers=standard}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+    \begin{tikzpicture}
+        \begin{axis}[
+            % title = {sigmoid function},
+            legend pos=north west,
+            axis on top = true,
+            axis x line = bottom,
+            axis y line = left,
+            grid = major,
+            grid style={dashed, gray!30},
+            width=12cm,
+            height=8cm,
+            xmin = 0,
+            xmax = 1,
+            ymin = 0,
+            ymax = 5,
+            xlabel = $p$,
+            ylabel = $focal loss$
+        ]
+        \addplot[domain=0:1, red, dashed, ultra thick,samples=500]{-ln(x)};
+        \addlegendentry{$\gamma = 0$};
+        \addplot[domain=0:1, blue, thick,samples=500]{-(1-x)^(0.5)*ln(x)};
+        \addlegendentry{$\gamma = 0.5$};
+        \addplot[domain=0:1, green, thick,samples=500]{-(1-x)^(1)*ln(x)};
+        \addlegendentry{$\gamma = 1$};
+        \addplot[domain=0:1, pink, thick,samples=500]{-(1-x)^(2)*ln(x)};
+        \addlegendentry{$\gamma = 2$};
+        \addplot[domain=0:1, magenta, thick,samples=500]{-(1-x)^(5)*ln(x)};
+        \addlegendentry{$\gamma = 5$};
+        \end{axis}
+    \end{tikzpicture}
+\end{document}

@@ -639,7 +639,7 @@ MSE_w^{'} = - (2 - w)  - 2 (3 - 2 w) = 0 \Rightarrow \hat w = \frac{8}{5} = 1.6
 MSE_w^{''} = w + 4 w = 5w &gt; 0.
 \]</div>
 <p class="sd-card-text">Видно, что мы действительно в точке минимума.</p>
-<a class="reference internal image-reference" href="../_images/loss_1.png"><img alt="triangle" class="align-center" src="../_images/loss_1.png" style="height: 270px;" /></a>
+<a class="reference internal image-reference" href="../_images/loss_1.png"><img alt="triangle" class="align-center" src="../_images/loss_1.png" style="width: 60%;" /></a>
 </div>
 </details><p><strong>б)</strong> Сделайте три шага градиентного спуска. В качестве стартовой точки используйте <span class="math notranslate nohighlight">\(w_0 = 0\)</span>.  В качестве скорости обучения возьмите <span class="math notranslate nohighlight">\(\eta = 0.1\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -690,7 +690,7 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
 	&amp; w_3 = w_2 - \eta \cdot \nabla_w L(w_2) = 1.2 + 0.1 \cdot 2  = 1.4
 	\end{aligned}
 \end{equation*}\]</div>
-<a class="reference internal image-reference" href="../_images/loss_2.png"><img alt="triangle" class="align-center" src="../_images/loss_2.png" style="height: 270px;" /></a>
+<a class="reference internal image-reference" href="../_images/loss_2.png"><img alt="triangle" class="align-center" src="../_images/loss_2.png" style="width: 60%;" /></a>
 <p class="sd-card-text">Почти добежали до оптимальной точки. Чем ближе мы к точке оптимума, тем меньше значение градиента и тем меньше наши шаги. Тем не менее, если не аккуратно выбрать скорость обучения <span class="math notranslate nohighlight">\(\eta\)</span>, можно случайно перепрыгнуть оптимум либо вообще не дойти до него за обозримое число итераций.</p>
 </div>
 </details><p><strong>в)</strong> Сделайте четыре шага стохастического градиентного спуска. Пусть в SGD сначала попадает первое наблюдение, затем второе.</p>
@@ -735,7 +735,7 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
 	&amp; w_4 = w_3 - \eta \cdot \nabla_w L(w_4) = 1.424 + 0.1 \cdot 0.608  = 1.4848
 	\end{aligned}
 \end{equation*}\]</div>
-<a class="reference internal image-reference" href="../_images/loss_3.png"><img alt="triangle" class="align-center" src="../_images/loss_3.png" style="height: 270px;" /></a>
+<a class="reference internal image-reference" href="../_images/loss_3.png"><img alt="triangle" class="align-center" src="../_images/loss_3.png" style="width: 60%;" /></a>
 </div>
 </details><p><strong>г)</strong> Если вы добрались до этого пункта, вы поняли градиентный спуск. Маша довольна. Начинаем заниматься тупой технической бессмыслицей. Сделайте два шага Momentum SGD. Возьмите <span class="math notranslate nohighlight">\(\alpha = 0.9, \eta = 0.1\)</span></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -790,7 +790,7 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
     \end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">Раньше мы ходили по красной траектории. Мы искали градиент в той точке, где мы стоим, ходили по нему и по инерции. Теперь мы будем ходить по синей траектории. Сначала делаем шаг по инерции, а затем находим градиент и делаем ход по нему. Благодаря этому алгоритм будет сходиться быстрее.</p>
-<a class="reference internal image-reference" href="../_images/nesterov.png"><img alt="triangle" class="align-center" src="../_images/nesterov.png" style="height: 140px;" /></a>
+<a class="reference internal image-reference" href="../_images/nesterov.png"><img alt="triangle" class="align-center" src="../_images/nesterov.png" style="width: 50%;" /></a>
 <p class="sd-card-text">Первый шаг никак не изменится, на втором шаге мы должны посчитать значение градиента немного в другой точке</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
@@ -880,7 +880,7 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
 </div>
 </details><p>На картинке ниже сравнивается сходимость разных градиентных спусков между собой. На ней нет Adam, но зато есть несколько других вариаций градиентного спуска, которые мы не разобрали в задачках выше. Они являются вариациями адаптивного градиентного спуска и почитать про них подробнее можно в статье, из которой взята анимация<a class="footnote-reference brackets" href="#grad-note" id="id3">2</a>.</p>
 <figure class="align-default" id="grad-dis-comp">
-<a class="reference internal image-reference" href="https://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif"><img alt="https://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif" src="https://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif" style="height: 450px;" /></a>
+<a class="reference internal image-reference" href="https://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif"><img alt="https://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif" src="https://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif" style="width: 80%;" /></a>
 </figure>
 <p>На картинке видно, что SGD движется в сторону оптимума очень медленно. Momentum у него довольно сильно выигрывает в скорости, однако из-за накопленной инерции, поначалу, momentum уходит куда-то не туда и делает большой зиг-заг. Momentum с поправкой Нестерова делает зиг-заг поменьше и добирается до оптимума быстрее.</p>
 <p>В таких методах как Adagrad, Adadelta и Rmsprop скорость обучения подбирается индивидуально для каждого параметра. Мы видим, что эти алгоритмы добегают до точки оптимума быстрее всего.</p>

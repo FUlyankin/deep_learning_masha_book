@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Логистические потери и softmax" href="problem_02.html" />
+    <link rel="prev" title="Листочек 4: что выплёвывает нейросеть" href="intro_04.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_01_just_function/intro_01.html">
    Листочек 1: всего лишь функция
@@ -270,12 +272,59 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro_04.html">
+   Листочек 4: что выплёвывает нейросеть
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1. Сигмоида
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_02.html">
+     2. Логистические потери и softmax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_03.html">
+     3. Разные выходы нейросети и правдоподобие
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_04.html">
+     4. Гиперболический тангенс
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_05.html">
+     5. ReLU и её друзья
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_06.html">
+     6. Температура генерации
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_07.html">
+     7. Картинки с потерями
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
-   Листочек 6: свёрточные сети
+   Листочек 5: свёрточные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -334,15 +383,15 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
-   Листочек 5: нейросети – конструктор LEGO
+   Листочек 6: нейросети – конструктор LEGO
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
    Листочек 7: рекуррентные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -388,8 +437,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -612,11 +661,11 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>1. Сигмоида<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>Сигмоида – это классическая функция активации. У неё есть куча проблем, из-за которых её нужно очень аккуратно использовать в глубоких нейронных сетях. Давайте обсудим эти проблемы и поймём как правильно её использовать.</p>
+<p>Сигмоида – это классическая функция активации. У неё есть куча проблем, из-за которых её нужно очень аккуратно использовать в глубоких нейронных сетях. Давайте обсудим эти проблемы и поймём, как правильно её использовать.</p>
 <p>Любую <span class="math notranslate nohighlight">\(s\)</span>-образную функцию называют сигмоидой. Наиболее сильно прославилась под таким названием функция</p>
 <div class="math notranslate nohighlight">
 \[
-f(t) = \frac{e^t}{1 + e^t}.
+\sigma(t) = \frac{e^t}{1 + e^t} = \frac{1}{1 + e^{-t}}.
 \]</div>
 <p>Слава о ней добралась до Маши и теперь она хочет немного поисследовать её свойства.<a class="footnote-reference brackets" href="#mynotebb" id="id2">1</a></p>
 <p><strong>а)</strong> Что происходит при <span class="math notranslate nohighlight">\(t \to +\infty\)</span>? А при <span class="math notranslate nohighlight">\(t \to -\infty\)</span>?</p>
@@ -627,8 +676,12 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Мы знаем, что при <span class="math notranslate nohighlight">\(t \to +\infty\)</span> функция <span class="math notranslate nohighlight">\(e^{-t} \to 0\)</span>, значит <span class="math notranslate nohighlight">\(\sigma(t) \to 1.\)</span></p>
+<p class="sd-card-text">По аналогии при <span class="math notranslate nohighlight">\(t \to -\infty\)</span> функция <span class="math notranslate nohighlight">\(e^{-t} \to \infty\)</span>, значит <span class="math notranslate nohighlight">\(\sigma(t) \to 0.\)</span></p>
+<p class="sd-card-text">Сигмоида – это функция распределения логистической случайной величины. Обычно её используют при решении задачи классификации, чтобы отнормировать выход нейросети на отрезок <span class="math notranslate nohighlight">\([0;1]\)</span>.</p>
+<p class="sd-card-text">Если для оптимизации используется logloss, сигмоида интерпретируется как <span class="math notranslate nohighlight">\(\mathbb{P}(y = 1 \mid x).\)</span>  Это можно формально доказать. <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2022-fall/seminars/sem06-probs-quantile.pdf">В конспекте по МО-1 с ФКН</a> описывается подход для этого. Мы займёмся этим в последней задачке этого листочка.</p>
 </div>
-</details><p><strong>б)</strong> Как связаны между собой <span class="math notranslate nohighlight">\(f(t)\)</span> и  <span class="math notranslate nohighlight">\(f(-t)\)</span>?</p>
+</details><p><strong>б)</strong> Как связаны между собой <span class="math notranslate nohighlight">\(\sigma(t)\)</span> и  <span class="math notranslate nohighlight">\(\sigma(-t)\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -636,8 +689,12 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[
+\sigma(-t) = \frac{1}{1 + e^t} = \frac{1 + e^t - e^t}{1 + e^t} = 1 - \sigma(t).
+\]</div>
 </div>
-</details><p><strong>в)</strong> Как связаны между собой <span class="math notranslate nohighlight">\(f'(t)\)</span> и  <span class="math notranslate nohighlight">\(f'(-t)\)</span>?</p>
+</details><p><strong>в)</strong> Как связаны между собой <span class="math notranslate nohighlight">\(\sigma(t)\)</span> и <span class="math notranslate nohighlight">\(\sigma'(t)\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -645,8 +702,13 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Мы уже решали этот пункт в листочке про обратное распространение ошибки. Воспроизведём логику из него.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{multline*}
+\sigma'(t) = \left(\frac{e^t}{1 + e^{t}} \right)' = \frac{e^t}{1 + e^{t}} - \frac{e^t}{(1 + e^{t})^2} \cdot e^t  = \\ = \frac{e^t}{1 + e^{t}} \left(1 - \frac{e^t}{1 + e^{t}} \right) = \sigma(t)(1 - \sigma(t)).
+\end{multline*}\]</div>
 </div>
-</details><p><strong>г)</strong> Как связаны между собой <span class="math notranslate nohighlight">\(f(t)\)</span> и <span class="math notranslate nohighlight">\(f'(t)\)</span>?</p>
+</details><p><strong>г)</strong> Найдите <span class="math notranslate nohighlight">\(\sigma(0)\)</span> и <span class="math notranslate nohighlight">\(\sigma'(0)\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -654,8 +716,16 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Подставим ноль в получившиеся формулы</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
+	\begin{aligned}
+		&amp; \sigma(0) = \frac{1}{1 + e^{-0}} = 0.5 \\
+		&amp; \sigma'(0) = \sigma(0) \cdot (1 - \sigma(0)) = 0.25 \\
+	\end{aligned}
+\end{equation*}\]</div>
 </div>
-</details><p><strong>д)</strong> Найдите <span class="math notranslate nohighlight">\(f(0)\)</span>, <span class="math notranslate nohighlight">\(f'(0)\)</span> и <span class="math notranslate nohighlight">\(\ln f(0)\)</span>.</p>
+</details><p><strong>д)</strong> Найдите обратную функцию <span class="math notranslate nohighlight">\(\sigma^{-1}(t)\)</span></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -663,8 +733,23 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
+	\begin{aligned}
+		&amp; y = \frac{1}{1 + e^{-t}} \\
+		&amp; e^{-t} = \frac{1}{y} - 1 = \frac{1 - y}{y}
+		&amp; t = \ln \frac{y}{1 - y}
+	\end{aligned}
+\end{equation*}\]</div>
+<p class="sd-card-text">Вспомним, что <span class="math notranslate nohighlight">\(\sigma(t) = \mathbb{P}(y = 1 \mid x)\)</span>, значит</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma^{-1}(t) = \ln \frac{\mathbb{P}(y = 1 \mid x)}{1 - \mathbb{P}(y = 1 \mid x)}. 
+\]</div>
+<p class="sd-card-text">Эту величину называют <strong>логит.</strong> Когда с помощью нейронных сетей решают задачу классификации, часто специфицируют модель так, чтобы она прогнозировала на последнем слое логит. Если взять от логита сигмоиду, мы получим <span class="math notranslate nohighlight">\(\mathbb{P}(y = 1 \mid x).\)</span></p>
+<p class="sd-card-text">Кстати говоря, модель градиентного бустинга для классификации, обычно, собирают так, чтобы она тоже прогнозировала на выходе логит.</p>
 </div>
-</details><p><strong>е)</strong> Найдите обратную функцию <span class="math notranslate nohighlight">\(f^{-1}(t)\)</span></p>
+</details><p><strong>е)</strong> Как связаны между собой <span class="math notranslate nohighlight">\([\ln \sigma(t)]'\)</span> и <span class="math notranslate nohighlight">\(\sigma(-t)\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -672,8 +757,12 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[
+[\ln \sigma(t)]'_t = \frac{1}{\sigma(t)} \cdot \sigma'(t) = \frac{1}{\sigma(t)} \cdot \sigma(t) \cdot (1 - \sigma(t)) = 1 - \sigma(t) = \sigma(-t).
+\]</div>
 </div>
-</details><p><strong>ё)</strong> Как связаны между собой <span class="math notranslate nohighlight">\(\frac{d\ln f(t)}{dt}\)</span> и <span class="math notranslate nohighlight">\(f(-t)\)</span>?</p>
+</details><p><strong>ё)</strong> Постройте графики функций <span class="math notranslate nohighlight">\(\sigma(t)\)</span> и <span class="math notranslate nohighlight">\(\sigma'(t)\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -681,8 +770,10 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Сигмоида выглядит как функция распределения. Она не убывает. У неё две асимптоты, <span class="math notranslate nohighlight">\(0\)</span> и <span class="math notranslate nohighlight">\(1\)</span>. Она выглядит “S”-образно. Её производная выглядит как выпуклый холмик. Если хочется, можно по-честному взять от неё все производные и построить график функции, как это <a class="reference external" href="http://www.mathprofi.ru/polnoe_issledovanie_funkcii_i_postroenie_grafika.html">делалось на математическом анализе.</a></p>
+<a class="reference internal image-reference" href="../_images/img01_sigm.png"><img alt="dobronet_forward" class="align-center" src="../_images/img01_sigm.png" style="width: 95%;" /></a>
 </div>
-</details><p><strong>ж)</strong> Постройте графики функций <span class="math notranslate nohighlight">\(f(t)\)</span> и <span class="math notranslate nohighlight">\(f'(t)\)</span>.</p>
+</details><p><strong>ж)</strong> Говорят, что сигмоида — это гладкий аналог единичной ступеньки. Попробуйте построить на компьютере графики <span class="math notranslate nohighlight">\(\sigma(t), \sigma(10\cdot t), \sigma(100\cdot t), \sigma(1000\cdot t)\)</span>. Как они себя ведут?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -690,8 +781,10 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Видно, что чем больше коэффициент перед <span class="math notranslate nohighlight">\(t\)</span>, тем резче перепад у графика. При очень большом значении коэффициента, сигмоида очень напоминает ступеньку, но в отличие от неё она дифференцируема.</p>
+<a class="reference internal image-reference" href="../_images/img01_sigm_dif.png"><img alt="dobronet_forward" class="align-center" src="../_images/img01_sigm_dif.png" style="width: 95%;" /></a>
 </div>
-</details><p><strong>з)</strong> Говорят, что сигмоида — это гладкий аналог единичной ступеньки. Попробуйте построить на компьютере графики <span class="math notranslate nohighlight">\(f(t), f(10\cdot t), f(100\cdot t), f(1000\cdot t)\)</span>. Как они себя ведут?</p>
+</details><p><strong>з)</strong> Выпишите формулы для forward pass и backward pass через слой с сигмоидой.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -699,8 +792,23 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Мы уже нашли выше производную. У сигмоиды нет обучаемых параметров, получается прямой проход через неё делается по формуле</p>
+<div class="math notranslate nohighlight">
+\[
+o = \sigma(h).
+\]</div>
+<p class="sd-card-text">Обратный шаг делается по формуле</p>
+<div class="math notranslate nohighlight">
+\[
+d = \sigma(h) \cdot (1 - \sigma(h)) \cdot d.
+\]</div>
+<p class="sd-card-text">То же самое можно записать как</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial L}{\partial h} = \sigma(h) \cdot (1 - \sigma(h)) \cdot \frac{\partial L}{\partial o}.
+\]</div>
 </div>
-</details><p><strong>и)</strong> Выпишите формулы для forward pass и backward pass через слой с сигмоидой.</p>
+</details><p><strong>и)</strong> Какое максимальное значение принимает производная сигмоиды? Объясните как это способствует затуханию градиента и параличу нейронной сети?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -708,8 +816,24 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Проанализируем функцию</p>
+<div class="math notranslate nohighlight">
+\[
+f(\sigma) = \sigma \cdot (1 - \sigma) = \sigma - \sigma^2.
+\]</div>
+<p class="sd-card-text">Это парабола. Её ветви смотрят вниз. Найдём её экстремум</p>
+<div class="math notranslate nohighlight">
+\[
+f'(\sigma) = 1 - 2\sigma = 0 \quad \Rightarrow \quad \sigma = 0.5
+\]</div>
+<p class="sd-card-text">Получается, что <span class="math notranslate nohighlight">\(f(\sigma) \le 0.5 - 0.5^2 = 0.25\)</span>. Выходит, что производная сигмоиды принимает значение с отрезка <span class="math notranslate nohighlight">\([0; 0.25].\)</span> При шаге обратного распространения ошибки, мы умножаем уже накопившуюся производную на производную сигмоиды. Накопленная производная из-за этого уменьшается. Получается, что если нейросетка очень глубокая, до первых слоёв дойдёт очень маленькая производная. Веса будут двигаться на очень маленькие расстояния. Из-за этого обучение застопорится. Такая ситуация называется <strong>параличём нейронной сети</strong> либо проблемой <strong>затухания градиента (vanishing gradient problem).</strong></p>
+<p class="sd-card-text">Чтобы побороть проблему затухающих градиентов, надо модернизировать архитектуру нейронной сети так, чтобы не выскакивало затухающих производных. Из-за этого сигмоиду не используют в глубоких нейронных сетях и предпочитают ей другие функции активации.</p>
+<p class="sd-card-text">Давайте ещё раз посмотрим на график сигмоиды и её производной.</p>
+<a class="reference internal image-reference" href="../_images/img01_sigm.png"><img alt="dobronet_forward" class="align-center" src="../_images/img01_sigm.png" style="width: 95%;" /></a>
+<p class="sd-card-text">Каждый нейрон в нашей сетке либо активируется либо нет. Когда нейрон обучился, он выплёвывает значения близкие либо к единице либо к нулю. Производная на краях сигмоиды оказывается очень маленькой. Получается, что по мере обучения нейронной сети, проблема затухающих градиентов обостряется.</p>
+<p class="sd-card-text">Ужаснее всего то, что на графике с функцией потерь всё выглядит так, будто обучение сошлось. Функция стабилизируется и прекращает убывать.</p>
 </div>
-</details><p><strong>к)</strong> Какое максимальное значение принимает производная сигмоиды? Объясните как это способствует затуханию градиента и параличу нейронной сети?</p>
+</details><p><strong>к)</strong> Сигмоида не центрированна относительно нуля. Из-за этого градиентный спуск работает плохо. Объясните, почему так происходит.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -717,20 +841,16 @@ f(t) = \frac{e^t}{1 + e^t}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-</div>
-</details><p><strong>л)</strong> Сигмоида не центрированна относительно нуля. Из-за этого градиентный спуск работает плохо. Объясните, почему так происходит.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Решение<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Мы находим выход слоя как <span class="math notranslate nohighlight">\(o = \sigma(h)\)</span>. Он всегда положительный. Это означает, что <strong>все</strong> градиенты по весам линейного слоя, идущего перед сигмоидой будут либо положительными либо отрицательными (внимательно посмотрите на формулы из задачи 6 листочка про бэкпроп). Из-за этого веса будут всегда обновляться в одинаковом направлении.</p>
+<p class="sd-card-text">Пусть у нас есть два параметра. По одному надо двигаться в положительную сторону, а по второму в отрицательную (голубая стрелка). Наши градиенты никогда не будут оказываться разных знаков. Они оба всегда будут либо положительными либо отрицательными. Из-за этого движение будет идти зиг-загами. В точку оптимума мы будем идти дольше.</p>
+<a class="reference internal image-reference" href="../_images/img01_gr_update.png"><img alt="triangle" class="align-center" src="../_images/img01_gr_update.png" style="width: 50%;" /></a>
+<p class="sd-card-text">Чтобы избежать этого, нужно центрировать функцию активации относительно нуля. Тогда градиенты смогут принимать разные знаки и оптимизация будет работать быстрее.</p>
+<p class="sd-card-text">Картинка взята из курса <a class="reference external" href="http://cs231n.stanford.edu/index.html">cs231n.</a></p>
 </div>
 </details><hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="mynotebb"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
-<dd><p>Задачка взята из <a class="reference external" href="https://github.com/bdemeshev/mlearn_pro">коллекции Бориса Демешева</a> и немного доработана.</p>
+<dd><p>Задачка взята из <a class="reference external" href="https://github.com/bdemeshev/mlearn_pro">коллекции Бориса Демешева</a> и изменена до неузнаваемости.</p>
 </dd>
 </dl>
 </section>
@@ -762,6 +882,20 @@ f(t) = \frac{e^t}{1 + e^t}.
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro_04.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Листочек 4: что выплёвывает нейросеть</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_02.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2. Логистические потери и softmax</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

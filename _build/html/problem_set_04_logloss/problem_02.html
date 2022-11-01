@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Разные выходы нейросети и правдоподобие" href="problem_03.html" />
+    <link rel="prev" title="1. Сигмоида" href="problem_01.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_01_just_function/intro_01.html">
    Листочек 1: всего лишь функция
@@ -270,12 +272,59 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro_04.html">
+   Листочек 4: что выплёвывает нейросеть
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_01.html">
+     1. Сигмоида
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2. Логистические потери и softmax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_03.html">
+     3. Разные выходы нейросети и правдоподобие
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_04.html">
+     4. Гиперболический тангенс
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_05.html">
+     5. ReLU и её друзья
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_06.html">
+     6. Температура генерации
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_07.html">
+     7. Картинки с потерями
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
-   Листочек 6: свёрточные сети
+   Листочек 5: свёрточные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -334,15 +383,15 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
-   Листочек 5: нейросети – конструктор LEGO
+   Листочек 6: нейросети – конструктор LEGO
   </a>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
    Листочек 7: рекуррентные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -388,8 +437,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -612,8 +661,17 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="softmax">
 <h1>2. Логистические потери и softmax<a class="headerlink" href="#softmax" title="Permalink to this headline">#</a></h1>
-<p>У Маши три наблюдения, первое наблюдение — кит, остальные — муравьи. Киты кодируются <span class="math notranslate nohighlight">\(y_i = 1\)</span>, муравьи — <span class="math notranslate nohighlight">\(y_i = 0\)</span>.  В качестве регрессоров Маша берёт номера наблюдений <span class="math notranslate nohighlight">\(x_i = i\)</span>. После этого Маша оценивает логистическую регрессию с константой. В качестве функции потерь используются логистические потери.</p>
-<p><strong>а)</strong> Выпишите для данной задачи функцию потерь, которую минимизирует Маша.</p>
+<p>Маша решает задачу классификации. Она закодировала классы единичками и нулями. Логистическая функция потерь для одного наблюдения будет выглядеть как</p>
+<div class="math notranslate nohighlight">
+\[
+logloss =  -(y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i)).
+\]</div>
+<p>Под <span class="math notranslate nohighlight">\(p_i\)</span> имеется в виду <span class="math notranslate nohighlight">\(\mathbb{P}(y_i = 1 \mid x)\)</span>.</p>
+<p><strong>а)</strong> Нарисуйте логистические потери для <span class="math notranslate nohighlight">\(y_i = 1\)</span> и <span class="math notranslate nohighlight">\(y_i = 0\)</span> на графике. По оси абсцисс отложите <span class="math notranslate nohighlight">\(p_i\)</span>, а по оси ординат значение функции потерь. Объясните, зачем от <span class="math notranslate nohighlight">\(p_i\)</span> нужно брать логарифм. Почему нельзя оптимизировать вместо logloss функцию</p>
+<div class="math notranslate nohighlight">
+\[
+-(y_i \cdot p_i + (1 - y_i) \cdot (1 - p_i))? 
+\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -621,8 +679,43 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(y_i = 1,\)</span> от нашей функции потерь останется только первое слагаемое, <span class="math notranslate nohighlight">\(-\ln p_i\)</span>. Если <span class="math notranslate nohighlight">\(y_i = 0\)</span>, останется только второе слагаемое, <span class="math notranslate nohighlight">\(-\ln (1 - p_i)\)</span>. Изобразим их на графике</p>
+<a class="reference internal image-reference" href="../_images/img02_logloss.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_logloss.png" style="width: 50%;" /></a>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(y_i = 1,\)</span> мы хотим, чтобы <span class="math notranslate nohighlight">\(p_i = \mathbb{P}(y_i = 1 \mid x)\)</span> было как можно больше. Если <span class="math notranslate nohighlight">\(p_i\)</span> оказалась маленькой, штраф большой, если <span class="math notranslate nohighlight">\(p_i\)</span> оказалось большим, штраф будет маленьким. При этом, чем ближе <span class="math notranslate nohighlight">\(p_i\)</span> к единице, тем меньше мы его хотим увеличить. Такую нелинейность штрафа нам даёт логарифм. При <span class="math notranslate nohighlight">\(y_i = 0\)</span> логика точно такая же, но уже с <span class="math notranslate nohighlight">\(\mathbb{P}(y_i = 0 \mid x)\)</span>.</p>
+<p class="sd-card-text">Если мы сделаем штраф линейным, у такой функции потерь будет много проблем. Во-первых, пропадает нелинейность. Прирост ошибки в каждой точке одинаковый. Нам бы хотелось за мелкие ошибки штрафовать несерьёзно.</p>
+<p class="sd-card-text">Во-вторых, из-за линейности такую функцию сложно оптимизировать. В-третьих, выхлоп модели нельзя будет интерпретировать как <span class="math notranslate nohighlight">\(\mathbb{P}(y = 1 \mid x).\)</span> Это можно формально доказать. Мы займёмся этим в последней задачке этого листочка.</p>
 </div>
-</details><p><strong>б)</strong> При каких оценках коэффициентов логистической регрессии эта функция достигает своего минимума?</p>
+</details><p>У Маши три наблюдения, первое наблюдение — кит, остальные — муравьи. Киты кодируются <span class="math notranslate nohighlight">\(y_i = 1\)</span>, муравьи — <span class="math notranslate nohighlight">\(y_i = 0\)</span>.  В качестве регрессоров Маша берёт номера наблюдений <span class="math notranslate nohighlight">\(x_i = i\)</span>. После этого Маша оценивает логистическую регрессию с константой. В качестве функции потерь используются логистические потери.<a class="footnote-reference brackets" href="#mynotebb" id="id1">1</a></p>
+<p><strong>б)</strong> Выпишите для данной задачи функцию потерь, которую минимизирует Маша.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Модель будет выглядеть как</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	\begin{aligned}
+		&amp; z_i = w_0 + w_1 x_i, \\
+		&amp; p_i = \mathbb{P}(y_i = 1 \mid x) = \sigma(z_i) = \frac{1}{1 + e^{-(w_0 + w_1 x_i)}}.
+	\end{aligned}
+\end{equation*}\]</div>
+<p class="sd-card-text">Это обычная логистическая регрессия. Иначе говоря, это нейронная сеть, которая состоит из одного нейрона с сигмоидой в качестве функции активации.</p>
+<p class="sd-card-text">Мы будем опимизировать логистические потери, то есть</p>
+<div class="math notranslate nohighlight">
+\[
+logloss = -\frac{1}{n} \sum_{i=1}^n \left( y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i) \right).
+\]</div>
+<p class="sd-card-text">Подставим наблюдения и получим</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{multline*}
+logloss = -\frac{1}{3} \cdot (\ln p_1 + \ln(1 - p_2) + \ln(1 - p_3)) = \\ = -\frac{1}{3} \cdot \left( \ln\sigma(w_0 + w_1) + \ln \sigma(-(w_0 + 2 \cdot w_1)) + \ln \sigma(-(w_0 + 3 \cdot w_1)) \right).
+\end{multline*}\]</div>
+<p class="sd-card-text">Мы воспользовались тем, что <span class="math notranslate nohighlight">\(\sigma(-t) = 1 - \sigma(t).\)</span></p>
+</div>
+</details><p><strong>в)</strong> При каких оценках коэффициентов логистической регрессии эта функция достигает своего минимума?</p>
 <p><strong>Hint:</strong> Изобразите наблюдения на числовой прямой и подумайте как должна будет вести себя идеальная сигмоида. Обратите внимание, что выборка линейно-разделима.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -631,8 +724,9 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Тут нужна картинка неописуемой красоты!</p>
 </div>
-</details><p><strong>в)</strong> Маша чуть внимательнее присмотрелась к своему третьему наблюдению и поняла, что это не муравей, а бобёр. Теперь ей нужно решать задачу классификации на три класса. Она решила использовать для этого нейросеть с softmax-слоем на выходе.</p>
+</details><p><strong>г)</strong> Маша чуть внимательнее присмотрелась к своему третьему наблюдению и поняла, что это не муравей, а бобёр. Теперь ей нужно решать задачу классификации на три класса. Как надо специфицировать выход из нейронной сетки и функцию потерь?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -640,8 +734,31 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">В случае бинарной классификации нейросеть выплёвывает один выход. К нему мы применяем сигмоиду и получаем вероятность первого класса. Если нам хочется получить вероятность нулевого класса, достаточно вычесть получившуюся вероятность из единицы.</p>
+<p class="sd-card-text">Когда у нас появляется третий класс, одного выхода недостаточно. Обычно на последнем слое нейросети выставляют число нейронов, равное числу классов, а после применяют функцию softmax</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	\begin{aligned}
+		(w_1^T x, &amp;\ldots, w_K^Tx) \\
+		&amp;\Downarrow \\
+		(e^{z_1}, &amp;\ldots, e^{z_K}) \\
+		&amp;\Downarrow \\
+		\left(\frac{e^{z_1}}{\sum_{k=1}^K e^{z_k}}\right., &amp;\ldots,\left. \frac{e^{z_K}}{\sum_{k=1}^K e^{z_k}}  \right)
+	\end{aligned}
+\end{equation*}\]</div>
+<p class="sd-card-text">Тогда мы получаем <span class="math notranslate nohighlight">\(K\)</span> выходов, лежащих на отрезке <span class="math notranslate nohighlight">\([0;1]\)</span>. Они интерпретируются как уверенность нейросети в каждом из классов. В сумме эти выходы дают единицу.</p>
+<a class="reference internal image-reference" href="../_images/img02_softmax.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_softmax.png" style="width: 95%;" /></a>
+<p class="sd-card-text">Логистические потери для <span class="math notranslate nohighlight">\(K\)</span> классов можно записать как</p>
+<div class="math notranslate nohighlight">
+\[
+logloss =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{w_k^Tx_i}}{\sum_{j=1}^{K} e^{w_j^Tx_i}}.
+\]</div>
+<p class="sd-card-text">Здесь <span class="math notranslate nohighlight">\([y_i = k]\)</span> принимает значение равное единице, когда <span class="math notranslate nohighlight">\(y_i = k,\)</span> в остальных случаях это ноль.</p>
+<p class="sd-card-text">Иногда числа, которые выплёвывает softmax слой интерпретируют как вероятность. Так можно делать не всегда. Выход нейросети всегда можно откалибровать так, чтобы он стал вероятностью.</p>
+<p class="sd-card-text">В задаче классификации откалиброванным алгоритмом называют такой алгоритм, для которого доля положительных примеров (на основе реальных меток классов) для предсказаний в окрестности произвольной вероятности <span class="math notranslate nohighlight">\(p\)</span> совпадает с этим значением <span class="math notranslate nohighlight">\(p\)</span>. Например, если взять объекты, для которых предсказанные вероятности близки к 0.7, то окажется, что среди них 70% принадлежат положительному классу.</p>
+<p class="sd-card-text">Подробнее про калибровку алгоритмов можно почитать <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2022-fall/seminars/sem06-probs-quantile.pdf">в конспекте по МО-1 с ФКН.</a></p>
 </div>
-</details><p><strong>г)</strong> Маша уже обучила нейронную сетку и хочет построить прогнозы для двух наблюдений. Слой, который находится перед <span class="math notranslate nohighlight">\(\softmax\)</span> выдал для этих двух наблюдений следующий результат: <span class="math notranslate nohighlight">\((1, -2, 0)\)</span> и <span class="math notranslate nohighlight">\((0.5, -1, 0)\)</span>.</p>
+</details><p><strong>д)</strong> Маша уже обучила нейронную сетку и хочет построить прогнозы для двух наблюдений. Слой, который находится перед <span class="math notranslate nohighlight">\(softmax\)</span> выдал для этих двух наблюдений следующий результат: <span class="math notranslate nohighlight">\((1, -2, 0)\)</span> и <span class="math notranslate nohighlight">\((0.5, -1, 0)\)</span>.</p>
 <p>Чему равны вероятности получить кита, муравья и бобра для этих двух наблюдений?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -650,8 +767,18 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Применим softmax к первому наблюдению</p>
+<div class="math notranslate nohighlight">
+\[
+\left( \frac{e^{1}}{e^{1} + e^{-2} + e^{0}}, \frac{e^{-2}}{e^{1} + e^{-2} + e^{0}}, \frac{e^{0}}{e^{1} + e^{-2} + e^{0}} \right) \approx (0.7, 0.03, 0.27).
+\]</div>
+<p class="sd-card-text">По аналогии</p>
+<div class="math notranslate nohighlight">
+\[
+\left( \frac{e^{0.5}}{e^{0.5} + e^{-1} + e^{0}}, \frac{e^{-1}}{e^{0.5} + e^{-1} + e^{0}}, \frac{e^{0}}{e^{0.5} + e^{-1} + e^{0}} \right) \approx (0.55, 0.12, 0.33).
+\]</div>
 </div>
-</details><p><strong>д)</strong> Пусть первым был кит, а вторым бобёр.  Чему будет равна <span class="math notranslate nohighlight">\(logloss\)</span>-ошибка?</p>
+</details><p><strong>е)</strong> Пусть первым был кит, а вторым бобёр.  Чему будет равна <span class="math notranslate nohighlight">\(logloss\)</span>-ошибка?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -659,15 +786,11 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-</div>
-</details><p><strong>е)</strong>  Пусть у Маши есть два класса. Она хочет выучить нейросеть. Она может учить нейронку с одним выходом и сигмоидой в качестве функции активации либо нейронку с двумя выходами и <span class="math notranslate nohighlight">\(softmax\)</span> в качестве функции активации. Как выходы этих двух нейронок взаимосвязаны между собой?</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Решение<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Кит на первой позиции, бобёр на последней. Значит logloss примет значение</p>
+<div class="math notranslate nohighlight">
+\[
+-\frac{1}{2} \cdot \left(\ln 0.7 + \ln 0.33 \right).
+\]</div>
 </div>
 </details><p><strong>ё)</strong> Объясните, почему <span class="math notranslate nohighlight">\(softmax\)</span>  считают сглаженным вариантом arg max.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -677,8 +800,34 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Softmax пытается заострить, преувеличить разницу между полученными значениями. Она выдаёт значения близкие к нулю для всех <span class="math notranslate nohighlight">\(z_j,\)</span> которые существенно меньше максимального. При этом softmax, в отличие от arg max, дифференцируема.</p>
 </div>
-</details><p><strong>ж)</strong> Докажите, что <span class="math notranslate nohighlight">\(softmax(z + c) = softmax(z)\)</span>, где <span class="math notranslate nohighlight">\(c\)</span> — какая-то константа, прибавленная ко всем выходам слоя. Как этот факт позволяет сделать <span class="math notranslate nohighlight">\(softmax\)</span> численно устойчивой функцией и упростить для компьютера оптимизацию нейросети?</p>
+</details><p><strong>ж)</strong>  Пусть у Маши есть два класса. Она хочет выучить нейросеть. Она может учить нейронку с одним выходом и сигмоидой в качестве функции активации либо нейронку с двумя выходами и <span class="math notranslate nohighlight">\(softmax\)</span> в качестве функции активации. Как выходы этих двух нейронок взаимосвязаны между собой?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Если мы учим нейросетку с одним выходом и сигмоидой, мы получаем на выходе</p>
+<div class="math notranslate nohighlight">
+\[
+\sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^{z}}{1 + e^z}.
+\]</div>
+<p class="sd-card-text">Если у нас есть два выхода и мы применяем к ним softmax, мы получим</p>
+<div class="math notranslate nohighlight">
+\[
+\left( \frac{e^{z_1}}{e^{z_1} + e^{z_2}}, \frac{e^{z_2}}{e^{z_1} + e^{z_2}} \right).
+\]</div>
+<p class="sd-card-text">Чтобы из второго элемента вектора получить сигмоиду, надо положить <span class="math notranslate nohighlight">\(z_1 = 0, z_2 = z\)</span>. Посмотрим, что в таком случае будет происходить с первым элементом</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{e^{z_1}}{e^{z_1} + e^{z_2}} = \frac{1}{1 + e^{z}} = \sigma(-z) = 1 - \sigma(z).
+\]</div>
+<p class="sd-card-text">Получилось, что первый элемент представляет из себя вероятность того, что сетка выплюнула нулевой класс.</p>
+</div>
+</details><p><strong>з)</strong> Докажите, что <span class="math notranslate nohighlight">\(softmax(z + c) = softmax(z)\)</span>, где <span class="math notranslate nohighlight">\(c\)</span> — какая-то константа, прибавленная ко всем выходам слоя. Как этот факт позволяет сделать <span class="math notranslate nohighlight">\(softmax\)</span> численно устойчивой функцией и упростить для компьютера оптимизацию нейросети?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -687,18 +836,81 @@ title="Print to PDF"
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">При поиске softmax мы ищем экспоненты, в памяти компьютера может произойти переполнение из-за больших чисел. Возникнут бесконечности и оптимизация нейронной сетки умрёт.</p>
-<p class="sd-card-text">Если добавить ко всем входам нейронки одинаковую константу, значение sofrmax не изменится:</p>
+<p class="sd-card-text">Если добавить ко всем входам нейронки одинаковую константу, значение sofrmax не изменится</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{e^{z_i + c}}{\sum_{k=1}^K e^{z_k + c}} = \frac{ e^c \cdot e^{z_i } }{e^c \cdot \sum_{k=1}^K e^{z_k} }   = 	\frac{e^{z_i}}{\sum_{k=1}^K e^{z_k }} 
+\frac{e^{z_i + c}}{\sum_{k=1}^K e^{z_k + c}} = \frac{ e^c \cdot e^{z_i } }{e^c \cdot \sum_{k=1}^K e^{z_k} }   = 	\frac{e^{z_i}}{\sum_{k=1}^K e^{z_k }}.
 \]</div>
-<p class="sd-card-text">Из-за этого, в нейросетях считают устойчивый к переполнению softmax:</p>
+<p class="sd-card-text">Из-за этого, в нейросетях считают устойчивый к переполнению softmax</p>
 <div class="math notranslate nohighlight">
 \[
-softmax(z_1, \ldots, z_{K}) = softmax(z_1 - \max_i (z_i), \ldots, z_{K} - \max_i (z_i))
+softmax(z_1, \ldots, z_{K}) = softmax(z_1 - \max_i (z_i), \ldots, z_{K} - \max_i (z_i)).
 \]</div>
 </div>
-</details></section>
+</details><p><strong>и)</strong> Предположим, что на последнем слое найшей нейросети мы используем softmax. В качестве функции потерь мы используем logloss. Как будет Выглядеть производная <span class="math notranslate nohighlight">\(\frac{\partial logloss}{\partial z}\)</span>?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Нам надо найти производную <span class="math notranslate nohighlight">\(\frac{\partial logloss}{\partial z} = \frac{\partial logloss}{\partial p} \cdot \frac{\partial p}{\partial z}.\)</span> Будем рассуждать в терминах одного наблюдения. Начнём с softmax</p>
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}.
+\]</div>
+<p class="sd-card-text">На вход в softmax идет <span class="math notranslate nohighlight">\(k\)</span> элементов, на выходе получается <span class="math notranslate nohighlight">\(k\)</span> элементов. Нам надо взять производную каждого по каждому. Получается, что производная softmax – это матрица размера <span class="math notranslate nohighlight">\(k \times k.\)</span> У нас будет две ситуации: <span class="math notranslate nohighlight">\(i = j\)</span> и <span class="math notranslate nohighlight">\(i \ne j\)</span>. Начнёмс с <span class="math notranslate nohighlight">\(i = j\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{\partial p_i}{\partial z_j} = \frac{\partial  \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}}{\partial z_j}&amp;= \frac{e^{z_i} \sum_{k=1}^K e^{z_k} - e^{z_j}e^{z_i}}{\left( \sum_{k=1}^K e^{z_k}\right)^2} \\ &amp;= \frac{e^{z_i} \left( \sum_{k=1}^K e^{z_k} - e^{z_j}\right )}{\left( \sum_{k=1}^K e^{z_k}\right)^2} \\ &amp;= \frac{ e^{z_j} }{\sum_{k=1}^K e^{z_k} } \cdot \frac{\left( \sum_{k=1}^K e^{z_k} - e^{z_j}\right ) }{\sum_{k=1}^K e^{z_k} } \\ &amp;= p_i \cdot (1-p_j).
+\end{align*}\]</div>
+<p class="sd-card-text">Продолжим случаем <span class="math notranslate nohighlight">\(i \ne j\)</span></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+\frac{\partial  \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}}{\partial z_j}&amp;= \frac{0 - e^{z_j}e^{z_i}}{\left( \sum_{k=1}^K e^{z_k}\right)^2} \\
+&amp;= \frac{- e^{z_j} }{\sum_{k=1}^K e^{z_k} } \cdot \frac{e^{z_i} }{\sum_{k=1}^K e^{z_k} } \\
+&amp;= - p_j \cdot p_i.
+\end{align*}\]</div>
+<p class="sd-card-text">Получается, что производная выглядит как</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{\partial p_i}{\partial z_j} = 
+\begin{cases}p_i \cdot (1-p_j), &amp;  i = j \\
+-p_j \cdot p_i, &amp; i \ne j.
+\end{cases}
+\end{split}\]</div>
+<p class="sd-card-text">Давайте для удобства перепишем метки классов в OHE виде. Если <span class="math notranslate nohighlight">\(y_i = k,\)</span> мы будем представлять его в виде вектора, где на <span class="math notranslate nohighlight">\(k-\)</span>ой позиции стоит единица. Остальные элементы будут нулевыми. В этом пункте везде под <span class="math notranslate nohighlight">\(y_i\)</span> мы будем иметь в виду такой вектор. Для одного наблюдения logloss можно записать как</p>
+<div class="math notranslate nohighlight">
+\[
+logloss = -\sum_{k=1}^K y_i \cdot \ln p_i.
+\]</div>
+<p class="sd-card-text">Берём производную</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	\frac{\partial L}{\partial z_j} &amp;= - \sum_k y_k \frac{\partial \ln(p_k)}{\partial z_j } \\
+	&amp;= - \sum_k y_k \frac{\partial \ln (p_k)}{\partial p_k} \cdot \frac{\partial p_k}{ \partial z_j} \\
+	&amp;= - \sum_k y_k \frac{1}{p_k} \cdot \frac{\partial p_k}{\partial z_j}. \\
+\end{align*}\]</div>
+<p class="sd-card-text">Подставим в формулу производную softmax</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+	\frac{\partial L}{\partial z_j}  &amp;= -y_j \cdot (1 - p_j) - \sum_{k \ne j} y_k \frac{1}{p_k}(-p_k \cdot p_j) \\
+	&amp;= -y_j \cdot (1 - p_j) + \sum_{k \ne j} y_k \cdot p_j \\
+	&amp;= - y_j + y_j p_j + \sum_{k \ne j} y_k \cdot p_j \\
+	&amp;= p_j \left( y_j +  \sum_{k \ne j} y_k\right) - y_j \\
+	&amp;= p_j \sum_{k = 1}^K y_k  - y_j = p_j - y_j.
+\end{align*}\]</div>
+<p class="sd-card-text">Функция logloss бьёт из векторов <span class="math notranslate nohighlight">\(z\)</span> в константы. Производной будет вектор размера <span class="math notranslate nohighlight">\(K\)</span>. Ровно такой вектор у нас и получается, то есть <span class="math notranslate nohighlight">\(p - y\)</span>.</p>
+<p class="sd-card-text">Мы нашли производную для одного наблюдения. Когда наблюдений становится много, мы должны просуммировать все потери по ним. Производная суммы будет равна сумме производных.</p>
+</div>
+</details><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="mynotebb"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Задачка взята из <a class="reference external" href="https://github.com/bdemeshev/mlearn_pro">коллекции Бориса Демешева</a> и изменена до неузнаваемости.</p>
+</dd>
+</dl>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -727,6 +939,20 @@ softmax(z_1, \ldots, z_{K}) = softmax(z_1 - \max_i (z_i), \ldots, z_{K} - \max_i
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="problem_01.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">1. Сигмоида</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_03.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3. Разные выходы нейросети и правдоподобие</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
