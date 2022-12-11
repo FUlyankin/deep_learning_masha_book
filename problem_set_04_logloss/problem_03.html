@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Гиперболический тангенс" href="problem_04.html" />
+    <link rel="prev" title="2. Логистические потери и softmax" href="problem_02.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_01_just_function/intro_01.html">
    Листочек 1: всего лишь функция
@@ -270,12 +272,69 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro_04.html">
+   Листочек 4: что выплёвывает нейросеть
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_01.html">
+     1. Сигмоида
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_02.html">
+     2. Логистические потери и softmax
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     3. Разные выходы нейросети и правдоподобие
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_04.html">
+     4. Гиперболический тангенс
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_05.html">
+     5. ReLU и её друзья
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_06.html">
+     6. Температура генерации
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_07.html">
+     7. Картинки с потерями
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_08.html">
+     8. Модернизируем logloss
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_09.html">
+     9. Предсказание вероятностей*
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
-   Листочек 6: свёрточные сети
+   Листочек 5: свёрточные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -332,44 +391,106 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
-   Листочек 5: нейросети – конструктор LEGO
+   Листочек 6: нейросети – конструктор LEGO
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_01.html">
+     1. Дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_02.html">
+     2. Регуляризация
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_03.html">
+     3. А вот и моя остановочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_04.html">
+     4. Нормализация по батчам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_08.html">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
    Листочек 7: рекуррентные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+     1. Из авторегрессии в RNN
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+     2. Туда и обратно
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+     3. Взрыв градиентов
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+     4. Число параметров
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_06.html">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -388,8 +509,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -621,6 +742,8 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Последний слой сетки состоит из одного нейрона. Мы к нему применяем сигмоиду и получем на выходе вероятность того, что объект относится к первому классу.</p>
+<p class="sd-card-text">Если мы хотим получить вероятность того, что объект относится к нулевому классу, вычитаем выход нейросетки из единицы.</p>
 </div>
 </details><p><strong>б)</strong> Маша хочет решать задачу классификации на <span class="math notranslate nohighlight">\(K\)</span> классов. Что ей делать с последним слоем?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -630,6 +753,7 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Нужно сделать из нейросетки <span class="math notranslate nohighlight">\(K\)</span> выходов и применить к ним <span class="math notranslate nohighlight">\(\text{softmax}\)</span>. Подробнее можно посмотреть в пункте <strong>в)</strong> предыдущей задачи.</p>
 </div>
 </details><p><strong>в)</strong> Маша хочет спрогнозировать рейтинг фильма на “Кинопоиске”. Он измеряется по шкале от <span class="math notranslate nohighlight">\(0\)</span> до <span class="math notranslate nohighlight">\(10\)</span> и принимает любое непрерывное значение. Как Маша может приспособить для этого свою нейронку?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -639,6 +763,9 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Маше на выходе надо получать одно число, поэтому последний слой будет состоять из одного нейрона. Нам нужно применить к этому нейрону функцию активации, которая размажет значение из множества непрерывных числе на отрезок от <span class="math notranslate nohighlight">\(0\)</span> до <span class="math notranslate nohighlight">\(10\)</span>.</p>
+<p class="sd-card-text">Например, мы можем взять сигмоиду и умножить её на <span class="math notranslate nohighlight">\(10\)</span>. Тогда у нас получится требуемое отображение. Минусом такого подхода может быть то, что сигмоида слишком резко делает перегиб от <span class="math notranslate nohighlight">\(0\)</span> до <span class="math notranslate nohighlight">\(10\)</span> и сетка будет пытаться разделить фильмы на два противоборствующих лагеря.</p>
+<p class="sd-card-text">При этом, скорее всего, у большинства фильмов будет стоять оценка в районе <span class="math notranslate nohighlight">\(6-10\)</span>. Если сигмоида сработает плохо, надо будет придумать какую-то другую функцию активации, учитывающую эту особенность данных.</p>
 </div>
 </details><p><strong>г)</strong> У Маши есть куча новостей. Каждая новость может быть спортивной, политической или экономической. Иногда новость может относится сразу к нескольким категориям. Как Маше собрать нейросетку для решения этой задачи?  Как будет выглядеть функция ошибки?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -648,8 +775,21 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Такая задача называется <strong>мультиклассификацией.</strong> Можно обучить для каждого класса свою нейросеть, а дальше предсказывать по-отдельности для каждой статьи, является ли она спортивной/политической/экономической.</p>
+<p class="sd-card-text">Скорее всего, нейросеть будет выделять на первых слоях одинаковые факторы, поэтому это не очень эффективно. Обычно для работы с текстами обучают большую нейросеть, которая учится вычлинять из них смысл. Её веса фиксируют, срезают последние слои, так чтобы сетка выплёвывала вектор из чисел. Его называют <strong>векторным представлением</strong> или <strong>эмбеддингом.</strong></p>
+<p class="sd-card-text">Дальше этот вектор посылают в простые модели, которые доучивают под конкретные задачи. Большую сетку называют <strong>тушкой,</strong> а маленькие <strong>головами.</strong> Есть много разных способов обучать тушки. Мы про них немного поговорим в листочках про эмбеддинги. Для картинок поступают аналогичным образом.</p>
+<p class="sd-card-text">Если у нас нет тушки и нам надо с нуля обучать архитектуру для решения мультиклассифкации с нуля, мы можем специфицировать её последний слой следующим образом</p>
+<a class="reference internal image-reference" href="../_images/img04_multiclass.png"><img alt="dobronet_forward" class="align-center" src="../_images/img04_multiclass.png" style="width: 95%;" /></a>
+<p class="sd-card-text">Сетка выплёвывает три выхода, к каждому мы применяем сигмоиду. Это вероятности того, что текст относится к рассматриваемым классам. Для каждого выхода мы подбираем свой порог для принятия решения. Нейросеть мы будем обучать на функцию потерь, которая будет представлять из себя сумму из нескольких логистических потерь</p>
+<div class="math notranslate nohighlight">
+\[
+\text{loss} = \lambda_1 \cdot \text{logloss}_1 + \lambda_2 \cdot \text{logloss}_2 + \lambda_3 \cdot \text{logloss}_3.
+\]</div>
+<p class="sd-card-text">Для каждого выхода мы считаем свои потери, а затем складываем их с коэффициентами <span class="math notranslate nohighlight">\(\lambda_i.\)</span> С их помощью  можно давать нейросетке понять, какая из ошибок для нас критичнее. Коэффициент <span class="math notranslate nohighlight">\(\lambda_1\)</span> можно опустить.</p>
 </div>
-</details><p><strong>д)</strong> У Маши есть картинки с уточками и чайками. Маша хочет научить нейросеть искать на картинке птицу, обводить её в прямоугольник (bounding box), а затем классифицировать то, что попало в прямоугольник. Как должен выглядеть выход из такой нейросети? Как должна выглядеть функция потерь?</p>
+</details><p><strong>д)</strong> У Маши есть картинки с уточками и чайками. Маша хочет научить нейросеть искать на картинке птицу, обводить её в прямоугольник (bounding box), а затем классифицировать то, что попало в прямоугольник.</p>
+<a class="reference internal image-reference" href="../_images/img03_duck.png"><img alt="duck" class="align-center" src="../_images/img03_duck.png" style="width: 40%;" /></a>
+<p>Как можно специфицировать выход из такой нейросети? Как должна выглядеть функция потерь?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -657,8 +797,12 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Нам надо предсказывать, где именно будет находиться рамочка и что находится в рамочке.</p>
+<p class="sd-card-text">Специфицировать предсказание рамочки можно кучей разных способов. Один из них – пердсказыввать на выходе из нейросетки четыре числа: координаты одного из углов, ширину и высоту рамки. Штрафовать за неправильные предсказания этих параметров можно с помощью <span class="math notranslate nohighlight">\(\text{MSE}\)</span>. Чем дальше рамка оказалась от уточки, тем жёстче должен быть штраф.</p>
+<p class="sd-card-text">Когда мы обвели объект в рамочку, нам надо его классифицировать. Для этого можно использовать <span class="math notranslate nohighlight">\(\text{logloss}\)</span>. Все потери будем складывать с разными весами.</p>
+<p class="sd-card-text">Такой подход довольно наивен, о более современных нейросетках можно узнать из курсов по компьютерному зрению.</p>
 </div>
-</details><p><strong>е)</strong> Маша задумалась, как можно спрогнозировать число людей в кафе так, чтобы на выходе сетка всегда прогнозировала целое число. Надо ли менять функцию потерь?</p>
+</details><p><strong>е)</strong>  Маша хочет обучить нейросеть предсказывать количество лайков под фотографиями в инстаграме. Количество лайков – это целое число. Хочется, чтобы нейронка всегда прогнозировала целые числа. Как можно специфицировать её? Надо ли менять функцию потерь? На какую?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -666,6 +810,39 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Первая идея, которая тут возникает – пытаться округлять выход нейросети и учить её на MSE или MAE. Дальше можно анализировать ошибки нейросетки и пытаться модернизировать функцию потерь, чтобы пробем стало меньше. Это подход настоящего инженера.</p>
+<p class="sd-card-text">К машинному обучению есть и другой подход, вероятностный. Если у нас есть какая-то информация о том, как распределены данные, мы можем выписать вероятностную модель, а дальше получить функцию потерь из правдоподобия.</p>
+<p class="sd-card-text">Например, в случае линейной регрессии, мы можем предположить, что</p>
+<div class="math notranslate nohighlight">
+\[
+y \mid x \sim N(\langle x, w \rangle, \sigma^2).
+\]</div>
+<p class="sd-card-text">Максимизация правдоподобия такой модель эквивалентна минимизации MSE. По аналогии, из метода максимального правдоподобия можно вывести logloss. Подробнее об этом можно почитать <a class="reference external" href="https://alexanderdyakonov.wordpress.com/2018/03/12/%D0%BB%D0%BE%D0%B3%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F-%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F-%D0%BE%D1%88%D0%B8%D0%B1%D0%BA%D0%B8/">в блоге Александра Дьяконова.</a></p>
+<p class="sd-card-text">В нашей задаче можно поступить аналогично. Лайки – это случайная величина – счётчик. Обычно такие случайные величины имеют распределение похожее на Пуассоновское. Фотографию смотрит огромное количество людей. Лайки ставят только единицы. Получается, что мы имеем дело со схемой Бернулли, где вероятность успеха очень маленькая. В такой ситации как раз и рождается распределение Пуассона.</p>
+<p class="sd-card-text">Специфицируем модель следующим образом. Лайки под фотку ставятся с какой-то интенсивностью <span class="math notranslate nohighlight">\(\lambda\)</span>, зависящей от характеристик фотки <span class="math notranslate nohighlight">\(x_i\)</span>. Например, может быть, что  <span class="math notranslate nohighlight">\(\lambda = \lambda(x_i) = \langle w, x_i \rangle.\)</span> Такая модель называется <strong>пуассоновской регрессией.</strong></p>
+<p class="sd-card-text">В качестве <span class="math notranslate nohighlight">\(\lambda(x_i)\)</span> можно также взять нейросеть или градиентный бустинг. Например, в библиотеке для градиентного бустинга catboost есть возможность использовать <a class="reference external" href="https://github.com/catboost/catboost/tree/master/catboost/tutorials/regression">пуассоновскую регрессию с градиентным бустингом над деревьями.</a></p>
+<p class="sd-card-text">Найдём функцию потерь. Для распределения Пуассона</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(y = k) = \frac{e^{-\lambda} (\lambda)^{k}}{k!}.
+\]</div>
+<p class="sd-card-text">Выписываем функцию правдоподобия</p>
+<div class="math notranslate nohighlight">
+\[
+L(w) = \prod_{i=1}^{\ell} \frac{e^{-\lambda(x_i)} \cdot (\lambda(x_i))^{y_i}}{y_i!} \to \max_{w}.
+\]</div>
+<p class="sd-card-text">Прологарифмируем</p>
+<div class="math notranslate nohighlight">
+\[
+\ln L(w) = \sum_{i=1}^{\ell} y_i \log \lambda(x_i) - \lambda(x_i) - \log(y_i!) \to \max_{w}.
+\]</div>
+<p class="sd-card-text">Откидываем все константные слагаемые, домножаем на <span class="math notranslate nohighlight">\(-1\)</span> и получаем функцию потерь для минимизации</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{i=1}^{\ell} [\lambda(x_i) - y_i \log \lambda(x_i)] \to \min_{w}.
+\]</div>
+<p class="sd-card-text">Прогноз модели можно искать как <span class="math notranslate nohighlight">\(\arg \max_{k \in Y} \mathbb{P}(y = k).\)</span> Случайная величина, распределённая по Пуассону может принимать бесконечное число значений. Надо делать такой перебор по разумным значениям <span class="math notranslate nohighlight">\(y.\)</span></p>
+<p class="sd-card-text">Эту логику можно продолжить на байесовские методы. Неожиданно окажется, что регуляризация рождается из априорных распределений. Но это уже совсем другая история, <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2021-spring/seminars/sem16-bayes.pdf">почитать о которой можно тут.</a></p>
 </div>
 </details></section>
 
@@ -696,6 +873,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="problem_02.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">2. Логистические потери и softmax</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_04.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4. Гиперболический тангенс</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

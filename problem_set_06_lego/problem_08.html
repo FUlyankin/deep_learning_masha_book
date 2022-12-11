@@ -50,8 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Модные ячейки" href="problem_09.html" />
+    <link rel="prev" title="7. Жесткая и бесполезная задача про инициализацию*" href="problem_07.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_01_just_function/intro_01.html">
    Листочек 1: всего лишь функция
@@ -269,11 +273,68 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
-   Листочек 6: свёрточные сети
+  <a class="reference internal" href="../problem_set_04_logloss/intro_04.html">
+   Листочек 4: что выплёвывает нейросеть
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_01.html">
+     1. Сигмоида
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_02.html">
+     2. Логистические потери и softmax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_03.html">
+     3. Разные выходы нейросети и правдоподобие
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_04.html">
+     4. Гиперболический тангенс
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_05.html">
+     5. ReLU и её друзья
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_06.html">
+     6. Температура генерации
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_07.html">
+     7. Картинки с потерями
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_08.html">
+     8. Модернизируем logloss
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_09.html">
+     9. Предсказание вероятностей*
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
+   Листочек 5: свёрточные сети
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -330,44 +391,111 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro_06.html">
-   Листочек 5: нейросети – конструктор LEGO
+   Листочек 6: нейросети – конструктор LEGO
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_01.html">
+     1. Дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_02.html">
+     2. Регуляризация
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_03.html">
+     3. А вот и моя остановочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_04.html">
+     4. Нормализация по батчам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_10.html">
+     10. Типичная задача с собеседования
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
    Листочек 7: рекуррентные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+     1. Из авторегрессии в RNN
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+     2. Туда и обратно
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+     3. Взрыв градиентов
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+     4. Число параметров
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_06.html">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -386,8 +514,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -610,8 +738,136 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>8. Стрельба по ногам<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>Миша принёс Маше несколько разных архитектур. Они выглядят довольно странно. Помогите Маше разобраться, что именно Миша сделал неправильно.</p>
-<p>\end{problem}</p>
+<p>Однажды на следующий день после жёсткой вечеринки в середине недели Миша принёс Маше несколько разных архитектур. Они выглядят довольно странно. Помогите Маше разобраться, что именно Миша сделал в них неправильно.<a class="footnote-reference brackets" href="#shad" id="id2">1</a></p>
+<p><strong>а)</strong> Миша решает задачу регрессии. Он предсказывает цены на недвижимость. На вход в нейросеть подаётся <span class="math notranslate nohighlight">\(39\)</span> регрессоров.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>model = Sequential()
+model.add(InputLayer([39])
+model.add(BatchNormalization())
+model.add(Dense(128, kernel_initializer=keras.initializers.zeros()))
+model.add(Dense(1))
+model.compile(optimizer=&#39;sgd&#39;, loss=&#39;mean_squared_error&#39;)
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Инициализация нулями – зло, веса будут обновляться на одинаковые величины, а мы хотим сделать нейроны непохожими друг на друга.</p></li>
+<li><p class="sd-card-text">В качестве базового оптимизатора хорошо бы выбрать Adam, это бесплатно и ускоряет сходимость сетки.</p></li>
+<li><p class="sd-card-text">В нормализации по батчам в самом начале нет ничего плохого, она работает как StandartScaler.</p></li>
+<li><p class="sd-card-text">Переход от 128 нейронов к 1 слишком резкий, хочется идти более плавно, хотябы по степени двойки.</p></li>
+<li><p class="sd-card-text">Возможно, что у линейных слоёв нет функции активации, обычно ReLU стоит как её дефолтное значение, но лучше это лишний раз проверить.</p></li>
+</ul>
+</div>
+</details><p><strong>б)</strong> Миша решает задачу классификации картинок размера <span class="math notranslate nohighlight">\(28 \times 28\)</span> на <span class="math notranslate nohighlight">\(10\)</span> классов. Каждое изображение принадлежит только к одному классу.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>model = Sequential()
+model.add(InputLayer([28, 28, 1]))
+model.add(Conv2D(filters=512, kernel_size=(10, 10)))
+model.add(Activation(&#39;relu&#39;))
+model.add(MaxPool2D(pool_size=(2, 2)))
+model.add(Flatten())
+model.add(Dense(100))
+model.add(Activation(&#39;softmax&#39;))
+model.add(Dropout(0.1))
+model.add(Dense(10))
+model.add(Activation(&#39;softmax&#39;))
+model.add(Dropout(0.1))
+model.compile(optimizer=&#39;rmsprop&#39;, loss=&#39;mean_squared_error&#39;)
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Первый слой из 512 фильтров довольно бесполезен. Мы поначалу ищем простые паттерны и для их поиска должно хватать меньшего чесли фильтров. Есть смысл делать более большое число фильтров ближе к концу свёрточной сетки.</p></li>
+<li><p class="sd-card-text">У свёрток слишком большой размер. Обычно их пытаются делать максимально маленькими для экономии параметров. Поле обзора наращивают с помощью пулинга.</p></li>
+<li><p class="sd-card-text">Софтмакс в середине в качестве функции активации – очень неудачный выбор. Он ведёт себя как мягкий arg max и приводит к срабатыванию только одного нейрона из всего слоя.</p></li>
+<li><p class="sd-card-text">Дропаут после предсказания вероятностей уничножит нейросеть. Часть выходов будет зануляться, вероятности не будут давать в сумме единицу и кросс-энтропия будет улетать в бесконечность.</p></li>
+</ul>
+</div>
+</details><p><strong>в)</strong> Решается задача классификация картинок размера  <span class="math notranslate nohighlight">\(100 \times 100\)</span> на <span class="math notranslate nohighlight">\(10\)</span> классов. Каждое изображение принадлежит только к одному классу.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>model = Sequential()
+model.add(InputLayer([100, 100, 3]))
+for filters in [32, 64, 128, 256]:
+	model.add(Conv2D(filters, kernel_size=(5, 5)))
+	model.add(Conv2D(filters, kernel_size=(1, 1)))
+	model.add(MaxPooling2D(pool_size=(3, 3)))
+	model.add(Activation(&#39;relu&#39;))
+	model.add(BatchNormalization())
+model.add(Flatten())
+model.add(Dense(100, activation=&#39;relu&#39;))
+model.add(Dropout(0.5))
+model.add(Dense(10, activation=&#39;softmax&#39;))
+model.compile(optimizer=&#39;adam&#39;, loss=&#39;sparse_categorical_accuracy&#39;)
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Эта сетка не соберётся, потому что у свёрток нет дополнения (padding). У картинки не хватит пикселей и мы получим на выходе ошибку.</p>
+</div>
+</details><p><strong>г)</strong> Миша решает задачу классификации RGB-изображения  размера <span class="math notranslate nohighlight">\(100 \times 100\)</span> на <span class="math notranslate nohighlight">\(10\)</span> классов. Каждое изображение принадлежит только к одному классу.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>model = Sequential() 
+model.add(InputLayer([100, 100, 3]))
+    
+model.add(Conv2D(filters=512, kernel_size=(3, 3), kernel_initializer=&quot;glorot_uniform&quot;)) 
+model.add(Activation(&#39;relu&#39;))
+model.add(MaxPool2D(pool_size=(2, 2)))
+    
+model.add(Conv2D(filters=128, kernel_size=(3, 3), kernel_initializer=&quot;glorot_uniform&quot;)) 
+model.add(Activation(&#39;relu&#39;))
+    
+model.add(Conv2D(filters=32, kernel_size=(3, 3), kernel_initializer=&quot;glorot_uniform&quot;))
+model.add(Conv2D(filters=32, kernel_size=(1, 1), kernel_initializer=&quot;glorot_uniform&quot;))
+model.add(MaxPool2D(pool_size=(10, 10)))
+    
+model.add(Flatten())
+model.add(Dense(64))
+model.add(Dropout(rate=1))
+model.add(Dense(10))
+model.add(Activation(&#39;sigmoid&#39;))
+model.add(Dropout(rate=0.5))
+</pre></div>
+</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Проблемы:</p>
+<ul class="simple">
+<li><p class="sd-card-text">512 фильтров размера 3x3 в первом слое – очень много. Как правило, для квадрата 3x3 пикселя кодируются 32-64 фильтров.</p></li>
+<li><p class="sd-card-text">Уменьшение числа фильтров вглубь по сети – не очень эффективно, сеть “теряет capacity” – последующие слои могут не уместить всю полезную информацию из предыдущих. Лучше начать с малого и увеличивать.</p></li>
+<li><p class="sd-card-text">Пулинг 10x10 – огромный размер, изображение станет меньше размера фильтра. Да и в целом это неэффективно.</p></li>
+<li><p class="sd-card-text">Неправильная инициализация для релу, нужна инициализация Хе.</p></li>
+<li><p class="sd-card-text">Свёртка 1x1 – вообще она имеет смысл, но в коде перед ней нет нелинейности, поэтому это лишнее линейное преобразование.</p></li>
+<li><p class="sd-card-text">Дропаут на вероятности в самом конце - сломает функцию потерь и будет мешать обучаться хоть чему-то.</p></li>
+<li><p class="sd-card-text">Дропаут равный единице в середине убьёт сетку.</p></li>
+<li><p class="sd-card-text">Нет активации между линейными слоями (обычно она в дефолтных параметрах, но тем не менее).</p></li>
+<li><p class="sd-card-text">Не ошибка, но можно несколько оптимизировать вычисления, если переставить ReLU после Max Pooling, а результат будет эквивалентный.</p></li>
+<li><p class="sd-card-text">На последнем слое должен быть softmax, так как мы работаем с 10 классами.</p></li>
+</ul>
+</div>
+</details><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="shad"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>задача составлена по мотивам <a class="reference external" href="https://github.com/yandexdataschool/Practical_DL/tree/master/week03_convnets/other_frameworks">семинара из ШАД.</a></p>
+</dd>
+</dl>
 </section>
 
     <script type="text/x-thebe-config">
@@ -641,6 +897,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="problem_07.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">7. Жесткая и бесполезная задача про инициализацию*</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_09.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">9. Модные ячейки</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

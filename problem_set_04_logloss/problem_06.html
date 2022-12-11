@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Картинки с потерями" href="problem_07.html" />
+    <link rel="prev" title="5. ReLU и её друзья" href="problem_05.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_01_just_function/intro_01.html">
    Листочек 1: всего лишь функция
@@ -270,12 +272,69 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro_04.html">
+   Листочек 4: что выплёвывает нейросеть
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_01.html">
+     1. Сигмоида
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_02.html">
+     2. Логистические потери и softmax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_03.html">
+     3. Разные выходы нейросети и правдоподобие
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_04.html">
+     4. Гиперболический тангенс
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_05.html">
+     5. ReLU и её друзья
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6. Температура генерации
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_07.html">
+     7. Картинки с потерями
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_08.html">
+     8. Модернизируем logloss
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_09.html">
+     9. Предсказание вероятностей*
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
-   Листочек 6: свёрточные сети
+   Листочек 5: свёрточные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -332,44 +391,106 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
-   Листочек 5: нейросети – конструктор LEGO
+   Листочек 6: нейросети – конструктор LEGO
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_01.html">
+     1. Дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_02.html">
+     2. Регуляризация
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_03.html">
+     3. А вот и моя остановочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_04.html">
+     4. Нормализация по батчам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_08.html">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
    Листочек 7: рекуррентные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+     1. Из авторегрессии в RNN
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+     2. Туда и обратно
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+     3. Взрыв градиентов
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+     4. Число параметров
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_06.html">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -388,8 +509,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -612,12 +733,12 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>6. Температура генерации<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>Иногда в функцию <span class="math notranslate nohighlight">\(\softmax\)</span> добавляют дополнительный параметр <span class="math notranslate nohighlight">\(T\)</span>, который называют температурой. Тогда она приобретает вид</p>
+<p>Иногда в функцию <span class="math notranslate nohighlight">\(\text{softmax}\)</span> добавляют дополнительный параметр <span class="math notranslate nohighlight">\(T\)</span>, который называют <strong>температурой сэмплирования.</strong> Тогда она приобретает вид</p>
 <div class="math notranslate nohighlight">
 \[ 
-f(z) =  \frac{e^{\tfrac{z_i}{T}}}{ \sum_{k=1}^K e^{\tfrac{z_k}{T}}}
+\frac{e^{\tfrac{z_i}{T}}}{ \sum_{k=1}^K e^{\tfrac{z_k}{T}}}
 \]</div>
-<p>Обычно это делается, когда с помощью нейросетки нужно сгенерировать какой-нибудь новый объект. Пусть у нас есть три класса. Наша нейросеть выдала на последнем слое числа <span class="math notranslate nohighlight">\(1,2,5\)</span>.</p>
+<p>Обычно это делается, когда с помощью нейросетки нужно сгенерировать какой-нибудь новый объект. Пусть у нас есть три класса. Наша нейросеть выдала на последнем слое числа <span class="math notranslate nohighlight">\(1,2,5\)</span><a class="footnote-reference brackets" href="#nik-note" id="id2">1</a>.</p>
 <p><strong>а)</strong> Какое итоговое распределение вероятностей мы получим, если <span class="math notranslate nohighlight">\(T = 10\)</span>? А если <span class="math notranslate nohighlight">\(T = 1\)</span>? А если <span class="math notranslate nohighlight">\(T = 0.1\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -626,6 +747,13 @@ f(z) =  \frac{e^{\tfrac{z_i}{T}}}{ \sum_{k=1}^K e^{\tfrac{z_k}{T}}}
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Подставим числа в формулу:</p>
+<ul class="simple">
+<li><p class="sd-card-text">если <span class="math notranslate nohighlight">\(T = 10,\)</span> получаем <span class="math notranslate nohighlight">\(p \approx (0.39, 0.36, 0.25)\)</span>;</p></li>
+<li><p class="sd-card-text">если <span class="math notranslate nohighlight">\(T = 1,\)</span> получаем <span class="math notranslate nohighlight">\(p \approx (0.72, 0.27, 0.01)\)</span>;</p></li>
+<li><p class="sd-card-text">если <span class="math notranslate nohighlight">\(T = 0.1\)</span> получаем <span class="math notranslate nohighlight">\(p \approx (0.9999, 4\cdot 10^{-5}, 4 \cdot 10^{-18})\)</span>.</p></li>
+</ul>
+<p class="sd-card-text">Чем меньше <span class="math notranslate nohighlight">\(T,\)</span> тем ярче выражен максимум. Чем больше <span class="math notranslate nohighlight">\(T\)</span>, тем мы ближе к равномерному распределению.</p>
 </div>
 </details><p><strong>б)</strong> Какое распределение получится при <span class="math notranslate nohighlight">\(T \to 0\)</span>? А при <span class="math notranslate nohighlight">\(T \to \infty\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -635,6 +763,8 @@ f(z) =  \frac{e^{\tfrac{z_i}{T}}}{ \sum_{k=1}^K e^{\tfrac{z_k}{T}}}
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(T \to \infty\)</span>, тогда <span class="math notranslate nohighlight">\(e^{\tfrac{z_i}{T}} \to 1\)</span>. Получется, что в нашем векторе все три числа при бесконечном <span class="math notranslate nohighlight">\(T\)</span> примут значение <span class="math notranslate nohighlight">\(1/3,\)</span> то есть мы получим равномерное распределение.</p>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(T \to 0,\)</span> мы получим распределение полностью сосредоточенное в исходе с максимальным весом. Это видно из численного примера из пункта <strong>а).</strong></p>
 </div>
 </details><p><strong>в)</strong> Предположим, что объектов на порядок больше. Например, это реплики, которые Алиса может сказать вам в ответ на какую-то фразу.  Понятное дело, что вашей фразе будет релевантно какое-то подмножество ответов. Какое значение температуры сэмплирования <span class="math notranslate nohighlight">\(T\)</span> смогут сделать реплики Алисы непредсказуемыми? А какие сделают их однотипными?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -644,8 +774,16 @@ f(z) =  \frac{e^{\tfrac{z_i}{T}}}{ \sum_{k=1}^K e^{\tfrac{z_k}{T}}}
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Маленькие значения <span class="math notranslate nohighlight">\(T\)</span> сделают Алису однотипной, а большие разнообразной. Понятное дело, что если распределение окажется близким к равномерному, Алиса будет нести несвязную чушь. Параметр <span class="math notranslate nohighlight">\(T\)</span> аккуратно подбирают после обучения нейронной сетки.</p>
+<p class="sd-card-text">При од­них и тех же весах модели сэмплирование с высокой температурой будет более разнообразным, в том числе часто совершенно случайным, а сэмплирование с низкой температурой будет более устойчивым, чаще будет выдавать одно и то же при похожих входах.</p>
 </div>
-</details></section>
+</details><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="nik-note"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p>По мотивам книги Николенко “Глубокое обучение” (стр. 266-267)</p>
+</dd>
+</dl>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -674,6 +812,20 @@ f(z) =  \frac{e^{\tfrac{z_i}{T}}}{ \sum_{k=1}^K e^{\tfrac{z_k}{T}}}
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="problem_05.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">5. ReLU и её друзья</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_07.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">7. Картинки с потерями</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

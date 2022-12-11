@@ -10,7 +10,7 @@ $$
 
 ```{figure} ../images/problem_set_03/img06_task.png
 ---
-height: 180px
+width: 95%
 name: one_dim_nn
 ---
 ```
@@ -24,11 +24,11 @@ name: one_dim_nn
 ```{dropdown} Решение
 Для начала запишем алгоритм в общем виде. Для этого нам надо взять схему из предыдущей задачи и записать там все производные. Для сигмоиды $\sigma'(t) = \sigma(t) \cdot (1 - \sigma(t)).$ Прямой проход по нейронной сети (forward pass):
 
-<img src="../images/problem_set_03/img06_pass1.png" alt="dobronet_forward" height="80px" align="center">
+<img src="../images/problem_set_03/img06_pass1.png" alt="dobronet_forward" width="95%" align="center">
 
 Обратный проход по нейронной сети (backward pass):
 
-<img src="../images/problem_set_03/img06_pass2.png" alt="dobronet_forward" height="120px" align="center">
+<img src="../images/problem_set_03/img06_pass2.png" alt="dobronet_forward" width="95%" align="center">
 
 По аналогии с предыдущей задачей выпишем формулы для обратного распространения ошибки. **На третьем слое:**
 
@@ -43,7 +43,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_3^T * O_2 * (1 - O_2)  \\
+		&  d = d \cdot W_3^T \odot O_2 \odot (1 - O_2)  \\
 		&  \frac{\partial MSE}{\partial W_2} = O_1^T \cdot d \\
 	\end{aligned}
 \end{equation*}
@@ -52,7 +52,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_2^T * O_1 * (1 - O_1)  \\
+		&  d = d \cdot W_2^T \odot O_1 \odot (1 - O_1)  \\
 		&  \frac{\partial MSE}{\partial W_1} = X^T \cdot d \\
 	\end{aligned}
 \end{equation*}
@@ -86,7 +86,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_3^T * O_2 * (1 - O_2) = -1 \cdot  (0, 0) * (0.5, 0.5) * (0.5, 0.5) = (0, 0) \\
+		&  d = d \cdot W_3^T * O_2 * (1 - O_2) = -1 \cdot  (0, 0) \odot (0.5, 0.5) \odot (0.5, 0.5) = (0, 0) \\
 		&  \frac{\partial MSE}{\partial W_2} = O_1^T \cdot d = \begin{pmatrix} 0.5 \\ 0.5 \end{pmatrix} \cdot (0, 0) = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \\
 	\end{aligned}
 \end{equation*}
@@ -95,7 +95,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_2^T * O_1 * (1 - O_1) = (0, 0) \cdot  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} * (0.5, 0.5) * (0.5, 0.5) = (0, 0) \\
+		&  d = d \cdot W_2^T \odot O_1 \odot (1 - O_1) = (0, 0) \cdot  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \odot (0.5, 0.5) \odot (0.5, 0.5) = (0, 0) \\
 		&  \frac{\partial MSE}{\partial W_1} = X^T \cdot d = \begin{pmatrix} 5 \\ 2 \end{pmatrix} \cdot (0, 0) = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \\
 % 		& W_1^1 = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} - 1 \cdot \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
 	\end{aligned}
@@ -113,7 +113,7 @@ name: one_dim_nn
 
 **Сделаем шаг SGD для первого наблюдения.** Делаем прямое распространение для второго наблюдения, напомним, что матрицы весов инициализированы нулями:
 
-<img src="../images/problem_set_03/img06_pass4.png" alt="dobronet_forward" height="70px" align="center">
+<img src="../images/problem_set_03/img06_pass4.png" alt="dobronet_forward" width="95%" align="center">
 
 
 Делаем обратный проход. 
@@ -131,7 +131,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_3^T * O_2 * (1 - O_2) = 0.5 \cdot  (0.5, 0.5) * (0.5, 0.5) * (0.5, 0.5) = (1/16, 1/16) \\
+		&  d = d \cdot W_3^T \odot O_2 \odot (1 - O_2) = 0.5 \cdot  (0.5, 0.5) \odot (0.5, 0.5) \odot (0.5, 0.5) = (1/16, 1/16) \\
 		&  \frac{\partial MSE}{\partial W_2} = O_1^T \cdot d = \begin{pmatrix} 0.5 \\ 0.5 \end{pmatrix} \cdot (1/16, 1/16) = \begin{pmatrix} 1/32 & 1/32 \\ 1/32 & 1/32 \end{pmatrix} \\
 	\end{aligned}
 \end{equation*}
@@ -140,7 +140,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_2^T * O_1 * (1 - O_1) = (1/16, 1/16) \cdot  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} * (0.5, 0.5) * (0.5, 0.5) = (0, 0) \\
+		&  d = d \cdot W_2^T \odot O_1 \odot (1 - O_1) = (1/16, 1/16) \cdot  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \odot (0.5, 0.5) \odot (0.5, 0.5) = (0, 0) \\
 		&  \frac{\partial MSE}{\partial W_1} = X^T \cdot d = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (0, 0) = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \\
 	\end{aligned}
 \end{equation*}

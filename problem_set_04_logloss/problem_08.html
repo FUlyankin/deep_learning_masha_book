@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
+    <title>8. Модернизируем logloss &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,8 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Предсказание вероятностей*" href="problem_09.html" />
+    <link rel="prev" title="7. Картинки с потерями" href="problem_07.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_01_just_function/intro_01.html">
    Листочек 1: всего лишь функция
@@ -268,12 +272,69 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro_04.html">
+   Листочек 4: что выплёвывает нейросеть
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_01.html">
+     1. Сигмоида
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_02.html">
+     2. Логистические потери и softmax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_03.html">
+     3. Разные выходы нейросети и правдоподобие
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_04.html">
+     4. Гиперболический тангенс
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_05.html">
+     5. ReLU и её друзья
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_06.html">
+     6. Температура генерации
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_07.html">
+     7. Картинки с потерями
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8. Модернизируем logloss
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_09.html">
+     9. Предсказание вероятностей*
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
-   Листочек 6: свёрточные сети
+   Листочек 5: свёрточные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -330,44 +391,106 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
-   Листочек 5: нейросети – конструктор LEGO
+   Листочек 6: нейросети – конструктор LEGO
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_01.html">
+     1. Дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_02.html">
+     2. Регуляризация
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_03.html">
+     3. А вот и моя остановочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_04.html">
+     4. Нормализация по батчам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_08.html">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
    Листочек 7: рекуррентные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+     1. Из авторегрессии в RNN
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+     2. Туда и обратно
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+     3. Взрыв градиентов
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+     4. Число параметров
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_06.html">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -386,8 +509,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -480,35 +603,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/FUlyankin/deep_learning_masha_book/master?urlpath=tree/docs/images/problem_set_02.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -548,7 +642,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/FUlyankin/deep_learning_masha_book/issues/new?title=Issue%20on%20page%20%2Fimages/problem_set_02.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/FUlyankin/deep_learning_masha_book/issues/new?title=Issue%20on%20page%20%2Fproblem_set_04_logloss/problem_08.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -576,7 +670,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/images/problem_set_02.ipynb"
+        <a href="../_sources/problem_set_04_logloss/problem_08.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -587,7 +681,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="headerbtn__text-container">.md</span>
 </a>
 
       </li>
@@ -613,50 +707,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>8. Модернизируем logloss</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -664,108 +731,100 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">glob</span>
-<span class="c1"># import imageio</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">sts</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="c1"># plt.style.use(&#39;ggplot&#39;)   # Правильный стиль графиков   </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-whitegrid&#39;</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">([</span><span class="s1">&#39;#00A99D&#39;</span><span class="p">,</span> <span class="s1">&#39;#F5CA0C&#39;</span><span class="p">,</span> <span class="s1">&#39;#B6129F&#39;</span><span class="p">,</span> <span class="s1">&#39;#76620C&#39;</span><span class="p">,</span> <span class="s1">&#39;#095C57&#39;</span><span class="p">])</span>
-
-<span class="n">deep_grey</span> <span class="o">=</span> <span class="s1">&#39;#3B4856&#39;</span> <span class="c1"># основной тёмный / холодный цвет</span>
-<span class="n">sky_blue</span> <span class="o">=</span> <span class="s1">&#39;#348FEA&#39;</span>
-<span class="n">marine_green</span> <span class="o">=</span> <span class="s1">&#39;#4CB9C0&#39;</span>
-<span class="n">grass_green</span> <span class="o">=</span> <span class="s1">&#39;#97C804&#39;</span>
-<span class="n">medium_yellow</span> <span class="o">=</span> <span class="s1">&#39;#FFC100&#39;</span> <span class="c1"># основной светлый / тёплый цвет</span>
-<span class="n">sicilian_orange</span> <span class="o">=</span> <span class="s1">&#39;#E06A27&#39;</span>
-<span class="n">fuchsia_pink</span> <span class="o">=</span> <span class="s1">&#39;#C81D6B&#39;</span>
-<span class="n">saturated_violet</span> <span class="o">=</span> <span class="s1">&#39;#5002A7&#39;</span>
-<span class="n">navy_blue</span> <span class="o">=</span> <span class="s1">&#39;#292183&#39;</span>
-<span class="n">cool_white</span> <span class="o">=</span> <span class="s1">&#39;#F5FBFF&#39;</span>
-
-<span class="c1"># from matplotlib import rc</span>
-<span class="c1"># rc(&#39;text&#39;, usetex=True)</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="logloss">
+<h1>8. Модернизируем logloss<a class="headerlink" href="#logloss" title="Permalink to this headline">#</a></h1>
+<p><strong>а)</strong>  Маша построила для своей выбороки распределение таргета, чтобы понять насколько оно сбалансировано</p>
+<figure class="align-default" id="logloss-weight">
+<a class="reference internal image-reference" href="../_images/img08_balanced_logloss.png"><img alt="../_images/img08_balanced_logloss.png" src="../_images/img08_balanced_logloss.png" style="width: 50%;" /></a>
+</figure>
+<p>Обычно Маша минимизировала функцию потерь</p>
+<div class="math notranslate nohighlight">
+\[
+- \frac{1}{n} \sum_{i=1}^n (y_i \cdot \ln p_i + (1 - y_i) \cdot \ln( 1 - p_i)).
+\]</div>
+<p>В этот раз Маша решила минимизировать немного модернизированную функцию потерь</p>
+<div class="math notranslate nohighlight">
+\[
+- \frac{1}{n} \sum_{i=1}^n ({\color{red} 3 \cdot} y_i \cdot \ln p_i + {\color{red} 1 \cdot} (1 - y_i) \cdot \ln( 1 - p_i)) 
+\]</div>
+<p>Как думаете, зачем Маша сделал это?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Маша увидела, что в выборке есть серьёзный дисбаланс. Первый класс встречается в три раза реже нулевого. Из-за этого Мааш решила искусственно увеличить значение каждого слагаемого с <span class="math notranslate nohighlight">\(\ln p_i\)</span> для первого класса в три раза.</p>
+<p class="sd-card-text">Если хочется сделать такое в <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, можно внутри <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> поставить <code class="docutils literal notranslate"><span class="pre">weighted</span> <span class="pre">=</span> <span class="pre">'balanced'</span></code>. Тогда он сам рассчитает насколько велик дисбаланс в тренировочной выборке и увеличит одно из слагаемых.</p>
+<p class="sd-card-text">Если целевой класс встречается редко, наша модель может довольно сильно деградировать и начать везде выдавать нули.</p>
 </div>
+</details><p><strong>б)</strong> Маша прочитала в статье про функцию потерь Focal Loss.<a class="footnote-reference brackets" href="#fl-note" id="id1">1</a> Её обычно используют при решении задачи детекции изображений.</p>
+<p>Важной частью всех детекторов изображений является решение задачи классификации для большого количества участков изображения. При этом многие из этих участков (патчей) содержат только фон, то есть преобаладает класс «фон». Многие из изображений фона легко классифицируются как фон.</p>
+<p>То есть возникает много примеров одного из классов, которые при этом и так легко классифицируются моделью. Из-за этого при использовании логистической функции поетрь, мы неэффективно учимся. Введем обозначение</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+p_t = \begin{cases} p, &amp; \mbox{if } y = 1 \\ 1 - p, &amp; \mbox{if } y = 0 \end{cases}
+\end{split}\]</div>
+<p>В логистической функции потерь мы находим штраф по формуле</p>
+<div class="math notranslate nohighlight">
+\[
+CE(p_t) = - \ln (p_t),
+\]</div>
+<p>в случае focal loss штраф считается по формуле</p>
+<div class="math notranslate nohighlight">
+\[
+FL(p_t) = - \alpha_t (1 - p_t)^\gamma \ln p_t.
+\]</div>
+<p>Как думаете, за что отвечают параметры <span class="math notranslate nohighlight">\(\alpha\)</span> и <span class="math notranslate nohighlight">\(\gamma\)</span>? Как они помогают решить проблему преобладания класса с фоном?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Классическую логистическую функцию потерь в задаче бинарной классификации можно записать следующим образом:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+CE(y, p) = \begin{cases} - \ln (p), &amp; \mbox{if }  y = 1 \\ - \ln (1-p), &amp; \mbox{if } y = 0. \end{cases}
+\end{split}\]</div>
+<p class="sd-card-text">Можно записать функцию потерь через <span class="math notranslate nohighlight">\(p_t\)</span> как</p>
+<div class="math notranslate nohighlight">
+\[
+CE(y, p) = CE(p_t) = - \ln (p_t)
+\]</div>
+<p class="sd-card-text">В случае, когда <span class="math notranslate nohighlight">\(p_t \gg 0.5\)</span> объект классифицируется правильно, ошибка хоть и мала, но всё ещё ненулевая, а в случае большого количества простых для классификации примеров преобладающий класс может “задавить” более редкий в функции потерь. Модель будет учиться для этих объектов предсказывать всё более близкие к 1 вероятности вместо того, чтобы лучше классифицировать объекты более редкого класса.</p>
+<p class="sd-card-text">Одним из вариантов борьбы с эффектом несбалансированных классов является добавление балансирующего коэффициента. В таком случае <span class="math notranslate nohighlight">\(CE(p_t) = - \alpha_t \ln p_t\)</span>, где</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\alpha_t = \begin{cases} \alpha, &amp; \mbox{if } y = 1 \\ 1 - \alpha, &amp; \mbox{if } y = 0 \end{cases}
+\end{split}\]</div>
+<p class="sd-card-text">Значение <span class="math notranslate nohighlight">\(\alpha \in (0, 1).\)</span> Обычно этот коэффициент пропорционален балансу классов и, таким образом, в функции потерь объекты редкого класса начинают «весить» столько же, сколько и объекты популярного класса.</p>
+<p class="sd-card-text">Однако в этом случае всё ещё «лёгкие» для модели объекты из-за своего количества могут перебивать «сложные» примеры. Можно модифицировать исходную формулу добавлением коэффициента, зависящего от предсказаний:</p>
+<div class="math notranslate nohighlight">
+\[
+FL(p_t) = - (1 - p_t)^\gamma \ln p_t, \gamma \in [0, 5].
+\]</div>
+<p class="sd-card-text">При <span class="math notranslate nohighlight">\(\gamma = 0\)</span> это всё ещё стандартная логистическая функция потерь, а для других значений получаем, что вес объекта зависит от того, насколько модель уверена в своих предсказаниях. В таком случае при обучении модель будет меньше стремиться «дотюниваться» под популярные и «лёгкие» примеры.</p>
+<p class="sd-card-text">Также можно использовать коэффициент для баланса между классами:</p>
+<div class="math notranslate nohighlight">
+\[
+FL(p_t) = - \alpha_t (1 - p_t)^\gamma \ln p_t.
+\]</div>
+<p class="sd-card-text">На картинке представлен вид focal loss для различных значений параметра <span class="math notranslate nohighlight">\(\gamma\)</span> и логистическая функция потерь (<span class="math notranslate nohighlight">\(\gamma = 0\)</span>). Можно увидеть, что в правой части графика, когда модель уверена в предсказаниях, штраф тем меньше, чем больше <span class="math notranslate nohighlight">\(\gamma\)</span>.<a class="footnote-reference brackets" href="#fc-sol" id="id2">2</a></p>
+<a class="reference internal image-reference" href="../_images/img08_focal_loss.png"><img alt="dobronet_forward" class="align-center" src="../_images/img08_focal_loss.png" style="width: 95%;" /></a>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mse</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">mse_grad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-
-<span class="n">grad_full</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">mse_grad</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="n">mse_grad</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">grad_full</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">w0</span><span class="p">)</span> <span class="o">+</span> <span class="n">mse</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span>
-
-<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_dots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.6</span><span class="p">])</span>
-<span class="n">y_dots</span> <span class="o">=</span> <span class="n">mse</span><span class="p">(</span><span class="n">x_dots</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">mse</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span> 
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_dots</span><span class="p">,</span> <span class="n">y_dots</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">fuchsia_pink</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-
-<span class="c1"># w_dots = np.array([0, 0.8, 1.2, 1.4])</span>
-<span class="n">w_dots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.28</span><span class="p">,</span> <span class="mf">1.424</span><span class="p">,</span> <span class="mf">1.4848</span><span class="p">])</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">w_dots</span><span class="p">,</span> <span class="n">mse</span><span class="p">(</span><span class="n">w_dots</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">sky_blue</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1"># for ww in w_dots:</span>
-<span class="c1">#     plt.vlines(x = ww, ymin = 0, ymax = mse(ww), linestyle=&#39;--&#39;, lw=2, color=sky_blue)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$w$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$MSE(w)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span> <span class="o">=</span> <span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/problem_set_02_2_0.png" src="../_images/problem_set_02_2_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 3
-2 7
-3 15
-4 31
-5 63
-6 127
-7 255
-8 511
-9 1023
-</pre></div>
-</div>
-</div>
-</div>
+</details><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="fl-note"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p><a class="reference external" href="https://arxiv.org/pdf/1708.02002.pdf">Focal Loss for Dense Object Detection</a></p>
+</dd>
+<dt class="label" id="fc-sol"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Решение задачи про Focal Loss я взял из <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2021-spring/seminars/sem21-multilabel.pdf">семинара по МО-2 с ФКН</a></p>
+</dd>
+</dl>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -780,7 +839,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./images"
+            path: "./problem_set_04_logloss"
         },
         predefinedOutput: true
     }
@@ -794,6 +853,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="problem_07.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">7. Картинки с потерями</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_09.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">9. Предсказание вероятностей*</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
