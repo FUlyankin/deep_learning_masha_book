@@ -324,7 +324,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="problem_09.html">
-     8. предсказание вероятностей
+     9. Предсказание вероятностей*
     </a>
    </li>
   </ul>
@@ -391,14 +391,9 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
    Листочек 6: нейросети – конструктор LEGO
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
-   Листочек 7: рекуррентные сети
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -407,28 +402,95 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_01.html">
+     1. Дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_02.html">
+     2. Регуляризация
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_03.html">
+     3. А вот и моя остановочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_04.html">
+     4. Нормализация по батчам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_08.html">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
+   Листочек 7: рекуррентные сети
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+     1. Из авторегрессии в RNN
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+     2. Туда и обратно
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+     3. Взрыв градиентов
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+     4. Число параметров
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_06.html">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -447,8 +509,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -693,7 +755,7 @@ ReLU'(t) = \begin{cases} 1, \quad t \ge 0 \\ 0, \quad t &lt; 0.\end{cases}
 \[
 H = max(XW + b, 0).
 \]</div>
-<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(b\)</span> инициализировано большим отрицательным числом, нейрон сразу умирает. Чтобы этого не произошло, нужно инициализировать константу <span class="math notranslate nohighlight">\(b\)</span> перед обучением каким-то большим числом. На практике оказывается, что ReLU работает довольно хорошо.</p>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(b\)</span> инициализировано отрицательным числом, нейрон сразу умирает. Чтобы этого не произошло, нужно инициализировать константу <span class="math notranslate nohighlight">\(b\)</span> перед обучением каким-то большим положительным числом. На практике оказывается, что ReLU работает довольно хорошо.</p>
 </div>
 </details><p><strong>б)</strong> Как у ReLU дела с центированием относительно нуля?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -748,7 +810,7 @@ LReLU'(t) = \begin{cases} 1, \quad t \ge 0 \\ -0.3, \quad t &lt; 0.\end{cases}
 \[\begin{split}
 ELU'(t) = \begin{cases} 1, &amp;t \ge 0 \\ \alpha \cdot e^t, &amp;t &lt; 0.  \end{cases}
 \end{split}\]</div>
-<p class="sd-card-text">Первую строку можно переписать как <span class="math notranslate nohighlight">\(ELU(t) + \alpha\)</span> для экономии вычислений. Нарисуем функцию активации и её производную на графике.</p>
+<p class="sd-card-text">Вторую строку можно переписать как <span class="math notranslate nohighlight">\(ELU(t) + \alpha\)</span> для экономии вычислений. Нарисуем функцию активации и её производную на графике.</p>
 <a class="reference internal image-reference" href="../_images/img05_leaky_elu.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_leaky_elu.png" style="width: 95%;" /></a>
 <p class="sd-card-text">На отрицательных значениях аргумента функция активации становится экспоненциальной. Идея функции активации заключается в том, чтобы сочетать в одной функции наличие отрицательных значений и их быстрое насыщение при дальнейшем уменьшении аргумента. Благодаря этому активация на отрицательных значениях не уходит далеко от нуля и сохраняется разреженность.</p>
 <p class="sd-card-text">Также такая функция будет примерно центрирована относительно нуля (в терминах математического ожидания). На практек оказывается, что ELU ускоряет сходимость глубоких нейронных сетей.<a class="footnote-reference brackets" href="#statia" id="id1">1</a></p>
@@ -773,7 +835,7 @@ f(t) = \lambda \cdot \begin{cases} t, t \ge 0 \\ \alpha \cdot (e^t - 1), t &lt; 
 <p class="sd-card-text">Если вы используете SELU, важно не забыть поставить в качестве инициализатора весов инициализацию Лякуна. Если вы собираетесь использовать Dropout, лучше взять AlphaDropout. Это разновидность dropout, которая поддерживает нулевое среднее и единичную дисперсию.</p>
 <p class="sd-card-text">В таком случае самонормализация будет работать корректно. Подробнее про инициализацию и Dropout мы поговорим в одном из следующих листочков.</p>
 </div>
-</details><p><strong>е)</strong> В 2017 году учёные из Google Google Brain хитрым автоматическим поиском на основе RNN нашли функции активации Swish.<a class="footnote-reference brackets" href="#statia4" id="id3">3</a></p>
+</details><p><strong>е)</strong> В 2017 году учёные из Google Google Brain хитрым автоматическим поиском на основе RNN нашли функцию активации Swish.<a class="footnote-reference brackets" href="#statia4" id="id3">3</a></p>
 <div class="math notranslate nohighlight">
 \[
 Swish(t) = t \cdot \sigma(\beta \cdot t).
@@ -791,13 +853,13 @@ Swish(t) = t \cdot \sigma(\beta \cdot t).
 <p class="sd-card-text">Swish – гладкий вариант ReLU с гейтом. <strong>Гейтами</strong> в нейросетях называют «ворота», которые во время обучения настраиваются либо пропускать либо не пропускать информацию по какому-то маршруту.</p>
 <p class="sd-card-text">Давайте попробуем сделать перебор параметра <span class="math notranslate nohighlight">\(\beta\)</span> и нарисуем несколько вариантов функции.</p>
 <a class="reference internal image-reference" href="../_images/img05_swish.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_swish.png" style="width: 95%;" /></a>
-<p class="sd-card-text">При <span class="math notranslate nohighlight">\(\beta \to 0\)</span> мы получаем линейную функцию <span class="math notranslate nohighlight">\(\frac{t}{2}.\)</span> При <span class="math notranslate nohighlight">\(\beta \to \infty\)</span> сигмоида превращается в ступеньку и принимает значение либо <span class="math notranslate nohighlight">\(0\)</span> либо <span class="math notranslate nohighlight">\(1\)</span>. Получается ReLU.</p>
+<p class="sd-card-text">При <span class="math notranslate nohighlight">\(\beta \to 0\)</span> мы получаем линейную функцию <span class="math notranslate nohighlight">\(\frac{t}{2}.\)</span> При <span class="math notranslate nohighlight">\(\beta \to \infty\)</span> сигмоида превращается в ступеньку и принимает значение либо <span class="math notranslate nohighlight">\(0\)</span> либо <span class="math notranslate nohighlight">\(1\)</span>. Из-за домножения на <span class="math notranslate nohighlight">\(t\)</span> получается ReLU.</p>
 <p class="sd-card-text">Параметр <span class="math notranslate nohighlight">\(\beta\)</span> обучается и выбирает позицию между этих двух крайностей и решает, нужна ли слою активация или нет.</p>
 </div>
 </details><p>Конечно же, на этом учёные не остановились и продолжили придумывать более интересные функции активации. В 2019 году они опять начали заниматься перебором и получили соперника Swish под названием Mish.<a class="footnote-reference brackets" href="#statia5" id="id4">4</a></p>
 <p>В 2021 году учёные попробовали обобщить все эти функции, а потом получить из этого обобщения что-нибудь интересное. Так родилось целое семейство саморегулирующихся функций активации, ACON (Activate or Not), а для исследования открылась целая область.<a class="footnote-reference brackets" href="#statia6" id="id5">5</a></p>
-<p><strong>Это, конечно всё офигенно, а что делать на практике?</strong> Начните с ReLU, аккуратно инициализируйте веса и настраивайте скорость обучения. Дальше имеет смысл попробовать ELU/SELU. Если есть время на эксперименты, можно попробовать что-то более экстравагантное. Довольно приятно заменить одну функцию активации на другую и выиграть в скоре целый процент.</p>
-<p>Ни в коем случае не используйте тангенс и сигмоиду. Также можно почитать небольшой обзор функций активации.<a class="footnote-reference brackets" href="#statia3" id="id6">6</a></p>
+<p><strong>Это, конечно всё офигенно, а что делать на практике?</strong> Начните с ReLU, аккуратно инициализируйте веса и настраивайте скорость обучения. Дальше имеет смысл попробовать ELU/SELU. Если есть время на эксперименты, можно попробовать что-то более экстравагантное. Довольно приятно заменить одну функцию активации на другую и выиграть в качестве целый процент. Ни в коем случае не используйте тангенс и сигмоиду.</p>
+<p>Также почитайте небольшой обзор функций активации.<a class="footnote-reference brackets" href="#statia3" id="id6">6</a></p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="statia"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>

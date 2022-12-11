@@ -317,6 +317,16 @@ const thebe_selector_output = ".output, .cell_output"
      7. Картинки с потерями
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_08.html">
+     8. Модернизируем logloss
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_09.html">
+     9. Предсказание вероятностей*
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -381,14 +391,9 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
    Листочек 6: нейросети – конструктор LEGO
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
-   Листочек 7: рекуррентные сети
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -397,28 +402,95 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_01.html">
+     1. Дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_02.html">
+     2. Регуляризация
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_03.html">
+     3. А вот и моя остановочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_04.html">
+     4. Нормализация по батчам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_08.html">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
+   Листочек 7: рекуррентные сети
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+     1. Из авторегрессии в RNN
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+     2. Туда и обратно
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+     3. Взрыв градиентов
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+     4. Число параметров
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_06.html">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -437,8 +509,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -664,7 +736,7 @@ title="Print to PDF"
 <p>Маша решает задачу классификации. Она закодировала классы единичками и нулями. Логистическая функция потерь для одного наблюдения будет выглядеть как</p>
 <div class="math notranslate nohighlight">
 \[
-logloss =  -(y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i)).
+\text{logloss} =  -(y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i)).
 \]</div>
 <p>Под <span class="math notranslate nohighlight">\(p_i\)</span> имеется в виду <span class="math notranslate nohighlight">\(\mathbb{P}(y_i = 1 \mid x)\)</span>.</p>
 <p><strong>а)</strong> Нарисуйте логистические потери для <span class="math notranslate nohighlight">\(y_i = 1\)</span> и <span class="math notranslate nohighlight">\(y_i = 0\)</span> на графике. По оси абсцисс отложите <span class="math notranslate nohighlight">\(p_i\)</span>, а по оси ординат значение функции потерь. Объясните, зачем от <span class="math notranslate nohighlight">\(p_i\)</span> нужно брать логарифм. Почему нельзя оптимизировать вместо logloss функцию</p>
@@ -685,7 +757,7 @@ logloss =  -(y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i)).
 <p class="sd-card-text">Если мы сделаем штраф линейным, у такой функции потерь будет много проблем. Во-первых, пропадает нелинейность. Прирост ошибки в каждой точке одинаковый. Нам бы хотелось за мелкие ошибки штрафовать несерьёзно.</p>
 <p class="sd-card-text">Во-вторых, из-за линейности такую функцию сложно оптимизировать. В-третьих, выхлоп модели нельзя будет интерпретировать как <span class="math notranslate nohighlight">\(\mathbb{P}(y = 1 \mid x).\)</span> Это можно формально доказать. Мы займёмся этим в последней задачке этого листочка.</p>
 </div>
-</details><p>У Маши три наблюдения, первое наблюдение — кит, остальные — муравьи. Киты кодируются <span class="math notranslate nohighlight">\(y_i = 1\)</span>, муравьи — <span class="math notranslate nohighlight">\(y_i = 0\)</span>.  В качестве регрессоров Маша берёт номера наблюдений <span class="math notranslate nohighlight">\(x_i = i\)</span>. После этого Маша оценивает логистическую регрессию с константой. В качестве функции потерь используются логистические потери.<a class="footnote-reference brackets" href="#mynotebb" id="id1">1</a></p>
+</details><p>У Маши три наблюдения, первое наблюдение — кит, остальные — муравьи. Киты кодируются как <span class="math notranslate nohighlight">\(y_i = 1\)</span>, муравьи как <span class="math notranslate nohighlight">\(y_i = 0\)</span>.  В качестве регрессоров Маша берёт номера наблюдений <span class="math notranslate nohighlight">\(x_i = i\)</span>. После этого Маша оценивает логистическую регрессию с константой. В качестве функции потерь используются логистические потери.<a class="footnote-reference brackets" href="#mynotebb" id="id1">1</a></p>
 <p><strong>б)</strong> Выпишите для данной задачи функцию потерь, которую минимизирует Маша.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -706,12 +778,12 @@ logloss =  -(y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i)).
 <p class="sd-card-text">Мы будем опимизировать логистические потери, то есть</p>
 <div class="math notranslate nohighlight">
 \[
-logloss = -\frac{1}{n} \sum_{i=1}^n \left( y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i) \right).
+\text{logloss} = -\frac{1}{n} \sum_{i=1}^n \left( y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i) \right).
 \]</div>
 <p class="sd-card-text">Подставим наблюдения и получим</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
-logloss = -\frac{1}{3} \cdot (\ln p_1 + \ln(1 - p_2) + \ln(1 - p_3)) = \\ = -\frac{1}{3} \cdot \left( \ln\sigma(w_0 + w_1) + \ln \sigma(-(w_0 + 2 \cdot w_1)) + \ln \sigma(-(w_0 + 3 \cdot w_1)) \right).
+\text{logloss} = -\frac{1}{3} \cdot (\ln p_1 + \ln(1 - p_2) + \ln(1 - p_3)) = \\ = -\frac{1}{3} \cdot \left( \ln\sigma(w_0 + w_1) + \ln \sigma(-(w_0 + 2 \cdot w_1)) + \ln \sigma(-(w_0 + 3 \cdot w_1)) \right).
 \end{multline*}\]</div>
 <p class="sd-card-text">Мы воспользовались тем, что <span class="math notranslate nohighlight">\(\sigma(-t) = 1 - \sigma(t).\)</span></p>
 </div>
@@ -751,14 +823,14 @@ logloss = -\frac{1}{3} \cdot (\ln p_1 + \ln(1 - p_2) + \ln(1 - p_3)) = \\ = -\fr
 <p class="sd-card-text">Логистические потери для <span class="math notranslate nohighlight">\(K\)</span> классов можно записать как</p>
 <div class="math notranslate nohighlight">
 \[
-logloss =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{w_k^Tx_i}}{\sum_{j=1}^{K} e^{w_j^Tx_i}}.
+\text{logloss} =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{w_k^Tx_i}}{\sum_{j=1}^{K} e^{w_j^Tx_i}}.
 \]</div>
 <p class="sd-card-text">Здесь <span class="math notranslate nohighlight">\([y_i = k]\)</span> принимает значение равное единице, когда <span class="math notranslate nohighlight">\(y_i = k,\)</span> в остальных случаях это ноль.</p>
 <p class="sd-card-text">Иногда числа, которые выплёвывает softmax слой интерпретируют как вероятность. Так можно делать не всегда. Выход нейросети всегда можно откалибровать так, чтобы он стал вероятностью.</p>
 <p class="sd-card-text">В задаче классификации откалиброванным алгоритмом называют такой алгоритм, для которого доля положительных примеров (на основе реальных меток классов) для предсказаний в окрестности произвольной вероятности <span class="math notranslate nohighlight">\(p\)</span> совпадает с этим значением <span class="math notranslate nohighlight">\(p\)</span>. Например, если взять объекты, для которых предсказанные вероятности близки к 0.7, то окажется, что среди них 70% принадлежат положительному классу.</p>
 <p class="sd-card-text">Подробнее про калибровку алгоритмов можно почитать <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2022-fall/seminars/sem06-probs-quantile.pdf">в конспекте по МО-1 с ФКН.</a></p>
 </div>
-</details><p><strong>д)</strong> Маша уже обучила нейронную сетку и хочет построить прогнозы для двух наблюдений. Слой, который находится перед <span class="math notranslate nohighlight">\(softmax\)</span> выдал для этих двух наблюдений следующий результат: <span class="math notranslate nohighlight">\((1, -2, 0)\)</span> и <span class="math notranslate nohighlight">\((0.5, -1, 0)\)</span>.</p>
+</details><p><strong>д)</strong> Маша уже обучила нейронную сетку и хочет построить прогнозы для двух наблюдений. Слой, который находится перед softmax выдал для этих двух наблюдений следующий результат: <span class="math notranslate nohighlight">\((1, -2, 0)\)</span> и <span class="math notranslate nohighlight">\((0.5, -1, 0)\)</span>.</p>
 <p>Чему равны вероятности получить кита, муравья и бобра для этих двух наблюдений?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -778,7 +850,7 @@ logloss =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{
 \left( \frac{e^{0.5}}{e^{0.5} + e^{-1} + e^{0}}, \frac{e^{-1}}{e^{0.5} + e^{-1} + e^{0}}, \frac{e^{0}}{e^{0.5} + e^{-1} + e^{0}} \right) \approx (0.55, 0.12, 0.33).
 \]</div>
 </div>
-</details><p><strong>е)</strong> Пусть первым был кит, а вторым бобёр.  Чему будет равна <span class="math notranslate nohighlight">\(logloss\)</span>-ошибка?</p>
+</details><p><strong>е)</strong> Пусть первым был кит, а вторым бобёр.  Чему будет равна logloss-ошибка?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -792,7 +864,7 @@ logloss =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{
 -\frac{1}{2} \cdot \left(\ln 0.7 + \ln 0.33 \right).
 \]</div>
 </div>
-</details><p><strong>ё)</strong> Объясните, почему <span class="math notranslate nohighlight">\(softmax\)</span>  считают сглаженным вариантом arg max.</p>
+</details><p><strong>ё)</strong>  Буква ё важна. Об этом вам скажут Лёв Толстой и Пафнутий Чебышёв. Объясните, почему softmax считают сглаженным вариантом arg max.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -802,7 +874,7 @@ logloss =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Softmax пытается заострить, преувеличить разницу между полученными значениями. Она выдаёт значения близкие к нулю для всех <span class="math notranslate nohighlight">\(z_j,\)</span> которые существенно меньше максимального. При этом softmax, в отличие от arg max, дифференцируема.</p>
 </div>
-</details><p><strong>ж)</strong>  Пусть у Маши есть два класса. Она хочет выучить нейросеть. Она может учить нейронку с одним выходом и сигмоидой в качестве функции активации либо нейронку с двумя выходами и <span class="math notranslate nohighlight">\(softmax\)</span> в качестве функции активации. Как выходы этих двух нейронок взаимосвязаны между собой?</p>
+</details><p><strong>ж)</strong>  Пусть у Маши есть два класса. Она хочет выучить нейросеть. Она может учить нейронку с одним выходом и сигмоидой в качестве функции активации либо нейронку с двумя выходами и softmax в качестве функции активации. Как выходы этих двух нейронок взаимосвязаны между собой?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -827,7 +899,7 @@ logloss =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{
 \]</div>
 <p class="sd-card-text">Получилось, что первый элемент представляет из себя вероятность того, что сетка выплюнула нулевой класс.</p>
 </div>
-</details><p><strong>з)</strong> Докажите, что <span class="math notranslate nohighlight">\(softmax(z + c) = softmax(z)\)</span>, где <span class="math notranslate nohighlight">\(c\)</span> — какая-то константа, прибавленная ко всем выходам слоя. Как этот факт позволяет сделать <span class="math notranslate nohighlight">\(softmax\)</span> численно устойчивой функцией и упростить для компьютера оптимизацию нейросети?</p>
+</details><p><strong>з)</strong> Докажите, что <span class="math notranslate nohighlight">\(\text{softmax}(z + c) = \text{softmax}(z)\)</span>, где <span class="math notranslate nohighlight">\(c\)</span> — какая-то константа, прибавленная ко всем выходам слоя. Как этот факт позволяет сделать <span class="math notranslate nohighlight">\(\text{softmax}\)</span> численно устойчивой функцией и упростить для компьютера оптимизацию нейросети?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -844,10 +916,10 @@ logloss =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{
 <p class="sd-card-text">Из-за этого, в нейросетях считают устойчивый к переполнению softmax</p>
 <div class="math notranslate nohighlight">
 \[
-softmax(z_1, \ldots, z_{K}) = softmax(z_1 - \max_i (z_i), \ldots, z_{K} - \max_i (z_i)).
+\text{softmax}(z_1, \ldots, z_{K}) = \text{softmax}(z_1 - \max_i (z_i), \ldots, z_{K} - \max_i (z_i)).
 \]</div>
 </div>
-</details><p><strong>и)</strong> Предположим, что на последнем слое найшей нейросети мы используем softmax. В качестве функции потерь мы используем logloss. Как будет Выглядеть производная <span class="math notranslate nohighlight">\(\frac{\partial logloss}{\partial z}\)</span>?</p>
+</details><p><strong>и)</strong> Предположим, что на последнем слое найшей нейросети мы используем softmax. В качестве функции потерь мы используем <span class="math notranslate nohighlight">\(\text{logloss}\)</span>. Как будет Выглядеть производная <span class="math notranslate nohighlight">\(\frac{\partial \text{logloss}}{\partial z}\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -855,7 +927,7 @@ softmax(z_1, \ldots, z_{K}) = softmax(z_1 - \max_i (z_i), \ldots, z_{K} - \max_i
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Нам надо найти производную <span class="math notranslate nohighlight">\(\frac{\partial logloss}{\partial z} = \frac{\partial logloss}{\partial p} \cdot \frac{\partial p}{\partial z}.\)</span> Будем рассуждать в терминах одного наблюдения. Начнём с softmax</p>
+<p class="sd-card-text">Нам надо найти производную <span class="math notranslate nohighlight">\(\frac{\partial \text{logloss}}{\partial z} = \frac{\partial \text{logloss}}{\partial p} \cdot \frac{\partial p}{\partial z}.\)</span> Будем рассуждать в терминах одного наблюдения. Начнём с softmax</p>
 <div class="math notranslate nohighlight">
 \[
 p_i = \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}.
@@ -883,7 +955,7 @@ p_i = \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}.
 <p class="sd-card-text">Давайте для удобства перепишем метки классов в OHE виде. Если <span class="math notranslate nohighlight">\(y_i = k,\)</span> мы будем представлять его в виде вектора, где на <span class="math notranslate nohighlight">\(k-\)</span>ой позиции стоит единица. Остальные элементы будут нулевыми. В этом пункте везде под <span class="math notranslate nohighlight">\(y_i\)</span> мы будем иметь в виду такой вектор. Для одного наблюдения logloss можно записать как</p>
 <div class="math notranslate nohighlight">
 \[
-logloss = -\sum_{k=1}^K y_i \cdot \ln p_i.
+\text{logloss} = -\sum_{k=1}^K y_i \cdot \ln p_i.
 \]</div>
 <p class="sd-card-text">Берём производную</p>
 <div class="amsmath math notranslate nohighlight">
@@ -901,7 +973,7 @@ logloss = -\sum_{k=1}^K y_i \cdot \ln p_i.
 	&amp;= p_j \left( y_j +  \sum_{k \ne j} y_k\right) - y_j \\
 	&amp;= p_j \sum_{k = 1}^K y_k  - y_j = p_j - y_j.
 \end{align*}\]</div>
-<p class="sd-card-text">Функция logloss бьёт из векторов <span class="math notranslate nohighlight">\(z\)</span> в константы. Производной будет вектор размера <span class="math notranslate nohighlight">\(K\)</span>. Ровно такой вектор у нас и получается, то есть <span class="math notranslate nohighlight">\(p - y\)</span>.</p>
+<p class="sd-card-text">Функция <span class="math notranslate nohighlight">\(\text{logloss}\)</span> бьёт из векторов <span class="math notranslate nohighlight">\(z\)</span> в константы. Производной будет вектор размера <span class="math notranslate nohighlight">\(K\)</span>. Ровно такой вектор у нас и получается, то есть <span class="math notranslate nohighlight">\(p - y\)</span>.</p>
 <p class="sd-card-text">Мы нашли производную для одного наблюдения. Когда наблюдений становится много, мы должны просуммировать все потери по ним. Производная суммы будет равна сумме производных.</p>
 </div>
 </details><hr class="footnotes docutils" />

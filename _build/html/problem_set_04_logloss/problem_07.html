@@ -322,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="problem_09.html">
-     8. предсказание вероятностей
+     9. Предсказание вероятностей*
     </a>
    </li>
   </ul>
@@ -389,14 +389,9 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
    Листочек 6: нейросети – конструктор LEGO
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
-   Листочек 7: рекуррентные сети
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -405,28 +400,95 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_01.html">
+     1. Дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_02.html">
+     2. Регуляризация
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_03.html">
+     3. А вот и моя остановочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_04.html">
+     4. Нормализация по батчам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_08.html">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
+   Листочек 7: рекуррентные сети
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+     1. Из авторегрессии в RNN
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+     2. Туда и обратно
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+     3. Взрыв градиентов
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+     4. Число параметров
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_06.html">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -445,8 +507,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -669,13 +731,75 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>7. Картинки с потерями<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>Тут вставить разных картинок с потерями и вопросов поч они такими вышли</p>
-<ul class="simple">
-<li><p>с нормализацией и без</p></li>
-<li><p>с перемешиванием и без</p></li>
-<li><p>со взрывом градиентов</p></li>
-<li><p>???</p></li>
-</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Задачка не доделана. Я хочу собрать разных динамик функций потерь и посрашивать о том, что происходит на графиках. Оказалось, что сгенерировать подходящие данные сложновато.</p>
+</div>
+<p>Маша обучает нейросеть. На каждой эпохе она замеряет качество нейросети на обучающей и валидационной выборках и рисует картинки с динамикой качества модели. По оси абсцисс откладывается номер эпохи, по оси ординат откладывается значение функции потерь.</p>
+<p><strong>а)</strong> Во время обучения маша увидела следующие динамику потерь. Что означает такая динамика? Что Маше следует сделать?</p>
+<a class="reference internal image-reference" href="../_images/img07_loss_01.png"><img alt="dobronet_forward" class="align-center" src="../_images/img07_loss_01.png" style="width: 95%;" /></a>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Нормализация данных</p>
+</div>
+</details><p><strong>б)</strong> А что означает такая динамика? Что можно сделать, что с нейросеткой всё стало хорошо?</p>
+<a class="reference internal image-reference" href="../_images/img07_loss_02.png"><img alt="dobronet_forward" class="align-center" src="../_images/img07_loss_02.png" style="width: 95%;" /></a>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Переобучение + рання остановка</p>
+</div>
+</details><p><strong>в)</strong> А теперь?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Забыли перемешеть</p>
+</div>
+</details><p><strong>г)</strong> А тут?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Взрыв градиента</p>
+</div>
+</details><p><strong>д)</strong> А теперь?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Толи затухание толи доучились толи еще что …</p>
+</div>
+</details><p><strong>е)</strong> Маша Н. и Дима В. …</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">двойной спуск</p>
+</div>
+</details><p><strong>ё)</strong> Дима рассказал Маше как вчера обучал модель. Дима решал задачу бинарной классификации и обучал модель на логистические потери, logloss. Параллельно Дима наблюдал за тем, как ведёт себя доля правильных ответов, accuracy.</p>
+<p>На обучающей выборке accuracy и logloss всё время улучшались. На тесте, начиная с какой-то эпохи, logloss начал ухудшаться, но accuracy, при этом, продолжил улучшаться. Может ли такой быть или Дима врёт? Если да, почему это произошло и как можно это починить?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -684,7 +808,11 @@ title="Print to PDF"
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 </div>
-</details></section>
+</details><div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Хочется придумать примеров, где мы оптимизируем какую-то функцию потерь, а качество измеряем по ортогональной метрике и всё ломается.</p>
+</div>
+</section>
 
     <script type="text/x-thebe-config">
     {

@@ -1,4 +1,6 @@
 
+Да да, я настолько ленивый что даже не сделал каталог картинок и не написал к нему makefile
+
 images/problem_set_01/
 
 img01_regr, img01_dobronet,
@@ -19,11 +21,6 @@ img05_task, img05_forpass, img05_backpass
 
 
 
-
-
-
-
-
 xelatex img02_task.tex
 
 # https://formulae.brew.sh/formula/imagemagick
@@ -33,21 +30,7 @@ convert -density 600 -flatten -resize 50% img01.pdf img01.png
 convert -density 600  img01.pdf img01.png
 
 
-
-
-
-
-
-
-
 xelatex img01_gr1.tex 
 convert -density 600  img01_gr1.pdf img01_gr1.png
 
-
-
-
 rm -f *.log && rm -f *.aux
-
-
-
-в тест по 2 листочку: какая у Маши фамилия

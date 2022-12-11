@@ -1,0 +1,104 @@
+\documentclass[class=minimal,border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
+\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+\usepackage[utf8]{inputenc}          % utf8 кодировка
+
+% Основные шрифты 
+% \usepackage{fontspec}         
+% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
+
+% Математические шрифты 
+\usepackage{unicode-math}     
+\setmathfont[math-style=upright]{[Neo Euler.otf]} 
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% мои цвета https://www.artlebedev.ru/colors/
+\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
+% \definecolor{red}{rgb}{1,0,0.2} 
+% \definecolor{green}{rgb}{0,0.6,0} 
+\definecolor{purp}{rgb}{0.4,0,0.8} 
+
+\definecolor{blue}{RGB}{0,114,178}
+\definecolor{red}{RGB}{213,94,0}
+\definecolor{yellow}{RGB}{240,228,66}
+\definecolor{green}{RGB}{0,128, 0}
+
+\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
+\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
+
+
+% цвета из geogebra 
+\definecolor{litebrown}{rgb}{0.6,0.2,0}
+\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+	\begin{tikzpicture}
+		\tikzstyle{place}=[circle, draw=black, minimum size = 12mm]
+		\tikzstyle{placeh}=[minimum height=32pt,minimum width=32pt, inner sep=2pt, draw=black]
+		
+		\node at (-1.2,0.08) (here) {};
+		
+		\draw node at (0, 2) [place, fill=blue, opacity=0.1] (y) {$\hat y_{t-2}$};
+		\draw node at (0, 2) [place] {$\hat y_{t-2}$};  % мои костыли максимально всратые
+		\draw node at (0, 0) [placeh, fill=red, opacity=0.1] (h) {$h_{t-2}$};
+		\draw node at (0, 0) [placeh] {$h_{t-2}$};
+		\draw node at (0, -2) [place, fill=green, opacity=0.1] (x) {$x_{t-2}$};
+		\draw node at (0, -2) [place] {$y_{t-3}$};
+		
+		\draw [->]  (here) to (h);
+		\draw [->]  (x) to node[left]{$v$} (h);
+		\draw [->]  (h) to node[left]{$u$} (y);
+		
+		\draw node at (2, 2) [place, fill=blue, opacity=0.1] (y1) {$\hat y_{t-1}$};
+		\draw node at (2, 2) [place] {$\hat y_{t-1}$};  % мои костыли максимально всратые
+		\draw node at (2, 0) [placeh, fill=red, opacity=0.1] (h1) {$h_{t-1}$};
+		\draw node at (2, 0) [placeh] {$h_{t-1}$};
+		\draw node at (2, -2) [place, fill=green, opacity=0.1] (x1) {$x_{t-1}$};
+		\draw node at (2, -2) [place] {$y_{t-2}$};
+		
+		\draw [->]  (h) to node[above]{$w$} (h1);
+		\draw [->]  (x1) to node[left]{$v$} (h1);
+		\draw [->]  (h1) to node[left]{$u$} (y1);
+		
+		\draw node at (4, 2) [place, fill=blue, opacity=0.1] (y2) {$\hat y_{t}$};
+		\draw node at (4, 2) [place] {$\hat y_{t}$};  % мои костыли максимально всратые
+		\draw node at (4, 0) [placeh, fill=red, opacity=0.1] (h2) {$h_{t}$};
+		\draw node at (4, 0) [placeh] {$h_{t}$};
+		\draw node at (4, -2) [place, fill=green, opacity=0.1] (x2) {$x_{t}$};
+		\draw node at (4, -2) [place] {$y_{t-1}$};
+		
+		\draw [->]  (h1) to node[above]{$w$} (h2);
+		\draw [->]  (x2) to node[left]{$v$} (h2);
+		\draw [->]  (h2) to node[left]{$u$} (y2);
+		
+		\node at (5.2,0.08) (end) {};
+		\draw [->]  (h2) to node[above]{$w$} (end);
+		
+		\draw node at (4, 3.5)  (l2){$L_{t}$}; 
+		\draw node at (2, 3.5)  (l1){$L_{t-1}$};
+		\draw node at (0, 3.5)  (l){$L_{t-2}$};
+		\draw node at (2, 4.5)  (sl){$L$};
+		\draw [->]  (y) to  (l);
+		\draw [->]  (y1) to  (l1);
+		\draw [->]  (y2) to  (l2);		
+		\draw [->]  (l) to  (sl);	
+		\draw [->]  (l1) to  (sl);	
+		\draw [->]  (l2) to  (sl);
+		
+		\draw [->, red, line width=2.pt]  (sl) to  (l);	
+		\draw [->, red, line width=2.pt]  (sl) to  (l1);	
+		\draw [->, red, line width=2.pt]  (sl) to  (l2);
+
+		\draw [->, red, line width=2.pt]  (l2) to  (y2);
+		\draw [->, red, line width=2.pt]  (y2) to  (h2);
+	\end{tikzpicture}
+\end{document}

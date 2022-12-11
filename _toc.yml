@@ -58,24 +58,26 @@ chapters:
   - file: problem_set_05_conv/problem_09
   - file: problem_set_05_conv/problem_10
 - file: problem_set_06_lego/intro_06
-  # sections:
-  # - file: problem_set_06_lego/problem_01
-  # - file: problem_set_06_lego/problem_02
-  # - file: problem_set_06_lego/problem_03
-  # - file: problem_set_06_lego/problem_04
-  # - file: problem_set_06_lego/problem_05
-  # - file: problem_set_06_lego/problem_06
-  # - file: problem_set_06_lego/problem_07
-  # - file: problem_set_06_lego/problem_08
-  # - file: problem_set_06_lego/problem_09
-  # - file: problem_set_06_lego/problem_10
+  sections:
+  - file: problem_set_06_lego/problem_01
+  - file: problem_set_06_lego/problem_02
+  - file: problem_set_06_lego/problem_03
+  - file: problem_set_06_lego/problem_04
+  - file: problem_set_06_lego/problem_05
+  - file: problem_set_06_lego/problem_06
+  - file: problem_set_06_lego/problem_07
+  - file: problem_set_06_lego/problem_08
+  - file: problem_set_06_lego/problem_09
+  - file: problem_set_06_lego/problem_10
 - file: problem_set_07_rnn/intro_07
-  # sections:
-  # - file: problem_set_07_rnn/problem_01
-  # - file: problem_set_07_rnn/problem_02
-  # - file: problem_set_07_rnn/problem_03
-  # - file: problem_set_07_rnn/problem_04
-  # - file: problem_set_07_rnn/problem_05
+  sections:
+  - file: problem_set_07_rnn/problem_01
+  - file: problem_set_07_rnn/problem_02
+  - file: problem_set_07_rnn/problem_03
+  - file: problem_set_07_rnn/problem_04
+  - file: problem_set_07_rnn/problem_05
+  - file: problem_set_07_rnn/problem_06
+  - file: problem_set_07_rnn/problem_07
 - file: problem_set_08_embeddings/intro_08
   # sections:
   # - file: problem_set_07_rnn/problem_01

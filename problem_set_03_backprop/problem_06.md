@@ -43,7 +43,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_3^T * O_2 * (1 - O_2)  \\
+		&  d = d \cdot W_3^T \odot O_2 \odot (1 - O_2)  \\
 		&  \frac{\partial MSE}{\partial W_2} = O_1^T \cdot d \\
 	\end{aligned}
 \end{equation*}
@@ -52,7 +52,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_2^T * O_1 * (1 - O_1)  \\
+		&  d = d \cdot W_2^T \odot O_1 \odot (1 - O_1)  \\
 		&  \frac{\partial MSE}{\partial W_1} = X^T \cdot d \\
 	\end{aligned}
 \end{equation*}
@@ -86,7 +86,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_3^T * O_2 * (1 - O_2) = -1 \cdot  (0, 0) * (0.5, 0.5) * (0.5, 0.5) = (0, 0) \\
+		&  d = d \cdot W_3^T * O_2 * (1 - O_2) = -1 \cdot  (0, 0) \odot (0.5, 0.5) \odot (0.5, 0.5) = (0, 0) \\
 		&  \frac{\partial MSE}{\partial W_2} = O_1^T \cdot d = \begin{pmatrix} 0.5 \\ 0.5 \end{pmatrix} \cdot (0, 0) = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \\
 	\end{aligned}
 \end{equation*}
@@ -95,7 +95,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_2^T * O_1 * (1 - O_1) = (0, 0) \cdot  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} * (0.5, 0.5) * (0.5, 0.5) = (0, 0) \\
+		&  d = d \cdot W_2^T \odot O_1 \odot (1 - O_1) = (0, 0) \cdot  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \odot (0.5, 0.5) \odot (0.5, 0.5) = (0, 0) \\
 		&  \frac{\partial MSE}{\partial W_1} = X^T \cdot d = \begin{pmatrix} 5 \\ 2 \end{pmatrix} \cdot (0, 0) = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \\
 % 		& W_1^1 = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} - 1 \cdot \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}
 	\end{aligned}
@@ -131,7 +131,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_3^T * O_2 * (1 - O_2) = 0.5 \cdot  (0.5, 0.5) * (0.5, 0.5) * (0.5, 0.5) = (1/16, 1/16) \\
+		&  d = d \cdot W_3^T \odot O_2 \odot (1 - O_2) = 0.5 \cdot  (0.5, 0.5) \odot (0.5, 0.5) \odot (0.5, 0.5) = (1/16, 1/16) \\
 		&  \frac{\partial MSE}{\partial W_2} = O_1^T \cdot d = \begin{pmatrix} 0.5 \\ 0.5 \end{pmatrix} \cdot (1/16, 1/16) = \begin{pmatrix} 1/32 & 1/32 \\ 1/32 & 1/32 \end{pmatrix} \\
 	\end{aligned}
 \end{equation*}
@@ -140,7 +140,7 @@ name: one_dim_nn
 
 \begin{equation*} 
 	\begin{aligned}
-		&  d = d \cdot W_2^T * O_1 * (1 - O_1) = (1/16, 1/16) \cdot  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} * (0.5, 0.5) * (0.5, 0.5) = (0, 0) \\
+		&  d = d \cdot W_2^T \odot O_1 \odot (1 - O_1) = (1/16, 1/16) \cdot  \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \odot (0.5, 0.5) \odot (0.5, 0.5) = (0, 0) \\
 		&  \frac{\partial MSE}{\partial W_1} = X^T \cdot d = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \cdot (0, 0) = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix} \\
 	\end{aligned}
 \end{equation*}

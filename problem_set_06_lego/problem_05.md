@@ -1,15 +1,8 @@
 # 5. Нормализация VS дропаут
 
-
-родить задачу из статьи dropout vs batchnorm
-
-
-```{figure} ../images/problem_set_01/img01_regr.png
----
-width: 160px
-name: regression
----
-```
+::::{important}
+А вы знали, что бачнорм и дропаут конфликтуют? Хочется превратить вот эту статью в задачку: https://arxiv.org/pdf/1801.05134.pdf
+::::
 
 ```{dropdown} Решение
 

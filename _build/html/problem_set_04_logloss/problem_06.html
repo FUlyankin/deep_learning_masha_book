@@ -324,7 +324,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="problem_09.html">
-     8. предсказание вероятностей
+     9. Предсказание вероятностей*
     </a>
    </li>
   </ul>
@@ -391,14 +391,9 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
    Листочек 6: нейросети – конструктор LEGO
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
-   Листочек 7: рекуррентные сети
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -407,28 +402,95 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_01.html">
+     1. Дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_02.html">
+     2. Регуляризация
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_03.html">
+     3. А вот и моя остановочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_04.html">
+     4. Нормализация по батчам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_08.html">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
+   Листочек 7: рекуррентные сети
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+     1. Из авторегрессии в RNN
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+     2. Туда и обратно
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+     3. Взрыв градиентов
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+     4. Число параметров
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_06.html">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -447,8 +509,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -671,7 +733,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>6. Температура генерации<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>Иногда в функцию <span class="math notranslate nohighlight">\(softmax\)</span> добавляют дополнительный параметр <span class="math notranslate nohighlight">\(T\)</span>, который называют <strong>температурой сэмплирования.</strong> Тогда она приобретает вид</p>
+<p>Иногда в функцию <span class="math notranslate nohighlight">\(\text{softmax}\)</span> добавляют дополнительный параметр <span class="math notranslate nohighlight">\(T\)</span>, который называют <strong>температурой сэмплирования.</strong> Тогда она приобретает вид</p>
 <div class="math notranslate nohighlight">
 \[ 
 \frac{e^{\tfrac{z_i}{T}}}{ \sum_{k=1}^K e^{\tfrac{z_k}{T}}}
@@ -712,7 +774,7 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Получается, что маленькие значения <span class="math notranslate nohighlight">\(T\)</span> сделают Алису однотипной, а большие разнообразной. Понятное дело, что если распределение окажется близким к равномерному, Алиса будет нести несвязную чушь. Параметр <span class="math notranslate nohighlight">\(T\)</span> аккуратно подбирают после обучения нейронной сетки.</p>
+<p class="sd-card-text">Маленькие значения <span class="math notranslate nohighlight">\(T\)</span> сделают Алису однотипной, а большие разнообразной. Понятное дело, что если распределение окажется близким к равномерному, Алиса будет нести несвязную чушь. Параметр <span class="math notranslate nohighlight">\(T\)</span> аккуратно подбирают после обучения нейронной сетки.</p>
 <p class="sd-card-text">При од­них и тех же весах модели сэмплирование с высокой температурой будет более разнообразным, в том числе часто совершенно случайным, а сэмплирование с низкой температурой будет более устойчивым, чаще будет выдавать одно и то же при похожих входах.</p>
 </div>
 </details><hr class="footnotes docutils" />

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>&lt;no title&gt; &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
+    <title>6. Замочные скважины &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,8 +50,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7. Лишние части" href="problem_07.html" />
+    <link rel="prev" title="5. Из формулы в картинку" href="problem_05.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_01_just_function/intro_01.html">
    Листочек 1: всего лишь функция
@@ -269,11 +273,68 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
-   Листочек 6: свёрточные сети
+  <a class="reference internal" href="../problem_set_04_logloss/intro_04.html">
+   Листочек 4: что выплёвывает нейросеть
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_01.html">
+     1. Сигмоида
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_02.html">
+     2. Логистические потери и softmax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_03.html">
+     3. Разные выходы нейросети и правдоподобие
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_04.html">
+     4. Гиперболический тангенс
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_05.html">
+     5. ReLU и её друзья
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_06.html">
+     6. Температура генерации
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_07.html">
+     7. Картинки с потерями
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_08.html">
+     8. Модернизируем logloss
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_09.html">
+     9. Предсказание вероятностей*
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
+   Листочек 5: свёрточные сети
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -330,44 +391,106 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
-   Листочек 5: нейросети – конструктор LEGO
-  </a>
- </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
-   Листочек 7: рекуррентные сети
+  <a class="reference internal" href="../problem_set_06_lego/intro_06.html">
+   Листочек 6: нейросети – конструктор LEGO
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+    <a class="reference internal" href="../problem_set_06_lego/problem_01.html">
+     1. Дропаут
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+    <a class="reference internal" href="../problem_set_06_lego/problem_02.html">
+     2. Регуляризация
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+    <a class="reference internal" href="../problem_set_06_lego/problem_03.html">
+     3. А вот и моя остановочка
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+    <a class="reference internal" href="../problem_set_06_lego/problem_04.html">
+     4. Нормализация по батчам
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+    <a class="reference internal" href="../problem_set_06_lego/problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_08.html">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_06_lego/problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro_07.html">
+   Листочек 7: рекуррентные сети
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_01.html">
+     1. Из авторегрессии в RNN
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_02.html">
+     2. Туда и обратно
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_03.html">
+     3. Взрыв градиентов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_04.html">
+     4. Число параметров
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_05.html">
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -386,8 +509,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -480,35 +603,6 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/FUlyankin/deep_learning_masha_book/master?urlpath=tree/docs/images/problem_set_02.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -548,7 +642,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/FUlyankin/deep_learning_masha_book/issues/new?title=Issue%20on%20page%20%2Fimages/problem_set_02.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/FUlyankin/deep_learning_masha_book/issues/new?title=Issue%20on%20page%20%2Fproblem_set_07_rnn/problem_06.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -576,7 +670,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/images/problem_set_02.ipynb"
+        <a href="../_sources/problem_set_07_rnn/problem_06.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -587,7 +681,7 @@ title="Download source file"
 <span class="headerbtn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="headerbtn__text-container">.ipynb</span>
+<span class="headerbtn__text-container">.md</span>
 </a>
 
       </li>
@@ -613,50 +707,23 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1><no title></h1>
+                <h1>6. Замочные скважины</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -664,108 +731,31 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">glob</span>
-<span class="c1"># import imageio</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span> <span class="k">as</span> <span class="n">sts</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="c1"># plt.style.use(&#39;ggplot&#39;)   # Правильный стиль графиков   </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;seaborn-whitegrid&#39;</span><span class="p">)</span>
-
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">([</span><span class="s1">&#39;#00A99D&#39;</span><span class="p">,</span> <span class="s1">&#39;#F5CA0C&#39;</span><span class="p">,</span> <span class="s1">&#39;#B6129F&#39;</span><span class="p">,</span> <span class="s1">&#39;#76620C&#39;</span><span class="p">,</span> <span class="s1">&#39;#095C57&#39;</span><span class="p">])</span>
-
-<span class="n">deep_grey</span> <span class="o">=</span> <span class="s1">&#39;#3B4856&#39;</span> <span class="c1"># основной тёмный / холодный цвет</span>
-<span class="n">sky_blue</span> <span class="o">=</span> <span class="s1">&#39;#348FEA&#39;</span>
-<span class="n">marine_green</span> <span class="o">=</span> <span class="s1">&#39;#4CB9C0&#39;</span>
-<span class="n">grass_green</span> <span class="o">=</span> <span class="s1">&#39;#97C804&#39;</span>
-<span class="n">medium_yellow</span> <span class="o">=</span> <span class="s1">&#39;#FFC100&#39;</span> <span class="c1"># основной светлый / тёплый цвет</span>
-<span class="n">sicilian_orange</span> <span class="o">=</span> <span class="s1">&#39;#E06A27&#39;</span>
-<span class="n">fuchsia_pink</span> <span class="o">=</span> <span class="s1">&#39;#C81D6B&#39;</span>
-<span class="n">saturated_violet</span> <span class="o">=</span> <span class="s1">&#39;#5002A7&#39;</span>
-<span class="n">navy_blue</span> <span class="o">=</span> <span class="s1">&#39;#292183&#39;</span>
-<span class="n">cool_white</span> <span class="o">=</span> <span class="s1">&#39;#F5FBFF&#39;</span>
-
-<span class="c1"># from matplotlib import rc</span>
-<span class="c1"># rc(&#39;text&#39;, usetex=True)</span>
-
-<span class="o">%</span><span class="k">matplotlib</span> inline
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>6. Замочные скважины<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<p>В 2000 году Шмидхубер и Герс предложили модификацию LSTM с замочными скважинами. Она описывается следующей системой из уравнений</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*} 
+	\begin{aligned}
+	c'_t &amp;= \phi_c(W_c x_t + V_c h_{t-1} + b_c) \\
+	i_t &amp;= \phi_i(W_i x_t + V_i h_{t-1} + U_i c_{t-1} + b_i) \\
+	f_t &amp;= \phi_f(W_f x_t + V_f h_{t-1} + U_f c_{t-1} + b_f) \\
+    o_t &amp;= \phi_o(W_o x_t + V_o h_{t-1} + U_o c_{t-1} + b_o) \\
+    c_t &amp;= f_t \odot c_{t-1} + i_t \odot c'_t \\
+    h_t &amp;= o_t \odot \phi_h(c_t) \\
+	\end{aligned}
+\end{equation*}\]</div>
+<p>Изобразите эту ячейку в виде вычислительного графа. Объясните, чем именно она отличается от базовой модификации LSTM. Какой в этом смысл?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Решение будет позже</p>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mse</span><span class="p">(</span><span class="n">w</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">((</span><span class="mi">2</span> <span class="o">-</span> <span class="n">w</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">w</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">mse_grad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
-    <span class="k">return</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">w</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-
-<span class="n">grad_full</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">w</span><span class="p">:</span> <span class="n">mse_grad</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span> <span class="o">+</span> <span class="n">mse_grad</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">line</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w0</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">grad_full</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">w</span> <span class="o">-</span> <span class="n">w0</span><span class="p">)</span> <span class="o">+</span> <span class="n">mse</span><span class="p">(</span><span class="n">w0</span><span class="p">)</span>
-
-<span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_dots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.6</span><span class="p">])</span>
-<span class="n">y_dots</span> <span class="o">=</span> <span class="n">mse</span><span class="p">(</span><span class="n">x_dots</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">mse</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">);</span> 
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_dots</span><span class="p">,</span> <span class="n">y_dots</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">fuchsia_pink</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
-
-<span class="c1"># w_dots = np.array([0, 0.8, 1.2, 1.4])</span>
-<span class="n">w_dots</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.28</span><span class="p">,</span> <span class="mf">1.424</span><span class="p">,</span> <span class="mf">1.4848</span><span class="p">])</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">w_dots</span><span class="p">,</span> <span class="n">mse</span><span class="p">(</span><span class="n">w_dots</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">sky_blue</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1"># for ww in w_dots:</span>
-<span class="c1">#     plt.vlines(x = ww, ymin = 0, ymax = mse(ww), linestyle=&#39;--&#39;, lw=2, color=sky_blue)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;$w$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$MSE(w)$&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span> <span class="o">=</span> <span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span> <span class="o">=</span> <span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/problem_set_02_2_0.png" src="../_images/problem_set_02_2_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 3
-2 7
-3 15
-4 31
-5 63
-6 127
-7 255
-8 511
-9 1023
-</pre></div>
-</div>
-</div>
-</div>
+</details></section>
 
     <script type="text/x-thebe-config">
     {
@@ -780,7 +770,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./images"
+            path: "./problem_set_07_rnn"
         },
         predefinedOutput: true
     }
@@ -794,6 +784,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="problem_05.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">5. Из формулы в картинку</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_07.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">7. Лишние части</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>

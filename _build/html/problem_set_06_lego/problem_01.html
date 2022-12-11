@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2. Регуляризация" href="problem_02.html" />
+    <link rel="prev" title="Листочек 6: нейросети – конструктор LEGO" href="intro_06.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_01_just_function/intro_01.html">
    Листочек 1: всего лишь функция
@@ -271,11 +273,68 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
-   Листочек 6: свёрточные сети
+  <a class="reference internal" href="../problem_set_04_logloss/intro_04.html">
+   Листочек 4: что выплёвывает нейросеть
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_01.html">
+     1. Сигмоида
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_02.html">
+     2. Логистические потери и softmax
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_03.html">
+     3. Разные выходы нейросети и правдоподобие
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_04.html">
+     4. Гиперболический тангенс
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_05.html">
+     5. ReLU и её друзья
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_06.html">
+     6. Температура генерации
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_07.html">
+     7. Картинки с потерями
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_08.html">
+     8. Модернизируем logloss
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_04_logloss/problem_09.html">
+     9. Предсказание вероятностей*
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../problem_set_05_conv/intro_05.html">
+   Листочек 5: свёрточные сети
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -332,44 +391,106 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="intro_06.html">
-   Листочек 5: нейросети – конструктор LEGO
+   Листочек 6: нейросети – конструктор LEGO
   </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1. Дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_02.html">
+     2. Регуляризация
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_03.html">
+     3. А вот и моя остановочка
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_04.html">
+     4. Нормализация по батчам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_05.html">
+     5. Нормализация VS дропаут
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_06.html">
+     6. Инициализация весов
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_07.html">
+     7. Жесткая и бесполезная задача про инициализацию*
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_08.html">
+     8. Стрельба по ногам
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="problem_09.html">
+     9. Модные ячейки
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../problem_set_07_rnn/intro_07.html">
    Листочек 7: рекуррентные сети
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_01.html">
-     1. Туда и обратно
+     1. Из авторегрессии в RNN
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_02.html">
-     2. Число параметров
+     2. Туда и обратно
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_03.html">
-     3. Из формулы в картинку
+     3. Взрыв градиентов
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_04.html">
-     4. Замочные скважины
+     4. Число параметров
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../problem_set_07_rnn/problem_05.html">
-     5. Лишние части
+     5. Из формулы в картинку
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_06.html">
+     6. Замочные скважины
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../problem_set_07_rnn/problem_07.html">
+     7. Лишние части
     </a>
    </li>
   </ul>
@@ -388,8 +509,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">
    Листочек 10: матричное дифФфФфФференцирование
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -612,7 +733,11 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>1. Дропаут<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>Ко Ко Ко Ко подводочка</p>
+<blockquote class="epigraph">
+<div><p>Посещая свой банк я заметил, что операционисты, обслуживающие меня, часто меняются. Я спросил одного из них, почему так происходит. Он сказал, что не знает, но им часто приходится переходить с места на место. Я предположил, что это делается для исключения мошеннического сговора с сотрудником банка.</p>
+<p>Это навело меня на мысль, что удаление случайно выбранного подмножества нейронов из каждого примера может помочь предотвратить заговор модели с исходными данными и ослабить эффект переобучения.</p>
+<p class="attribution">—Джеффри Хинтон</p>
+</div></blockquote>
 <p><strong>а)</strong> Опишите, как сделать через линейный слой с Dropout прямой шаг и обратный шаг.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -621,6 +746,44 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Пусть на вход в нейрон идет одно наблюдение <span class="math notranslate nohighlight">\(h_1\)</span> размера <span class="math notranslate nohighlight">\([1 \times d]\)</span>. Тогда линейный слой с функцией активации отрабатывает по формуле</p>
+<div class="math notranslate nohighlight">
+\[
+h_2 = f(h_1 \cdot W + b).
+\]</div>
+<p class="sd-card-text">На выходе мы получаем вектор <span class="math notranslate nohighlight">\(h_2\)</span> размера <span class="math notranslate nohighlight">\([1 \times k].\)</span> У матрицы <span class="math notranslate nohighlight">\(W\)</span> размерность <span class="math notranslate nohighlight">\([d \times k],\)</span> у вектора констант <span class="math notranslate nohighlight">\(b\)</span> размер <span class="math notranslate nohighlight">\([1 \times k].\)</span> Получается, что в слое <span class="math notranslate nohighlight">\(k\)</span> нейронов.</p>
+<p class="sd-card-text">Каждый из нейронов мы выключаем с вероятностью <span class="math notranslate nohighlight">\(p\)</span>, то есть нам надо умножить получившийся вектор <span class="math notranslate nohighlight">\(h_2\)</span> поэлементно на вектор из <span class="math notranslate nohighlight">\(k\)</span> случайных величин <span class="math notranslate nohighlight">\(d\)</span>. Каждая компонента вектора будет иметь распределение Бернулли</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+d_j = \begin{cases}0, &amp;p \\ 1, &amp; 1 - p.  \end{cases}
+\end{split}\]</div>
+<p class="sd-card-text">Обозначим символом <span class="math notranslate nohighlight">\(\odot\)</span> поэлементное умножение матриц. В итоге слой будет работать как</p>
+<div class="math notranslate nohighlight">
+\[
+h_2 = d \odot f(h_1 \cdot W + b).
+\]</div>
+<p class="sd-card-text">Если на вход к нам пришла матрица <span class="math notranslate nohighlight">\(H_1\)</span> размера <span class="math notranslate nohighlight">\([n \times d],\)</span> тогда линейный слой с дропаутом будет отрабатывать как</p>
+<div class="math notranslate nohighlight">
+\[
+H_2 = D \odot f(H_1 \cdot W + b).
+\]</div>
+<p class="sd-card-text">Матрица <span class="math notranslate nohighlight">\(D\)</span> состоит из нулей и единиц из распределения Бернулли.</p>
+<p class="sd-card-text">Без дропаута шаг обратного распространения ошибки выглядит как</p>
+<div class="math notranslate nohighlight">
+\[
+\underset{[n \times k]}{\frac{\partial L}{\partial H_1}} = \underset{[n \times d]}{\frac{\partial L}{\partial H_2}} \cdot \underset{[d \times k]}{W^T} \odot \underset{[n \times k]}{f'(H_1 \cdot W + b)}.
+\]</div>
+<p class="sd-card-text">В скобках подписаны размерности. Для слоя с дропаутом шаг обратного распространения ошибки выглядит как</p>
+<div class="math notranslate nohighlight">
+\[
+\underset{[n \times k]}{\frac{\partial L}{\partial H_1}} = \underset{[n \times d]}{\frac{\partial L}{\partial H_2}} \cdot \underset{[d \times k]}{W^T} \odot \underset{[n \times k]}{f'(H_1 \cdot W + b)} \odot \underset{[n \times k]}{D}.
+\]</div>
+<p class="sd-card-text">Получается, что градиенты по занулившимся нейронам зануляются и сетка игнорирует их при шаге обратного распространения ошибки. Производная по весам слоя выглядит как</p>
+<div class="math notranslate nohighlight">
+\[
+\underset{[d \times k]}{\frac{\partial L}{\partial W}} = \underset{[d \times n]}{H_1^T} \cdot \underset{[n \times k]}{\frac{\partial L}{\partial H_1}} 
+\]</div>
+<p class="sd-card-text">Именно на эту величину делается шаг градиентного спуска.</p>
 </div>
 </details><p><strong>б)</strong> Обычно Dropout добавляют в нейросеть, чтобы избежать переобучения. Объясните, как именно этот слой помогает в этом.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -630,8 +793,15 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Дропаут позволяет бороться с коадаптацией нейронов. При обучении мы зануляем часть выходов, тем самым мы изменяем только часть параметров и нейроны учатся более независимо.</p>
+<p class="sd-card-text">Более того, Хинтону и его соавторам удалось показать, что дропаут эквивалентен усреднению всех тех моделей, которые получались на каждом шаге случайным выбрасыванием отдельных нейронов. Иначе говоря, мы усредняем <span class="math notranslate nohighlight">\(2^N\)</span> возможных моделей, где <span class="math notranslate nohighlight">\(N\)</span> – число нейронов, которые могут быть выкинуты или оставлены.</p>
 </div>
-</details><p><strong>в)</strong> Предположим, что Маша решила после первого слоя добавить в свою сетку Dropout c вероятностью <span class="math notranslate nohighlight">\(p\)</span>.  Какова вероятность того, что отключится весь слой?</p>
+</details><p><strong>в)</strong> Дропаут выплёвывает случайные выходы. Не очень понятно как применять слой на стадии тестирования. Пусть у нас есть два нейрона, каждый из которых мы отключаем с вероятностью <span class="math notranslate nohighlight">\(0.4\)</span>.</p>
+<figure class="align-default" id="regression">
+<a class="reference internal image-reference" href="../_images/img01_dropout.png"><img alt="../_images/img01_dropout.png" src="../_images/img01_dropout.png" style="width: 30%;" /></a>
+</figure>
+<p>Нейроны выплёвывают <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(x_2\)</span>. Дальше мы складываем их с весами <span class="math notranslate nohighlight">\(w_1\)</span> и <span class="math notranslate nohighlight">\(w_2\)</span> и поулучаем выход <span class="math notranslate nohighlight">\(h\)</span>.</p>
+<p>Один из способов использовать такую нейросеть на тесте – прогнать её при всех возможных вариантах реализации дропаута и усреднить получившиеся выходы. Проделайте это и найдите  <span class="math notranslate nohighlight">\(\mathbb{E}(h)\)</span>. Предложите более простой способ использовать нейросеть на тестовой выборке.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -639,8 +809,19 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="amsmath math notranslate nohighlight">
+\[\begin{multline*}
+\mathbb{E}(h) = 0.6 \cdot 0.6 \cdot (w_1 \cdot x_1 + w_2 x_2) + 0.6 \cdot 0.4 \cdot (w_1 \cdot x_1 + 0 ) + \\ + 0.4 \cdot 0.6 \cdot (0 + w_2 x_2) + 0.4 \cdot 0.4 \cdot (0 + 0) = 0.6 \cdot (w_1 \cdot x_1 + w_2 x_2).
+\end{multline*}\]</div>
+<p class="sd-card-text">Мы применяем дропаут с параметром <span class="math notranslate nohighlight">\(0.4\)</span>. Достаточно просто домножить выход нейрона на <span class="math notranslate nohighlight">\(0.6,\)</span> и мы получим точно такой же результат, как при усреднении всех возможных выходов.</p>
+<p class="sd-card-text">Получается, что нам надо поддерживать одну функцию для прогнозов на обучающей выборке без домножения на <span class="math notranslate nohighlight">\(1 - p\)</span> и одну функцию для прогнозов с домножением на <span class="math notranslate nohighlight">\(1 - p\)</span>. Хочется избежать такого раздвоения.</p>
 </div>
-</details><p><strong>г)</strong> Маша добавила Dropout c вероятностью <span class="math notranslate nohighlight">\(p\)</span>. после каждого слоя. Какова вероятность того, что один из слоёв отключится и сетка не сможет учиться?</p>
+</details><p><strong>г)</strong> Обычно, в нейросетях используют <strong>обратный дропаут.</strong> Прямой проход делается по формуле</p>
+<div class="math notranslate nohighlight">
+\[
+H_2 = \frac{1}{1- p} \cdot D \odot f(H_1 \cdot W + b).
+\]</div>
+<p>Для обратного прохода производная также домножается на <span class="math notranslate nohighlight">\(\frac{1}{1- p}\)</span>. Как думаете, почему используют именно такой вариант?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -648,8 +829,14 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Чтобы посчитать прогноз на тесте для обычного дропаута, нам нужно умножить выход слой на <span class="math notranslate nohighlight">\(1 - p\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+H_2 = (1 - p) \cdot f(H_1 \cdot W + b).
+\]</div>
+<p class="sd-card-text">Если мы будем умножать выход при обучении на <span class="math notranslate nohighlight">\(\frac{1}{1- p},\)</span> нам не надо будет при тестировании умножать выходы на <span class="math notranslate nohighlight">\((1 - p).\)</span></p>
 </div>
-</details><p><strong>д)</strong> Пусть случайная величина <span class="math notranslate nohighlight">\(N\)</span> — это число включённых нейронов. Найдите её математическое ожидание и дисперсию. Если Маша хочет проредить сетку на четверть, какое значение <span class="math notranslate nohighlight">\(p\)</span> она должна поставить?</p>
+</details><p><strong>д)</strong> Запишите шаг градиентного спуска для весов линейного слоя с обратным дропаутом и без него. Какой эффект оказывает обратный дропаут на скорость обучения?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -657,8 +844,25 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Производная для линейного слоя без дропаута выглядит как</p>
+<div class="math notranslate nohighlight">
+\[
+\underset{[d \times k]}{\frac{\partial L}{\partial W}} = \underset{[d \times n]}{H_1^T} \cdot \underset{[n \times k]}{\frac{\partial L}{\partial H_1}}.
+\]</div>
+<p class="sd-card-text">Шаг градиентного спуска выглядит как</p>
+<div class="math notranslate nohighlight">
+\[
+W_t = W_{t - 1} - \eta_t \cdot \frac{\partial L}{\partial W}(W_{t-1}).
+\]</div>
+<p class="sd-card-text">Если мы добавляем дропаут, формула меняется на</p>
+<div class="math notranslate nohighlight">
+\[
+W_t = W_{t - 1} - \eta_t \cdot \frac{1}{1-p} \cdot \frac{\partial L}{\partial W}(W_{t-1}).
+\]</div>
+<p class="sd-card-text">Получается, что скорость обучения дополнительно домножается на коэффициент <span class="math notranslate nohighlight">\(\frac{1}{1-p} \ge 1.\)</span> Получается, что величина шага увеличивается.</p>
 </div>
-</details><p><strong>е)</strong> Пусть случайная величина <span class="math notranslate nohighlight">\(P\)</span> — это число параметров в нейросети, которое необходимо оценить. Найдите её математическое ожидание и дисперсию. Почему найденное вами математическое ожидание выглядит очень логично? Что оно вам напоминает? Обратите внимание на то, что смерть одного из параметров легко может привести к смерти другого.</p>
+</details><p><strong>е)</strong> Предположим, что Маша решила после первого слоя добавить в свою сетку Dropout c вероятностью <span class="math notranslate nohighlight">\(p\)</span>.  Какова вероятность того, что отключится весь слой?</p>
+<p>Пусть случайная величина <span class="math notranslate nohighlight">\(N\)</span> — это число включённых нейронов. Найдите её математическое ожидание и дисперсию. Если Маша хочет оставить четверть работающих нейронов, какое значение <span class="math notranslate nohighlight">\(p\)</span> она должна поставить?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -666,8 +870,93 @@ title="Print to PDF"
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Пусть у нас на слое <span class="math notranslate nohighlight">\(k\)</span> нейронов. Каждый отключается с вероятностью <span class="math notranslate nohighlight">\(p,\)</span> значит весь слой отключится с вероятностью <span class="math notranslate nohighlight">\(p^k\)</span>.</p>
+<p class="sd-card-text">Пусть <span class="math notranslate nohighlight">\(Y_i = 1,\)</span> если <span class="math notranslate nohighlight">\(i-\)</span>ый нейрон работает. Тогда <span class="math notranslate nohighlight">\(\mathbb{E}(Y_i) = 1 - p\)</span>. Получается, что</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}(N) = \mathbb{E}(Y_1 + \ldots + Y_k) = (1 - p) \cdot k.
+\]</div>
+<p class="sd-card-text">Получается, что у <span class="math notranslate nohighlight">\(N\)</span> будет биномиальное распределение. Если мы хотим оставить только четверть работающих нейронов, нам нужна <span class="math notranslate nohighlight">\(p = 0.75\)</span>.</p>
 </div>
-</details></section>
+</details><p><strong>ё)</strong> Маша добавила Dropout c вероятностью <span class="math notranslate nohighlight">\(p\)</span>. после каждого из трёх слоёв нейросетки. Какова вероятность того, что один из слоёв отключится и сетка не сможет учиться?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Пусть у нас на первом слое <span class="math notranslate nohighlight">\(k_1\)</span> нейронов, на втором <span class="math notranslate nohighlight">\(k_2\)</span> нейронов, на третьем <span class="math notranslate nohighlight">\(k_3\)</span> нейронов. Слои умирают с вероятностями <span class="math notranslate nohighlight">\(p^{k_1}, p^{k_2}, p^{k_3}.\)</span></p>
+<p class="sd-card-text">Вероятность того, что не отключиться ни один слой составит</p>
+<div class="math notranslate nohighlight">
+\[
+q = (1 - p^{k_1}) \cdot (1 - p^{k_2}) \cdot (1 - p^{k_3}).
+\]</div>
+<p class="sd-card-text">Получается, что хотябы один слой умрёт с вероятностью <span class="math notranslate nohighlight">\(1 - q\)</span>.</p>
+</div>
+</details><p><strong>ж)</strong> Функция активации SELU обладает свойством самонормализации. Если правильно инициализировать веса нейросети, выход линейного слоя с SELU всегда имеет нулевое среднее и единичное стандартное отклонение.</p>
+<p>Градиентному спуску легче заниматься оптимизацией, когда данные нормализованы. Если мы в нейросеть добавим дропаут, нормализация испортится. Каким станет математическое ожидание и дисперсия в результате добавления дропаута? Подумайте, как это можно исправить.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">В случае обратного дропаута, во время обучения, мы домножаем выход из слоя на <span class="math notranslate nohighlight">\(d \sim \text{Bern}(1 - p)\)</span> и на <span class="math notranslate nohighlight">\(\frac{1}{1 - p}\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+h = \frac{1}{1 - p} \cdot d \cdot x.
+\]</div>
+<p class="sd-card-text">Выход нейросети <span class="math notranslate nohighlight">\(x\)</span> и дропаут <span class="math notranslate nohighlight">\(d\)</span> независимые случайные величины, получается среднее никак не меняется</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}(h) = \mathbb{E} \left( \frac{1}{1 - p} \cdot d \cdot x  \right) = \frac{1}{1 - p} \cdot  \mathbb{E}(d) \cdot \mathbb{E}(x) = \mathbb{E}(x).
+\]</div>
+<p class="sd-card-text">Дисперсия изменится</p>
+<div class="math notranslate nohighlight">
+\[
+\text{Var}(h) = \text{Var} \left( \frac{1}{1 - p} \cdot d \cdot x  \right) = \frac{1}{(1 - p)^2} \cdot  \text{Var}(d) \cdot \text{Var}(x) = \frac{p}{(1 - p)} \cdot \mathbb{E}(x).
+\]</div>
+<p class="sd-card-text">Если мы будем домножать выход на <span class="math notranslate nohighlight">\(\frac{1-p}{p}\)</span>, мы сломаем среднее. Более того, это изменит вероятность дропаута.</p>
+<p class="sd-card-text">При нормализации мы сдвигаем случайную величину на какую-то константу и умножаем её на какую-то константу. По аналогии можно поступить с выходом из дропаута.</p>
+<p class="sd-card-text">Примерно это делают авторы функции активации SELU в своей статье.<a class="footnote-reference brackets" href="#statia5" id="id2">1</a> Не обходится без хитростей, взятых из воздуха.</p>
+<p class="sd-card-text">Нам нужно нулевое математическое ожидание. Дропаут выдаёт на выход либо единицы либо нули, нулевого математического ожидания никак тут не получишь. Авторы говорят, что SELU в отрицательной области</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{t \to -\infty} SELU(t) = - \alpha \cdot \lambda = \alpha'.
+\]</div>
+<p class="sd-card-text">Можно попробовать взять <span class="math notranslate nohighlight">\(- \alpha'\)</span> в качестве нового дефолтного значения для дропаута и заставить его работать по формуле</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+d(t) = \begin{cases}h, &amp; 1 - p \\ \alpha', &amp; p. \end{cases}
+\end{split}\]</div>
+<p class="sd-card-text">Дальше нам надо сдвинуть выход слоя на константу <span class="math notranslate nohighlight">\(b\)</span> и умножить на константу <span class="math notranslate nohighlight">\(a\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+d(t) \cdot a + b
+\]</div>
+<p class="sd-card-text">так, чтобы математическое ожидание и дисперсия не поменялись</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp; \mathbb{E}(a \cdot (d \cdot x + (1 - d) \cdot \alpha') + b) = 0 \\
+&amp;  \text{Var}(a \cdot (d \cdot x + (1 - d) \cdot \alpha') + b) = 1.
+\end{align*}\]</div>
+<p class="sd-card-text">Решив эту систему уравнений, можно поулчить что</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+&amp; a = (p + (\alpha')^2 \cdot p \cdot (1 - p))^{-0.5} \\
+&amp; b = - (p + (\alpha')^2 \cdot p \cdot (1 - p))^{-0.5} \cdot ((1-p)\alpha').
+\end{align*}\]</div>
+<p class="sd-card-text">Такое преобразование оставит эффект разреженности от дропаута и сохранит нормализованные данные. Авторы называют его <strong>Alpha Dropout.</strong></p>
+</div>
+</details><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="statia5"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="https://arxiv.org/pdf/1908.08681.pdf">Mish: A Self Regularized Non-Monotonic Activation Function</a></p>
+</dd>
+</dl>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -696,6 +985,20 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro_06.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Листочек 6: нейросети – конструктор LEGO</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="problem_02.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2. Регуляризация</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
