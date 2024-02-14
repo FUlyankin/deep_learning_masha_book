@@ -69,6 +69,7 @@ chapters:
   - file: problem_set_06_lego/problem_08
   - file: problem_set_06_lego/problem_09
   - file: problem_set_06_lego/problem_10
+  - file: problem_set_06_lego/problem_11
 - file: problem_set_07_rnn/intro_07
   sections:
   - file: problem_set_07_rnn/problem_01
