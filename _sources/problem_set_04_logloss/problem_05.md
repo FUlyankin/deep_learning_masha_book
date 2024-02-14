@@ -146,9 +146,7 @@ Swish -- гладкий вариант ReLU с гейтом. **Гейтами** 
 
 Также почитайте небольшой обзор функций активации.[^statia3]
 
-[^statia]: [FAST AND ACCURATE DEEP NETWORK LEARNING BY
-EXPONENTIAL LINEAR UNITS (ELUS)](
-https://arxiv.org/pdf/1511.07289.pdf)
+[^statia]: [FAST AND ACCURATE DEEP NETWORK LEARNING BY EXPONENTIAL LINEAR UNITS (ELUS)](https://arxiv.org/pdf/1511.07289.pdf)
 [^statia2]: [Self-Normalizing Neural Networks](https://arxiv.org/pdf/1706.02515.pdf)
 [^statia4]: [SEARCHING FOR ACTIVATION FUNCTIONS](https://arxiv.org/pdf/1710.05941.pdf)
 [^statia5]: [Mish: A Self Regularized Non-Monotonic Activation Function](https://arxiv.org/pdf/1908.08681.pdf)

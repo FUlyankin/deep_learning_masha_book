@@ -26,8 +26,8 @@ __2)__ Первый слой должен построить нам три ли�
 \begin{equation*}
     \begin{cases} 
     & f(1 \cdot w_1 + 1 \cdot w_2 + 1 \cdot w_3) = 1 \\ 
-    & f(1 \cdot w_1 + 0 \cdot w_2 + 0 \cdot w_3) = 0 \\
-    & f(1 \cdot w_1 + 1 \cdot w_2 + 01 \cdot w_3) = 0 \\
+    & f(1 \cdot w_1 + 0 \cdot w_2 + 0 \cdot w_3) = 1 \\
+    & f(1 \cdot w_1 + 1 \cdot w_2 + 0 \cdot w_3) = 0 \\
     & f(0 \cdot w_1 + 0 \cdot w_2 + 0 \cdot w_3) = 0 \\
     \end{cases}.
 \end{equation*}
