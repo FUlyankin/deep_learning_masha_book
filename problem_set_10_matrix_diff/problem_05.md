@@ -5,7 +5,7 @@
 Допустим, даны функции
 
 $$
-f: \mathbb{R}^n \to \mathbb{R}^m$ \qquad g: \mathbb{R}^m \to \mathbb{R}.
+f: \mathbb{R}^n \to \mathbb{R}^m \qquad g: \mathbb{R}^m \to \mathbb{R}.
 $$
 
 Тогда градиент их композиции можно вычислить как
