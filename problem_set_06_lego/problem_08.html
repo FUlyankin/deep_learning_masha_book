@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -491,13 +491,13 @@ h_{11} = x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1.
 \[\begin{multline*}
 	\mathbb{E}(h_{11}) = \mathbb{E}(x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1) = \\ = \mathbb{E}(x_{11} w_{11}) + \mathbb{E}(x_{12} w_{21}) + \ldots + \mathbb{E}(x_{1k} w_{k1}) + \mathbb{E}(b_1) = \\ = \mathbb{E}(x_{11}) \cdot \mathbb{E}(w_{11}) + \mathbb{E}(x_{12}) \cdot \mathbb{E}(w_{21}) + \ldots + \mathbb{E}(x_{1k}) \cdot \mathbb{E}(w_{k1}) + \mathbb{E}(b_1) = 0
 \end{multline*}\]</div>
-<p class="sd-card-text">Все <span class="math notranslate nohighlight">\(\mathbb{E}(x_{ij}) = 0\)</span>, значит математическое ожидание весов может быть любым. Математическое ожидание <span class="math notranslate nohighlight">\(\mathbb{E}(b_1)\)</span> надо сделать нулевым. Посмотрим на дисперсию</p>
+<p class="sd-card-text">Все <span class="math notranslate nohighlight">\(\mathbb{E}(x_{ij}) = 0\)</span>, значит, математическое ожидание весов может быть любым. Математическое ожидание <span class="math notranslate nohighlight">\(\mathbb{E}(b_1)\)</span> надо сделать нулевым. Посмотрим на дисперсию</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
 	\text{Var}(h_{11}) = \text{Var}(x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1) = \\ = \text{Var}(x_{11} w_{11}) + \text{Var}(x_{12} w_{21}) + \ldots + \text{Var}(x_{1k} w_{k1}) + \text{Var}(b_1) = \\ = \text{Var}(x_{11}) \cdot \text{Var}(w_{11}) + \text{Var}(x_{12}) \cdot \text{Var}(w_{21}) + \ldots + \text{Var}(x_{1k}) \cdot \text{Var}(w_{k1}) + \text{Var}(b_1) = \\ = 1 \cdot s + 1 \cdot s + \ldots + 1\ cdot s + s = \sigma^2.
 \end{multline*}\]</div>
 <p class="sd-card-text">Получается, что $<span class="math notranslate nohighlight">\(s = \frac{\sigma^2}{k + 1}.\)</span>$</p>
-<p class="sd-card-text">Мы хотим, чтобы итоговое распределение оказалось нормальным. Для этого распределение каждого слагаемого должно быть нормальным. Можно инициализировать параметр <span class="math notranslate nohighlight">\(b\)</span> как <span class="math notranslate nohighlight">\(b \sim N \left(0, \frac{\sigma^2}{k + 1} \right).\)</span> Для весов <span class="math notranslate nohighlight">\(w\)</span> нормальное распределение не подойдёт, так как в таком случае мы будем умножать дург на друга два нормальных распределения и на выходе получим распределение из совершенно другого семейства.</p>
+<p class="sd-card-text">Мы хотим, чтобы итоговое распределение оказалось нормальным. Для этого распределение каждого слагаемого должно быть нормальным. Можно инициализировать параметр <span class="math notranslate nohighlight">\(b\)</span> как <span class="math notranslate nohighlight">\(b \sim N \left(0, \frac{\sigma^2}{k + 1} \right).\)</span> Для весов <span class="math notranslate nohighlight">\(w\)</span> нормальное распределение не подойдёт, так как в таком случае мы будем умножать друг на друга два нормальных распределения и на выходе получим распределение из совершенно другого семейства.</p>
 <p class="sd-card-text">Нормальное распределение можно сохранить, если инициализировать веса из распределения Бернулли, <span class="math notranslate nohighlight">\(w_{jk} \sim Bern(p)\)</span>. В таком случае часть нормальных распределений занулится, часть останется, но в итоге мы всегда получим сумму из нормальных.</p>
 <p class="sd-card-text">Нам надо проконтролировать дисперсию</p>
 <div class="math notranslate nohighlight">
@@ -515,7 +515,7 @@ p^2 - p + \frac{\sigma^2}{k + 1} = 0.
 p_{1,2} = 0.5 \cdot (1 \pm \sqrt{1 - 4 \sigma^2/(k + 1)}).
 \]</div>
 <p class="sd-card-text">У нас нет никаких гарантий, чтобы <span class="math notranslate nohighlight">\(0 \le p \le 1.\)</span> Было бы хорошо перетащить всю дисперсию в <span class="math notranslate nohighlight">\(b\)</span>, а для <span class="math notranslate nohighlight">\(w_{jk}\)</span> выбрать более нейтральное распределение. Пусть <span class="math notranslate nohighlight">\(w_{jk}\)</span> принимает значения <span class="math notranslate nohighlight">\(1\)</span> и <span class="math notranslate nohighlight">\(-1\)</span> с вероятностями <span class="math notranslate nohighlight">\(0.5\)</span>. Тогда <span class="math notranslate nohighlight">\(\mathbb{E}(w_{jk}) = 0, \text{Var}(w_{jk}) = 0.25.\)</span></p>
-<p class="sd-card-text">Получаетcя, что <span class="math notranslate nohighlight">\(\text{Var}(h_1) = \frac{k}{4} + s = \sigma^2.\)</span> Отсюда получаем, что параметр <span class="math notranslate nohighlight">\(b\)</span> надо инициализировать как</p>
+<p class="sd-card-text">Получается, что <span class="math notranslate nohighlight">\(\text{Var}(h_1) = \frac{k}{4} + s = \sigma^2.\)</span> Отсюда получаем, что параметр <span class="math notranslate nohighlight">\(b\)</span> надо инициализировать как</p>
 <div class="math notranslate nohighlight">
 \[
 b \sim N \left(0, \sigma^2 - \frac{k}{4} \right).

@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -549,7 +549,7 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
 	\end{aligned}
 \end{equation*}\]</div>
 <a class="reference internal image-reference" href="../_images/loss_2.png"><img alt="triangle" class="align-center" src="../_images/loss_2.png" style="width: 60%;" /></a>
-<p class="sd-card-text">Почти добежали до оптимальной точки. Чем ближе мы к точке оптимума, тем меньше значение градиента и тем меньше наши шаги. Тем не менее, если не аккуратно выбрать скорость обучения <span class="math notranslate nohighlight">\(\eta\)</span>, можно случайно перепрыгнуть оптимум либо вообще не дойти до него за обозримое число итераций.</p>
+<p class="sd-card-text">Почти добежали до оптимальной точки. Чем ближе мы к точке оптимума, тем меньше значение градиента и тем меньше наши шаги. Тем не менее, если неаккуратно выбрать скорость обучения <span class="math notranslate nohighlight">\(\eta\)</span>, можно случайно перепрыгнуть оптимум либо вообще не дойти до него за обозримое число итераций.</p>
 </div>
 </details><p><strong>в)</strong> Сделайте четыре шага стохастического градиентного спуска (stochastic gradient descent, SGD). Пусть в SGD сначала попадает первое наблюдение, затем второе.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -629,7 +629,7 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
 	    &amp; w_2 = 0.4 + 1.24 = 1.64
 	\end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Инерция довольно сильно ускорила наше движение и мы перелетели точку оптимума. На следующих шагах мы развернёмся и пойдём в обратном направлении. В итоге мы будем оказываться в точке оптимума быстрее, чем в случае SGD.</p>
+<p class="sd-card-text">Инерция довольно сильно ускорила наше движение, и мы перелетели точку оптимума. На следующих шагах мы развернёмся и пойдём в обратном направлении. В итоге мы будем оказываться в точке оптимума быстрее, чем в случае SGD.</p>
 </div>
 </details><p><strong>д)</strong> Сделайте два шага Momentum SGD с коррекцией Нестерова.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -639,7 +639,7 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Nesterov SGD работает как momentum, но мы при этом пытаемся смотреть себе под ноги. Мы всё-равно сделаем шаг на величину инерции. Имеет смысл сразу же считать градиент в той точке, где мы окажемся после этого шага.</p>
+<p class="sd-card-text">Nesterov SGD работает как momentum, но мы при этом пытаемся смотреть себе под ноги. Мы всё равно сделаем шаг на величину инерции. Имеет смысл сразу же считать градиент в той точке, где мы окажемся после этого шага.</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned}
@@ -677,7 +677,7 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
         &amp; w_{j,t}= w_{j,t-1} - \frac{\eta_t}{\sqrt{v_{j,t} + \epsilon}} \cdot g_{j,t-1}
     \end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Если у нас есть случайная величина <span class="math notranslate nohighlight">\(X\)</span> и мы хотим посчитать для неё дисперсию, мы можем это сделать по формуле <span class="math notranslate nohighlight">\(Var(X) = \mathbb{E}(X^2) - \mathbb{E}^2(X).\)</span> Величина <span class="math notranslate nohighlight">\(g_{j,t} = \nabla_{w_j} L(w_{t})\)</span> — это оценка градиента, то есть оценка для <span class="math notranslate nohighlight">\(\mathbb{E}(\nabla_{w_j} L(w_t)).\)</span> Величина  <span class="math notranslate nohighlight">\(g^2_{j,t}\)</span> будет оценкой для второго момента, а это почти дисперсия. Отметчу, что это ни в коем случае не формальное доказательство, а «показательство».</p>
+<p class="sd-card-text">Если у нас есть случайная величина <span class="math notranslate nohighlight">\(X\)</span> и мы хотим посчитать для неё дисперсию, мы можем это сделать по формуле <span class="math notranslate nohighlight">\(Var(X) = \mathbb{E}(X^2) - \mathbb{E}^2(X).\)</span> Величина <span class="math notranslate nohighlight">\(g_{j,t} = \nabla_{w_j} L(w_{t})\)</span> — это оценка градиента, то есть оценка для <span class="math notranslate nohighlight">\(\mathbb{E}(\nabla_{w_j} L(w_t)).\)</span> Величина  <span class="math notranslate nohighlight">\(g^2_{j,t}\)</span> будет оценкой для второго момента, а это почти дисперсия. Отмечу, что это ни в коем случае не формальное доказательство, а «показательство».</p>
 <p class="sd-card-text">Получается, что в первой формуле мы для каждого параметра оцениваем, насколько большой разброс у его градиента в текущей точке. Если разброс большой, мы делаем шаги медленно, так как величина <span class="math notranslate nohighlight">\(v_{j,t}\)</span> в знаменателе оказывается высокой и скорость обучения для параметра <span class="math notranslate nohighlight">\(w_j\)</span> оказывается низкой. По аналогии, если разброс не такой большой, мы движемся более широкими шагами.</p>
 <p class="sd-card-text"><strong>Первый шаг:</strong></p>
 <div class="amsmath math notranslate nohighlight">
@@ -737,7 +737,7 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
 \end{equation*}\]</div>
 </div>
 </details><p><strong>з)</strong> В Rmsprop и Adam мы находим индивидуальные скорости обучения для всех параметров, корректируя их на второй момент градиента. Кажется, что хорошо было бы корректировать их на настоящую дисперсию, а не на второй момент.</p>
-<p>Придумайте, как внести в Adam корректировку скорости обучения именно на дисперсию. Выпишите соотвествующие уравнения и получите <a class="reference external" href="https://github.com/juntang-zhuang/Adabelief-Optimizer">метод AdaBelief.</a></p>
+<p>Придумайте, как внести в Adam корректировку скорости обучения именно на дисперсию. Выпишите соответствующие уравнения и получите <a class="reference external" href="https://github.com/juntang-zhuang/Adabelief-Optimizer">метод AdaBelief.</a></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -755,14 +755,14 @@ w_1 = 0 + 0.1 \cdot 8 = 0.8
     \end{aligned}
 \end{equation*}\]</div>
 </div>
-</details><p>На картинке ниже сравнивается сходимость разных градиентных спусков между собой. На ней нет Adam, но зато есть несколько других вариаций градиентного спуска, которые мы не разобрали в задачках выше. Они являются вариациями адаптивного градиентного спуска и почитать про них подробнее можно в статье, из которой взята анимация<a class="footnote-reference brackets" href="#grad-note" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
+</details><p>На картинке ниже сравнивается сходимость разных градиентных спусков между собой. На ней нет Adam, но зато есть несколько других вариаций градиентного спуска, которые мы не разобрали в задачках выше. Они являются вариациями адаптивного градиентного спуска, и почитать про них подробнее можно в статье, из которой взята анимация<a class="footnote-reference brackets" href="#grad-note" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <figure class="align-default" id="grad-dis-comp">
 <a class="reference internal image-reference" href="https://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif"><img alt="https://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif" src="https://ruder.io/content/images/2016/09/contours_evaluation_optimizers.gif" style="width: 80%;" /></a>
 </figure>
-<p>На картинке видно, что SGD движется в сторону оптимума очень медленно. Momentum у него довольно сильно выигрывает в скорости, однако из-за накопленной инерции, поначалу, momentum уходит куда-то не туда и делает большой зиг-заг. Momentum с поправкой Нестерова делает зиг-заг поменьше и добирается до оптимума быстрее.</p>
-<p>В таких методах как Adagrad, Adadelta и Rmsprop скорость обучения подбирается индивидуально для каждого параметра. Мы видим, что эти алгоритмы добегают до точки оптимума быстрее всего.</p>
+<p>На картинке видно, что SGD движется в сторону оптимума очень медленно. Momentum у него довольно сильно выигрывает в скорости, однако из-за накопленной инерции поначалу momentum уходит куда-то не туда и делает большой зигзаг. Momentum с поправкой Нестерова делает зигзаг поменьше и добирается до оптимума быстрее.</p>
+<p>В таких методах, как Adagrad, Adadelta и Rmsprop, скорость обучения подбирается индивидуально для каждого параметра. Мы видим, что эти алгоритмы добегают до точки оптимума быстрее всего.</p>
 <p>Adam комбинирует в себе индивидуальные скорости обучения и инерцию. Он будет приходить в точку оптимума быстрее всех. Сегодня, при обучении нейронных сетей, Adam является базовым выбором для обучения нейронок.</p>
-<p><strong>Adam – это база.</strong> Тем не менее, методы оптимизации не стоят на месте и каждый год появляются <a class="reference external" href="https://github.com/juntang-zhuang/Adabelief-Optimizer">более новые модернизации градиентного спуска.</a></p>
+<p><strong>Adam – это база.</strong> Тем не менее, методы оптимизации не стоят на месте, и каждый год появляются <a class="reference external" href="https://github.com/juntang-zhuang/Adabelief-Optimizer">более новые модернизации градиентного спуска.</a></p>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="momentum-note" role="doc-footnote">

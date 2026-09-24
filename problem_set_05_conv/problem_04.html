@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -472,9 +472,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>4. Крестики и нолики<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Маша хочет научить компьютер играть в крестики и нолики. На первом шаге ей надо научить алгоритм распознавать есть ли крестик на картинке. Под ноликом понимается любая фигура с дырой в середине. Под крестиком понимается любая фигура из двух пересекающихся линий.</p>
+<p>Маша хочет научить компьютер играть в крестики и нолики. На первом шаге ей надо научить алгоритм распознавать, есть ли крестик на картинке. Под ноликом понимается любая фигура с дырой в середине. Под крестиком понимается любая фигура из двух пересекающихся линий.</p>
 <p>Алгоритм должен быть устроен следующим образом. На первом шаге одна или несколько свёрток проходят по картинке. На втором шаге по результатам свёрток принимается решение. Например, берётся максимальное получившееся число и сравнивается с каким-то порогом. Классификатор крестиков и ноликов должен работать безупречно. Помогите Маше придумать такой классификатор.</p>
-<p><strong>а)</strong> В мире Маши на картинках могут быть нарисованы либо крестики либо нолики. Все картинки, подающиеся на вход алгоритма могут быть только размера <span class="math notranslate nohighlight">\(4 \times 4\)</span>. Примеры крестиков и ноликов нарисованы ниже.</p>
+<p><strong>а)</strong> В мире Маши на картинках могут быть нарисованы либо крестики, либо нолики. Все картинки, подающиеся на вход алгоритма, могут быть только размера <span class="math notranslate nohighlight">\(4 \times 4\)</span>. Примеры крестиков и ноликов нарисованы ниже.</p>
 <figure class="align-default" id="regression">
 <a class="reference internal image-reference" href="../_images/img04_cross_zero.png"><img alt="../_images/img04_cross_zero.png" src="../_images/img04_cross_zero.png" style="width: 600px;" /></a>
 </figure>

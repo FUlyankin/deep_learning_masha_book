@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -494,13 +494,13 @@ w_i \sim U \left[ - \frac{1}{\sqrt{n_{in}}};  \frac{1}{\sqrt{n_{in}}}  \right].
 \[
 Var(w_i) = \frac{1}{12} \cdot \left( \frac{1}{\sqrt{n_{in}} + \frac{1}{\sqrt{n_{in}}}} \right)^2 = \frac{1}{3 \cdot n_{in}} 
 \]</div>
-<p class="sd-card-text">Мы используем линейный слой с симметричной функцией активации. Мы можем сгенеировать веса так, чтобы они были независимы друг от друга и от наблюдений. Наблюдения считаем независимыми друг от друга. Тогда</p>
+<p class="sd-card-text">Мы используем линейный слой с симметричной функцией активации. Мы можем сгенерировать веса так, чтобы они были независимы друг от друга и от наблюдений. Наблюдения считаем независимыми друг от друга. Тогда</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
 Var(h_i) = Var \left(\sum_{i = 1}^{n_{in}} w_i x_i \right) = \\ = \sum_{i = 1}^{n_{in}} Var(w_i \cdot x_i) = \\ =  \sum_{i = 1}^{n_{in}} \mathbb{E}^2(x_i) \cdot Var(w_i) + Var(x_i) \cdot \mathbb{E}^2(w_i) + Var(x_i) \cdot Var(w_i).
 \end{multline*}\]</div>
 <p class="sd-card-text">Мы воспользовались тут формулой для <a class="reference external" href="https://en.wikipedia.org/wiki/Variance#Product_of_independent_variables">дисперсии произведения независимых случайных величин.</a></p>
-<p class="sd-card-text">Наша функции активации симметрична, значит <span class="math notranslate nohighlight">\(\mathbb{E}(x_i) = 0\)</span>. Будем инициализировать веса из распределения с нулевым средним, тогда <span class="math notranslate nohighlight">\(\mathbb{E}(w_i) = 0.\)</span> Воспользуемся тем, что все слагаемые распределены одинаково, а их у нас <span class="math notranslate nohighlight">\(n_{in}\)</span> штук</p>
+<p class="sd-card-text">Наша функция активации симметрична, значит, <span class="math notranslate nohighlight">\(\mathbb{E}(x_i) = 0\)</span>. Будем инициализировать веса из распределения с нулевым средним, тогда <span class="math notranslate nohighlight">\(\mathbb{E}(w_i) = 0.\)</span> Воспользуемся тем, что все слагаемые распределены одинаково, а их у нас <span class="math notranslate nohighlight">\(n_{in}\)</span> штук</p>
 <div class="math notranslate nohighlight">
 \[
 Var(h_i) = \sum_{i = 1}^{n_{in}} Var(x_i) \cdot Var(w_i) = n_{in} \cdot Var(x_i) \cdot Var(w_i).
@@ -520,7 +520,7 @@ Var(h_i) = n_{in} \cdot Var(x_i) \frac{1}{3 \cdot n_{in}}  = \frac{1}{3} \cdot V
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Нам надо, чтобы <span class="math notranslate nohighlight">\(Var(h_i) = Var(x_i).\)</span> Значит надо взять распределение с дисперсией <span class="math notranslate nohighlight">\(\frac{1}{n_{in}}\)</span>.</p>
+<p class="sd-card-text">Нам надо, чтобы <span class="math notranslate nohighlight">\(Var(h_i) = Var(x_i).\)</span> Значит, надо взять распределение с дисперсией <span class="math notranslate nohighlight">\(\frac{1}{n_{in}}\)</span>.</p>
 <p class="sd-card-text">Если речь идёт про нормальное распределение, нам подойдёт</p>
 <div class="math notranslate nohighlight">
 \[
@@ -535,14 +535,14 @@ w_i \sim U \left[ - \frac{\sqrt{3}}{\sqrt{n_{in}}};  \frac{\sqrt{3}}{\sqrt{n_{in
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">По аналогии с предыдущим пунктом, нам нужна инициализация</p>
+<p class="sd-card-text">По аналогии с предыдущим пунктом нам нужна инициализация</p>
 <div class="math notranslate nohighlight">
 \[
 w_i \sim N \left(0, \frac{1}{n_{in}} \right).
 \]</div>
 </div>
 </details><p><strong>г)</strong> При прямом распространении ошибки на вход в нейрон идёт <span class="math notranslate nohighlight">\(n_{in}\)</span> слагаемых. При обратном распространении ошибки на вход в нейрон идёт <span class="math notranslate nohighlight">\(n_{out}\)</span> градиентов.</p>
-<p>Количество весов от слоя к слою сильно колеблется, получается если мы будем пытаться делать дисперсию неизменной при прямом шаге, она будет либо расти либо падать при обратном. Невозможно пооддерживать обе дисперсии неизменными. Нужен компромис между этими шагами. Предложите его.</p>
+<p>Количество весов от слоя к слою сильно колеблется, получается, если мы будем пытаться делать дисперсию неизменной при прямом шаге, она будет либо расти, либо падать при обратном. Невозможно поддерживать обе дисперсии неизменными. Нужен компромисс между этими шагами. Предложите его.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -551,7 +551,7 @@ w_i \sim N \left(0, \frac{1}{n_{in}} \right).
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">При прямом шаге надо поддерживать дисперсию <span class="math notranslate nohighlight">\(\frac{1}{n_{in}}\)</span>. При обратном надо поддерживать дисперсию <span class="math notranslate nohighlight">\(\frac{1}{n_{out}}\)</span>.</p>
-<p class="sd-card-text">Можно инициализировать веса из распределения с дисперсией <span class="math notranslate nohighlight">\(\frac{2}{n_{in} + n_{out}}\)</span>. Такая инициализация назвывается <strong>инициализацией Ксавие (или Глорота).</strong><a class="footnote-reference brackets" href="#statia-xav" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p class="sd-card-text">Можно инициализировать веса из распределения с дисперсией <span class="math notranslate nohighlight">\(\frac{2}{n_{in} + n_{out}}\)</span>. Такая инициализация называется <strong>инициализацией Ксавие (или Глорота).</strong><a class="footnote-reference brackets" href="#statia-xav" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 </div>
 </details><!-- Внутри нейрона в качестве функции активации используется ReLU. На вход идёт $10$ признаков. В качестве инициализации для весов используется нормальное распределение, $N(0,1)$. С какой вероятностью нейрон будет выдавать на выход нулевое наблюдение, если 
 

@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -472,7 +472,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="logloss">
 <h1>8. Модернизируем logloss<a class="headerlink" href="#logloss" title="Link to this heading">#</a></h1>
-<p><strong>а)</strong>  Маша построила для своей выбороки распределение таргета, чтобы понять насколько оно сбалансировано</p>
+<p><strong>а)</strong>  Маша построила для своей выборки распределение таргета, чтобы понять, насколько оно сбалансировано</p>
 <figure class="align-default" id="logloss-weight">
 <a class="reference internal image-reference" href="../_images/img08_balanced_logloss.png"><img alt="../_images/img08_balanced_logloss.png" src="../_images/img08_balanced_logloss.png" style="width: 50%;" /></a>
 </figure>
@@ -486,7 +486,7 @@ document.write(`
 \[
 - \frac{1}{n} \sum_{i=1}^n ({\color{red} 3 \cdot} y_i \cdot \ln p_i + {\color{red} 1 \cdot} (1 - y_i) \cdot \ln( 1 - p_i)) 
 \]</div>
-<p>Как думаете, зачем Маша сделал это?</p>
+<p>Как думаете, зачем Маша сделала это?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -494,13 +494,13 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Маша увидела, что в выборке есть серьёзный дисбаланс. Первый класс встречается в три раза реже нулевого. Из-за этого Мааш решила искусственно увеличить значение каждого слагаемого с <span class="math notranslate nohighlight">\(\ln p_i\)</span> для первого класса в три раза.</p>
-<p class="sd-card-text">Если хочется сделать такое в <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, можно внутри <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> поставить <code class="docutils literal notranslate"><span class="pre">weighted</span> <span class="pre">=</span> <span class="pre">'balanced'</span></code>. Тогда он сам рассчитает насколько велик дисбаланс в тренировочной выборке и увеличит одно из слагаемых.</p>
+<p class="sd-card-text">Маша увидела, что в выборке есть серьёзный дисбаланс. Первый класс встречается в три раза реже нулевого. Из-за этого Маша решила искусственно увеличить значение каждого слагаемого с <span class="math notranslate nohighlight">\(\ln p_i\)</span> для первого класса в три раза.</p>
+<p class="sd-card-text">Если хочется сделать такое в <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, можно внутри <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> поставить <code class="docutils literal notranslate"><span class="pre">weighted</span> <span class="pre">=</span> <span class="pre">'balanced'</span></code>. Тогда он сам рассчитает, насколько велик дисбаланс в тренировочной выборке и увеличит одно из слагаемых.</p>
 <p class="sd-card-text">Если целевой класс встречается редко, наша модель может довольно сильно деградировать и начать везде выдавать нули.</p>
 </div>
 </details><p><strong>б)</strong> Маша прочитала в статье про функцию потерь Focal Loss.<a class="footnote-reference brackets" href="#fl-note" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> Её обычно используют при решении задачи детекции изображений.</p>
-<p>Важной частью всех детекторов изображений является решение задачи классификации для большого количества участков изображения. При этом многие из этих участков (патчей) содержат только фон, то есть преобаладает класс «фон». Многие из изображений фона легко классифицируются как фон.</p>
-<p>То есть возникает много примеров одного из классов, которые при этом и так легко классифицируются моделью. Из-за этого при использовании логистической функции поетрь, мы неэффективно учимся. Введем обозначение</p>
+<p>Важной частью всех детекторов изображений является решение задачи классификации для большого количества участков изображения. При этом многие из этих участков (патчей) содержат только фон, то есть преобладает класс «фон». Многие из изображений фона легко классифицируются как фон.</p>
+<p>То есть возникает много примеров одного из классов, которые при этом и так легко классифицируются моделью. Из-за этого при использовании логистической функции потерь мы неэффективно учимся. Введём обозначение</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 p_t = \begin{cases} p, &amp; \mbox{if } y = 1 \\ 1 - p, &amp; \mbox{if } y = 0 \end{cases}
@@ -533,7 +533,7 @@ CE(y, p) = \begin{cases} - \ln (p), &amp; \mbox{if }  y = 1 \\ - \ln (1-p), &amp
 \[
 CE(y, p) = CE(p_t) = - \ln (p_t)
 \]</div>
-<p class="sd-card-text">В случае, когда <span class="math notranslate nohighlight">\(p_t \gg 0.5\)</span> объект классифицируется правильно, ошибка хоть и мала, но всё ещё ненулевая, а в случае большого количества простых для классификации примеров преобладающий класс может “задавить” более редкий в функции потерь. Модель будет учиться для этих объектов предсказывать всё более близкие к 1 вероятности вместо того, чтобы лучше классифицировать объекты более редкого класса.</p>
+<p class="sd-card-text">В случае, когда <span class="math notranslate nohighlight">\(p_t \gg 0.5\)</span>, объект классифицируется правильно, ошибка хоть и мала, но всё ещё ненулевая, а в случае большого количества простых для классификации примеров преобладающий класс может “задавить” более редкий в функции потерь. Модель будет учиться для этих объектов предсказывать всё более близкие к 1 вероятности вместо того, чтобы лучше классифицировать объекты более редкого класса.</p>
 <p class="sd-card-text">Одним из вариантов борьбы с эффектом несбалансированных классов является добавление балансирующего коэффициента. В таком случае <span class="math notranslate nohighlight">\(CE(p_t) = - \alpha_t \ln p_t\)</span>, где</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

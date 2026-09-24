@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -482,7 +482,7 @@ y =   \max \left( 0;  X \cdot  \begin{pmatrix} 1 &amp; -1 \\ 0.5 &amp; 0 \end{pm
 \[\begin{split}
 X =\begin{pmatrix} 1 &amp; 2 \\ -1 &amp; 2 \end{pmatrix}.
 \end{split}\]</div>
-<p><strong>б)</strong> Найдите для первого слоя производную выхода по входу. При обратном движении по нейросетке, в первый слой пришёл накопленный градиент</p>
+<p><strong>б)</strong> Найдите для первого слоя производную выхода по входу. При обратном движении по нейросетке в первый слой пришёл накопленный градиент</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 d = \begin{pmatrix} -0.5 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}.
@@ -505,8 +505,8 @@ d = \begin{pmatrix} -0.5 &amp; -1 \\ 0 &amp; 0 \end{pmatrix}.
 \[\begin{split}
 O_1 =\begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}.
 \end{split}\]</div>
-<p><strong>е)</strong> Найдите для третьего слоя производную выхода по входу. При обратном движении по нейросетке, в третий слой пришёл накопленный градиент <span class="math notranslate nohighlight">\(d = (-1, 0)^T\)</span>. Каким будет новое накопленное значение градиента, которое выплюнет из себя линейный слой?</p>
-<p><strong>ё)</strong> Мы решаем задачу Регрессии. В качестве функции ошибки мы используем</p>
+<p><strong>е)</strong> Найдите для третьего слоя производную выхода по входу. При обратном движении по нейросетке в третий слой пришёл накопленный градиент <span class="math notranslate nohighlight">\(d = (-1, 0)^T\)</span>. Каким будет новое накопленное значение градиента, которое выплюнет из себя линейный слой?</p>
+<p><strong>ё)</strong> Мы решаем задачу регрессии. В качестве функции ошибки мы используем</p>
 <div class="math notranslate nohighlight">
 \[
 MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
@@ -514,7 +514,7 @@ MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
 <p>Пусть для рассматриваемых наблюдений реальные значения  <span class="math notranslate nohighlight">\(y_1 = 2, y_2 = 1\)</span>. Найдите значение <span class="math notranslate nohighlight">\(MSE\)</span>.</p>
 <p><strong>ж)</strong>  Чему равна производная <span class="math notranslate nohighlight">\(MSE\)</span> по прогнозу? Каким будет накопленное значение градиента, которое <span class="math notranslate nohighlight">\(MSE\)</span> выплюнет из себя в предыдущий слой нейросетки?</p>
 <p><strong>з)</strong> Пусть скорость обучения <span class="math notranslate nohighlight">\(\gamma = 1\)</span>.  Сделайте для весов нейросети шаг градиентного спуска.</p>
-<p><strong>и)</strong> Посидела Маша, посидела, и поняла, что неправильно она всё делает. В реальности перед ней не задача регрессии, а задача классификации. Маша применила к выходу из нейросетки сигмоиду. Как будет для неё выглядеть forward pass?</p>
+<p><strong>и)</strong> Посидела Маша, посидела и поняла, что неправильно она всё делает. В реальности перед ней не задача регрессии, а задача классификации. Маша применила к выходу из нейросетки сигмоиду. Как будет для неё выглядеть forward pass?</p>
 <p><strong>к)</strong>  В качестве функции потерь Маша использует <span class="math notranslate nohighlight">\(logloss.\)</span> Как для этой функции потерь выглядит forward pass? Сделайте его.</p>
 <p><strong>л)</strong> Найдите для <span class="math notranslate nohighlight">\(logloss\)</span> производную прогнозов по входу в сигмоиду. Как будет выглядеть backward pass, если <span class="math notranslate nohighlight">\(y_1 = 0, y_2 = 1?\)</span> Как поменяется оставшаяся часть алгоритма обратного распространения ошибки?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -544,7 +544,7 @@ MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
     &amp; \frac{\partial H_1}{\partial X} = W_1^T = \begin{pmatrix} 1 &amp; 0.5 \\ -1 &amp; 0 \end{pmatrix} \qquad  \frac{\partial H_1}{\partial W_1} = X^T = \begin{pmatrix} 1 &amp; -1 \\ 2 &amp; 2 \end{pmatrix}
     \end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Когда мы считаем производную <span class="math notranslate nohighlight">\(MSE,\)</span> мы ищем её по каждому прогнозу. В случае производной для <span class="math notranslate nohighlight">\(ReLU\)</span> запись <span class="math notranslate nohighlight">\([H_{ij} &gt; 0]\)</span> означает, что на месте <span class="math notranslate nohighlight">\(ij\)</span> стоит <span class="math notranslate nohighlight">\(1\)</span>, если элемент больше нуля и ноль иначе.  Делаем шаг обратного распространения ощибки</p>
+<p class="sd-card-text">Когда мы считаем производную <span class="math notranslate nohighlight">\(MSE,\)</span> мы ищем её по каждому прогнозу. В случае производной для <span class="math notranslate nohighlight">\(ReLU\)</span> запись <span class="math notranslate nohighlight">\([H_{ij} &gt; 0]\)</span> означает, что на месте <span class="math notranslate nohighlight">\(ij\)</span> стоит <span class="math notranslate nohighlight">\(1\)</span>, если элемент больше нуля, и ноль иначе.  Делаем шаг обратного распространения ошибки</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
@@ -558,7 +558,7 @@ MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
-      &amp; W_1 = \begin{pmatrix} 1 &amp; -1 \\ 0.5 &amp; 0 \end{pmatrix} - \gamma \cdot \begin{pmatrix} -0.5 &amp; -1 \\ 0 &amp; 0 \end{pmatrix}\\
+      &amp; W_1 = \begin{pmatrix} 1 &amp; -1 \\ 0.5 &amp; 0 \end{pmatrix} - \gamma \cdot \begin{pmatrix} -0.5 &amp; 0 \\ -1 &amp; 0 \end{pmatrix}\\
       &amp; W_2 = \begin{pmatrix} 0.5 \\ 1 \end{pmatrix}  - \gamma \cdot \begin{pmatrix} - 2 \\ 0 \end{pmatrix}.
     \end{aligned}
 \end{equation*}\]</div>
@@ -566,19 +566,19 @@ MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
-    &amp; logloss = y_i \cdot \ln \hat p_i + (1 - y_i) \cdot (1 - \hat p_i) \\ 
-    &amp; \frac{\partial logloss}{\partial \hat p_i} = \frac{y_i}{\hat p_i} - \frac{1 - y_i}{1 - \hat p_i}.
+    &amp; logloss = -(y_i \cdot \ln \hat p_i + (1 - y_i) \cdot \ln (1 - \hat p_i)) \\ 
+    &amp; \frac{\partial logloss}{\partial \hat p_i} = -\frac{y_i}{\hat p_i} + \frac{1 - y_i}{1 - \hat p_i}.
     \end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Так как в бинарной классификации <span class="math notranslate nohighlight">\(y_i\)</span> принимает значения <span class="math notranslate nohighlight">\(\{0,1\},\)</span> производная равна либо первому либо второму слагаемому. Получаем вычисления</p>
+<p class="sd-card-text">Так как в бинарной классификации <span class="math notranslate nohighlight">\(y_i\)</span> принимает значения <span class="math notranslate nohighlight">\(\{0,1\},\)</span> производная равна либо первому, либо второму слагаемому. Получаем вычисления</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
     &amp; O_2 = \sigma(\hat y) = \begin{pmatrix} 0.73 \\ 0.73 \end{pmatrix} \qquad  \frac{\partial O_2}{\partial \hat y} = O_2 \cdot (1 - O_2) \approx \begin{pmatrix} 0.2 \\ 0.2 \end{pmatrix} \\ 
-    &amp; \frac{\partial logloss}{\partial \hat p} \approx \begin{pmatrix} 3.7 \\ 1.4 \end{pmatrix} \qquad \frac{\partial logloss}{\partial \hat y} \approx \begin{pmatrix} 3.7 \\ 1.4 \end{pmatrix} \odot \begin{pmatrix} 0.2 \\ 0.2 \end{pmatrix} = \begin{pmatrix} 0.74 \\ 0.28 \end{pmatrix}
+    &amp; \frac{\partial logloss}{\partial \hat p} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \qquad \frac{\partial logloss}{\partial \hat y} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \odot \begin{pmatrix} 0.2 \\ 0.2 \end{pmatrix} = \begin{pmatrix} 0.74 \\ -0.28 \end{pmatrix}
     \end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Дальше алгоритм делается ровно также, только в качестве стартового <span class="math notranslate nohighlight">\(d\)</span> используется <span class="math notranslate nohighlight">\(logloss'_{\hat y},\)</span> а не <span class="math notranslate nohighlight">\(MSE'_{\hat y}.\)</span></p>
+<p class="sd-card-text">Дальше алгоритм делается ровно так же, только в качестве стартового <span class="math notranslate nohighlight">\(d\)</span> используется <span class="math notranslate nohighlight">\(logloss'_{\hat y},\)</span> а не <span class="math notranslate nohighlight">\(MSE'_{\hat y}.\)</span></p>
 </div>
 </details></section>
 

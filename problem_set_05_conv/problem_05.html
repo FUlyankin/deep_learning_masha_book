@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -487,7 +487,7 @@ document.write(`
 <p class="sd-card-text">Нарисуем в виде кругляшей полносвязный слой. На вход идёт картинка размера <span class="math notranslate nohighlight">\(4 \times 4\)</span>. Это означает, что у неё <span class="math notranslate nohighlight">\(16\)</span> пикселей. Каждый пиксель — отдельная переменная. Нарисуем первые пять пикселей.</p>
 <a class="reference internal image-reference" href="../_images/img05_conv_fc.png"><img alt="triangle" class="align-center" src="../_images/img05_conv_fc.png" style="height: 400px;" /></a>
 <p class="sd-card-text">Каждый вход идёт в каждый из четырёх выходов со своим весом. Получается <span class="math notranslate nohighlight">\(16 \cdot 4 = 64\)</span> весов. Также мы будем обучать <span class="math notranslate nohighlight">\(4\)</span> свободных члена (константы) для каждого из нейронов скрытого слоя. Всего <span class="math notranslate nohighlight">\(68\)</span> параметров.</p>
-<p class="sd-card-text">Нарисуем то же самое для свёрточного слоя. Попробуем наложить свёртку на картинку и посмотрим как формируются выходы из неё.</p>
+<p class="sd-card-text">Нарисуем то же самое для свёрточного слоя. Попробуем наложить свёртку на картинку и посмотрим, как формируются выходы из неё.</p>
 <a class="reference internal image-reference" href="../_images/img05_conv.png"><img alt="triangle" class="align-center" src="../_images/img05_conv.png" style="height: 200px;" /></a>
 <p class="sd-card-text">Давайте выпишем все элементы результата применения свёртки</p>
 <div class="amsmath math notranslate nohighlight">
@@ -512,7 +512,7 @@ d = w_{11} \cdot x_{22} + w_{12} \cdot x_{23} + w_{13} \cdot x_{24} + \\ + w_{21
 <p class="sd-card-text">Посмотрим внимательнее на расчёт пикселя <span class="math notranslate nohighlight">\(a\)</span>. В нём фигурируют не все <span class="math notranslate nohighlight">\(x_{ij}\)</span>. Получается, что если мы захотим записать расчёт <span class="math notranslate nohighlight">\(a\)</span> в полносвязном виде, часть связей в слое исчезнет. Например, от <span class="math notranslate nohighlight">\(x_{11}\)</span> останется только одна связь, которая ведёт к <span class="math notranslate nohighlight">\(a\)</span>.</p>
 <p class="sd-card-text">Более того, веса <span class="math notranslate nohighlight">\(w_{lk}\)</span> постоянно переиспользуются. Получается, что они будут одинаковыми у многих связей слоя.</p>
 <a class="reference internal image-reference" href="../_images/img05_conv_fc2.png"><img alt="triangle" class="align-center" src="../_images/img05_conv_fc2.png" style="height: 400px;" /></a>
-<p class="sd-card-text">По аналогии можно нанести на каринку все оставшиеся связи. Получается, что свёрточный слой представляет из себя полносвязный слой с двумя ограничениями: мы выкидываем часть связей, а веса у каких-то определённых связей делаем одинаковыми. В свёртке мы используем <span class="math notranslate nohighlight">\(9\)</span> параметров. По аналогии с обычным нейроном, к свёртке можно добавить свободный член. Тогда параметров станет <span class="math notranslate nohighlight">\(10\)</span>. В уравнении для каждого выхода появится дополнительный параметр <span class="math notranslate nohighlight">\(w_0\)</span></p>
+<p class="sd-card-text">По аналогии можно нанести на картинку все оставшиеся связи. Получается, что свёрточный слой представляет из себя полносвязный слой с двумя ограничениями: мы выкидываем часть связей, а веса у каких-то определённых связей делаем одинаковыми. В свёртке мы используем <span class="math notranslate nohighlight">\(9\)</span> параметров. По аналогии с обычным нейроном, к свёртке можно добавить свободный член. Тогда параметров станет <span class="math notranslate nohighlight">\(10\)</span>. В уравнении для каждого выхода появится дополнительный параметр <span class="math notranslate nohighlight">\(w_0\)</span></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
 a = w_0 + w_{11} \cdot x_{11} + w_{12} \cdot x_{12} + w_{13} \cdot x_{13} + \\ + w_{21} \cdot x_{21} + w_{22} \cdot x_{22} + w_{23} \cdot x_{23} + \\ + w_{31} \cdot x_{31} + w_{32} \cdot x_{32} + w_{33} \cdot x_{33}.
@@ -577,7 +577,7 @@ X = (x_{11}, x_{12}, x_{13}, x_{14},
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Точно также, как и через полносвязный. Только надо не забывать про то, что веса повторяются. Вес <span class="math notranslate nohighlight">\(w_{11}\)</span> в нашем случае фигугрирует в четырёх местах. Получается, что</p>
+<p class="sd-card-text">Точно так же, как и через полносвязный. Только надо не забывать про то, что веса повторяются. Вес <span class="math notranslate nohighlight">\(w_{11}\)</span> в нашем случае фигурирует в четырёх местах. Получается, что</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial L}{\partial w_{11}} = \frac{\partial L}{\partial a} \cdot x_{11} + \frac{\partial L}{\partial b} \cdot x_{12} + \frac{\partial L}{\partial c} \cdot x_{21} + \frac{\partial L}{\partial d} \cdot x_{22}.
@@ -593,7 +593,7 @@ X = (x_{11}, x_{12}, x_{13}, x_{14},
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial L}{\partial w_{12}} = \frac{\partial L}{\partial a} \cdot x_{22} + \frac{\partial L}{\partial b} \cdot x_{23} + \frac{\partial L}{\partial c} \cdot x_{32} + \frac{\partial L}{\partial d} \cdot x_{33}.
+\frac{\partial L}{\partial w_{22}} = \frac{\partial L}{\partial a} \cdot x_{22} + \frac{\partial L}{\partial b} \cdot x_{23} + \frac{\partial L}{\partial c} \cdot x_{32} + \frac{\partial L}{\partial d} \cdot x_{33}.
 \]</div>
 <p class="sd-card-text">Можно продолжить выписывать подобные уравнения и аккуратно закодить алгоритм обратного распространения ошибки. А можно заметить, что матрица из производных – это свёртка, которая бежит по нашей картинке. Каждая производная по весу, которую мы получаем – результат этой свёртки.</p>
 <a class="reference internal image-reference" href="../_images/img05_conv_der.png"><img alt="triangle" class="align-center" src="../_images/img05_conv_der.png" style="height: 200px;" /></a>

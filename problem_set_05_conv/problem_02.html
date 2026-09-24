@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -488,7 +488,7 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/img02_slash_02.png"><img alt="cnn9" class="align-center" src="../_images/img02_slash_02.png" style="height: 200px;" /></a>
 <p class="sd-card-text">Попробуем применить эту же свёртку к обратному слэшу.</p>
 <a class="reference internal image-reference" href="../_images/img02_slash_03.png"><img alt="cnn9" class="align-center" src="../_images/img02_slash_03.png" style="height: 200px;" /></a>
-<p class="sd-card-text">Видно, что для обратного слэша, в результате применения свёртки есть число <span class="math notranslate nohighlight">\(2\)</span>. Для прямого слэша максимальное число – это единица. Попробуем передвинуть обратный слэш в какое-нибудь другое место и посмотрим, что получится после применения свёртки.</p>
+<p class="sd-card-text">Видно, что для обратного слэша в результате применения свёртки есть число <span class="math notranslate nohighlight">\(2\)</span>. Для прямого слэша максимальное число – это единица. Попробуем передвинуть обратный слэш в какое-нибудь другое место и посмотрим, что получится после применения свёртки.</p>
 <a class="reference internal image-reference" href="../_images/img02_slash_04.png"><img alt="cnn9" class="align-center" src="../_images/img02_slash_04.png" style="height: 200px;" /></a>
 <p class="sd-card-text">Снова самое большое число – это двойка. Получается следующий алгоритм:</p>
 <ol class="arabic simple">
@@ -497,9 +497,9 @@ document.write(`
 <li><p class="sd-card-text">Если это двойка, у нас обратный слэш, если единица, у нас прямой слэш.</p></li>
 </ol>
 <p class="sd-card-text">Такой алгоритм будет работать независимо от того, где именно находится наш слэш. Получается, что свёртка – инвариантна к местоположению объекта на картинке. Каждая свёртка пытается искать на изображении какой-то конкретный образ. Если на изображении, полученном после применения свёртки, у нас есть большие числа, они сигнализируют о том, что свёртка нашла то, что искала.</p>
-<p class="sd-card-text">Обратите внимание, что если бы наши слэши были бы размера <span class="math notranslate nohighlight">\(3 \times 3,\)</span> свёртка размера <span class="math notranslate nohighlight">\(2 \times 2\)</span> не могла бы найти их. Зато две применённые по очереди свёртки, спокойно бы справились с такой задачей. Это происходит из-за того, что свёртка <span class="math notranslate nohighlight">\(2 \times 2\)</span> не охватывает нужную нам часть изображения полностью. Она видит только квадрат размера <span class="math notranslate nohighlight">\(2 \times 2\)</span>.</p>
-<p class="sd-card-text">Вторая свёртка применяется к уже свернутому изображению. В каждой клетке у нас записано число, которое представляет из себя сумму четырёх пикселей. Получается, что вторая свёртка косвенно, через первую свёртку, будет понимать, что находится в квадрате размера <span class="math notranslate nohighlight">\(4 \times 4\)</span>.</p>
-<p class="sd-card-text">Область, которую разглядели наши свёртки, называют <strong>полем обзора (receptive field).</strong> В одной из следующих задач мы узнаем, что если просто применять свёртки друг за другом, мы будем растить поле обзора слишком долго. Чтобы это происходило быстрее, обычно используют пулинг.</p>
+<p class="sd-card-text">Обратите внимание, что, если бы наши слэши были бы размера <span class="math notranslate nohighlight">\(3 \times 3,\)</span> свёртка размера <span class="math notranslate nohighlight">\(2 \times 2\)</span> не могла бы найти их. Зато две применённые по очереди свёртки спокойно бы справились с такой задачей. Это происходит из-за того, что свёртка <span class="math notranslate nohighlight">\(2 \times 2\)</span> не охватывает нужную нам часть изображения полностью. Она видит только квадрат размера <span class="math notranslate nohighlight">\(2 \times 2\)</span>.</p>
+<p class="sd-card-text">Вторая свёртка применяется к уже свёрнутому изображению. В каждой клетке у нас записано число, которое представляет из себя сумму четырёх пикселей. Получается, что вторая свёртка косвенно, через первую свёртку, будет понимать, что находится в квадрате размера <span class="math notranslate nohighlight">\(4 \times 4\)</span>.</p>
+<p class="sd-card-text">Область, которую разглядели наши свёртки, называют <strong>полем обзора (receptive field).</strong> В одной из следующих задач мы узнаем, что, если просто применять свёртки друг за другом, мы будем растить поле обзора слишком долго. Чтобы это происходило быстрее, обычно используют пулинг.</p>
 </div>
 </details></section>
 

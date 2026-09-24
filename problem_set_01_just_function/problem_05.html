@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -476,7 +476,7 @@ document.write(`
 <figure class="align-default" id="log-table">
 <a class="reference internal image-reference" href="../_images/img05_log_table.png"><img alt="../_images/img05_log_table.png" src="../_images/img05_log_table.png" style="width: 95%;" /></a>
 </figure>
-<p>Первые два столбика идут на вход, третий получается на выходе. Первая операция — логическое «и», вторая — «или».   Операция из третьей таблицы называется «исключающим или», XoR. Если внимательно приглядеться, то можно заметить, что XoR — это то же самое что и <span class="math notranslate nohighlight">\([x_1 \ne x_2].\)</span> Квадратные скобки обозначают индикатор. Он выдаёт <span class="math notranslate nohighlight">\(1\)</span>, если внутри него стоит правда и <span class="math notranslate nohighlight">\(0\)</span>, если ложь. Такая запись называется скобкой Айверсона. Попробуйте записать через неё единичную ступеньку Хевисайда, а затем помогите Маше с нейросетями.</p>
+<p>Первые два столбика идут на вход, третий получается на выходе. Первая операция — логическое «и», вторая — «или».   Операция из третьей таблицы называется «исключающим или», XoR. Если внимательно приглядеться, то можно заметить, что XoR — это то же самое, что и <span class="math notranslate nohighlight">\([x_1 \ne x_2].\)</span> Квадратные скобки обозначают индикатор. Он выдаёт <span class="math notranslate nohighlight">\(1\)</span>, если внутри него стоит правда, и <span class="math notranslate nohighlight">\(0\)</span>, если ложь. Такая запись называется скобкой Айверсона. Попробуйте записать через неё единичную ступеньку Хевисайда, а затем помогите Маше с нейросетями.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -505,7 +505,7 @@ document.write(`
 \[
 \hat y = [1 \cdot (x_1 \cup x_2) - 1 \cdot (x_1 \cap x_2) - 0.5 &gt; 0]
 \]</div>
-<p class="sd-card-text">Нейрон <span class="math notranslate nohighlight">\((x_1 \cup x_2)\)</span> выясняет по какую сторону от сплошной линии мы оказались, нейрон <span class="math notranslate nohighlight">\(x_1 \cap x_2\)</span> делает то же самое для пунктирной линии. А дальше мы просто объединяем результат. Получается, что <span class="math notranslate nohighlight">\(XoR\)</span> можно описать двухслойной нейронной сетью.</p>
+<p class="sd-card-text">Нейрон <span class="math notranslate nohighlight">\((x_1 \cup x_2)\)</span> выясняет, по какую сторону от сплошной линии мы оказались, нейрон <span class="math notranslate nohighlight">\(x_1 \cap x_2\)</span> делает то же самое для пунктирной линии. А дальше мы просто объединяем результат. Получается, что <span class="math notranslate nohighlight">\(XoR\)</span> можно описать двухслойной нейронной сетью.</p>
 </div>
 </details></section>
 

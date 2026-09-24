@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="problem_01.html">1. Учимся искать производные</a></li>
@@ -472,7 +472,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>3. Линейная регрессия<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Рассмотрим задачу линейной регресии</p>
+<p>Рассмотрим задачу линейной регрессии</p>
 <div class="math notranslate nohighlight">
 \[
 L(w) = (y - Xw)^T(y - Xw) \to \min_{w}.
@@ -490,7 +490,7 @@ L(w) = (y - Xw)^T(y - Xw) \to \min_{w}.
 \[\begin{split}
 (y - Xw)^T(y - Xw) = \begin{pmatrix} y_1 - x_1^Tw &amp;  \ldots &amp; y_n - x_n^Tw \end{pmatrix} \begin{pmatrix} y_1 - x_1^Tw \\  \ldots \\ y_n - x_n^Tw \end{pmatrix}   = \sum_{i=1}^n (y_i - x_i^Tw)^2.
 \end{split}\]</div>
-<p class="sd-card-text">Найдём дифференциал для нашей функции потерь, держим в голове что производная берётся по вектору <span class="math notranslate nohighlight">\(w\)</span></p>
+<p class="sd-card-text">Найдём дифференциал для нашей функции потерь, держим в голове, что производная берётся по вектору <span class="math notranslate nohighlight">\(w\)</span></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
 d L = d[(y - Xw)^T(y - Xw)] = \\ = d[(y - Xw)^T] \cdot (y - Xw) + (y - Xw)^T \cdot d[(y - Xw)] = \\ = d[(-Xw)^T] (y - Xw) - (y - Xw)^TX \cdot dw = \\ = - dw^T X^T (y - Xw) - (y - Xw)^TX dw = -2 (y - Xw)^TX dw.
@@ -500,7 +500,7 @@ d L = d[(y - Xw)^T(y - Xw)] = \\ = d[(y - Xw)^T] \cdot (y - Xw) + (y - Xw)^T \cd
 \[
 2X^T(y-Xw) = 0 \qquad  X^Ty = X^TX w \qquad w = (X^TX)^{-1} X^Ty.
 \]</div>
-<p class="sd-card-text">При решении системы мы сделали предположение, что матрица <span class="math notranslate nohighlight">\(X^TX\)</span> обратима. Это так, если в матрице <span class="math notranslate nohighlight">\(X\)</span> нет линейно зависимых столбцов, а также наблюдений больше чем переменных.</p>
+<p class="sd-card-text">При решении системы мы сделали предположение, что матрица <span class="math notranslate nohighlight">\(X^TX\)</span> обратима. Это так, если в матрице <span class="math notranslate nohighlight">\(X\)</span> нет линейно зависимых столбцов, а также наблюдений больше, чем переменных.</p>
 </div>
 </details><p><strong>б)</strong> Как выглядит шаг градиентного спуска в матричном виде?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -543,7 +543,7 @@ d^2 L = dw^T 2X^TX dw.
 \[
 L(w) = (y - Xw)^T(y - Xw) + \lambda w^Tw,
 \]</div>
-<p>где <span class="math notranslate nohighlight">\(\lambda\)</span> — положительный параметр, штрафующий функцию за слишком большие значения <span class="math notranslate nohighlight">\(w\)</span>. Как будут выглядеть <span class="math notranslate nohighlight">\(dL(w)\)</span>, <span class="math notranslate nohighlight">\(d^2L(w)\)</span> и формулу для оптимального <span class="math notranslate nohighlight">\(w\)</span>?</p>
+<p>где <span class="math notranslate nohighlight">\(\lambda\)</span> — положительный параметр, штрафующий функцию за слишком большие значения <span class="math notranslate nohighlight">\(w\)</span>. Как будут выглядеть <span class="math notranslate nohighlight">\(dL(w)\)</span>, <span class="math notranslate nohighlight">\(d^2L(w)\)</span> и формула для оптимального <span class="math notranslate nohighlight">\(w\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">

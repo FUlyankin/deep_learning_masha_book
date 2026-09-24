@@ -260,7 +260,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="problem_01.html">1. Учимся искать производные</a></li>
@@ -471,11 +471,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>7. Матричный лагранжиан<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Найдите симметричную матрицу <span class="math notranslate nohighlight">\(X\)</span> наиболее близкую к матрице <span class="math notranslate nohighlight">\(A\)</span> по норме Фробениуса, <span class="math notranslate nohighlight">\(\sum_{i,j} (x_{ij} - a_{ij})^2\)</span>. Тут мы просто из каждого элемента вычитаем каждый и смотрим на сумму квадратов таких разностей. То есть решите задачку условной матричной минимизации</p>
+<p>Найдите симметричную матрицу <span class="math notranslate nohighlight">\(X\)</span>, наиболее близкую к матрице <span class="math notranslate nohighlight">\(A\)</span> по норме Фробениуса, <span class="math notranslate nohighlight">\(\sum_{i,j} (x_{ij} - a_{ij})^2\)</span>. Тут мы просто из каждого элемента вычитаем каждый и смотрим на сумму квадратов таких разностей. То есть решите задачку условной матричной минимизации</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 	\begin{cases}
-		&amp; ||X - A||^2 \to \min_{A}  \\
+		&amp; ||X - A||^2 \to \min_{X}  \\
 		&amp; X^T = X
 	\end{cases}
 \end{equation*}\]</div>
@@ -486,7 +486,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Надо будет выписать Лагранджиан.  А ещё пригодится тот факт, что <span class="math notranslate nohighlight">\(\sum_{i,j} (x_{ij} - a_{ij})^2 = ||X-A||^2 =  tr((X-A)^T (X-A))\)</span>.</p>
+<p class="sd-card-text">Надо будет выписать лагранжиан.  А ещё пригодится тот факт, что <span class="math notranslate nohighlight">\(\sum_{i,j} (x_{ij} - a_{ij})^2 = ||X-A||^2 =  tr((X-A)^T (X-A))\)</span>.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -495,7 +495,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Выписываем лагранджиан</p>
+<p class="sd-card-text">Выписываем лагранжиан</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
 \mathscr{L} = \sum_{i,j} (x_{ij} - a_{ij})^2 + \sum_{ij} \lambda_{ij} (x_{ij} - x_{ji}) = \\ = tr((X-A)^T (X-A)) + tr(\Lambda^T (X - X^T)) = \\ = tr(X^TX) - 2 tr(X^TA) + tr(A^TA) + tr(\Lambda^T (X - X^T))
@@ -510,7 +510,7 @@ document.write(`
     &amp; d[tr(\Lambda^TX^T)] = tr(\Lambda dX) \\
     \end{aligned} 
 \end{equation*}\]</div>
-<p class="sd-card-text">Выписываем в яном виде производную по <span class="math notranslate nohighlight">\(X\)</span></p>
+<p class="sd-card-text">Выписываем в явном виде производную по <span class="math notranslate nohighlight">\(X\)</span></p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial \mathscr{L}}{\partial X} = 2X^T - 2A^T + \Lambda^T - \Lambda = 0

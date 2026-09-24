@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -472,7 +472,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>10. Число параметров<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Та, кому принадлежит машин лёрнинг собирается обучить полносвязную нейронную сеть для решения задачи регрессии, На вход в ней идёт <span class="math notranslate nohighlight">\(12\)</span> переменных, в сетке есть <span class="math notranslate nohighlight">\(3\)</span> скрытых слоя. В первом слое <span class="math notranslate nohighlight">\(300\)</span> нейронов, во втором <span class="math notranslate nohighlight">\(200\)</span>, в третьем <span class="math notranslate nohighlight">\(100\)</span>.  Сколько параметров предстоит обучить Маше?</p>
+<p>Та, кому принадлежит машин лёрнинг, собирается обучить полносвязную нейронную сеть для решения задачи регрессии. На вход в ней идёт <span class="math notranslate nohighlight">\(12\)</span> переменных, в сетке есть <span class="math notranslate nohighlight">\(3\)</span> скрытых слоя. В первом слое <span class="math notranslate nohighlight">\(300\)</span> нейронов, во втором <span class="math notranslate nohighlight">\(200\)</span>, в третьем <span class="math notranslate nohighlight">\(100\)</span>.  Сколько параметров предстоит обучить Маше?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -480,7 +480,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Нам нужно решить комбинаторную задачку. Связи в нашей сетке проведены между всему нейронами. Не забываем учесть, что у каждого нейрона есть константа. Получается, что всего параметров будет</p>
+<p class="sd-card-text">Нам нужно решить комбинаторную задачку. Связи в нашей сетке проведены между всеми нейронами. Не забываем учесть, что у каждого нейрона есть константа. Получается, что всего параметров будет</p>
 <div class="math notranslate nohighlight">
 \[
 (12 + 1) \cdot 300 + (300 + 1) \cdot 200 + (200 + 1) \cdot 100 + (100 + 1) \cdot 1.

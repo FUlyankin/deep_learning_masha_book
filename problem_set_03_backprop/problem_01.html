@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -472,12 +472,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>1. Граф вычислений<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Как найти производную <span class="math notranslate nohighlight">\(a\)</span> по <span class="math notranslate nohighlight">\(b\)</span> в графе вычислений? Находим не посещённый путь из <span class="math notranslate nohighlight">\(a\)</span> в <span class="math notranslate nohighlight">\(b\)</span>, перемножаем все производные на рёбрах получившегося пути. Добавляем это произведение в сумму. Так делаем для всех путей. Маша хочет попробовать этот алгоритм на функции</p>
+<p>Как найти производную <span class="math notranslate nohighlight">\(a\)</span> по <span class="math notranslate nohighlight">\(b\)</span> в графе вычислений? Находим непосещённый путь из <span class="math notranslate nohighlight">\(a\)</span> в <span class="math notranslate nohighlight">\(b\)</span>, перемножаем все производные на рёбрах получившегося пути. Добавляем это произведение в сумму. Так делаем для всех путей. Маша хочет попробовать этот алгоритм на функции</p>
 <div class="math notranslate nohighlight">
 \[
 f(x,y) = x^2 + xy + (x + y)^2.
 \]</div>
-<p>Помогите ей нарисовать граф вычислений и найти <span class="math notranslate nohighlight">\(\frac{\partial f}{\partial x}\)</span> и <span class="math notranslate nohighlight">\(\frac{\partial f}{\partial y}.\)</span> В каждой вершине графа записывайте результат вычисления одной элементарной операции: сложений или умножения<a class="footnote-reference brackets" href="#nik-note" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>Помогите ей нарисовать граф вычислений и найти <span class="math notranslate nohighlight">\(\frac{\partial f}{\partial x}\)</span> и <span class="math notranslate nohighlight">\(\frac{\partial f}{\partial y}.\)</span> В каждой вершине графа записывайте результат вычисления одной элементарной операции: сложения или умножения<a class="footnote-reference brackets" href="#nik-note" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">

@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -473,7 +473,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>1. Дропаут<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <blockquote class="epigraph">
-<div><p>Посещая свой банк я заметил, что операционисты, обслуживающие меня, часто меняются. Я спросил одного из них, почему так происходит. Он сказал, что не знает, но им часто приходится переходить с места на место. Я предположил, что это делается для исключения мошеннического сговора с сотрудником банка.</p>
+<div><p>Посещая свой банк, я заметил, что операционисты, обслуживающие меня, часто меняются. Я спросил одного из них, почему так происходит. Он сказал, что не знает, но им часто приходится переходить с места на место. Я предположил, что это делается для исключения мошеннического сговора с сотрудником банка.</p>
 <p>Это навело меня на мысль, что удаление случайно выбранного подмножества нейронов из каждого примера может помочь предотвратить заговор модели с исходными данными и ослабить эффект переобучения.</p>
 <p class="attribution">—Джеффри Хинтон</p>
 </div></blockquote>
@@ -517,7 +517,7 @@ H_2 = D \odot f(H_1 \cdot W + b).
 \[
 \underset{[n \times k]}{\frac{\partial L}{\partial H_1}} = \underset{[n \times d]}{\frac{\partial L}{\partial H_2}} \cdot \underset{[d \times k]}{W^T} \odot \underset{[n \times k]}{f'(H_1 \cdot W + b)} \odot \underset{[n \times k]}{D}.
 \]</div>
-<p class="sd-card-text">Получается, что градиенты по занулившимся нейронам зануляются и сетка игнорирует их при шаге обратного распространения ошибки. Производная по весам слоя выглядит как</p>
+<p class="sd-card-text">Получается, что градиенты по занулившимся нейронам зануляются, и сетка игнорирует их при шаге обратного распространения ошибки. Производная по весам слоя выглядит как</p>
 <div class="math notranslate nohighlight">
 \[
 \underset{[d \times k]}{\frac{\partial L}{\partial W}} = \underset{[d \times n]}{H_1^T} \cdot \underset{[n \times k]}{\frac{\partial L}{\partial H_1}} 
@@ -532,14 +532,14 @@ H_2 = D \odot f(H_1 \cdot W + b).
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Дропаут позволяет бороться с коадаптацией нейронов. При обучении мы зануляем часть выходов, тем самым мы изменяем только часть параметров и нейроны учатся более независимо.</p>
+<p class="sd-card-text">Дропаут позволяет бороться с коадаптацией нейронов. При обучении мы зануляем часть выходов, тем самым мы изменяем только часть параметров, и нейроны учатся более независимо.</p>
 <p class="sd-card-text">Более того, Хинтону и его соавторам удалось показать, что дропаут эквивалентен усреднению всех тех моделей, которые получались на каждом шаге случайным выбрасыванием отдельных нейронов. Иначе говоря, мы усредняем <span class="math notranslate nohighlight">\(2^N\)</span> возможных моделей, где <span class="math notranslate nohighlight">\(N\)</span> – число нейронов, которые могут быть выкинуты или оставлены.</p>
 </div>
-</details><p><strong>в)</strong> Дропаут выплёвывает случайные выходы. Не очень понятно как применять слой на стадии тестирования. Пусть у нас есть два нейрона, каждый из которых мы отключаем с вероятностью <span class="math notranslate nohighlight">\(0.4\)</span>.</p>
+</details><p><strong>в)</strong> Дропаут выплёвывает случайные выходы. Не очень понятно, как применять слой на стадии тестирования. Пусть у нас есть два нейрона, каждый из которых мы отключаем с вероятностью <span class="math notranslate nohighlight">\(0.4\)</span>.</p>
 <figure class="align-default" id="regression">
 <a class="reference internal image-reference" href="../_images/img01_dropout.png"><img alt="../_images/img01_dropout.png" src="../_images/img01_dropout.png" style="width: 30%;" /></a>
 </figure>
-<p>Нейроны выплёвывают <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(x_2\)</span>. Дальше мы складываем их с весами <span class="math notranslate nohighlight">\(w_1\)</span> и <span class="math notranslate nohighlight">\(w_2\)</span> и поулучаем выход <span class="math notranslate nohighlight">\(h\)</span>.</p>
+<p>Нейроны выплёвывают <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(x_2\)</span>. Дальше мы складываем их с весами <span class="math notranslate nohighlight">\(w_1\)</span> и <span class="math notranslate nohighlight">\(w_2\)</span> и получаем выход <span class="math notranslate nohighlight">\(h\)</span>.</p>
 <p>Один из способов использовать такую нейросеть на тесте – прогнать её при всех возможных вариантах реализации дропаута и усреднить получившиеся выходы. Проделайте это и найдите  <span class="math notranslate nohighlight">\(\mathbb{E}(h)\)</span>. Предложите более простой способ использовать нейросеть на тестовой выборке.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -555,7 +555,7 @@ H_2 = D \odot f(H_1 \cdot W + b).
 <p class="sd-card-text">Мы применяем дропаут с параметром <span class="math notranslate nohighlight">\(0.4\)</span>. Достаточно просто домножить выход нейрона на <span class="math notranslate nohighlight">\(0.6,\)</span> и мы получим точно такой же результат, как при усреднении всех возможных выходов.</p>
 <p class="sd-card-text">Получается, что нам надо поддерживать одну функцию для прогнозов на обучающей выборке без домножения на <span class="math notranslate nohighlight">\(1 - p\)</span> и одну функцию для прогнозов с домножением на <span class="math notranslate nohighlight">\(1 - p\)</span>. Хочется избежать такого раздвоения.</p>
 </div>
-</details><p><strong>г)</strong> Обычно, в нейросетях используют <strong>обратный дропаут.</strong> Прямой проход делается по формуле</p>
+</details><p><strong>г)</strong> Обычно в нейросетях используют <strong>обратный дропаут.</strong> Прямой проход делается по формуле</p>
 <div class="math notranslate nohighlight">
 \[
 H_2 = \frac{1}{1- p} \cdot D \odot f(H_1 \cdot W + b).
@@ -568,7 +568,7 @@ H_2 = \frac{1}{1- p} \cdot D \odot f(H_1 \cdot W + b).
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Чтобы посчитать прогноз на тесте для обычного дропаута, нам нужно умножить выход слой на <span class="math notranslate nohighlight">\(1 - p\)</span></p>
+<p class="sd-card-text">Чтобы посчитать прогноз на тесте для обычного дропаута, нам нужно умножить выход слоя на <span class="math notranslate nohighlight">\(1 - p\)</span></p>
 <div class="math notranslate nohighlight">
 \[
 H_2 = (1 - p) \cdot f(H_1 \cdot W + b).
@@ -609,7 +609,7 @@ W_t = W_{t - 1} - \eta_t \cdot \frac{1}{1-p} \cdot \frac{\partial L}{\partial W}
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Пусть у нас на слое <span class="math notranslate nohighlight">\(k\)</span> нейронов. Каждый отключается с вероятностью <span class="math notranslate nohighlight">\(p,\)</span> значит весь слой отключится с вероятностью <span class="math notranslate nohighlight">\(p^k\)</span>.</p>
+<p class="sd-card-text">Пусть у нас на слое <span class="math notranslate nohighlight">\(k\)</span> нейронов. Каждый отключается с вероятностью <span class="math notranslate nohighlight">\(p,\)</span> значит, весь слой отключится с вероятностью <span class="math notranslate nohighlight">\(p^k\)</span>.</p>
 <p class="sd-card-text">Пусть <span class="math notranslate nohighlight">\(Y_i = 1,\)</span> если <span class="math notranslate nohighlight">\(i-\)</span>ый нейрон работает. Тогда <span class="math notranslate nohighlight">\(\mathbb{E}(Y_i) = 1 - p\)</span>. Получается, что</p>
 <div class="math notranslate nohighlight">
 \[
@@ -617,7 +617,7 @@ W_t = W_{t - 1} - \eta_t \cdot \frac{1}{1-p} \cdot \frac{\partial L}{\partial W}
 \]</div>
 <p class="sd-card-text">Получается, что у <span class="math notranslate nohighlight">\(N\)</span> будет биномиальное распределение. Если мы хотим оставить только четверть работающих нейронов, нам нужна <span class="math notranslate nohighlight">\(p = 0.75\)</span>.</p>
 </div>
-</details><p><strong>ё)</strong> Маша добавила Dropout c вероятностью <span class="math notranslate nohighlight">\(p\)</span>. после каждого из трёх слоёв нейросетки. Какова вероятность того, что один из слоёв отключится и сетка не сможет учиться?</p>
+</details><p><strong>ё)</strong> Маша добавила Dropout c вероятностью <span class="math notranslate nohighlight">\(p\)</span> после каждого из трёх слоёв нейросетки. Какова вероятность того, что один из слоёв отключится и сетка не сможет учиться?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -626,12 +626,12 @@ W_t = W_{t - 1} - \eta_t \cdot \frac{1}{1-p} \cdot \frac{\partial L}{\partial W}
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Пусть у нас на первом слое <span class="math notranslate nohighlight">\(k_1\)</span> нейронов, на втором <span class="math notranslate nohighlight">\(k_2\)</span> нейронов, на третьем <span class="math notranslate nohighlight">\(k_3\)</span> нейронов. Слои умирают с вероятностями <span class="math notranslate nohighlight">\(p^{k_1}, p^{k_2}, p^{k_3}.\)</span></p>
-<p class="sd-card-text">Вероятность того, что не отключиться ни один слой составит</p>
+<p class="sd-card-text">Вероятность того, что не отключится ни один слой, составит</p>
 <div class="math notranslate nohighlight">
 \[
 q = (1 - p^{k_1}) \cdot (1 - p^{k_2}) \cdot (1 - p^{k_3}).
 \]</div>
-<p class="sd-card-text">Получается, что хотябы один слой умрёт с вероятностью <span class="math notranslate nohighlight">\(1 - q\)</span>.</p>
+<p class="sd-card-text">Получается, что хотя бы один слой умрёт с вероятностью <span class="math notranslate nohighlight">\(1 - q\)</span>.</p>
 </div>
 </details><p><strong>ж)</strong> Функция активации SELU обладает свойством самонормализации. Если правильно инициализировать веса нейросети, выход линейного слоя с SELU всегда имеет нулевое среднее и единичное стандартное отклонение.</p>
 <p>Градиентному спуску легче заниматься оптимизацией, когда данные нормализованы. Если мы в нейросеть добавим дропаут, нормализация испортится. Каким станет математическое ожидание и дисперсия в результате добавления дропаута? Подумайте, как это можно исправить.</p>
@@ -642,12 +642,12 @@ q = (1 - p^{k_1}) \cdot (1 - p^{k_2}) \cdot (1 - p^{k_3}).
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">В случае обратного дропаута, во время обучения, мы домножаем выход из слоя на <span class="math notranslate nohighlight">\(d \sim \text{Bern}(1 - p)\)</span> и на <span class="math notranslate nohighlight">\(\frac{1}{1 - p}\)</span></p>
+<p class="sd-card-text">В случае обратного дропаута во время обучения мы домножаем выход из слоя на <span class="math notranslate nohighlight">\(d \sim \text{Bern}(1 - p)\)</span> и на <span class="math notranslate nohighlight">\(\frac{1}{1 - p}\)</span></p>
 <div class="math notranslate nohighlight">
 \[
 h = \frac{1}{1 - p} \cdot d \cdot x.
 \]</div>
-<p class="sd-card-text">Выход нейросети <span class="math notranslate nohighlight">\(x\)</span> и дропаут <span class="math notranslate nohighlight">\(d\)</span> независимые случайные величины, получается среднее никак не меняется</p>
+<p class="sd-card-text">Выход нейросети <span class="math notranslate nohighlight">\(x\)</span> и дропаут <span class="math notranslate nohighlight">\(d\)</span> – независимые случайные величины, получается, среднее никак не меняется</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{E}(h) = \mathbb{E} \left( \frac{1}{1 - p} \cdot d \cdot x  \right) = \frac{1}{1 - p} \cdot  \mathbb{E}(d) \cdot \mathbb{E}(x) = \mathbb{E}(x).
@@ -660,7 +660,7 @@ h = \frac{1}{1 - p} \cdot d \cdot x.
 <p class="sd-card-text">Если мы будем домножать выход на <span class="math notranslate nohighlight">\(\frac{1-p}{p}\)</span>, мы сломаем среднее. Более того, это изменит вероятность дропаута.</p>
 <p class="sd-card-text">При нормализации мы сдвигаем случайную величину на какую-то константу и умножаем её на какую-то константу. По аналогии можно поступить с выходом из дропаута.</p>
 <p class="sd-card-text">Примерно это делают авторы функции активации SELU в своей статье.<a class="footnote-reference brackets" href="#statia5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> Не обходится без хитростей, взятых из воздуха.</p>
-<p class="sd-card-text">Нам нужно нулевое математическое ожидание. Дропаут выдаёт на выход либо единицы либо нули, нулевого математического ожидания никак тут не получишь. Авторы говорят, что SELU в отрицательной области</p>
+<p class="sd-card-text">Нам нужно нулевое математическое ожидание. Дропаут выдаёт на выход либо единицы, либо нули, нулевого математического ожидания никак тут не получишь. Авторы говорят, что SELU в отрицательной области</p>
 <div class="math notranslate nohighlight">
 \[
 \lim_{t \to -\infty} SELU(t) = - \alpha \cdot \lambda = \alpha'.
@@ -681,7 +681,7 @@ d(t) \cdot a + b
 &amp; \mathbb{E}(a \cdot (d \cdot x + (1 - d) \cdot \alpha') + b) = 0 \\
 &amp;  \text{Var}(a \cdot (d \cdot x + (1 - d) \cdot \alpha') + b) = 1.
 \end{align*}\]</div>
-<p class="sd-card-text">Решив эту систему уравнений, можно поулчить что</p>
+<p class="sd-card-text">Решив эту систему уравнений, можно получить, что</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 &amp; a = (p + (\alpha')^2 \cdot p \cdot (1 - p))^{-0.5} \\
@@ -693,7 +693,7 @@ d(t) \cdot a + b
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="statia5" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="https://arxiv.org/pdf/1908.08681.pdf">Mish: A Self Regularized Non-Monotonic Activation Function</a></p>
+<p><a class="reference external" href="https://arxiv.org/pdf/1706.02515.pdf">Self-Normalizing Neural Networks</a></p>
 </aside>
 </aside>
 </section>

@@ -259,7 +259,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -519,25 +519,25 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/matplotlib/style/core.py:137,</span> in <span class="ni">use</span><span class="nt">(style)</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">137</span>     <span class="n">style</span> <span class="o">=</span> <span class="n">_rc_params_in_file</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span> <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/matplotlib/style/core.py:129,</span> in <span class="ni">use</span><span class="nt">(style)</span>
+<span class="g g-Whitespace">    </span><span class="mi">128</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">129</span>     <span class="n">style</span> <span class="o">=</span> <span class="n">_rc_params_in_file</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span> <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
-<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/matplotlib/__init__.py:866,</span> in <span class="ni">_rc_params_in_file</span><span class="nt">(fname, transform, fail_on_error)</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span> <span class="n">rc_temp</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="ne">--&gt; </span><span class="mi">866</span> <span class="k">with</span> <span class="n">_open_file_or_url</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">867</span>     <span class="k">try</span><span class="p">:</span>
+<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/matplotlib/__init__.py:903,</span> in <span class="ni">_rc_params_in_file</span><span class="nt">(fname, transform, fail_on_error)</span>
+<span class="g g-Whitespace">    </span><span class="mi">902</span> <span class="n">rc_temp</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="ne">--&gt; </span><span class="mi">903</span> <span class="k">with</span> <span class="n">_open_file_or_url</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">fd</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">904</span>     <span class="k">try</span><span class="p">:</span>
 
-<span class="nn">File /opt/homebrew/Cellar/python@3.11/3.11.6_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py:137,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="nn">File /opt/homebrew/Cellar/python@3.11/3.11.14_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/contextlib.py:137,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">try</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">137</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">138</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
 
-<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/matplotlib/__init__.py:843,</span> in <span class="ni">_open_file_or_url</span><span class="nt">(fname)</span>
-<span class="g g-Whitespace">    </span><span class="mi">842</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">843</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">844</span>     <span class="k">yield</span> <span class="n">f</span>
+<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/matplotlib/__init__.py:880,</span> in <span class="ni">_open_file_or_url</span><span class="nt">(fname)</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span> <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">880</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span>     <span class="k">yield</span> <span class="n">f</span>
 
 <span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;seaborn-whitegrid&#39;
 
@@ -551,15 +551,15 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_palette</span><span class="p">([</span><span class="s1">&#39;#00A99D&#39;</span><span class="p">,</span> <span class="s1">&#39;#F5CA0C&#39;</span><span class="p">,</span> <span class="s1">&#39;#B6129F&#39;</span><span class="p">,</span> <span class="s1">&#39;#76620C&#39;</span><span class="p">,</span> <span class="s1">&#39;#095C57&#39;</span><span class="p">])</span>
 
-<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/matplotlib/style/core.py:139,</span> in <span class="ni">use</span><span class="nt">(style)</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>         <span class="n">style</span> <span class="o">=</span> <span class="n">_rc_params_in_file</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">139</span>         <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">style</span><span class="si">!r}</span><span class="s2"> is not a valid package style, path of style &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>             <span class="sa">f</span><span class="s2">&quot;file, URL of style file, or library style name (library &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>             <span class="sa">f</span><span class="s2">&quot;styles are listed in `style.available`)&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">    </span><span class="mi">143</span> <span class="n">filtered</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="nn">    144 for k</span> in <span class="ni">style:  # don&#39;t trigger RcParams.__getitem__</span><span class="nt">(&#39;backend&#39;)</span>
+<span class="nn">File /opt/homebrew/lib/python3.11/site-packages/matplotlib/style/core.py:131,</span> in <span class="ni">use</span><span class="nt">(style)</span>
+<span class="g g-Whitespace">    </span><span class="mi">129</span>         <span class="n">style</span> <span class="o">=</span> <span class="n">_rc_params_in_file</span><span class="p">(</span><span class="n">style</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>     <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">131</span>         <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">132</span>             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">style</span><span class="si">!r}</span><span class="s2"> is not a valid package style, path of style &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>             <span class="sa">f</span><span class="s2">&quot;file, URL of style file, or library style name (library &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>             <span class="sa">f</span><span class="s2">&quot;styles are listed in `style.available`)&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">    </span><span class="mi">135</span> <span class="n">filtered</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nn">    136 for k</span> in <span class="ni">style:  # don&#39;t trigger RcParams.__getitem__</span><span class="nt">(&#39;backend&#39;)</span>
 
 <span class="ne">OSError</span>: &#39;seaborn-whitegrid&#39; is not a valid package style, path of style file, URL of style file, or library style name (library styles are listed in `style.available`)
 </pre></div>

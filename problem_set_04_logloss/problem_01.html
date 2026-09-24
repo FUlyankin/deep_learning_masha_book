@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -478,7 +478,7 @@ document.write(`
 \[
 \sigma(t) = \frac{e^t}{1 + e^t} = \frac{1}{1 + e^{-t}}.
 \]</div>
-<p>Слава о ней добралась до Маши и теперь она хочет немного поисследовать её свойства.<a class="footnote-reference brackets" href="#mynotebb" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p>Слава о ней добралась до Маши, и теперь она хочет немного поисследовать её свойства.<a class="footnote-reference brackets" href="#mynotebb" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <p><strong>а)</strong> Что происходит при <span class="math notranslate nohighlight">\(t \to +\infty\)</span>? А при <span class="math notranslate nohighlight">\(t \to -\infty\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -558,7 +558,7 @@ document.write(`
 \sigma^{-1}(t) = \ln \frac{\mathbb{P}(y = 1 \mid x)}{1 - \mathbb{P}(y = 1 \mid x)}. 
 \]</div>
 <p class="sd-card-text">Эту величину называют <strong>логит.</strong> Когда с помощью нейронных сетей решают задачу классификации, часто специфицируют модель так, чтобы она прогнозировала на последнем слое логит. Если взять от логита сигмоиду, мы получим <span class="math notranslate nohighlight">\(\mathbb{P}(y = 1 \mid x).\)</span></p>
-<p class="sd-card-text">Кстати говоря, модель градиентного бустинга для классификации, обычно, собирают так, чтобы она тоже прогнозировала на выходе логит.</p>
+<p class="sd-card-text">Кстати говоря, модель градиентного бустинга для классификации обычно собирают так, чтобы она тоже прогнозировала на выходе логит.</p>
 </div>
 </details><p><strong>е)</strong> Как связаны между собой <span class="math notranslate nohighlight">\([\ln \sigma(t)]'\)</span> и <span class="math notranslate nohighlight">\(\sigma(-t)\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -592,7 +592,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Видно, что чем больше коэффициент перед <span class="math notranslate nohighlight">\(t\)</span>, тем резче перепад у графика. При очень большом значении коэффициента, сигмоида очень напоминает ступеньку, но в отличие от неё она дифференцируема.</p>
+<p class="sd-card-text">Видно, что чем больше коэффициент перед <span class="math notranslate nohighlight">\(t\)</span>, тем резче перепад у графика. При очень большом значении коэффициента сигмоида очень напоминает ступеньку, но в отличие от неё она дифференцируема.</p>
 <a class="reference internal image-reference" href="../_images/img01_sigm_dif.png"><img alt="dobronet_forward" class="align-center" src="../_images/img01_sigm_dif.png" style="width: 95%;" /></a>
 </div>
 </details><p><strong>з)</strong> Выпишите формулы для forward pass и backward pass через слой с сигмоидой.</p>
@@ -603,7 +603,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Мы уже нашли выше производную. У сигмоиды нет обучаемых параметров, получается прямой проход через неё делается по формуле</p>
+<p class="sd-card-text">Мы уже нашли выше производную. У сигмоиды нет обучаемых параметров, получается, прямой проход через неё делается по формуле</p>
 <div class="math notranslate nohighlight">
 \[
 o = \sigma(h).
@@ -619,7 +619,7 @@ d = \sigma(h) \cdot (1 - \sigma(h)) \cdot d.
 \frac{\partial L}{\partial h} = \sigma(h) \cdot (1 - \sigma(h)) \cdot \frac{\partial L}{\partial o}.
 \]</div>
 </div>
-</details><p><strong>и)</strong> Какое максимальное значение принимает производная сигмоиды? Объясните как это способствует затуханию градиента и параличу нейронной сети.</p>
+</details><p><strong>и)</strong> Какое максимальное значение принимает производная сигмоиды? Объясните, как это способствует затуханию градиента и параличу нейронной сети.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -637,14 +637,14 @@ f(\sigma) = \sigma \cdot (1 - \sigma) = \sigma - \sigma^2.
 \[
 f'(\sigma) = 1 - 2\sigma = 0 \quad \Rightarrow \quad \sigma = 0.5
 \]</div>
-<p class="sd-card-text">Получается, что <span class="math notranslate nohighlight">\(f(\sigma) \le 0.5 - 0.5^2 = 0.25\)</span>. Выходит, что производная сигмоиды принимает значение с отрезка <span class="math notranslate nohighlight">\([0; 0.25].\)</span> При шаге обратного распространения ошибки, мы умножаем уже накопившуюся производную на производную сигмоиды. Накопленная производная из-за этого уменьшается. Получается, что если нейросетка очень глубокая, до первых слоёв дойдёт очень маленькая производная. Веса будут двигаться на очень маленькие расстояния. Из-за этого обучение застопорится. Такая ситуация называется <strong>параличём нейронной сети</strong> либо проблемой <strong>затухания градиента (vanishing gradient problem).</strong></p>
+<p class="sd-card-text">Получается, что <span class="math notranslate nohighlight">\(f(\sigma) \le 0.5 - 0.5^2 = 0.25\)</span>. Выходит, что производная сигмоиды принимает значение с отрезка <span class="math notranslate nohighlight">\([0; 0.25].\)</span> При шаге обратного распространения ошибки мы умножаем уже накопившуюся производную на производную сигмоиды. Накопленная производная из-за этого уменьшается. Получается, что, если нейросетка очень глубокая, до первых слоёв дойдёт очень маленькая производная. Веса будут двигаться на очень маленькие расстояния. Из-за этого обучение застопорится. Такая ситуация называется <strong>параличом нейронной сети</strong> либо проблемой <strong>затухания градиента (vanishing gradient problem).</strong></p>
 <p class="sd-card-text">Чтобы побороть проблему затухающих градиентов, надо модернизировать архитектуру нейронной сети так, чтобы не выскакивало затухающих производных. Из-за этого сигмоиду не используют в глубоких нейронных сетях и предпочитают ей другие функции активации.</p>
 <p class="sd-card-text">Давайте ещё раз посмотрим на график сигмоиды и её производной.</p>
 <a class="reference internal image-reference" href="../_images/img01_sigm.png"><img alt="dobronet_forward" class="align-center" src="../_images/img01_sigm.png" style="width: 95%;" /></a>
-<p class="sd-card-text">Каждый нейрон в нашей сетке либо активируется либо нет. Когда нейрон обучился, он выплёвывает значения близкие либо к единице либо к нулю. Производная на краях сигмоиды оказывается очень маленькой. Получается, что по мере обучения нейронной сети, проблема затухающих градиентов обостряется.</p>
+<p class="sd-card-text">Каждый нейрон в нашей сетке либо активируется, либо нет. Когда нейрон обучился, он выплёвывает значения, близкие либо к единице, либо к нулю. Производная на краях сигмоиды оказывается очень маленькой. Получается, что по мере обучения нейронной сети проблема затухающих градиентов обостряется.</p>
 <p class="sd-card-text">Ужаснее всего то, что на графике с функцией потерь всё выглядит так, будто обучение сошлось. Функция стабилизируется и прекращает убывать.</p>
 </div>
-</details><p><strong>к)</strong> Сигмоида не центрированна относительно нуля. Из-за этого градиентный спуск работает плохо. Объясните, почему так происходит.</p>
+</details><p><strong>к)</strong> Сигмоида не центрирована относительно нуля. Из-за этого градиентный спуск работает плохо. Объясните, почему так происходит.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -652,8 +652,8 @@ f'(\sigma) = 1 - 2\sigma = 0 \quad \Rightarrow \quad \sigma = 0.5
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Мы находим выход слоя как <span class="math notranslate nohighlight">\(o = \sigma(h)\)</span>. Он всегда положительный. Это означает, что <strong>все</strong> градиенты по весам линейного слоя, идущего перед сигмоидой будут либо положительными либо отрицательными (внимательно посмотрите на формулы из задачи 6 листочка про бэкпроп). Из-за этого веса будут всегда обновляться в одинаковом направлении.</p>
-<p class="sd-card-text">Пусть у нас есть два параметра. По одному надо двигаться в положительную сторону, а по второму в отрицательную (голубая стрелка). Наши градиенты никогда не будут оказываться разных знаков. Они оба всегда будут либо положительными либо отрицательными. Из-за этого движение будет идти зиг-загами. В точку оптимума мы будем идти дольше.</p>
+<p class="sd-card-text">Мы находим выход слоя как <span class="math notranslate nohighlight">\(o = \sigma(h)\)</span>. Он всегда положительный. Это означает, что <strong>все</strong> градиенты по весам линейного слоя, идущего перед сигмоидой, будут либо положительными, либо отрицательными (внимательно посмотрите на формулы из задачи 6 листочка про бэкпроп). Из-за этого веса будут всегда обновляться в одинаковом направлении.</p>
+<p class="sd-card-text">Пусть у нас есть два параметра. По одному надо двигаться в положительную сторону, а по второму в отрицательную (голубая стрелка). Наши градиенты никогда не будут оказываться разных знаков. Они оба всегда будут либо положительными, либо отрицательными. Из-за этого движение будет идти зигзагами. В точку оптимума мы будем идти дольше.</p>
 <a class="reference internal image-reference" href="../_images/img01_gr_update.png"><img alt="triangle" class="align-center" src="../_images/img01_gr_update.png" style="width: 50%;" /></a>
 <p class="sd-card-text">Чтобы избежать этого, нужно центрировать функцию активации относительно нуля. Тогда градиенты смогут принимать разные знаки и оптимизация будет работать быстрее.</p>
 <p class="sd-card-text">Картинка взята из курса <a class="reference external" href="http://cs231n.stanford.edu/index.html">cs231n.</a></p>

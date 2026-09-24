@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -473,7 +473,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>4. Число параметров<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>У Маши есть очень длинный временной ряд. Она хочет обучить несколько нейросетей предсказывать его дальнейшее значение. В своих моделях Маша нигде не использует константы.</p>
-<p><strong>а)</strong>  Маша выделяет окно длины <span class="math notranslate nohighlight">\(100\)</span>. Оно движется по последовательности. Для каждого окна Маша предсказывает следующее значение в ряду. В сетку подаются наблюдения с <span class="math notranslate nohighlight">\(1\)</span>-го по <span class="math notranslate nohighlight">\(100\)</span>-е. Прогнозируется <span class="math notranslate nohighlight">\(101\)</span>-ое наблюдение. Затем на вход подаются наблюдения со <span class="math notranslate nohighlight">\(2-\)</span>го по <span class="math notranslate nohighlight">\(100\)</span>-е. Прогнозируется <span class="math notranslate nohighlight">\(102\)</span>-ое наблюдение. И так далее до конца последовательности.</p>
+<p><strong>а)</strong>  Маша выделяет окно длины <span class="math notranslate nohighlight">\(100\)</span>. Оно движется по последовательности. Для каждого окна Маша предсказывает следующее значение в ряду. В сетку подаются наблюдения с <span class="math notranslate nohighlight">\(1\)</span>-го по <span class="math notranslate nohighlight">\(100\)</span>-е. Прогнозируется <span class="math notranslate nohighlight">\(101\)</span>-е наблюдение. Затем на вход подаются наблюдения со <span class="math notranslate nohighlight">\(2-\)</span>го по <span class="math notranslate nohighlight">\(100\)</span>-е. Прогнозируется <span class="math notranslate nohighlight">\(102\)</span>-е наблюдение. И так далее до конца последовательности.</p>
 <p>На первом слое используется <span class="math notranslate nohighlight">\(20\)</span> нейронов. На втором слое используется один нейрон. Сколько параметров нужно оценить?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -505,7 +505,7 @@ document.write(`
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Решение будет позже</p>
 </div>
-</details><p><strong>г)</strong> Мы находимся в условиях прошлого пункта, но используетм LSTM-ячейки с забыванием. Сколько параметров надо оценить?</p>
+</details><p><strong>г)</strong> Мы находимся в условиях прошлого пункта, но используем LSTM-ячейки с забыванием. Сколько параметров надо оценить?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -515,7 +515,7 @@ document.write(`
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Решение будет позже</p>
 </div>
-</details><p><strong>д)</strong> Мы находимся в условиях прошлого пугкта, но используем GRU-ячейки. Сколько параметров надо оценить?</p>
+</details><p><strong>д)</strong> Мы находимся в условиях прошлого пункта, но используем GRU-ячейки. Сколько параметров надо оценить?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">

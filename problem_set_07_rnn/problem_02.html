@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -472,7 +472,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>2. Туда и обратно<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Маша хочет сделать шаг обратного распространения ошибки через рекуррентную ячейку для последовательности <span class="math notranslate nohighlight">\(y_0 = 0, y_1=1, y_2 = -1, y_3 =2\)</span>. Скрытое состояние инициализировано как <span class="math notranslate nohighlight">\(h_0 = 0\)</span>. Все веса инициализированы как <span class="math notranslate nohighlight">\(0.5\)</span>. Во всех уравнениях, описывающих ячейку нет констант. В качестве функций активаций Маша использует <span class="math notranslate nohighlight">\(ReLU\)</span>. В качестве функции потерь Маша использует <span class="math notranslate nohighlight">\(MSE\)</span>.</p>
+<p>Маша хочет сделать шаг обратного распространения ошибки через рекуррентную ячейку для последовательности <span class="math notranslate nohighlight">\(y_0 = 0, y_1=1, y_2 = -1, y_3 =2\)</span>. Скрытое состояние инициализировано как <span class="math notranslate nohighlight">\(h_0 = 0\)</span>. Все веса инициализированы как <span class="math notranslate nohighlight">\(0.5\)</span>. Во всех уравнениях, описывающих ячейку, нет констант. В качестве функций активации Маша использует <span class="math notranslate nohighlight">\(ReLU\)</span>. В качестве функции потерь Маша использует <span class="math notranslate nohighlight">\(MSE\)</span>.</p>
 <figure class="align-default" id="rnn">
 <a class="reference internal image-reference" href="../_images/img02_rnn.png"><img alt="../_images/img02_rnn.png" src="../_images/img02_rnn.png" style="width: 25%;" /></a>
 </figure>
@@ -484,9 +484,9 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Рекуррентную сеть можно рассматривать, как несколько копий одной и той же сети, каждая из которых передает информацию последующей копии. Веса для всех копий одинаковые.</p>
+<p class="sd-card-text">Рекуррентную сеть можно рассматривать как несколько копий одной и той же сети, каждая из которых передаёт информацию последующей копии. Веса для всех копий одинаковые.</p>
 <a class="reference internal image-reference" href="../_images/img02_rnn_flatten.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_rnn_flatten.png" style="width: 50%;" /></a>
-<p class="sd-card-text">Когда мы строим прогнозы, мы движемся слева направо и сверху вниз. Чтобы сделать прямой шаг, нам нужно подставить соотвествуюшие значения в формулы пересчёта</p>
+<p class="sd-card-text">Когда мы строим прогнозы, мы движемся слева направо и сверху вниз. Чтобы сделать прямой шаг, нам нужно подставить соответствующие значения в формулы пересчёта</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
 	\begin{aligned}
@@ -575,7 +575,7 @@ L = L_1 + L_2 + L_3 = 1 + 1.5625 + 3.285 = 5.8475.
 \]</div>
 <p class="sd-card-text"><strong>Теперь найдём производную по весу <span class="math notranslate nohighlight">\(w\)</span>.</strong></p>
 <a class="reference internal image-reference" href="../_images/img02_backprop_L3.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_backprop_L3.png" style="width: 50%;" /></a>
-<p class="sd-card-text">С этим весом возникнут проблемы, так как он участвует в каждом пересчёте <span class="math notranslate nohighlight">\(h_t\)</span>. Придется брать производную назад во времени (backpropagation through time)</p>
+<p class="sd-card-text">С этим весом возникнут проблемы, так как он участвует в каждом пересчёте <span class="math notranslate nohighlight">\(h_t\)</span>. Придётся брать производную назад во времени (backpropagation through time)</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial L_t}{\partial w} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot \frac{\partial \hat{y}_t}{\partial h_t} \cdot {\color{blue} \frac{\partial h_t}{\partial w}}.
@@ -588,7 +588,7 @@ L = L_1 + L_2 + L_3 = 1 + 1.5625 + 3.285 = 5.8475.
 		\hat{y}_t =&amp; f_y(b_y + u \cdot h_t).
 	\end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Значит надо найти <span class="math notranslate nohighlight">\(\frac{\partial h_{t-1}}{\partial w},\)</span> которая будет зависеть от <span class="math notranslate nohighlight">\(h_{t-2}\)</span>, которая тоже зависит от <span class="math notranslate nohighlight">\(w\)</span> и так далее</p>
+<p class="sd-card-text">Значит, надо найти <span class="math notranslate nohighlight">\(\frac{\partial h_{t-1}}{\partial w},\)</span> которая будет зависеть от <span class="math notranslate nohighlight">\(h_{t-2}\)</span>, которая тоже зависит от <span class="math notranslate nohighlight">\(w\)</span> и так далее</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial h_t}{\partial w} =  \frac{\partial h_t}{\partial w}  + \frac{\partial h_t}{\partial h_{t-1}} \cdot \frac{\partial h_{t-1}}{\partial w} + \ldots 
@@ -603,7 +603,7 @@ L = L_1 + L_2 + L_3 = 1 + 1.5625 + 3.285 = 5.8475.
 \[
 \frac{\partial L_t}{\partial v} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot \frac{\partial \hat{y}_t}{\partial h_t} \cdot \frac{\partial h_t}{\partial v}.
 \]</div>
-<p class="sd-card-text">В ходе взятия этой производной мы нигде не упираемся в <span class="math notranslate nohighlight">\(h_{t-1},\)</span> поэтому назад во времени идти не нужно. Давайте подставим соотвествующие части уравнений и получим ответ</p>
+<p class="sd-card-text">В ходе взятия этой производной мы нигде не упираемся в <span class="math notranslate nohighlight">\(h_{t-1},\)</span> поэтому назад во времени идти не нужно. Давайте подставим соответствующие части уравнений и получим ответ</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial L_t}{\partial v} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot f'_y(\ldots) \cdot u \cdot f'_h(\ldots) \cdot y_{t-1}

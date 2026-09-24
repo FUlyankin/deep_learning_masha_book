@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1. Учимся искать производные</a></li>
@@ -480,7 +480,7 @@ document.write(`
 \[\begin{split}
 x = \begin{pmatrix}x_1 \\ \ldots \\ x_n \end{pmatrix} \qquad X = \begin{pmatrix}x_{11} &amp; \ldots &amp; x_{1n} \\ \ldots &amp; \ddots &amp; \ldots \\ x_{n1} &amp; \ldots &amp; x_{nn}  \end{pmatrix}.
 \end{split}\]</div>
-<p>Мы рассмотрим постепенно много разных входов и выходов,  и получим таблицу из канонических случаев. По строчкам будем откладывать то, откуда бьёт функция, то есть входы. По столбцам будем откладывать то, куда бьёт функция, то есть выходы. Для ситуаций обозначенных прочерками обобщения получить не выйдет.</p>
+<p>Мы рассмотрим постепенно много разных входов и выходов,  и получим таблицу из канонических случаев. По строчкам будем откладывать то, откуда бьёт функция, то есть входы. По столбцам будем откладывать то, куда бьёт функция, то есть выходы. Для ситуаций, обозначенных прочерками, обобщения получить не выйдет.</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p></p></th>
@@ -513,7 +513,7 @@ x = \begin{pmatrix}x_1 \\ \ldots \\ x_n \end{pmatrix} \qquad X = \begin{pmatrix}
 \[
 f(x) : \mathbb{R} \to \mathbb{R}.
 \]</div>
-<p>Примером такой функции может быть <span class="math notranslate nohighlight">\(f(x) = x^2\)</span>. Мы знаем, что по таблице производных <span class="math notranslate nohighlight">\(f'(x) = 2x\)</span>. Также мы знаем, что <strong>дифференциал</strong> – это линейная часть приращения функции, а <strong>производная</strong> – это предел отношения приращения функции к приращению аргумента при приращении аргумента стремящемся к нулю.</p>
+<p>Примером такой функции может быть <span class="math notranslate nohighlight">\(f(x) = x^2\)</span>. Мы знаем, что по таблице производных <span class="math notranslate nohighlight">\(f'(x) = 2x\)</span>. Также мы знаем, что <strong>дифференциал</strong> – это линейная часть приращения функции, а <strong>производная</strong> – это предел отношения приращения функции к приращению аргумента при приращении аргумента, стремящемся к нулю.</p>
 <p>Грубо говоря,  дифференциал помогает представить приращение функции в линейном виде</p>
 <div class="math notranslate nohighlight">
 \[
@@ -530,7 +530,7 @@ d{f(x)} = f'(x) dx.
     &amp; d{A} = 0, \quad A - \text{матрица из констант}
     \end{aligned} 
 \end{equation*}\]</div>
-<p>Чтобы доказать все эти свойства достаточно просто аккуратно расписать их. Кроме этих правил нам понадобится пара трюков по работе со скалярами. Если <span class="math notranslate nohighlight">\(s\)</span> — скаляр размера <span class="math notranslate nohighlight">\(1 \times 1\)</span>, тогда <span class="math notranslate nohighlight">\(s^T = s\)</span> и <span class="math notranslate nohighlight">\(tr(s) = s\)</span>, где <span class="math notranslate nohighlight">\(tr\)</span> — операция взятия следа матрицы.</p>
+<p>Чтобы доказать все эти свойства, достаточно просто аккуратно расписать их. Кроме этих правил нам понадобится пара трюков по работе со скалярами. Если <span class="math notranslate nohighlight">\(s\)</span> — скаляр размера <span class="math notranslate nohighlight">\(1 \times 1\)</span>, тогда <span class="math notranslate nohighlight">\(s^T = s\)</span> и <span class="math notranslate nohighlight">\(tr(s) = s\)</span>, где <span class="math notranslate nohighlight">\(tr\)</span> — операция взятия следа матрицы.</p>
 <p>С помощью этих преобразований мы будем приводить дифференциалы к каноническому виду и вытаскивать из них производные.</p>
 <p><strong>а)</strong> Найдите производную <span class="math notranslate nohighlight">\(\nabla_x f(x)\)</span>, где <span class="math notranslate nohighlight">\(f(x) = a^T x\)</span>, где  <span class="math notranslate nohighlight">\(a\)</span>  и <span class="math notranslate nohighlight">\(x\)</span> векторы размера <span class="math notranslate nohighlight">\(n \times 1\)</span></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -560,7 +560,7 @@ d{f(x)} = \nabla_x f(x)^T dx = \begin{pmatrix} \frac{\partial f(x)}{\partial x_1
 \[\begin{equation*}
 	\underset{[1 \times 1]}{f(x)} = \underset{[1 \times n]}{a^T} \cdot \underset{[n \times 1]}{x} = \begin{pmatrix} a_1 &amp; a_2 &amp; \ldots &amp;a_n \end{pmatrix} \cdot \begin{pmatrix} x_1 \\ x_2 \\ \ldots  \\ x_n \end{pmatrix} = a_1 \cdot x_1 + a_2 \cdot x_2 + \ldots + a_n \cdot x_n.
 \end{equation*}\]</div>
-<p class="sd-card-text">Из неё чётко видно, что <span class="math notranslate nohighlight">\(\frac{\partial f(x)}{\partial x_i} = a_i\)</span>. Увидев это мы можем выписать градиент функции</p>
+<p class="sd-card-text">Из неё чётко видно, что <span class="math notranslate nohighlight">\(\frac{\partial f(x)}{\partial x_i} = a_i\)</span>. Увидев это, мы можем выписать градиент функции</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \nabla_x f(x) = \begin{pmatrix} \frac{\partial f(x)}{\partial x_1} \\ \frac{\partial f(x)}{\partial x_2} \\ \ldots  \\ \frac{\partial f(x)}{\partial x_n} \end{pmatrix} = \begin{pmatrix} a_1 \\ a_2 \\ \ldots  \\ a_n \end{pmatrix} = a,
@@ -612,7 +612,7 @@ df(x) = \nabla^T_x f dx = x^T(A^T + A) dx
 \[
 f(x) : \mathbb{R}^n \to \mathbb{R}^m.
 \]</div>
-<p class="sd-card-text">На самом деле с такой ситуацией мы также знакомились на математическом анализе. Если <span class="math notranslate nohighlight">\(n=1\)</span> то у нас есть <span class="math notranslate nohighlight">\(m\)</span> функций, каждая из которых применяется к <span class="math notranslate nohighlight">\(x\)</span>. На выходе получается вектор</p>
+<p class="sd-card-text">На самом деле с такой ситуацией мы также знакомились на математическом анализе. Если <span class="math notranslate nohighlight">\(n=1\)</span>, то у нас есть <span class="math notranslate nohighlight">\(m\)</span> функций, каждая из которых применяется к <span class="math notranslate nohighlight">\(x\)</span>. На выходе получается вектор</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{pmatrix} f_1(x) \\ f_2(x) \\ \ldots  \\ f_m(x). \end{pmatrix}
@@ -637,7 +637,7 @@ df(x) = \begin{pmatrix} \frac{\partial f_1}{\partial x} \\ \frac{\partial f_2}{\
 \[\begin{split}
 df(x) =  \begin{pmatrix} \frac{\partial f_1}{\partial x_1} &amp; \frac{\partial f_1}{\partial x_2} &amp; \ldots &amp; \frac{\partial f_1}{\partial x_n} \\ \frac{\partial f_2}{\partial x_1}  &amp; \frac{\partial f_2}{\partial x_2} &amp; \ldots &amp; \frac{\partial f_2}{\partial x_n}  \\ \ldots &amp; \ldots &amp; \ddots &amp; \ldots  \\ \frac{\partial f_m}{\partial x_1}  &amp; \frac{\partial f_m}{\partial x_2} &amp; \ldots &amp; \frac{\partial f_m}{\partial x_n} \end{pmatrix} \cdot  \begin{pmatrix} dx_1 \\ dx_2 \\ \ldots  \\ dx_n \end{pmatrix} =  \begin{pmatrix} \frac{\partial f_1}{\partial x_1} dx_1 + \frac{\partial f_1}{\partial x_2} dx_2 + \ldots + \frac{\partial f_1}{\partial x_n} dx_n  \\ \frac{\partial f_2}{\partial x_1} dx_1 +  \frac{\partial f_2}{\partial x_2} dx_2 + \ldots + \frac{\partial f_2}{\partial x_n} dx_n  \\ \ldots  \\ \frac{\partial f_m}{\partial x_1} dx_1 + \frac{\partial f_m}{\partial x_2} dx_2 + \ldots + \frac{\partial f_m}{\partial x_n} dx_n \end{pmatrix}.
 \end{split}\]</div>
-<p class="sd-card-text">В обоих ситуациях мы можем записать дифференциал через матричное произведение. Вернёмся к поиску второй производной</p>
+<p class="sd-card-text">В обеих ситуациях мы можем записать дифференциал через матричное произведение. Вернёмся к поиску второй производной</p>
 <div class="math notranslate nohighlight">
 \[
 dg(x) = (A + A^T) dx.
@@ -652,7 +652,7 @@ dg(x) = (A + A^T) dx.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Когда мы хотим найти производную  <span class="math notranslate nohighlight">\(f(x) = \ln(x^T A x)\)</span>, мы просто можем применить правила взятия производной от сложной функции <span class="math notranslate nohighlight">\(f(y) = \ln(y).\)</span> К логарифму на вход идет скаляр, а значит его производная равна <span class="math notranslate nohighlight">\(\frac{1}{y}\)</span>. Выходит, что</p>
+<p class="sd-card-text">Когда мы хотим найти производную  <span class="math notranslate nohighlight">\(f(x) = \ln(x^T A x)\)</span>, мы просто можем применить правила взятия производной от сложной функции <span class="math notranslate nohighlight">\(f(y) = \ln(y).\)</span> К логарифму на вход идёт скаляр, а значит, его производная равна <span class="math notranslate nohighlight">\(\frac{1}{y}\)</span>. Выходит, что</p>
 <div class="math notranslate nohighlight">
 \[
 df(x) = d\ln(y) = \frac{1}{y} dy = \frac{1}{y} d(x^T A x) = \frac{1}{x^T A x} \cdot x^T(A^T + A) dx.
@@ -695,7 +695,7 @@ f'_{x_{n1}} &amp; \ldots &amp; f'_{x_{nk}}
 \[\begin{split}
 A_{[2 \times 3]} = \begin{pmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \end{pmatrix} \qquad X_{[2 \times 3]} = \begin{pmatrix} x_{11} &amp; x_{12} &amp; x_{13} \\ x_{21} &amp; x_{22} &amp; x_{23} \end{pmatrix}.
 \end{split}\]</div>
-<p class="sd-card-text">Посмотрим на то, как выглядит <span class="math notranslate nohighlight">\(tr(A^T dX)\)</span>. Как это не странно, он совпадает с дифференциалом</p>
+<p class="sd-card-text">Посмотрим на то, как выглядит <span class="math notranslate nohighlight">\(tr(A^T dX)\)</span>. Как это ни странно, он совпадает с дифференциалом</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 tr(A^T dX) = tr \left( \begin{pmatrix} a_{11} &amp; a_{21} \\ a_{12} &amp; a_{22} \\ a_{13} &amp;  a_{23} \end{pmatrix} \begin{pmatrix} dx_{11} &amp; dx_{12} &amp; dx_{13} \\ dx_{21} &amp; dx_{22} &amp; dx_{23} \end{pmatrix} \right),
@@ -715,18 +715,18 @@ tr(A^T dX) = tr \left( \begin{pmatrix} a_{11} &amp; a_{21} \\ a_{12} &amp; a_{22
 \[
 ||X-A||_F^2 = tr((X-A)^T (X-A)).
 \]</div>
-<p class="sd-card-text">Итак, найдём производную от <span class="math notranslate nohighlight">\(f(X) = a^TXAXa\)</span>. Нам нужно выписать дифференциал и привести его к каноническому виду</p>
+<p class="sd-card-text">Итак, найдём производную от <span class="math notranslate nohighlight">\(f(X) = a^TXAXa\)</span>. Нам нужно выписать дифференциал и привести его к каноническому виду.</p>
 <p class="sd-card-text">Обратим внимание на то, что мы бьём из матриц в скаляры. Дифференциал будет по своей размерности совпадать со скаляром. Производная будет размера матрицы</p>
 <div class="math notranslate nohighlight">
 \[
 df(X) = d(a^TXAXa) = \underset{[1 \times 1]}{a^Td(X)AXa} + \underset{[1 \times 1]}{a^TXA \cdot d(X)a}.
 \]</div>
-<p class="sd-card-text">Оба слагаемых, которые мы получаем после перехода к дифференциалу – скаляры. Мы хотим представить дифференциал в виде <span class="math notranslate nohighlight">\(tr(\text{нечто} d{X})\)</span>. След от скаляра это снова скаляр. Получается, что мы бесплатно можем навесить над правой частью наешго равенство знак следа и воспользоваться его свойствами</p>
+<p class="sd-card-text">Оба слагаемых, которые мы получаем после перехода к дифференциалу – скаляры. Мы хотим представить дифференциал в виде <span class="math notranslate nohighlight">\(tr(\text{нечто} d{X})\)</span>. След от скаляра это снова скаляр. Получается, что мы бесплатно можем навесить над правой частью нашего равенства знак следа и воспользоваться его свойствами</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
 df(X) = d(a^TXAXa) = tr(a^T \cdot d(X) \cdot AXa) + tr(a^TXA \cdot d(X) \cdot a) = \\ = tr(AXaa^T \cdot d(X)) + tr(aa^TXA \cdot d(X)) = \\ = tr(AXaa^T \cdot d(X) + aa^TXA \cdot dX) = tr((AXaa^T + aa^TXA)dX).
 \end{multline*}\]</div>
-<p class="sd-card-text">Производная найдена, оказалось что это</p>
+<p class="sd-card-text">Производная найдена, оказалось, что это</p>
 <div class="math notranslate nohighlight">
 \[
 \nabla_X f(X) = (AXaa^T + aa^TXA)^T = aa^TX^TA^T + A^TXaa^T.
@@ -767,7 +767,7 @@ df(x) = \underset{[1 \times 1]}{x^Tx} \underset{[n \times n]}{I_n} \underset{[n 
 \end{split}\]</div>
 <p class="sd-card-text">Как и ожидалось, на выходе получилась матрица.</p>
 </div>
-</details><p>В нашей таблице. осталось ещё несколько ситуаций, которые остались вне поля нашего зрения.  Давайте их обсудим более подробно. Например, давайте посмотрим на ситуацию когда отображение бьёт из матриц в вектора</p>
+</details><p>В нашей таблице осталось ещё несколько ситуаций, которые остались вне поля нашего зрения.  Давайте их обсудим более подробно. Например, давайте посмотрим на ситуацию, когда отображение бьёт из матриц в вектора</p>
 <div class="math notranslate nohighlight">
 \[
 f(X) : \mathbb{R}^{n \times k} \to \mathbb{R}^m.

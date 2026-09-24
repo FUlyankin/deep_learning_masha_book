@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -492,7 +492,7 @@ document.write(`
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Если <span class="math notranslate nohighlight">\(y_i = 1,\)</span> от нашей функции потерь останется только первое слагаемое, <span class="math notranslate nohighlight">\(-\ln p_i\)</span>. Если <span class="math notranslate nohighlight">\(y_i = 0\)</span>, останется только второе слагаемое, <span class="math notranslate nohighlight">\(-\ln (1 - p_i)\)</span>. Изобразим их на графике</p>
 <a class="reference internal image-reference" href="../_images/img02_logloss.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_logloss.png" style="width: 50%;" /></a>
-<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(y_i = 1,\)</span> мы хотим, чтобы <span class="math notranslate nohighlight">\(p_i = \mathbb{P}(y_i = 1 \mid x)\)</span> было как можно больше. Если <span class="math notranslate nohighlight">\(p_i\)</span> оказалась маленькой, штраф большой, если <span class="math notranslate nohighlight">\(p_i\)</span> оказалось большим, штраф будет маленьким. При этом, чем ближе <span class="math notranslate nohighlight">\(p_i\)</span> к единице, тем меньше мы его хотим увеличить. Такую нелинейность штрафа нам даёт логарифм. При <span class="math notranslate nohighlight">\(y_i = 0\)</span> логика точно такая же, но уже с <span class="math notranslate nohighlight">\(\mathbb{P}(y_i = 0 \mid x)\)</span>.</p>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(y_i = 1,\)</span> мы хотим, чтобы <span class="math notranslate nohighlight">\(p_i = \mathbb{P}(y_i = 1 \mid x)\)</span> было как можно больше. Если <span class="math notranslate nohighlight">\(p_i\)</span> оказалось маленьким, штраф большой, если <span class="math notranslate nohighlight">\(p_i\)</span> оказалось большим, штраф будет маленьким. При этом чем ближе <span class="math notranslate nohighlight">\(p_i\)</span> к единице, тем меньше мы его хотим увеличить. Такую нелинейность штрафа нам даёт логарифм. При <span class="math notranslate nohighlight">\(y_i = 0\)</span> логика точно такая же, но уже с <span class="math notranslate nohighlight">\(\mathbb{P}(y_i = 0 \mid x)\)</span>.</p>
 <p class="sd-card-text">Если мы сделаем штраф линейным, у такой функции потерь будет много проблем. Во-первых, пропадает нелинейность. Прирост ошибки в каждой точке одинаковый. Нам бы хотелось за мелкие ошибки штрафовать несерьёзно.</p>
 <p class="sd-card-text">Во-вторых, из-за линейности такую функцию сложно оптимизировать. В-третьих, выхлоп модели нельзя будет интерпретировать как <span class="math notranslate nohighlight">\(\mathbb{P}(y = 1 \mid x).\)</span> Это можно формально доказать. Мы займёмся этим в последней задачке этого листочка.</p>
 </div>
@@ -514,7 +514,7 @@ document.write(`
 	\end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">Это обычная логистическая регрессия. Иначе говоря, это нейронная сеть, которая состоит из одного нейрона с сигмоидой в качестве функции активации.</p>
-<p class="sd-card-text">Мы будем опимизировать логистические потери, то есть</p>
+<p class="sd-card-text">Мы будем оптимизировать логистические потери, то есть</p>
 <div class="math notranslate nohighlight">
 \[
 \text{logloss} = -\frac{1}{n} \sum_{i=1}^n \left( y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i) \right).
@@ -527,7 +527,7 @@ document.write(`
 <p class="sd-card-text">Мы воспользовались тем, что <span class="math notranslate nohighlight">\(\sigma(-t) = 1 - \sigma(t).\)</span></p>
 </div>
 </details><p><strong>в)</strong> При каких оценках коэффициентов логистической регрессии эта функция достигает своего минимума?</p>
-<p><strong>Hint:</strong> Изобразите наблюдения на числовой прямой и подумайте как должна будет вести себя идеальная сигмоида. Обратите внимание, что выборка линейно-разделима.</p>
+<p><strong>Hint:</strong> Изобразите наблюдения на числовой прямой и подумайте, как должна будет вести себя идеальная сигмоида. Обратите внимание, что выборка линейно разделима.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -564,8 +564,8 @@ document.write(`
 \[
 \text{logloss} =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{w_k^Tx_i}}{\sum_{j=1}^{K} e^{w_j^Tx_i}}.
 \]</div>
-<p class="sd-card-text">Здесь <span class="math notranslate nohighlight">\([y_i = k]\)</span> принимает значение равное единице, когда <span class="math notranslate nohighlight">\(y_i = k,\)</span> в остальных случаях это ноль.</p>
-<p class="sd-card-text">Иногда числа, которые выплёвывает softmax слой интерпретируют как вероятность. Так можно делать не всегда. Выход нейросети всегда можно откалибровать так, чтобы он стал вероятностью.</p>
+<p class="sd-card-text">Здесь <span class="math notranslate nohighlight">\([y_i = k]\)</span> принимает значение, равное единице, когда <span class="math notranslate nohighlight">\(y_i = k,\)</span> в остальных случаях это ноль.</p>
+<p class="sd-card-text">Иногда числа, которые выплёвывает softmax слой, интерпретируют как вероятность. Так можно делать не всегда. Выход нейросети всегда можно откалибровать так, чтобы он стал вероятностью.</p>
 <p class="sd-card-text">В задаче классификации откалиброванным алгоритмом называют такой алгоритм, для которого доля положительных примеров (на основе реальных меток классов) для предсказаний в окрестности произвольной вероятности <span class="math notranslate nohighlight">\(p\)</span> совпадает с этим значением <span class="math notranslate nohighlight">\(p\)</span>. Например, если взять объекты, для которых предсказанные вероятности близки к 0.7, то окажется, что среди них 70% принадлежат положительному классу.</p>
 <p class="sd-card-text">Подробнее про калибровку алгоритмов можно почитать <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2022-fall/seminars/sem06-probs-quantile.pdf">в конспекте по МО-1 с ФКН.</a></p>
 </div>
@@ -611,7 +611,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Softmax пытается заострить, преувеличить разницу между полученными значениями. Она выдаёт значения близкие к нулю для всех <span class="math notranslate nohighlight">\(z_j,\)</span> которые существенно меньше максимального. При этом softmax, в отличие от arg max, дифференцируема.</p>
+<p class="sd-card-text">Softmax пытается заострить, преувеличить разницу между полученными значениями. Она выдаёт значения, близкие к нулю, для всех <span class="math notranslate nohighlight">\(z_j,\)</span> которые существенно меньше максимального. При этом softmax, в отличие от arg max, дифференцируема.</p>
 </div>
 </details><p><strong>ж)</strong>  Пусть у Маши есть два класса. Она хочет выучить нейросеть. Она может учить нейронку с одним выходом и сигмоидой в качестве функции активации либо нейронку с двумя выходами и softmax в качестве функции активации. Как выходы этих двух нейронок взаимосвязаны между собой?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -647,18 +647,18 @@ document.write(`
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">При поиске softmax мы ищем экспоненты, в памяти компьютера может произойти переполнение из-за больших чисел. Возникнут бесконечности и оптимизация нейронной сетки умрёт.</p>
-<p class="sd-card-text">Если добавить ко всем входам нейронки одинаковую константу, значение sofrmax не изменится</p>
+<p class="sd-card-text">Если добавить ко всем входам нейронки одинаковую константу, значение softmax не изменится</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{e^{z_i + c}}{\sum_{k=1}^K e^{z_k + c}} = \frac{ e^c \cdot e^{z_i } }{e^c \cdot \sum_{k=1}^K e^{z_k} }   = 	\frac{e^{z_i}}{\sum_{k=1}^K e^{z_k }}.
 \]</div>
-<p class="sd-card-text">Из-за этого, в нейросетях считают устойчивый к переполнению softmax</p>
+<p class="sd-card-text">Из-за этого в нейросетях считают устойчивый к переполнению softmax</p>
 <div class="math notranslate nohighlight">
 \[
 \text{softmax}(z_1, \ldots, z_{K}) = \text{softmax}(z_1 - \max_i (z_i), \ldots, z_{K} - \max_i (z_i)).
 \]</div>
 </div>
-</details><p><strong>и)</strong> Предположим, что на последнем слое найшей нейросети мы используем softmax. В качестве функции потерь мы используем <span class="math notranslate nohighlight">\(\text{logloss}\)</span>. Как будет Выглядеть производная <span class="math notranslate nohighlight">\(\frac{\partial \text{logloss}}{\partial z}\)</span>?</p>
+</details><p><strong>и)</strong> Предположим, что на последнем слое нашей нейросети мы используем softmax. В качестве функции потерь мы используем <span class="math notranslate nohighlight">\(\text{logloss}\)</span>. Как будет выглядеть производная <span class="math notranslate nohighlight">\(\frac{\partial \text{logloss}}{\partial z}\)</span>?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -671,7 +671,7 @@ document.write(`
 \[
 p_i = \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}.
 \]</div>
-<p class="sd-card-text">На вход в softmax идет <span class="math notranslate nohighlight">\(k\)</span> элементов, на выходе получается <span class="math notranslate nohighlight">\(k\)</span> элементов. Нам надо взять производную каждого по каждому. Получается, что производная softmax – это матрица размера <span class="math notranslate nohighlight">\(k \times k.\)</span> У нас будет две ситуации: <span class="math notranslate nohighlight">\(i = j\)</span> и <span class="math notranslate nohighlight">\(i \ne j\)</span>. Начнёмс с <span class="math notranslate nohighlight">\(i = j\)</span></p>
+<p class="sd-card-text">На вход в softmax идёт <span class="math notranslate nohighlight">\(k\)</span> элементов, на выходе получается <span class="math notranslate nohighlight">\(k\)</span> элементов. Нам надо взять производную каждого по каждому. Получается, что производная softmax – это матрица размера <span class="math notranslate nohighlight">\(k \times k.\)</span> У нас будет две ситуации: <span class="math notranslate nohighlight">\(i = j\)</span> и <span class="math notranslate nohighlight">\(i \ne j\)</span>. Начнём с <span class="math notranslate nohighlight">\(i = j\)</span></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \frac{\partial p_i}{\partial z_j} = \frac{\partial  \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}}{\partial z_j}&amp;= \frac{e^{z_i} \sum_{k=1}^K e^{z_k} - e^{z_j}e^{z_i}}{\left( \sum_{k=1}^K e^{z_k}\right)^2} \\ &amp;= \frac{e^{z_i} \left( \sum_{k=1}^K e^{z_k} - e^{z_j}\right )}{\left( \sum_{k=1}^K e^{z_k}\right)^2} \\ &amp;= \frac{ e^{z_j} }{\sum_{k=1}^K e^{z_k} } \cdot \frac{\left( \sum_{k=1}^K e^{z_k} - e^{z_j}\right ) }{\sum_{k=1}^K e^{z_k} } \\ &amp;= p_i \cdot (1-p_j).

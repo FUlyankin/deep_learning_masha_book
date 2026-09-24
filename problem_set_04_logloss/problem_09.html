@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -472,8 +472,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>9. Предсказание вероятностей*<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Маша хочет классифицировать пиво на правильное и неправильное. В её распоряжении есть выборка <span class="math notranslate nohighlight">\((y_i, x_i)\)</span>. Переменная <span class="math notranslate nohighlight">\(y_i\)</span> принимает значение <span class="math notranslate nohighlight">\(1\)</span>, если пиво правильное и значение <span class="math notranslate nohighlight">\(0\)</span>, если пиво неправильное.</p>
-<p>Выборка уже собрана, исследовательский энтузиазм зашкаливает. Есть только одна беда. Непонятно какую именно функцию потерь лучше использовать.</p>
+<p>Маша хочет классифицировать пиво на правильное и неправильное. В её распоряжении есть выборка <span class="math notranslate nohighlight">\((y_i, x_i)\)</span>. Переменная <span class="math notranslate nohighlight">\(y_i\)</span> принимает значение <span class="math notranslate nohighlight">\(1\)</span>, если пиво правильное, и значение <span class="math notranslate nohighlight">\(0\)</span>, если пиво неправильное.</p>
+<p>Выборка уже собрана, исследовательский энтузиазм зашкаливает. Есть только одна беда. Непонятно, какую именно функцию потерь лучше использовать.</p>
 <p>Маше очень хотелось бы получить на выходе оценку вероятности принадлежности пива к определённому классу. Какую из функций лучше использовать?<a class="footnote-reference brackets" href="#ml01" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <p><strong>а)</strong> <span class="math notranslate nohighlight">\(L(y, a(x)) = (y - a(x))^2\)</span></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -488,14 +488,14 @@ document.write(`
 \[
 \frac{1}{n} \sum_{i=1}^{n} L(y_i, a(x_i)) \to \min_{w}
 \]</div>
-<p class="sd-card-text">В зависимости от того, какая выборка оказалась у нас в руках, могут получаться разные оценки параметров модели. При разных обучающих выборках, эмпирические потери могут принимать разные значения при одних и тех же параметрах модели. Эмпирическая функция потерь — это случайная величина. На самом деле, нам хотелось бы оптимизировать математическое ожидание ошибки</p>
+<p class="sd-card-text">В зависимости от того, какая выборка оказалась у нас в руках, могут получаться разные оценки параметров модели. При разных обучающих выборках эмпирические потери могут принимать разные значения при одних и тех же параметрах модели. Эмпирическая функция потерь — это случайная величина. На самом деле, нам хотелось бы оптимизировать математическое ожидание ошибки</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{E}(L(y, a(x)) \mid x).
 \]</div>
 <p class="sd-card-text">Мы его не знаем, поэтому для его оценки мы используем эмпирические потери. Почему можно это делать? Эмпирические потери — это выборочное среднее. По закону больших чисел оно должно при больших значениях <span class="math notranslate nohighlight">\(n\)</span> сходиться к математическому ожиданию.</p>
 <p class="sd-card-text">Ошибка на обучающей выборке <span class="math notranslate nohighlight">\(\frac{1}{n} \cdot \sum_{i=1}^{n} L(y_i, a(x_i))\)</span> — это эмпирическая оценка ожидаемых потерь <span class="math notranslate nohighlight">\(\mathbb{E}(L(y, a(x)) \mid x)\)</span>. Этот факт позволяет по-новому взглянуть на старые функции потерь. Минимизируя <span class="math notranslate nohighlight">\(\mathbb{E}(L(y, a) \mid x)\)</span> по прогнозам, <span class="math notranslate nohighlight">\(a\)</span>, можно понять, что именно прогнозирует наш алгоритм.</p>
-<p class="sd-card-text">Будем считать, что для данных задана вероятностная модель <span class="math notranslate nohighlight">\(p(y \mid x)\)</span>. Посмотрим на то, где мы достигаем оптимума с точки зреня математического ожидания.</p>
+<p class="sd-card-text">Будем считать, что для данных задана вероятностная модель <span class="math notranslate nohighlight">\(p(y \mid x)\)</span>. Посмотрим на то, где мы достигаем оптимума с точки зрения математического ожидания.</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{E} \left[ L(y, a) \mid x \right] = \mathbb{P}(y = 1 \mid x) \cdot (a - 1)^2 + (1 - \mathbb{P}(y = 1 \mid x))(a - 0)^2.
@@ -533,7 +533,7 @@ a = p = \mathbb{P}(y = 1 \mid x).
 <ul class="simple">
 <li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\(1 - 2p &gt; 0\)</span>, надо брать <span class="math notranslate nohighlight">\(a = 0\)</span>. Это занулит лишнее положительное слагаемое.</p></li>
 <li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\(1 - 2p &lt; 0\)</span>, надо брать <span class="math notranslate nohighlight">\(a = 1\)</span>. Так мы максимизируем отрицательное слагаемое.</p></li>
-<li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\(1 - 2p = 0\)</span>, то есть <span class="math notranslate nohighlight">\(p=0.5\)</span>, нам безразлично какое <span class="math notranslate nohighlight">\(a\)</span> брать.</p></li>
+<li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\(1 - 2p = 0\)</span>, то есть <span class="math notranslate nohighlight">\(p=0.5\)</span>, нам безразлично, какое <span class="math notranslate nohighlight">\(a\)</span> брать.</p></li>
 </ul>
 <p class="sd-card-text">Такие прогнозы не позволяют нам предсказать корректную вероятность в точке <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </div>
@@ -600,7 +600,7 @@ a = p = \mathbb{P}(y = 1 \mid x).
 \[
 \mathbb{E} \left[ L(y, a) \mid x \right] = p \cdot a + (1 - p) \cdot (1 - a).
 \]</div>
-<p class="sd-card-text">Это линейная функция. У нас не получится найти её оптимум взяв производную. Немного перепишем математическое ожидание</p>
+<p class="sd-card-text">Это линейная функция. У нас не получится найти её оптимум, взяв производную. Немного перепишем математическое ожидание</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{E} \left[ L(y, a) \mid x \right]  = a \cdot (2p - 1) + (1 - p) \to \min_{a}.
@@ -609,7 +609,7 @@ a = p = \mathbb{P}(y = 1 \mid x).
 <ul class="simple">
 <li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\((2p - 1) &gt; 0\)</span>, надо выбрать <span class="math notranslate nohighlight">\(a = 0\)</span>.</p></li>
 <li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\((2p - 1) &lt; 0,\)</span> надо выбрать <span class="math notranslate nohighlight">\(a = 1\)</span>.</p></li>
-<li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\((2p - 1) = 0\)</span>, то есть <span class="math notranslate nohighlight">\(p = 0.5\)</span>, нам безразлично каким выбрать <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
+<li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\((2p - 1) = 0\)</span>, то есть <span class="math notranslate nohighlight">\(p = 0.5\)</span>, нам безразлично, каким выбрать <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
 </ul>
 <p class="sd-card-text">Алгоритм не будет прогнозировать вероятности.</p>
 </div>

@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -476,7 +476,7 @@ document.write(`
 <figure class="align-default" id="regression">
 <a class="reference internal image-reference" href="../_images/img01_regr.png"><img alt="../_images/img01_regr.png" src="../_images/img01_regr.png" style="width: 30%;" /></a>
 </figure>
-<p>Хозяин кофейни, Добродум, объяснил Маше, что это Покрас-Лампас нарисовал линейную регрессию, и её легко можно переписать в виде формулы: <span class="math notranslate nohighlight">\(y_i = w_0 + w_1 \cdot x_i.\)</span> Пока Добродум готовил кофе, Маша накидала у себя на бумажке новую картинку:</p>
+<p>Хозяин кофейни, Добродум, объяснил Маше, что это Покрас Лампас нарисовал линейную регрессию, и её легко можно переписать в виде формулы: <span class="math notranslate nohighlight">\(y_i = w_0 + w_1 \cdot x_i.\)</span> Пока Добродум готовил кофе, Маша накидала у себя на бумажке новую картинку:</p>
 <figure class="align-default" id="two-layer-regression">
 <a class="reference internal image-reference" href="../_images/img01_dobronet.png"><img alt="../_images/img01_dobronet.png" src="../_images/img01_dobronet.png" style="width: 30%;" /></a>
 </figure>
@@ -488,7 +488,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Когда Добродум записывал картинку в виде уравнения, он брал вход из кругляшей, умножал его на веса, написанные около стрелок и искал сумму. Сделаем ровно то же самое для Машиной картинки. Величины <span class="math notranslate nohighlight">\(h_i\)</span> внутри кругляшей скрытого слоя будут считаться как:</p>
+<p class="sd-card-text">Когда Добродум записывал картинку в виде уравнения, он брал вход из кругляшей, умножал его на веса, написанные около стрелок, и искал сумму. Сделаем ровно то же самое для Машиной картинки. Величины <span class="math notranslate nohighlight">\(h_i\)</span> внутри кругляшей скрытого слоя будут считаться как:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
@@ -506,7 +506,7 @@ y = w_1 \cdot h_1 + w_2 \cdot h_2.
 \[\begin{multline*} 
 y = w_1 \cdot h_1 + w_2 \cdot h_2 = \\ = w_1 \cdot (w_{11} + w_{21} \cdot x)  + w_2 \cdot (w_{12} + w_{22} \cdot x)  = \\ = \underbrace{(w_1 w_{11} + w_2 w_{12})}_{\gamma_1} + \underbrace{(w_1 w_{21} + w_2 w_{22})}_{\gamma_2} \cdot x.
 \end{multline*}\]</div>
-<p class="sd-card-text">Когда мы раскрыли скобки, мы получили ровно ту же самую линейную регрессию. Правда мы зачем-то записали переменные <span class="math notranslate nohighlight">\(\gamma_1\)</span> и <span class="math notranslate nohighlight">\(\gamma_2\)</span> через шесть параметров. Чтобы сделать зависимость нелинейной, нужно преобразить каждую из <span class="math notranslate nohighlight">\(h_i\)</span>, взяв от них нелинейную функцию. Например, сигмоиду</p>
+<p class="sd-card-text">Когда мы раскрыли скобки, мы получили ровно ту же самую линейную регрессию. Правда, мы зачем-то записали переменные <span class="math notranslate nohighlight">\(\gamma_1\)</span> и <span class="math notranslate nohighlight">\(\gamma_2\)</span> через шесть параметров. Чтобы сделать зависимость нелинейной, нужно преобразить каждую из <span class="math notranslate nohighlight">\(h_i\)</span>, взяв от них нелинейную функцию. Например, сигмоиду</p>
 <div class="math notranslate nohighlight">
 \[
 f(h) = \frac{1}{1 + e^{-h}}.
@@ -521,7 +521,7 @@ y = w_1 \cdot f(w_{11} + w_{21} \cdot x)  + w_2 \cdot f(w_{12} + w_{22} \cdot x)
 \[
 ReLU(h) = \max(0, h).
 \]</div>
-<p class="sd-card-text">У такой функции активации много других прятных свойств. Мы их обсудим более подробно в четвёртом листочке.</p>
+<p class="sd-card-text">У такой функции активации много других приятных свойств. Мы их обсудим более подробно в четвёртом листочке.</p>
 </div>
 </details></section>
 

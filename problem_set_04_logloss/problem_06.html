@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -490,7 +490,7 @@ document.write(`
 <ul class="simple">
 <li><p class="sd-card-text">если <span class="math notranslate nohighlight">\(T = 10,\)</span> получаем <span class="math notranslate nohighlight">\(p \approx (0.39, 0.36, 0.25)\)</span>;</p></li>
 <li><p class="sd-card-text">если <span class="math notranslate nohighlight">\(T = 1,\)</span> получаем <span class="math notranslate nohighlight">\(p \approx (0.72, 0.27, 0.01)\)</span>;</p></li>
-<li><p class="sd-card-text">если <span class="math notranslate nohighlight">\(T = 0.1\)</span> получаем <span class="math notranslate nohighlight">\(p \approx (0.9999, 4\cdot 10^{-5}, 4 \cdot 10^{-18})\)</span>.</p></li>
+<li><p class="sd-card-text">если <span class="math notranslate nohighlight">\(T = 0.1,\)</span> получаем <span class="math notranslate nohighlight">\(p \approx (0.9999, 4\cdot 10^{-5}, 4 \cdot 10^{-18})\)</span>.</p></li>
 </ul>
 <p class="sd-card-text">Чем меньше <span class="math notranslate nohighlight">\(T,\)</span> тем ярче выражен максимум. Чем больше <span class="math notranslate nohighlight">\(T\)</span>, тем мы ближе к равномерному распределению.</p>
 </div>
@@ -502,10 +502,10 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(T \to \infty\)</span>, тогда <span class="math notranslate nohighlight">\(e^{\tfrac{z_i}{T}} \to 1\)</span>. Получется, что в нашем векторе все три числа при бесконечном <span class="math notranslate nohighlight">\(T\)</span> примут значение <span class="math notranslate nohighlight">\(1/3,\)</span> то есть мы получим равномерное распределение.</p>
-<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(T \to 0,\)</span> мы получим распределение полностью сосредоточенное в исходе с максимальным весом. Это видно из численного примера из пункта <strong>а).</strong></p>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(T \to \infty\)</span>, тогда <span class="math notranslate nohighlight">\(e^{\tfrac{z_i}{T}} \to 1\)</span>. Получается, что в нашем векторе все три числа при бесконечном <span class="math notranslate nohighlight">\(T\)</span> примут значение <span class="math notranslate nohighlight">\(1/3,\)</span> то есть мы получим равномерное распределение.</p>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(T \to 0,\)</span> мы получим распределение, полностью сосредоточенное в исходе с максимальным весом. Это видно из численного примера из пункта <strong>а).</strong></p>
 </div>
-</details><p><strong>в)</strong> Предположим, что объектов на порядок больше. Например, это реплики, которые Алиса может сказать вам в ответ на какую-то фразу.  Понятное дело, что вашей фразе будет релевантно какое-то подмножество ответов. Какое значение температуры сэмплирования <span class="math notranslate nohighlight">\(T\)</span> смогут сделать реплики Алисы непредсказуемыми? А какие сделают их однотипными?</p>
+</details><p><strong>в)</strong> Предположим, что объектов на порядок больше. Например, это реплики, которые Алиса может сказать вам в ответ на какую-то фразу.  Понятное дело, что вашей фразе будет релевантно какое-то подмножество ответов. Какие значения температуры сэмплирования <span class="math notranslate nohighlight">\(T\)</span> смогут сделать реплики Алисы непредсказуемыми? А какие сделают их однотипными?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -514,7 +514,7 @@ document.write(`
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Маленькие значения <span class="math notranslate nohighlight">\(T\)</span> сделают Алису однотипной, а большие разнообразной. Понятное дело, что если распределение окажется близким к равномерному, Алиса будет нести несвязную чушь. Параметр <span class="math notranslate nohighlight">\(T\)</span> аккуратно подбирают после обучения нейронной сетки.</p>
-<p class="sd-card-text">При од­них и тех же весах модели сэмплирование с высокой температурой будет более разнообразным, в том числе часто совершенно случайным, а сэмплирование с низкой температурой будет более устойчивым, чаще будет выдавать одно и то же при похожих входах.</p>
+<p class="sd-card-text">При одних и тех же весах модели сэмплирование с высокой температурой будет более разнообразным, в том числе часто совершенно случайным, а сэмплирование с низкой температурой будет более устойчивым, чаще будет выдавать одно и то же при похожих входах.</p>
 </div>
 </details><hr class="footnotes docutils" />
 <aside class="footnote-list brackets">

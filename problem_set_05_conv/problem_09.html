@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -472,7 +472,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>9. Скользящее среднее<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Временные ряды иногда сглаживают с помощью скользящего среднего. Этот процесс можно рассматривать как одномерную свёртку. Как выглядит ядро такой свёртки? Какой физический смысл стоит за размером такой свёртки и дополнением нулями? Опишите как она работает.</p>
+<p>Временные ряды иногда сглаживают с помощью скользящего среднего. Этот процесс можно рассматривать как одномерную свёртку. Как выглядит ядро такой свёртки? Какой физический смысл стоит за размером такой свёртки и дополнением нулями? Опишите, как она работает.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -480,8 +480,8 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Разберем скользящее среднее на примере. Пусть у нас есть временной ряд, состоящий из 6 значений: <span class="math notranslate nohighlight">\((x_1, x_2, x_3, x_4, x_5, x_6)\)</span>.</p>
-<p class="sd-card-text">Мы хотим сгладить наши данные окном размера <span class="math notranslate nohighlight">\(k\)</span>, то есть применяем одномерную свертку: <span class="math notranslate nohighlight">\((\frac{1}{k}, \frac{1}{k}, \ldots, \frac{1}{k})\)</span>. Возьмём <span class="math notranslate nohighlight">\(k = 3\)</span>, тогда ядро свёртки примет вид <span class="math notranslate nohighlight">\((\frac{1}{3}, \frac{1}{3}, \frac{1}{3}).\)</span> Будем считать якорем свёртки центральный элемент.</p>
+<p class="sd-card-text">Разберём скользящее среднее на примере. Пусть у нас есть временной ряд, состоящий из 6 значений: <span class="math notranslate nohighlight">\((x_1, x_2, x_3, x_4, x_5, x_6)\)</span>.</p>
+<p class="sd-card-text">Мы хотим сгладить наши данные окном размера <span class="math notranslate nohighlight">\(k\)</span>, то есть применяем одномерную свёртку: <span class="math notranslate nohighlight">\((\frac{1}{k}, \frac{1}{k}, \ldots, \frac{1}{k})\)</span>. Возьмём <span class="math notranslate nohighlight">\(k = 3\)</span>, тогда ядро свёртки примет вид <span class="math notranslate nohighlight">\((\frac{1}{3}, \frac{1}{3}, \frac{1}{3}).\)</span> Будем считать якорем свёртки центральный элемент.</p>
 <p class="sd-card-text">Применим свёртку к нашему ряду без дополнения нулями, получим</p>
 <div class="math notranslate nohighlight">
 \[

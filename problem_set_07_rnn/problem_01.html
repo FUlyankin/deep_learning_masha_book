@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -494,7 +494,7 @@ y_t = b + w y_{t-1}.
 <figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../_images/img01_arima.png"><img alt="../_images/img01_arima.png" src="../_images/img01_arima.png" style="width: 15%;" /></a>
 </figure>
-<p>Давайте попробуем перейти от неё к рекуррентному нейрону по аналогии с линейной моделью. На картинке рекурретный нейрон можно изобразить следующим образом:</p>
+<p>Давайте попробуем перейти от неё к рекуррентному нейрону по аналогии с линейной моделью. На картинке рекуррентный нейрон можно изобразить следующим образом:</p>
 <figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../_images/img01_rnn.png"><img alt="../_images/img01_rnn.png" src="../_images/img01_rnn.png" style="width: 25%;" /></a>
 </figure>
@@ -515,7 +515,7 @@ y_t = b + w y_{t-1}.
 	\end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">В первом уравнении обновляется скрытое состояние нейрона. Оно учитывает в себе информацию обо всём, что до этого происходило в последовательности. Во втором уравнении на базе скрытого состояния мы строим прогноз.</p>
-<p class="sd-card-text">Из-за того, что скрытое состоянии теперь зависит от времени, одним уравнением ограничиться не получится. Нам надо на каждом шаге обновлять его, а затем строить прогноз.</p>
+<p class="sd-card-text">Из-за того, что скрытое состояние теперь зависит от времени, одним уравнением ограничиться не получится. Нам надо на каждом шаге обновлять его, а затем строить прогноз.</p>
 <p class="sd-card-text">Пока что перед нами линейная модель. Давайте добавим в неё нелинейность. Для этого к каждому из уравнений применим функцию активации и получим уравнения, описывающие RNN-ячейку</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 

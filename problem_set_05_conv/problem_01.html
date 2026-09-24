@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -472,12 +472,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>1. Свёртка своими руками<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Растровая картинка – это набор пикселей. Каждый пиксель описывается числом. Чем больше чесло, тем ярче этот пиксель. Шкалы, измеряющие яркость бывают разными. Иногда это числа от 0 до 255, иногда это числа между нулём и единицей.</p>
+<p>Растровая картинка – это набор пикселей. Каждый пиксель описывается числом. Чем больше число, тем ярче этот пиксель. Шкалы, измеряющие яркость, бывают разными. Иногда это числа от 0 до 255, иногда это числа между нулём и единицей.</p>
 <p>У Маши есть картинка (зелёная) и свёртка (голубая), которую она хочет применить к этой картинке<a class="footnote-reference brackets" href="#proof-note" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
 <figure class="align-default" id="regression">
 <a class="reference internal image-reference" href="../_images/img01_conv.png"><img alt="../_images/img01_conv.png" src="../_images/img01_conv.png" style="width: 700px;" /></a>
 </figure>
-<p><strong>а)</strong>  Сделайте свёртку картинки без сдвигов и дополнений. К тому, что получилось примените max pooling и average pooling размера <span class="math notranslate nohighlight">\(3 \times 3\)</span>.</p>
+<p><strong>а)</strong>  Сделайте свёртку картинки без сдвигов и дополнений. К тому, что получилось, примените max pooling и average pooling размера <span class="math notranslate nohighlight">\(3 \times 3\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -497,8 +497,8 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/img01_conv_sol_09.png"><img alt="cnn9" class="align-center" src="../_images/img01_conv_sol_09.png" style="height: 150px;" /></a>
 <p class="sd-card-text">Собираем получившуюся после применения свёртки картинку.</p>
 <a class="reference internal image-reference" href="../_images/img01_conv_sol_10.png"><img alt="cnn9" class="align-center" src="../_images/img01_conv_sol_10.png" style="height: 120px;" /></a>
-<p class="sd-card-text">Размерность исходной картинки была <span class="math notranslate nohighlight">\(4 \times 4\)</span>. После применения свёртки она уменьшилась до <span class="math notranslate nohighlight">\(3 \times 3\)</span>. Это неудобно. Хочется контролировать понижение размерности картинки самостоятельно. Для этого можно дополнить картинку рамкой из нулей. Размер рамки подбирается так, чтобы размерность картинки не упала, Такой приём называется <strong>дополнением (padding)</strong></p>
-<p class="sd-card-text">Чтобы уменьшать размерность картинки, используют пулинг. Картинку бьют на квадратики рамзера <span class="math notranslate nohighlight">\(k \times k\)</span>, из каждого из них берут максимум или среднее.</p>
+<p class="sd-card-text">Размерность исходной картинки была <span class="math notranslate nohighlight">\(5 \times 5\)</span>. После применения свёртки она уменьшилась до <span class="math notranslate nohighlight">\(3 \times 3\)</span>. Это неудобно. Хочется контролировать понижение размерности картинки самостоятельно. Для этого можно дополнить картинку рамкой из нулей. Размер рамки подбирается так, чтобы размерность картинки не упала. Такой приём называется <strong>дополнением (padding)</strong>.</p>
+<p class="sd-card-text">Чтобы уменьшать размерность картинки, используют пулинг. Картинку бьют на квадратики размера <span class="math notranslate nohighlight">\(k \times k\)</span>, из каждого из них берут максимум или среднее.</p>
 <p class="sd-card-text"><strong>Max pooling:</strong></p>
 <div class="math notranslate nohighlight">
 \[
@@ -510,7 +510,7 @@ document.write(`
 \frac{1}{9} \cdot (12 + 12 + 17 + 15 + 19 + 21 + 18 + 18 + 24) = 17.3
 \]</div>
 </div>
-</details><p><strong>б)</strong>  Примените к исходной картинке свёртку с параметром сдвига (stride) равным <span class="math notranslate nohighlight">\(2\)</span>.</p>
+</details><p><strong>б)</strong>  Примените к исходной картинке свёртку с параметром сдвига (stride), равным <span class="math notranslate nohighlight">\(2\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -520,12 +520,12 @@ document.write(`
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">При свёртке можно прикладывать ядро не к каждой клетке. На картинке ниже выделены клетки, к которым мы будем прикладывать <strong>ядро свёртки.</strong></p>
 <a class="reference internal image-reference" href="../_images/img01_conv_b_sol_01.png"><img alt="cnn9" class="align-center" src="../_images/img01_conv_b_sol_01.png" style="height: 180px;" /></a>
-<p class="sd-card-text">Обратите внимание, что мы делаем сдвиг по обеим осям. Можно делать разные сдвиги по разным осям. Правда не очень ясно, когда это оправдано.</p>
+<p class="sd-card-text">Обратите внимание, что мы делаем сдвиг по обеим осям. Можно делать разные сдвиги по разным осям. Правда, не очень ясно, когда это оправдано.</p>
 <a class="reference internal image-reference" href="../_images/img01_conv_b_sol_02.png"><img alt="cnn9" class="align-center" src="../_images/img01_conv_b_sol_02.png" style="height: 180px;" /></a>
 <p class="sd-card-text">На выходе получим картинку</p>
 <a class="reference internal image-reference" href="../_images/img01_conv_b_sol_03.png"><img alt="cnn9" class="align-center" src="../_images/img01_conv_b_sol_03.png" style="height: 100px;" /></a>
 </div>
-</details><p><strong>в)</strong>  Примените к исходной картинке свёртку с дополнением нулями (zero padding) и параметром сдвига (stride) равным <span class="math notranslate nohighlight">\(1\)</span>.</p>
+</details><p><strong>в)</strong>  Примените к исходной картинке свёртку с дополнением нулями (zero padding) и параметром сдвига (stride), равным <span class="math notranslate nohighlight">\(1\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -536,7 +536,7 @@ document.write(`
 <p class="sd-card-text">Нам надо сделать вокруг картинки каёмку из нулей и применить свёртку с её учётом. Благодаря этому, размерность исходного изображения не упадёт и мы сможем более аккуратно контролировать изменение её размеров. Проиллюстрируем первые два шага такой свёртки. К остальным клеткам применение будет делаться аналогично. Параметр сдвига, равный единице, означает, что мы прикладываем ядро к каждой из клеток.</p>
 <a class="reference internal image-reference" href="../_images/img01_conv_c_sol_01.png"><img alt="cnn9" class="align-center" src="../_images/img01_conv_c_sol_01.png" style="height: 180px;" /></a>
 </div>
-</details><p><strong>г)</strong>  Сделайте расширенную свёртку (dilated convolutioon) с параметром расширения равным <span class="math notranslate nohighlight">\(2\)</span> (dilation factor). Сравните такую свёртку с обычной свёрткой со сдвигом. Эквивалентны ли они?</p>
+</details><p><strong>г)</strong>  Сделайте расширенную свёртку (dilated convolution) с параметром расширения, равным <span class="math notranslate nohighlight">\(2\)</span> (dilation factor). Сравните такую свёртку с обычной свёрткой со сдвигом. Эквивалентны ли они?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -544,9 +544,9 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Нам надо сделать расширенную свёртку (dilated convolution) с параметром расширения равным <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<p class="sd-card-text">Нам надо сделать расширенную свёртку (dilated convolution) с параметром расширения, равным <span class="math notranslate nohighlight">\(2\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/img01_conv_d_sol_01.png"><img alt="cnn9" class="align-center" src="../_images/img01_conv_d_sol_01.png" style="height: 180px;" /></a>
-<p class="sd-card-text">Смысл этой свёртки в том, что соседние пиксели картинки очень похожи. Нет смысла смотреть на два соседних пикселя, так как в них будет одна и та же информация. Давайте накладывать свёртку на картинку более разряжено. Это поможет быстрее нарастить поле обзора (receptive field). В свёртках со сдвигом похожая идея, но вместо того, чтобы делать свёртку более разреженной, мы быстрее двигаемся по картинке.</p>
+<p class="sd-card-text">Смысл этой свёртки в том, что соседние пиксели картинки очень похожи. Нет смысла смотреть на два соседних пикселя, так как в них будет одна и та же информация. Давайте накладывать свёртку на картинку более разреженно. Это поможет быстрее нарастить поле обзора (receptive field). В свёртках со сдвигом похожая идея, но вместо того, чтобы делать свёртку более разреженной, мы быстрее двигаемся по картинке.</p>
 </div>
 </details><hr class="footnotes docutils" />
 <aside class="footnote-list brackets">

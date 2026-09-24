@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -480,7 +480,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Вспомните, что любую непрерывную функцию можно приблизить с помощью кусочно-линейной функции (ступеньки). Осознайте как с помощью пары нейронов можно описать такую ступеньку. Соедините все ступеньки в сумму с помощью выходного нейрона.</p>
+<p class="sd-card-text">Вспомните, что любую непрерывную функцию можно приблизить с помощью кусочно-линейной функции (ступеньки). Осознайте, как с помощью пары нейронов можно описать такую ступеньку. Соедините все ступеньки в сумму с помощью выходного нейрона.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -498,7 +498,7 @@ f(x) \approx \sum_{i=1}^n f \left( \frac{a_i + a_{i+1}}{2} \right) \cdot [a_i \l
 \]</div>
 <p class="sd-card-text">Давайте попробуем описать с помощью нейрона одну из ступенек. Пусть высота этой ступеньки равна <span class="math notranslate nohighlight">\(b_i\)</span>. Шагать по оси <span class="math notranslate nohighlight">\(x\)</span> мы будем с фиксированным шагом <span class="math notranslate nohighlight">\(h\)</span>, поэтому <span class="math notranslate nohighlight">\(a_{i+1} = a_i + h\)</span>.</p>
 <a class="reference internal image-reference" href="../_images/img09_one_step.png"><img alt="one_step" class="align-center" src="../_images/img09_one_step.png" style="width: 30%;" /></a>
-<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(x\)</span>, для которого мы ищем <span class="math notranslate nohighlight">\(f(x)\)</span>, попадает в полуинтервал, на котором задана наша ступенька, мы будем приближать <span class="math notranslate nohighlight">\(f(x)\)</span> этой ступенькой. Ступенька состоит из двух линий. Выходит, что она будет описываться двумя нейронами. Если мы внутри ступеньки, значит <span class="math notranslate nohighlight">\(a_i \le x &lt; a_i + h\)</span>. Пара нейронов должна сравнить <span class="math notranslate nohighlight">\(x\)</span> с <span class="math notranslate nohighlight">\(a_i\)</span> и <span class="math notranslate nohighlight">\(a_i + h\)</span>. Можно записать попадание <span class="math notranslate nohighlight">\(x\)</span> в ступеньку следующим образом:</p>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(x\)</span>, для которого мы ищем <span class="math notranslate nohighlight">\(f(x)\)</span>, попадает в полуинтервал, на котором задана наша ступенька, мы будем приближать <span class="math notranslate nohighlight">\(f(x)\)</span> этой ступенькой. Ступенька состоит из двух линий. Выходит, что она будет описываться двумя нейронами. Если мы внутри ступеньки, значит, <span class="math notranslate nohighlight">\(a_i \le x &lt; a_i + h\)</span>. Пара нейронов должна сравнить <span class="math notranslate nohighlight">\(x\)</span> с <span class="math notranslate nohighlight">\(a_i\)</span> и <span class="math notranslate nohighlight">\(a_i + h\)</span>. Можно записать попадание <span class="math notranslate nohighlight">\(x\)</span> в ступеньку следующим образом:</p>
 <div class="math notranslate nohighlight">
 \[
 1 - [x &lt; a_i] - [x \ge a_i + h]
@@ -506,15 +506,15 @@ f(x) \approx \sum_{i=1}^n f \left( \frac{a_i + a_{i+1}}{2} \right) \cdot [a_i \l
 <p class="sd-card-text">Если оба условия — неправда, получаем <span class="math notranslate nohighlight">\(1\)</span>. Мы в ступеньке. Если хотя бы одно из них выполнено — мы вылетаем за ступеньку. Одновременно оба условия никогда не выполняются. Нарисуем это в виде сетки. В качестве функции активации используем единичную ступеньку.</p>
 <a class="reference internal image-reference" href="../_images/img09_net.png"><img alt="one_step" class="align-center" src="../_images/img09_net.png" style="width: 70%;" /></a>
 <p class="sd-card-text">Нарисуем такую сетку для каждой ступеньки. Если мы попали в ступеньку, сетка будет выплёвывать со второго слоя единичку. Там мы будем умножать её на <span class="math notranslate nohighlight">\(b_i\)</span> и посылать на внешний слой.</p>
-<p class="sd-card-text">Мы всегда будем попадать только в одну из ступенек, значит только один из слоёв выдаст нам <span class="math notranslate nohighlight">\(1\)</span>. Все остальные выдадут <span class="math notranslate nohighlight">\(0\)</span>. На внешнем слое нам остаётся только просуммировать всё, что к нам пришло и выдать ответ.</p>
-<p class="sd-card-text">Чем больше ступенек мы добавляем в модель, тем точнее наша апроксимация. Можно немного поколдовать с получившейся архитектурой и удалить из неё части, которые друг-друга дублируют.</p>
+<p class="sd-card-text">Мы всегда будем попадать только в одну из ступенек, значит, только один из слоёв выдаст нам <span class="math notranslate nohighlight">\(1\)</span>. Все остальные выдадут <span class="math notranslate nohighlight">\(0\)</span>. На внешнем слое нам остаётся только просуммировать всё, что к нам пришло, и выдать ответ.</p>
+<p class="sd-card-text">Чем больше ступенек мы добавляем в модель, тем точнее наша аппроксимация. Можно немного поколдовать с получившейся архитектурой и удалить из неё части, которые друг друга дублируют.</p>
 </div>
-</details><p>Про регрессор понятно. А почему неросеть может решить любую задачу классификации? Сможете придумать <strong>«показательство»?</strong></p>
+</details><p>Про регрессор понятно. А почему нейросеть может решить любую задачу классификации? Сможете придумать <strong>«показательство»?</strong></p>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="proof-note" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
-<p><a class="reference external" href="http://neuralnetworksanddeeplearning.com/chap4.html">Визуальное доказательство того, что нейросеть может апроксимировать любую функцию.</a> В этом доказательстве вместо ступенек активно используются сигмоиды. Рекомендую изучить его после решения задачки.</p>
+<p><a class="reference external" href="http://neuralnetworksanddeeplearning.com/chap4.html">Визуальное доказательство того, что нейросеть может аппроксимировать любую функцию.</a> В этом доказательстве вместо ступенек активно используются сигмоиды. Рекомендую изучить его после решения задачки.</p>
 </aside>
 <aside class="footnote brackets" id="picture-note" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>

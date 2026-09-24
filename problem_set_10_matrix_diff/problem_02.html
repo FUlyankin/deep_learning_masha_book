@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="problem_01.html">1. Учимся искать производные</a></li>
@@ -486,7 +486,7 @@ document.write(`
 \[
 d(X^{-1}) \cdot X + X^{-1} dX = dI_n = 0,
 \]</div>
-<p class="sd-card-text">тсюда получаем что</p>
+<p class="sd-card-text">отсюда получаем, что</p>
 <div class="math notranslate nohighlight">
 \[
 d(X^{-1}) = - X^{-1} dX X^{-1}.
@@ -510,23 +510,23 @@ det X = \sum_{j = 1}^n x_{ij} (-1)^{i + j} M_{ij},
 \[
 d(det X) = (-1)^{1 + 1} M_{11} dx_{11} + (-1)^{1 + 2} M_{12}  dx_{12} + \ldots  = \sum_{ij} A_{ji} dx_{ij} = tr(A dX),
 \]</div>
-<p class="sd-card-text">где <span class="math notranslate nohighlight">\(A_{ij} = (-1)^{i +j} M_{ij},\)</span> то есть <span class="math notranslate nohighlight">\(A\)</span> — матрица алгебраических дополнений. Вспомним, что обратную матрицу можно получить отталкиваясь от алгебраических дополнений по формуле</p>
+<p class="sd-card-text">где <span class="math notranslate nohighlight">\(A_{ij} = (-1)^{i +j} M_{ij},\)</span> то есть <span class="math notranslate nohighlight">\(A\)</span> — матрица алгебраических дополнений. Вспомним, что обратную матрицу можно получить, отталкиваясь от алгебраических дополнений по формуле</p>
 <div class="math notranslate nohighlight">
 \[
 X^{-1} = \frac{A}{det X}.
 \]</div>
-<p class="sd-card-text">Выразим матрицу <span class="math notranslate nohighlight">\(A\)</span> и подставим её а получившееся выше уравнение</p>
+<p class="sd-card-text">Выразим матрицу <span class="math notranslate nohighlight">\(A\)</span> и подставим её в получившееся выше уравнение</p>
 <div class="math notranslate nohighlight">
 \[
 d(det X) = tr(det (X) X^{-1} dX),
 \]</div>
-<p class="sd-card-text">выходит что искомая производная равна</p>
+<p class="sd-card-text">выходит, что искомая производная равна</p>
 <div class="math notranslate nohighlight">
 \[
 \nabla_X f(X) = (det X \cdot X^{-1})^T = det X \cdot X^{-T}.
 \]</div>
 </div>
-</details><p>Найдите производную функции <span class="math notranslate nohighlight">\(f(X) = tr(X)\)</span>, где матрица <span class="math notranslate nohighlight">\(X\)</span> размера <span class="math notranslate nohighlight">\(n \times n\)</span></p>
+</details><p><strong>в)</strong> Найдите производную функции <span class="math notranslate nohighlight">\(f(X) = tr(X)\)</span>, где матрица <span class="math notranslate nohighlight">\(X\)</span> размера <span class="math notranslate nohighlight">\(n \times n\)</span></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">

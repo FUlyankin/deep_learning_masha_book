@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -488,7 +488,7 @@ ReLU'(t) = \begin{cases} 1, \quad t \ge 0 \\ 0, \quad t &lt; 0.\end{cases}
 \end{split}\]</div>
 <p class="sd-card-text">Нарисуем функцию активации и её производную на графике.</p>
 <a class="reference internal image-reference" href="../_images/img05_relu.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_relu.png" style="width: 95%;" /></a>
-<p class="sd-card-text">Получается, что при обратном распространении ошибки мы будем умножать градиент либо на <span class="math notranslate nohighlight">\(1\)</span> либо на <span class="math notranslate nohighlight">\(0.\)</span> Если из слоя вылезут сплошные нули, тогда градиенты умрут и сетка не будет обучаться.</p>
+<p class="sd-card-text">Получается, что при обратном распространении ошибки мы будем умножать градиент либо на <span class="math notranslate nohighlight">\(1\)</span>, либо на <span class="math notranslate nohighlight">\(0.\)</span> Если из слоя вылезут сплошные нули, тогда градиенты умрут и сетка не будет обучаться.</p>
 <p class="sd-card-text">Линейный слой с ReLU в качестве функции активации выглядит как</p>
 <div class="math notranslate nohighlight">
 \[
@@ -496,7 +496,7 @@ H = max(XW + b, 0).
 \]</div>
 <p class="sd-card-text">Если <span class="math notranslate nohighlight">\(b\)</span> инициализировано отрицательным числом, нейрон сразу умирает. Чтобы этого не произошло, нужно инициализировать константу <span class="math notranslate nohighlight">\(b\)</span> перед обучением каким-то большим положительным числом. На практике оказывается, что ReLU работает довольно хорошо.</p>
 </div>
-</details><p><strong>б)</strong> Как у ReLU дела с центированием относительно нуля?</p>
+</details><p><strong>б)</strong> Как у ReLU дела с центрированием относительно нуля?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -552,7 +552,7 @@ ELU'(t) = \begin{cases} 1, &amp;t \ge 0 \\ \alpha \cdot e^t, &amp;t &lt; 0.  \en
 <p class="sd-card-text">Вторую строку можно переписать как <span class="math notranslate nohighlight">\(ELU(t) + \alpha\)</span> для экономии вычислений. Нарисуем функцию активации и её производную на графике.</p>
 <a class="reference internal image-reference" href="../_images/img05_leaky_elu.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_leaky_elu.png" style="width: 95%;" /></a>
 <p class="sd-card-text">На отрицательных значениях аргумента функция активации становится экспоненциальной. Идея функции активации заключается в том, чтобы сочетать в одной функции наличие отрицательных значений и их быстрое насыщение при дальнейшем уменьшении аргумента. Благодаря этому активация на отрицательных значениях не уходит далеко от нуля и сохраняется разреженность.</p>
-<p class="sd-card-text">Также такая функция будет примерно центрирована относительно нуля (в терминах математического ожидания). На практек оказывается, что ELU ускоряет сходимость глубоких нейронных сетей.<a class="footnote-reference brackets" href="#statia" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p class="sd-card-text">Также такая функция будет примерно центрирована относительно нуля (в терминах математического ожидания). На практике оказывается, что ELU ускоряет сходимость глубоких нейронных сетей.<a class="footnote-reference brackets" href="#statia" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 </div>
 </details><p>Функцией SELU (Scaled Exponential Linear Units activation) называется</p>
 <div class="math notranslate nohighlight">
@@ -570,11 +570,11 @@ f(t) = \lambda \cdot \begin{cases} t, t \ge 0 \\ \alpha \cdot (e^t - 1), t &lt; 
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">В машинном обучении используются разные способы нормирования данных. Один из них заключается в том, что мы вычитаем из наших наблюдений среднее и делим их на стандартное отклонение. В пространстве нормализованных признаков градиентный спуск отрабатывает эффективнее.</p>
 <p class="sd-card-text">Было бы классно, если бы после каждого слоя, внутри нашей сетки, данные оказывались нормализованы. Тогда бы градиентный спуск работал эффективнее. В будущих листочках мы будем говорить про технику, которая следит за нормировкой выходов каждого слоя. Она называется <strong>нормализацией по батчам.</strong></p>
-<p class="sd-card-text">Функция активации SELU обладает свойством самонормализации. Выходы всех слоёв нейронной сети будут распределены со средним ноль и дисперсией равной единице. Это позволяет не использовать в нейросетках нормализацию по батчам. Более того, авторы в статье доказывают, что SELU не способствует взрыву или затуханию градиентов. Правда выводы и доказательства занимают под сотню страниц.<a class="footnote-reference brackets" href="#statia2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
-<p class="sd-card-text">Если вы используете SELU, важно не забыть поставить в качестве инициализатора весов инициализацию Лякуна. Если вы собираетесь использовать Dropout, лучше взять AlphaDropout. Это разновидность dropout, которая поддерживает нулевое среднее и единичную дисперсию.</p>
+<p class="sd-card-text">Функция активации SELU обладает свойством самонормализации. Выходы всех слоёв нейронной сети будут распределены со средним ноль и дисперсией, равной единице. Это позволяет не использовать в нейросетках нормализацию по батчам. Более того, авторы в статье доказывают, что SELU не способствует взрыву или затуханию градиентов. Правда выводы и доказательства занимают под сотню страниц.<a class="footnote-reference brackets" href="#statia2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<p class="sd-card-text">Если вы используете SELU, важно не забыть поставить в качестве инициализатора весов инициализацию Лекуна. Если вы собираетесь использовать Dropout, лучше взять AlphaDropout. Это разновидность dropout, которая поддерживает нулевое среднее и единичную дисперсию.</p>
 <p class="sd-card-text">В таком случае самонормализация будет работать корректно. Подробнее про инициализацию и Dropout мы поговорим в одном из следующих листочков.</p>
 </div>
-</details><p><strong>е)</strong> В 2017 году учёные из Google Google Brain хитрым автоматическим поиском на основе RNN нашли функцию активации Swish.<a class="footnote-reference brackets" href="#statia4" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
+</details><p><strong>е)</strong> В 2017 году учёные из Google Brain хитрым автоматическим поиском на основе RNN нашли функцию активации Swish.<a class="footnote-reference brackets" href="#statia4" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>3<span class="fn-bracket">]</span></a></p>
 <div class="math notranslate nohighlight">
 \[
 Swish(t) = t \cdot \sigma(\beta \cdot t).
@@ -589,15 +589,15 @@ Swish(t) = t \cdot \sigma(\beta \cdot t).
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Swish – гладкий вариант ReLU с гейтом. <strong>Гейтами</strong> в нейросетях называют «ворота», которые во время обучения настраиваются либо пропускать либо не пропускать информацию по какому-то маршруту.</p>
+<p class="sd-card-text">Swish – гладкий вариант ReLU с гейтом. <strong>Гейтами</strong> в нейросетях называют «ворота», которые во время обучения настраиваются либо пропускать, либо не пропускать информацию по какому-то маршруту.</p>
 <p class="sd-card-text">Давайте попробуем сделать перебор параметра <span class="math notranslate nohighlight">\(\beta\)</span> и нарисуем несколько вариантов функции.</p>
 <a class="reference internal image-reference" href="../_images/img05_swish.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_swish.png" style="width: 95%;" /></a>
-<p class="sd-card-text">При <span class="math notranslate nohighlight">\(\beta \to 0\)</span> мы получаем линейную функцию <span class="math notranslate nohighlight">\(\frac{t}{2}.\)</span> При <span class="math notranslate nohighlight">\(\beta \to \infty\)</span> сигмоида превращается в ступеньку и принимает значение либо <span class="math notranslate nohighlight">\(0\)</span> либо <span class="math notranslate nohighlight">\(1\)</span>. Из-за домножения на <span class="math notranslate nohighlight">\(t\)</span> получается ReLU.</p>
+<p class="sd-card-text">При <span class="math notranslate nohighlight">\(\beta \to 0\)</span> мы получаем линейную функцию <span class="math notranslate nohighlight">\(\frac{t}{2}.\)</span> При <span class="math notranslate nohighlight">\(\beta \to \infty\)</span> сигмоида превращается в ступеньку и принимает значение либо <span class="math notranslate nohighlight">\(0\)</span>, либо <span class="math notranslate nohighlight">\(1\)</span>. Из-за домножения на <span class="math notranslate nohighlight">\(t\)</span> получается ReLU.</p>
 <p class="sd-card-text">Параметр <span class="math notranslate nohighlight">\(\beta\)</span> обучается и выбирает позицию между этих двух крайностей и решает, нужна ли слою активация или нет.</p>
 </div>
 </details><p>Конечно же, на этом учёные не остановились и продолжили придумывать более интересные функции активации. В 2019 году они опять начали заниматься перебором и получили соперника Swish под названием Mish.<a class="footnote-reference brackets" href="#statia5" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
 <p>В 2021 году учёные попробовали обобщить все эти функции, а потом получить из этого обобщения что-нибудь интересное. Так родилось целое семейство саморегулирующихся функций активации, ACON (Activate or Not), а для исследования открылась целая область.<a class="footnote-reference brackets" href="#statia6" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
-<p><strong>Это, конечно всё офигенно, а что делать на практике?</strong> Начните с ReLU, аккуратно инициализируйте веса и настраивайте скорость обучения. Дальше имеет смысл попробовать ELU/SELU. Если есть время на эксперименты, можно попробовать что-то более экстравагантное. Довольно приятно заменить одну функцию активации на другую и выиграть в качестве целый процент. Ни в коем случае не используйте тангенс и сигмоиду.</p>
+<p><strong>Это, конечно, всё офигенно, а что делать на практике?</strong> Начните с ReLU, аккуратно инициализируйте веса и настраивайте скорость обучения. Дальше имеет смысл попробовать ELU/SELU. Если есть время на эксперименты, можно попробовать что-то более экстравагантное. Довольно приятно заменить одну функцию активации на другую и выиграть в качестве целый процент. Ни в коем случае не используйте тангенс и сигмоиду.</p>
 <p>Также почитайте небольшой обзор функций активации.<a class="footnote-reference brackets" href="#statia3" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">

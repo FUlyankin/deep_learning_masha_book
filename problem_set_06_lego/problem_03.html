@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -506,7 +506,7 @@ w_t = w_{t-1} - \eta_t \cdot m_t \
 \[\begin{multline*}
 w_t = w_{t-1} - \eta_t \cdot (\mu \cdot m_{t-1} + \nabla_w L(w_{t-1}) + \lambda \cdot w_{t-1}) = \\ =\alert{\underbrace{(1-\eta_t\cdot \lambda)}_{&lt;1}}\cdot w_{t-1} - \eta_t\cdot(\mu\cdot m_{t-1} + \nabla_w L(w_{t-1}))
 \end{multline*}\]</div>
-<p class="sd-card-text">Получается, что когда мы добавляем к модели <span class="math notranslate nohighlight">\(l_2\)</span> регуляризацию, мы делаем каждый шаг градиентного спуска по старому градиенту без регуляризатора, но из новых весов. Мы сдвигаем старые веса на какую-то константу и движемся из неё. Этот параметр в оптимизиторах называется weight decay. Обычно при обучении нейронных сетей вместо регуляризации используют его.</p>
+<p class="sd-card-text">Получается, что, когда мы добавляем к модели <span class="math notranslate nohighlight">\(l_2\)</span> регуляризацию, мы делаем каждый шаг градиентного спуска по старому градиенту без регуляризатора, но из новых весов. Мы сдвигаем старые веса на какую-то константу и движемся из неё. Этот параметр в оптимизаторах называется weight decay. Обычно при обучении нейронных сетей вместо регуляризации используют его.</p>
 </div>
 </details><p><strong>б)</strong> Выпишите шаг Adam для такой модели. Выразите получившийся шаг в виде</p>
 <p>[
@@ -534,8 +534,8 @@ w_t = w</em>{t-1} -\eta_t \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}
 <p class="sd-card-text">[
 \Rightarrow w_t = w_{t-1} - \eta_t \cdot \frac{m_t}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}<em>t} + \varepsilon} = \ = w_t = w</em>{t-1} - \eta_t \cdot \frac{\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}<em>t} + \varepsilon} = \ =w_t = w</em>{t-1} - \eta_t \cdot \frac{\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot (\nabla_w Q(w_{t-1}) + \lambda \cdot w_{t-1})}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}<em>t} + \varepsilon} =\=w</em>{t-1}\cdot \left(\underbrace{1}_{\text{вектор единиц}} - \frac{\eta_t \cdot \lambda\cdot (1-\beta_1)}{1-\beta_1^t} \cdot \underbrace{\frac{1}{\sqrt{\hat{v}<em>t}+\varepsilon}}</em>{(*)}\right) -\dots
 ]</p>
-<p class="sd-card-text"><span class="math notranslate nohighlight">\((*) \Rightarrow\)</span> регуляризация работает по-разному — разные веса будут по-разному затухать
-В случае с Adam мы слишком хорошо оптимизируемся <span class="math notranslate nohighlight">\(\Rightarrow\)</span> обязательно переобучаемся</p>
+<p class="sd-card-text"><span class="math notranslate nohighlight">\((*) \Rightarrow\)</span> регуляризация работает по-разному — разные веса будут по-разному затухать.
+В случае с Adam мы слишком хорошо оптимизируемся <span class="math notranslate nohighlight">\(\Rightarrow\)</span> обязательно переобучаемся.</p>
 <p class="sd-card-text">Выпишем уравнения для AdamW</p>
 <p class="sd-card-text">\begin{cases}
 g_t = \nabla_w Q(w_{t-1}) \
@@ -545,7 +545,7 @@ v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2\
 \hat{v}<em>t = \frac{1}{1-\beta_2^t}v_t \
 w_t = (1-\eta_t\cdot\lambda)\cdot w</em>{t-1} -\eta_t \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}
 \end{cases}</p>
-<p class="sd-card-text">В дефолтном Adam мы учитываем weight decay в <span class="math notranslate nohighlight">\(g_t\)</span>,  а в модификации AdamW — в</p>
+<p class="sd-card-text">В дефолтном Adam мы учитываем weight decay в <span class="math notranslate nohighlight">\(g_t\)</span>,  а в модификации AdamW — в самом шаге обновления весов <span class="math notranslate nohighlight">\(w_t\)</span>, отдельно от градиента.</p>
 </div>
 </details></section>
 

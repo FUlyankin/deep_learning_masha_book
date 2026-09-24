@@ -40,7 +40,7 @@ w_t = g(\lambda) \cdot w_{t-1} - \eta_t \cdot h(\nabla_w L(w_{t-1}))
 w_t = w_{t-1} - \eta_t \cdot (\mu \cdot m_{t-1} + \nabla_w L(w_{t-1}) + \lambda \cdot w_{t-1}) = \\ =\alert{\underbrace{(1-\eta_t\cdot \lambda)}_{<1}}\cdot w_{t-1} - \eta_t\cdot(\mu\cdot m_{t-1} + \nabla_w L(w_{t-1}))
 \end{multline*}
 
-Получается, что когда мы добавляем к модели $l_2$ регуляризацию, мы делаем каждый шаг градиентного спуска по старому градиенту без регуляризатора, но из новых весов. Мы сдвигаем старые веса на какую-то константу и движемся из неё. Этот параметр в оптимизиторах называется weight decay. Обычно при обучении нейронных сетей вместо регуляризации используют его. 
+Получается, что, когда мы добавляем к модели $l_2$ регуляризацию, мы делаем каждый шаг градиентного спуска по старому градиенту без регуляризатора, но из новых весов. Мы сдвигаем старые веса на какую-то константу и движемся из неё. Этот параметр в оптимизаторах называется weight decay. Обычно при обучении нейронных сетей вместо регуляризации используют его. 
 
 ```
 
@@ -70,8 +70,8 @@ w_t = g(\lambda) \cdot w_{t-1} - \eta_t \cdot h(\nabla_w L(w_{t-1}))
 	\Rightarrow w_t = w_{t-1} - \eta_t \cdot \frac{m_t}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}_t} + \varepsilon} = \\ = w_t = w_{t-1} - \eta_t \cdot \frac{\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}_t} + \varepsilon} = \\ =w_t = w_{t-1} - \eta_t \cdot \frac{\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot (\nabla_w Q(w_{t-1}) + \lambda \cdot w_{t-1})}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}_t} + \varepsilon} =\\=w_{t-1}\cdot \left(\underbrace{1}_{\text{вектор единиц}} - \frac{\eta_t \cdot \lambda\cdot (1-\beta_1)}{1-\beta_1^t} \cdot \underbrace{\frac{1}{\sqrt{\hat{v}_t}+\varepsilon}}_{(*)}\right) -\dots
 \]
 
-$(*) \Rightarrow$ регуляризация работает по-разному — разные веса будут по-разному затухать
-В случае с Adam мы слишком хорошо оптимизируемся $\Rightarrow$ обязательно переобучаемся
+$(*) \Rightarrow$ регуляризация работает по-разному — разные веса будут по-разному затухать.
+В случае с Adam мы слишком хорошо оптимизируемся $\Rightarrow$ обязательно переобучаемся.
 
 
 Выпишем уравнения для AdamW
@@ -86,7 +86,7 @@ v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2\\
 w_t = (1-\eta_t\cdot\lambda)\cdot w_{t-1} -\eta_t \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}
 \end{cases}
 
-В дефолтном Adam мы учитываем weight decay в $g_t$,  а в модификации AdamW — в 
+В дефолтном Adam мы учитываем weight decay в $g_t$,  а в модификации AdamW — в самом шаге обновления весов $w_t$, отдельно от градиента.
 
 ```
 

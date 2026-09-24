@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -476,7 +476,7 @@ document.write(`
 <figure class="align-default" id="one-dim-nn">
 <a class="reference internal image-reference" href="../_images/img02_task.png"><img alt="../_images/img02_task.png" src="../_images/img02_task.png" style="width: 80%;" /></a>
 </figure>
-<p><strong>а)</strong> Запишите Машину нейросеть, как сложную функцию.</p>
+<p><strong>а)</strong> Запишите Машину нейросеть как сложную функцию.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -490,7 +490,7 @@ document.write(`
 \hat y_i = f(f(x_i \cdot w_1) \cdot w_2) \cdot w_3.
 \]</div>
 </div>
-</details><p><strong>б)</strong> Предположим, что Маша решает задачу регрессии. Она прогоняет через нейросетку одно наблюдение. Она вычисляет знчение функции потерь <span class="math notranslate nohighlight">\(L(w_1, w_2, w_3) = \frac{1}{2} \cdot (y - \hat y)^2\)</span>.  Найдите производные функции <span class="math notranslate nohighlight">\(L\)</span> по всем весам <span class="math notranslate nohighlight">\(w_k\)</span>.</p>
+</details><p><strong>б)</strong> Предположим, что Маша решает задачу регрессии. Она прогоняет через нейросетку одно наблюдение. Она вычисляет значение функции потерь <span class="math notranslate nohighlight">\(L(w_1, w_2, w_3) = \frac{1}{2} \cdot (y - \hat y)^2\)</span>.  Найдите производные функции <span class="math notranslate nohighlight">\(L\)</span> по всем весам <span class="math notranslate nohighlight">\(w_k\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -530,7 +530,7 @@ L(w_1, w_2, w_3) = \frac{1}{2} \cdot (y - \hat y)^2 = \frac{1}{2} \cdot (y - f(f
     &amp; \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_1} = \boxed{ (y - \hat{y}) } \cdot \boxed{ w_3 \cdot f'(f(x\cdot w_1) \cdot w_2)} \cdot w_2 \cdot  f'(x\cdot w_1) \cdot x \\
     \end{aligned} 
 \end{equation*}\]</div>
-<p class="sd-card-text">Если бы слоёв было бы больше, переиспользования возникали бы намного чаще. Градиентный спуск при таком подходе мы могли бы сделать точно также, как и в любых других моделях</p>
+<p class="sd-card-text">Если бы слоёв было бы больше, переиспользования возникали бы намного чаще. Градиентный спуск при таком подходе мы могли бы сделать точно так же, как и в любых других моделях</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
@@ -541,7 +541,7 @@ L(w_1, w_2, w_3) = \frac{1}{2} \cdot (y - \hat y)^2 = \frac{1}{2} \cdot (y - f(f
 \end{equation*}\]</div>
 <p class="sd-card-text">Проблема в том, что такой подход из-за постоянных перевычислений будет работать долго, за <span class="math notranslate nohighlight">\(O(m^2)\)</span>, где <span class="math notranslate nohighlight">\(m\)</span> – глубина нейронной сетки. Алгоритм обратного распространения ошибки помогает более аккуратно считать производную и ускорить обучение нейросетей.</p>
 </div>
-</details><p><strong>г)</strong> Выпишите все производные в том виде, в котором их было бы удобно использовать для алгоритма обратного распространения ошибки, а затем, сформулируйте сам алгоритм. Нарисуйте под него удобную схемку.</p>
+</details><p><strong>г)</strong> Выпишите все производные в том виде, в котором их было бы удобно использовать для алгоритма обратного распространения ошибки, а затем сформулируйте сам алгоритм. Нарисуйте под него удобную схемку.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -581,7 +581,7 @@ f(z) = \sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^{z}},
 \[
 \frac{\partial o_2}{\partial h_2} = \sigma'(h_2) = \sigma(h_2) \cdot (1 - \sigma(h_2)) = o_2 \cdot (1 - o_2).
 \]</div>
-<p class="sd-card-text">Осталось только аккуратно записать алгоритм. В ходе прямого прохода мы запоминаем все промежуточные результаты. Они нам пригодятся для поиска производных при обратном проходе. Например, выше, в сигмоиде, при поиске производной, используется результат прямого прохода <span class="math notranslate nohighlight">\(o_2.\)</span></p>
+<p class="sd-card-text">Осталось только аккуратно записать алгоритм. В ходе прямого прохода мы запоминаем все промежуточные результаты. Они нам пригодятся для поиска производных при обратном проходе. Например, выше, в сигмоиде, при поиске производной используется результат прямого прохода <span class="math notranslate nohighlight">\(o_2.\)</span></p>
 <p class="sd-card-text">Заведём для накопленного значения производной переменную <span class="math notranslate nohighlight">\(d\)</span>. На первом шаге нам надо найти <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial w_3}\)</span>. Сделаем это в два хода</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
@@ -593,9 +593,9 @@ f(z) = \sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^{z}},
 <p class="sd-card-text">Для поиска производной <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial w_2}\)</span> переиспользуем значение, которое накопилось в <span class="math notranslate nohighlight">\(d\)</span>. Нам надо найти</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial L}{\partial w_2} = \frac{\partial L}{\hat y} \cdot \frac{\partial \hat y}{\partial o_2} \cdot \frac{\partial o_2}{\partial h_2} \cdot \frac{\partial h_2}{\partial w_2} = d \cdot \boxed{ \frac{\partial \hat y}{\partial o_2} \cdot \frac{\partial o_2}{\partial h_2} } \cdot \frac{\partial h_2}{\partial w_2}.
+\frac{\partial L}{\partial w_2} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial o_2} \cdot \frac{\partial o_2}{\partial h_2} \cdot \frac{\partial h_2}{\partial w_2} = d \cdot \boxed{ \frac{\partial \hat y}{\partial o_2} \cdot \frac{\partial o_2}{\partial h_2} } \cdot \frac{\partial h_2}{\partial w_2}.
 \]</div>
-<p class="sd-card-text">Часть, выделенную в прямоугольник мы будем переиспользовать для поиска <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial w_1}\)</span>. Хорошо бы дописать её в <span class="math notranslate nohighlight">\(d\)</span> для этого. Получается, вторую производную тоже надо найти в два хода</p>
+<p class="sd-card-text">Часть, выделенную в прямоугольник, мы будем переиспользовать для поиска <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial w_1}\)</span>. Хорошо бы дописать её в <span class="math notranslate nohighlight">\(d\)</span> для этого. Получается, вторую производную тоже надо найти в два хода</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
 	\begin{aligned}
@@ -606,7 +606,7 @@ f(z) = \sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^{z}},
 <p class="sd-card-text">Осталась заключительная производная <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial w_1}\)</span>. Нам надо найти</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial L}{\partial w_2} = \frac{\partial L}{\hat y} \cdot \frac{\partial \hat y}{\partial o_2} \cdot \frac{\partial o_2}{\partial h_2} \cdot \frac{\partial h_2}{\partial o_1} \cdot \frac{\partial o_1}{\partial h_1}  \cdot \frac{\partial h_1}{\partial w_1}  = d \cdot \frac{\partial h_2}{\partial o_1} \cdot \frac{\partial o_1}{\partial h_1}  \cdot \frac{\partial h_1}{\partial w_1}.
+\frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial o_2} \cdot \frac{\partial o_2}{\partial h_2} \cdot \frac{\partial h_2}{\partial o_1} \cdot \frac{\partial o_1}{\partial h_1}  \cdot \frac{\partial h_1}{\partial w_1}  = d \cdot \frac{\partial h_2}{\partial o_1} \cdot \frac{\partial o_1}{\partial h_1}  \cdot \frac{\partial h_1}{\partial w_1}.
 \]</div>
 <p class="sd-card-text">Снова делаем это в два шага</p>
 <div class="amsmath math notranslate nohighlight">

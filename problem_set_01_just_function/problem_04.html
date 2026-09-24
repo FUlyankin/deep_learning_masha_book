@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -473,11 +473,11 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>4. Армия регрессий<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>Маша любит собирать персептроны и думать по вечерам об их весах и функциях активации. Сегодня она решила разобрать свои залежи из персептронов и как следует упорядочить их. <a class="footnote-reference brackets" href="#mynotebb" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
-<p><strong>а)</strong> В ящике стола Маша нашла перcептрон с картинки <a class="reference internal" href="#perseptron01"><span class="std std-ref">перый персептрон</span></a>.  Маша хочет подобрать веса так, чтобы он реализовывал логическое отрицание, то есть превращал <span class="math notranslate nohighlight">\(x_1 = 0\)</span> в <span class="math notranslate nohighlight">\(y=1\)</span>, а <span class="math notranslate nohighlight">\(x_1 = 1\)</span> в <span class="math notranslate nohighlight">\(y=0\)</span>.</p>
+<p><strong>а)</strong> В ящике стола Маша нашла персептрон с картинки <a class="reference internal" href="#perseptron01"><span class="std std-ref">первый персептрон</span></a>.  Маша хочет подобрать веса так, чтобы он реализовывал логическое отрицание, то есть превращал <span class="math notranslate nohighlight">\(x_1 = 0\)</span> в <span class="math notranslate nohighlight">\(y=1\)</span>, а <span class="math notranslate nohighlight">\(x_1 = 1\)</span> в <span class="math notranslate nohighlight">\(y=0\)</span>.</p>
 <figure class="align-default" id="perseptron01">
 <a class="reference internal image-reference" href="../_images/img04_perp1.png"><img alt="../_images/img04_perp1.png" src="../_images/img04_perp1.png" style="width: 55%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">перый персептрон</span><a class="headerlink" href="#perseptron01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">первый персептрон</span><a class="headerlink" href="#perseptron01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -502,7 +502,7 @@ document.write(`
 \end{equation*}\]</div>
 <p class="sd-card-text">На второе уравнение <span class="math notranslate nohighlight">\(w_2\)</span> никак не влияет, а <span class="math notranslate nohighlight">\(w_1 = 1.\)</span> Для того, чтобы в первом уравнении получить ноль, нужно взять любое <span class="math notranslate nohighlight">\(w_2 \le -1\)</span>.</p>
 </div>
-</details><p><strong>б)</strong> В тумбочке, среди носков, Маша нашла перcептрон, с картинки <a class="reference internal" href="#perseptron02"><span class="std std-ref">второй персептрон</span></a>. Маша хочет подобрать такие веса <span class="math notranslate nohighlight">\(w_i\)</span>, чтобы персептрон превращал <span class="math notranslate nohighlight">\(x_1, x_2, x_3\)</span> из таблички ниже в соответствующие <span class="math notranslate nohighlight">\(y\)</span>:</p>
+</details><p><strong>б)</strong> В тумбочке, среди носков, Маша нашла персептрон с картинки <a class="reference internal" href="#perseptron02"><span class="std std-ref">второй персептрон</span></a>. Маша хочет подобрать такие веса <span class="math notranslate nohighlight">\(w_i\)</span>, чтобы персептрон превращал <span class="math notranslate nohighlight">\(x_1, x_2, x_3\)</span> из таблички ниже в соответствующие <span class="math notranslate nohighlight">\(y\)</span>:</p>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(x_1\)</span></p></th>
@@ -545,7 +545,7 @@ document.write(`
 	    &amp; \max(0, w_1 - w_2 + w_3) = 0 
 	\end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Тут решений может быть довольно много. Одно из них — это занулить <span class="math notranslate nohighlight">\(w_1\)</span> и <span class="math notranslate nohighlight">\(w_3\)</span> в первом уравнении, а <span class="math notranslate nohighlight">\(w_2\)</span> поставить <span class="math notranslate nohighlight">\(0.5\)</span>. Тогда во втором уравнении мы сразу же будем оказываться в отрицательной области и <span class="math notranslate nohighlight">\(ReLU\)</span> заботливо будет отдавать нам <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p class="sd-card-text">Тут решений может быть довольно много. Одно из них — это занулить <span class="math notranslate nohighlight">\(w_1\)</span> и <span class="math notranslate nohighlight">\(w_3\)</span> в первом уравнении, а <span class="math notranslate nohighlight">\(w_2\)</span> поставить <span class="math notranslate nohighlight">\(0.5\)</span>. Тогда во втором уравнении мы сразу же будем оказываться в отрицательной области, и <span class="math notranslate nohighlight">\(ReLU\)</span> заботливо будет отдавать нам <span class="math notranslate nohighlight">\(0\)</span>.</p>
 </div>
 </details><p><strong>в)</strong> Оказывается, что в ванной всё это время валялась куча персептронов с картинки <a class="reference internal" href="#perseptron03"><span class="std std-ref">третий персептрон</span></a> с неизвестной функцией активации.</p>
 <figure class="align-default" id="perseptron03">
@@ -554,7 +554,7 @@ document.write(`
 <p><span class="caption-number">Fig. 3 </span><span class="caption-text">третий персептрон</span><a class="headerlink" href="#perseptron03" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Маша провела на плоскости две прямые: <span class="math notranslate nohighlight">\(x_1 + x_2 = 1\)</span> и <span class="math notranslate nohighlight">\(x_1 - x_2 = 1\)</span>. Она хочет собрать из персептронов нейросетку, которая будет классифицировать объекты с плоскости так, как показано на картинке <a class="reference internal" href="#flat"><span class="std std-ref">данные</span></a>. В качестве функции возьмите единичную ступеньку (Функцию Хевисайда)</p>
+<p>Маша провела на плоскости две прямые: <span class="math notranslate nohighlight">\(x_1 + x_2 = 1\)</span> и <span class="math notranslate nohighlight">\(x_1 - x_2 = 1\)</span>. Она хочет собрать из персептронов нейросетку, которая будет классифицировать объекты с плоскости так, как показано на картинке <a class="reference internal" href="#flat"><span class="std std-ref">данные</span></a>. В качестве функции возьмите единичную ступеньку (функцию Хевисайда)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 f(h) = \begin{cases} 1, h &gt; 0 \\ 0, h \le 0. \end{cases}
@@ -574,13 +574,13 @@ f(h) = \begin{cases} 1, h &gt; 0 \\ 0, h \le 0. \end{cases}
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Один нейрон — это одна линия, проведённая на плоскости. Эта линия отделяет один класс от другого. Например, линию <span class="math notranslate nohighlight">\( x_1 + x_2 - 1 = 0 \)</span> мог бы описать нейрон</p>
 <a class="reference internal image-reference" href="../_images/img04_sol1.png"><img alt="left_line" class="align-center" src="../_images/img04_sol1.png" style="width: 95%;" /></a>
-<p class="sd-card-text">Порог <span class="math notranslate nohighlight">\(\gamma\)</span> для кусочной функции в каком-то смысле дублирует константу. Они взаимосвязаны. Будем всегда брать его нулевым. Видим, что если мы получили комбинацию <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span> и <span class="math notranslate nohighlight">\(1\)</span>, большую, чем ноль, мы оказались справа от прямой. Если хочется поменять метки <span class="math notranslate nohighlight">\(0\)</span> и <span class="math notranslate nohighlight">\(1\)</span> местами, можно умножить все коэффициенты на <span class="math notranslate nohighlight">\(-1\)</span>.</p>
-<p class="sd-card-text"><strong>Наш персептрон понимает по какую сторону от прямой мы оказались,</strong> то есть задаёт одну линейную разделяющую поверхность.  По аналогии для второй прямой мы можем получить следующий нейрон.</p>
+<p class="sd-card-text">Порог <span class="math notranslate nohighlight">\(\gamma\)</span> для кусочной функции в каком-то смысле дублирует константу. Они взаимосвязаны. Будем всегда брать его нулевым. Видим, что, если мы получили комбинацию <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span> и <span class="math notranslate nohighlight">\(1\)</span>, большую, чем ноль, мы оказались справа от прямой. Если хочется поменять метки <span class="math notranslate nohighlight">\(0\)</span> и <span class="math notranslate nohighlight">\(1\)</span> местами, можно умножить все коэффициенты на <span class="math notranslate nohighlight">\(-1\)</span>.</p>
+<p class="sd-card-text"><strong>Наш персептрон понимает, по какую сторону от прямой мы оказались,</strong> то есть задаёт одну линейную разделяющую поверхность.  По аналогии для второй прямой мы можем получить следующий нейрон.</p>
 <a class="reference internal image-reference" href="../_images/img04_sol2.png"><img alt="right_line" class="align-center" src="../_images/img04_sol2.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Итак, первый персептрон выбрал нам позицию относительно первой прямой, второй относительно второй. Остаётся только объединить эти результаты. Нейрон для скрепки должен реализовать для нас логическую функцию, которую задаёт табличка ниже. Там же нарисованы примеры весов, которые могли бы объединить выхлоп первого слоя в итоговый прогноз.</p>
 <a class="reference internal image-reference" href="../_images/img04_sol3.png"><img alt="flat_with_lines" class="align-center" src="../_images/img04_sol3.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Теперь мы можем нарисовать итоговую нейронную сеть, решающую задачу Маши. Она состоит из двух слоёв. Меньше не выйдет, так как каждый персептрон строит только одну разделяющую линию.</p>
-<p class="sd-card-text">Если бы мы ввели для нашей нейросетки дополнительный признак <span class="math notranslate nohighlight">\(x_1 \cdot x_2\)</span>, у нас бы получилось обойтись только одним персептроном. В нашей ситуации <strong>нейросетка сама сварила на первом слое признак, которого ей не хватало для решения задачи.</strong> Другими словами говоря, нейросетка своим первым слоем превратила сложное пространство признаков в более простое, а затем вторым слоем, решила в нём задачу классификации.</p>
+<p class="sd-card-text">Если бы мы ввели для нашей нейросетки дополнительный признак <span class="math notranslate nohighlight">\(x_1 \cdot x_2\)</span>, у нас бы получилось обойтись только одним персептроном. В нашей ситуации <strong>нейросетка сама сварила на первом слое признак, которого ей не хватало для решения задачи.</strong> Другими словами говоря, нейросетка своим первым слоем превратила сложное пространство признаков в более простое, а затем вторым слоем решила в нём задачу классификации.</p>
 <a class="reference internal image-reference" href="../_images/img04_sol4.png"><img alt="total_nn" class="align-center" src="../_images/img04_sol4.png" style="width: 60%;" /></a>
 </div>
 </details><hr class="footnotes docutils" />

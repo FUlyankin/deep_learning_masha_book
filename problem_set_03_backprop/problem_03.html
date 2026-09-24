@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -477,7 +477,7 @@ document.write(`
 \[
 \sigma(z) = \frac{1}{1 + e^{-z}} = \frac{e^z}{1 + e^{z}},
 \]</div>
-<p>Маша хочет использовать сигмоиду внутри нейросети. Предполагается, что после прямого шага, наши вычисления будут использованы в другой части нейросети. В конечном итоге, по выходу из нейросети, мы вычислим какую-то функцию потерь <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<p>Маша хочет использовать сигмоиду внутри нейросети. Предполагается, что после прямого шага наши вычисления будут использованы в другой части нейросети. В конечном итоге, по выходу из нейросети мы вычислим какую-то функцию потерь <span class="math notranslate nohighlight">\(L\)</span>.</p>
 <p>У сигмоиды нет параметров. Чтобы обучить нейросеть, Маше понадобится производная <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial z}\)</span>. Выпишите её в матричном виде через производные <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial \sigma}\)</span> и <span class="math notranslate nohighlight">\(\frac{\partial \sigma}{\partial z}\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -492,7 +492,7 @@ document.write(`
 \frac{\partial L}{\partial z}  = \frac{\partial L}{\partial \sigma} \cdot \frac{\partial \sigma }{\partial z}  =  \frac{\partial L}{\partial \sigma} \cdot \sigma(z) \cdot (1 - \sigma(z)).
 \]</div>
 <p class="sd-card-text">Получается, при прямом проходе мы вычисляем сигмоиду по формуле из условия. При обратном проходе мы умножаем пришедшую к нам производную на производную сигмоиды. Если на вход приходит матрица, мы берём сигмоиду от каждого её элемента. Если на вход приходит матрица <span class="math notranslate nohighlight">\(Z_{[n \times k]},\)</span> на выходе мы получаем матрицу <span class="math notranslate nohighlight">\(\Sigma_{[n \times k]}.\)</span></p>
-<p class="sd-card-text">Когда мы берём сигмоиду от матрицы, мы применяем функцию к каждому её элементу. из-за этого, в производной все умножения мы делаем поэлементно, то есть матрица <span class="math notranslate nohighlight">\(\Sigma \odot (1 - \Sigma)\)</span> останется размера <span class="math notranslate nohighlight">\([n \times k].\)</span>  Символом <span class="math notranslate nohighlight">\(\odot\)</span> обозначено произведение Адамара (поэлементное произведение матриц одного размера).</p>
+<p class="sd-card-text">Когда мы берём сигмоиду от матрицы, мы применяем функцию к каждому её элементу. Из-за этого в производной все умножения мы делаем поэлементно, то есть матрица <span class="math notranslate nohighlight">\(\Sigma \odot (1 - \Sigma)\)</span> останется размера <span class="math notranslate nohighlight">\([n \times k].\)</span>  Символом <span class="math notranslate nohighlight">\(\odot\)</span> обозначено произведение Адамара (поэлементное произведение матриц одного размера).</p>
 <p class="sd-card-text">Когда мы применяем цепное правило, под <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial \Sigma}\)</span> мы подразумеваем производную функции потерь <span class="math notranslate nohighlight">\(L\)</span> по каждому элементу матрицы <span class="math notranslate nohighlight">\(\Sigma\)</span>. Получается, что это матрица размера <span class="math notranslate nohighlight">\([n \times k].\)</span> Её мы поэлементно умножаем на <span class="math notranslate nohighlight">\(\Sigma \odot (1 - \Sigma)\)</span> и снова получаем матрицу размера <span class="math notranslate nohighlight">\([n \times k].\)</span> Все размерности оказываются соблюдены.</p>
 </div>
 </details></section>

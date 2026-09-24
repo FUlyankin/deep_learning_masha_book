@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -476,7 +476,7 @@ document.write(`
 <p class="admonition-title">Important</p>
 <p>Задачка не доделана. Надо доделать оставшиеся пункты, добавить сюда приём от Хидмана с CV-оценкой в Ridge за одну регрессию.</p>
 </div>
-<p>Маша ест конфеты и решает задачи по глубокому обучению. Число решённых задач <span class="math notranslate nohighlight">\(y\)</span> зависит от числа съеденных конфет <span class="math notranslate nohighlight">\(x\)</span>. Если Маша ни съела ни одной конфеты, она не хочет заниматься глубоким обучением. Поэтому для прогнозирования числа решённых задач по числу съеденных конфет можно использовать линейную модель с одним признаком без константы <span class="math notranslate nohighlight">\(y_i = w \cdot x_i.\)</span></p>
+<p>Маша ест конфеты и решает задачи по глубокому обучению. Число решённых задач <span class="math notranslate nohighlight">\(y\)</span> зависит от числа съеденных конфет <span class="math notranslate nohighlight">\(x\)</span>. Если Маша не съела ни одной конфеты, она не хочет заниматься глубоким обучением. Поэтому для прогнозирования числа решённых задач по числу съеденных конфет можно использовать линейную модель с одним признаком без константы <span class="math notranslate nohighlight">\(y_i = w \cdot x_i.\)</span></p>
 <p>Для оценки параметра <span class="math notranslate nohighlight">\(w\)</span> Маша использует целевую функцию</p>
 <div class="math notranslate nohighlight">
 \[
@@ -502,7 +502,7 @@ Q(w) = \frac{1}{n}\sum_{i=1}^{n} (y_i - w x_i)^2 + \lambda w^2 \to \min_{w}.
 \end{equation*}\]</div>
 <p class="sd-card-text">Чем больше значение <span class="math notranslate nohighlight">\(\lambda\)</span>, тем ближе к нулю значение коэффициента. Регуляризация стягивает коэффициенты к нулю. Когда модель слишком сильно подстраивается под данные, коэффициенты в ней оказываются очень большими. Стягивание к нулю запрещает модели слишком сильно подстраиваться под данные.</p>
 </div>
-</details><p><strong>б)</strong> Подберите оптимальное <span class="math notranslate nohighlight">\(\lambda\)</span> с помощью кросс-валидации leave one out («выкинь одного»). На первом шаге мы оцениваем модель на всей выборке без первого наблюдения, а на первом тестируем её. На втором шаге мы оцениваем модель на всей выборке без второго наблюдения, а на втором тестируем её. И так далее <span class="math notranslate nohighlight">\(n\)</span> раз. Чтобы найти <span class="math notranslate nohighlight">\(\lambda_{CV}\)</span> мы минимизируем среднюю ошибку, допущенную на тестовых выборках.</p>
+</details><p><strong>б)</strong> Подберите оптимальное <span class="math notranslate nohighlight">\(\lambda\)</span> с помощью кросс-валидации leave one out («выкинь одного»). На первом шаге мы оцениваем модель на всей выборке без первого наблюдения, а на первом тестируем её. На втором шаге мы оцениваем модель на всей выборке без второго наблюдения, а на втором тестируем её. И так далее <span class="math notranslate nohighlight">\(n\)</span> раз. Чтобы найти <span class="math notranslate nohighlight">\(\lambda_{CV}\)</span>, мы минимизируем среднюю ошибку, допущенную на тестовых выборках.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -520,7 +520,7 @@ Q(w) = \frac{1}{n}\sum_{i=1}^{n} (y_i - w x_i)^2 + \lambda w^2 \to \min_{w}.
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 </div>
-</details><p><strong>г)</strong> Обычно, чтобы сделать loo-кросс-валидацию, мы оцениваем <span class="math notranslate nohighlight">\(n-1\)</span> модель, где <span class="math notranslate nohighlight">\(n\)</span> – число наблюдений. Для Ridge-регрессии можно сделать кросс-валидацию, оценив модель только один раз. Сможете придумать как?</p>
+</details><p><strong>г)</strong> Обычно, чтобы сделать loo-кросс-валидацию, мы оцениваем <span class="math notranslate nohighlight">\(n-1\)</span> модель, где <span class="math notranslate nohighlight">\(n\)</span> – число наблюдений. Для Ridge-регрессии можно сделать кросс-валидацию, оценив модель только один раз. Сможете придумать, как?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -529,7 +529,7 @@ Q(w) = \frac{1}{n}\sum_{i=1}^{n} (y_i - w x_i)^2 + \lambda w^2 \to \min_{w}.
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 </div>
-</details><p><strong>д)</strong> Иногда при конструировании нейронной сети, накладывают регуляризацию на выход из нейрона. Как думаете, зачем это делают?</p>
+</details><p><strong>д)</strong> Иногда при конструировании нейронной сети накладывают регуляризацию на выход из нейрона. Как думаете, зачем это делают?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">

@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -511,15 +511,15 @@ document.write(`
 <li><p class="sd-card-text">после вытягивания получаем вектор <span class="math notranslate nohighlight">\(4 \cdot 4 \cdot 16 = 256\)</span></p></li>
 <li><p class="sd-card-text">после полносвязного слоя размер выхода будет <span class="math notranslate nohighlight">\(120\)</span></p></li>
 <li><p class="sd-card-text">после второго полносвязного слоя размер выхода будет <span class="math notranslate nohighlight">\(84\)</span></p></li>
-<li><p class="sd-card-text">после третьего полносвязного словя размер выхода будет <span class="math notranslate nohighlight">\(10\)</span></p></li>
-<li><p class="sd-card-text">после применения softmax рамзер выхода не изменится</p></li>
+<li><p class="sd-card-text">после третьего полносвязного слоя размер выхода будет <span class="math notranslate nohighlight">\(10\)</span></p></li>
+<li><p class="sd-card-text">после применения softmax размер выхода не изменится</p></li>
 </ul>
 <p class="sd-card-text">Если у нас чёрно-белая картинка <span class="math notranslate nohighlight">\(Image\)</span> и мы применяем к ней свёртку <span class="math notranslate nohighlight">\(K\)</span> размера <span class="math notranslate nohighlight">\(k \times k\)</span>, тогда на выходе мы будем получать клетки нового изображения по формуле</p>
 <div class="math notranslate nohighlight">
 \[
 out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}   K[i, j] \cdot Image[x + i, y + j].
 \]</div>
-<p class="sd-card-text">Если у изображения несколько каналов, к каждому из них мы применяем одну и те же веса, а затем делаем по ним суммирование</p>
+<p class="sd-card-text">Если у изображения несколько каналов, к каждому из них мы применяем одни и те же веса, а затем делаем по ним суммирование</p>
 <div class="math notranslate nohighlight">
 \[
 out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}  \sum_{c= 1}^{C}  K[i, j] \cdot Image[x + i, y + j, c]
@@ -533,7 +533,7 @@ out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}  \sum_{c= 1}^{C}  K[i, j] \cdot
 <li><p class="sd-card-text">для второй свёртки это <span class="math notranslate nohighlight">\((5 \cdot 5 + 1) \cdot 16 = 416\)</span></p></li>
 <li><p class="sd-card-text">у пулинга снова нет параметров</p></li>
 <li><p class="sd-card-text">у вытягивания нет параметров</p></li>
-<li><p class="sd-card-text">у полносвязных слоев окажется</p></li>
+<li><p class="sd-card-text">у полносвязных слоёв окажется</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[
@@ -544,7 +544,7 @@ out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}  \sum_{c= 1}^{C}  K[i, j] \cdot
 \[
 41854 + 416 + 156 = 42426.
 \]</div>
-<p class="sd-card-text">При этом, нейросеть покажет на порядок лучшее качество, чем полносвязная.</p>
+<p class="sd-card-text">При этом нейросеть покажет на порядок лучшее качество, чем полносвязная.</p>
 </div>
 </details><p><strong>в)</strong> Маша использует архитектуру из предыдущего пункта, но все свёртки делает с дополнением нулями (zero padding). Как изменится число оцениваемых параметров? Какого размера будут выходы из каждого слоя?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -564,8 +564,8 @@ out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}  \sum_{c= 1}^{C}  K[i, j] \cdot
 <li><p class="sd-card-text">после вытягивания получаем вектор <span class="math notranslate nohighlight">\(7 \cdot 7 \cdot 16 = 784\)</span></p></li>
 <li><p class="sd-card-text">после полносвязного слоя размер выхода будет <span class="math notranslate nohighlight">\(120\)</span></p></li>
 <li><p class="sd-card-text">после второго полносвязного слоя размер выхода будет <span class="math notranslate nohighlight">\(84\)</span></p></li>
-<li><p class="sd-card-text">после третьего полносвязного словя размер выхода будет <span class="math notranslate nohighlight">\(10\)</span></p></li>
-<li><p class="sd-card-text">после применения softmax рамзер выхода не изменится</p></li>
+<li><p class="sd-card-text">после третьего полносвязного слоя размер выхода будет <span class="math notranslate nohighlight">\(10\)</span></p></li>
+<li><p class="sd-card-text">после применения softmax размер выхода не изменится</p></li>
 </ul>
 <p class="sd-card-text">Число параметров, которое нам надо оценить на свёрточных слоях, не изменится</p>
 <div class="math notranslate nohighlight">
@@ -587,7 +587,7 @@ out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}  \sum_{c= 1}^{C}  K[i, j] \cdot
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Разберемся с размерами выходов из каждого слоя:</p>
+<p class="sd-card-text">Разберёмся с размерами выходов из каждого слоя:</p>
 <ul class="simple">
 <li><p class="sd-card-text">размер после свёртки <span class="math notranslate nohighlight">\((28 - 4)/2 \times (28 - 4)/2 \times 6 = 12 \times 12 \times 6\)</span></p></li>
 <li><p class="sd-card-text">после пулинга получаем <span class="math notranslate nohighlight">\(12/2 \times 12/2 \times 6 = 6 \times 6 \times 6\)</span></p></li>

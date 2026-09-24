@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -476,7 +476,7 @@ document.write(`
 <figure class="align-default" id="oboi">
 <a class="reference internal image-reference" href="../_images/img08_oboi.png"><img alt="../_images/img08_oboi.png" src="../_images/img08_oboi.png" style="width: 95%;" /></a>
 </figure>
-<p>Маша по жизни оптимистка. Поэтому она увидела не дополнительные траты на ремонт, а четыре задачи классификации. И теперь в её голове вопрос, сколько минимально нейронов нужно, чтобы эти задачи решить?</p>
+<p>Маша по жизни оптимистка. Поэтому она увидела не дополнительные траты на ремонт, а четыре задачи классификации. И теперь в её голове вопрос, сколько минимально нейронов нужно, чтобы эти задачи решить.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -484,9 +484,9 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>1)</strong> Нам надо выделить треугольник. Всё, что внутри будет относится к первому классу. Получается, что на первом слое надо три нейрона. Каждый из них настроим так, что если мы попадаем внутрь треугольника, он выдаёт <span class="math notranslate nohighlight">\(1\)</span>. Тогда на втором слое будет достаточно одного нейрона, который удостоверится, что все три результата с первого слоя оказались равны <span class="math notranslate nohighlight">\(1\)</span>. Вернитесь к предыдущей задаче, сходите на сайт с демкой и постройте оптимальную нейросетку.</p>
+<p class="sd-card-text"><strong>1)</strong> Нам надо выделить треугольник. Всё, что внутри, будет относиться к первому классу. Получается, что на первом слое надо три нейрона. Каждый из них настроим так, что, если мы попадаем внутрь треугольника, он выдаёт <span class="math notranslate nohighlight">\(1\)</span>. Тогда на втором слое будет достаточно одного нейрона, который удостоверится, что все три результата с первого слоя оказались равны <span class="math notranslate nohighlight">\(1\)</span>. Вернитесь к предыдущей задаче, сходите на сайт с демкой и постройте оптимальную нейросетку.</p>
 <a class="reference internal image-reference" href="../_images/img08_triangle.png"><img alt="triangle" class="align-center" src="../_images/img08_triangle.png" style="width: 95%;" /></a>
-<p class="sd-card-text"><strong>2)</strong> Первый слой должен построить нам три линии. Это три нейрона. Второй слой должен принять решение в какой из полос мы оказались. Будем считать, что если мы попали направо, нейрон выдаёт единицу. Если мы попали налево, ноль. В качестве функции активации используем единичную ступеньку.</p>
+<p class="sd-card-text"><strong>2)</strong> Первый слой должен построить нам три линии. Это три нейрона. Второй слой должен принять решение, в какой из полос мы оказались. Будем считать, что, если мы попали направо, нейрон выдаёт единицу. Если мы попали налево, ноль. В качестве функции активации используем единичную ступеньку.</p>
 <a class="reference internal image-reference" href="../_images/img08_krest.png"><img alt="krest" class="align-center" src="../_images/img08_krest.png" style="width: 95%;" /></a>
 <p class="sd-card-text">Вопрос в том, хватит ли нам на втором слое одного нейрона для того, чтобы обработать все четыре возможные ситуации. Нам нужно, чтобы выполнялись следующие условия</p>
 <div class="amsmath math notranslate nohighlight">
@@ -499,8 +499,8 @@ document.write(`
     \end{cases}.
 \end{equation*}\]</div>
 <p class="sd-card-text">Для того, чтобы со вторым уравнением всё было хорошо, возьмём <span class="math notranslate nohighlight">\(w_1 = 1.\)</span> Тогда вес <span class="math notranslate nohighlight">\(w_2\)</span> надо взять отрицательным, а <span class="math notranslate nohighlight">\(w_3\)</span> положительным, например, <span class="math notranslate nohighlight">\(w_2 = -2\)</span>, а <span class="math notranslate nohighlight">\(w_3 = 4\)</span>. Тогда один нейрон на внешнем слое решит нашу задачу. Выходит, что всего надо задействовать 4 нейрона.</p>
-<p class="sd-card-text"><strong>3)</strong> Оценим число нейронов сверху. Перед нами две <span class="math notranslate nohighlight">\(XoR\)</span> задачи, которые лежат рядом с друг-другом. Для решения каждой надо <span class="math notranslate nohighlight">\(3\)</span> нейрона. Чтобы объединить получившиеся решения нужен ещё один нейрон. Получается трёхслойная сетка с <span class="math notranslate nohighlight">\(7\)</span> нейронами.</p>
-<p class="sd-card-text">Если мы попробуем подойти к задаче также, как в предыдущем пункте, на втором слое мы получим несовместимую систему из уравнений. То есть третьего слоя точно не избежать.</p>
+<p class="sd-card-text"><strong>3)</strong> Оценим число нейронов сверху. Перед нами две <span class="math notranslate nohighlight">\(XoR\)</span> задачи, которые лежат рядом друг с другом. Для решения каждой надо <span class="math notranslate nohighlight">\(3\)</span> нейрона. Чтобы объединить получившиеся решения, нужен ещё один нейрон. Получается трёхслойная сетка с <span class="math notranslate nohighlight">\(7\)</span> нейронами.</p>
+<p class="sd-card-text">Если мы попробуем подойти к задаче так же, как в предыдущем пункте, на втором слое мы получим несовместимую систему из уравнений. То есть третьего слоя точно не избежать.</p>
 <p class="sd-card-text">Можно первым слоем построить <span class="math notranslate nohighlight">\(3\)</span> линии, вторым решить задачу из предыдущего пункта, а на третьем добавить информацию о том, выше горизонтальной линии мы оказались или ниже. Тогда мы потратим <span class="math notranslate nohighlight">\(6\)</span> нейронов. Нейросетка получится неполносвязной.</p>
 <a class="reference internal image-reference" href="../_images/img08_hard.png"><img alt="triangle" class="align-center" src="../_images/img08_hard.png" style="width: 70%;" /></a>
 <p class="sd-card-text"><strong>4)</strong> Думайте, рассуждайте, а автор умывает руки.</p>

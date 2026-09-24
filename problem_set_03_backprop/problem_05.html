@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -480,7 +480,7 @@ document.write(`
 <p class="admonition-title">See also</p>
 <p>Мы будем записывать все производные в матричном виде. Иногда будут всплывать слова «матричные производные». При разборе этой задачи можно про них ничего не знать, в решении они не используются. Мы нашли в предыдущих упражнениях все производные, нужные для вывода алгоритма обратного распространения ошибки. Тем не менее, техника матричного дифференцирования очень полезна. Поэтому я рекомендую вам её изучить. Ей посвящена последняя глава книги.</p>
 </div>
-<p><strong>а)</strong>  Запишите Машину нейросеть, как сложную функцию. Сначала в виде нескольких уравнений, а затем в матричном виде.</p>
+<p><strong>а)</strong>  Запишите Машину нейросеть как сложную функцию. Сначала в виде нескольких уравнений, а затем в матричном виде.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -504,7 +504,7 @@ document.write(`
     &amp; o^1_{i2} = f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2}). \\
     \end{aligned} 
 \end{equation*}\]</div>
-<p class="sd-card-text">Для второго работают аналогичные уравнения, но значения <span class="math notranslate nohighlight">\(x\)</span> заменяются на соответствующие <span class="math notranslate nohighlight">\(o\)</span>. На выходе мы предсказываем <span class="math notranslate nohighlight">\(y\)</span>, как взвешенную суммы выходов со второго слоя</p>
+<p class="sd-card-text">Для второго работают аналогичные уравнения, но значения <span class="math notranslate nohighlight">\(x\)</span> заменяются на соответствующие <span class="math notranslate nohighlight">\(o\)</span>. На выходе мы предсказываем <span class="math notranslate nohighlight">\(y\)</span> как взвешенную сумму выходов со второго слоя</p>
 <div class="math notranslate nohighlight">
 \[
 \hat{y}_i = w_1^3 \cdot o^2_{i1} + w_2^3 \cdot o^2_{i2}.
@@ -520,12 +520,12 @@ document.write(`
 \hat{y}_i = w_1^3 \cdot f( w^1_{12} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^1_{22} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})) + \\ + w_2^3 \cdot f( w^1_{12} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^1_{22} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})).
 \end{multline*}\]</div>
 <p class="sd-card-text">Мы записали нашу нейросеть в виде сложной функции. Выглядит ужасно.</p>
-<p class="sd-card-text">Давайте перепишем всё то же самое более компактно, в матричном виде. Начнём с первого слоя. На самом деле, чтобы найти строчку <span class="math notranslate nohighlight">\((h^1_{i1}, h^1_{i2})\)</span> мы делаем матричное умножение. Строчку <span class="math notranslate nohighlight">\((x_{i1},  x_{i2})\)</span> мы умножаем на матрицу весов <span class="math notranslate nohighlight">\(W_1\)</span></p>
+<p class="sd-card-text">Давайте перепишем всё то же самое более компактно, в матричном виде. Начнём с первого слоя. На самом деле, чтобы найти строчку <span class="math notranslate nohighlight">\((h^1_{i1}, h^1_{i2})\)</span>, мы делаем матричное умножение. Строчку <span class="math notranslate nohighlight">\((x_{i1},  x_{i2})\)</span> мы умножаем на матрицу весов <span class="math notranslate nohighlight">\(W_1\)</span></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
     \begin{pmatrix} h^1_{i1} &amp; h^1_{i2} \end{pmatrix} =  \begin{pmatrix} x_{i1} &amp;  x_{i2}\end{pmatrix} \cdot \begin{pmatrix} w^1_{11} &amp;  w^1_{12} \\ w^1_{21} &amp; w^1_{22}\end{pmatrix}.
 \end{equation*}\]</div>
-<p class="sd-card-text">Чтобы получить <span class="math notranslate nohighlight">\(h_1\)</span> мы умножаем строчку из переменных на первый столбец, чтобы получить <span class="math notranslate nohighlight">\(h_2\)</span>, на второй столбец. Получается, что в терминах матриц каждый нейрон нашей сети — это столбец. Если мы добавим ещё один столбец из весов в матрицу, это будет эквивалентно добавлению в сетку третьего нейрона, так как на выходе мы будем получать ещё и <span class="math notranslate nohighlight">\(h_3\)</span>. Если у нас появится дополнительный вход <span class="math notranslate nohighlight">\(x_3\)</span>, в матрицу нам нужно будет добавить ещё одну строчку из весов.</p>
+<p class="sd-card-text">Чтобы получить <span class="math notranslate nohighlight">\(h_1\)</span>, мы умножаем строчку из переменных на первый столбец, чтобы получить <span class="math notranslate nohighlight">\(h_2\)</span>, на второй столбец. Получается, что в терминах матриц каждый нейрон нашей сети — это столбец. Если мы добавим ещё один столбец из весов в матрицу, это будет эквивалентно добавлению в сетку третьего нейрона, так как на выходе мы будем получать ещё и <span class="math notranslate nohighlight">\(h_3\)</span>. Если у нас появится дополнительный вход <span class="math notranslate nohighlight">\(x_3\)</span>, в матрицу нам нужно будет добавить ещё одну строчку из весов.</p>
 <p class="sd-card-text">Запишем первый слой в матричном виде. На вход идёт матрица из наблюдений <span class="math notranslate nohighlight">\(X_{[n \times 2]}\)</span>, она умножается на матрицу весов <span class="math notranslate nohighlight">\(W_{[2 \times 2]}\)</span>, получается матрица <span class="math notranslate nohighlight">\(H_{[n \times 2]}\)</span>. Ко всем элементам этой матрицы мы применяем функцию активации <span class="math notranslate nohighlight">\(f\)</span>. Делаем это поэлементно</p>
 <div class="math notranslate nohighlight">
 \[
@@ -536,9 +536,9 @@ O_1 = f(H_1) = f(X\cdot W_1).
 \[
 \hat{y} = f(f(X\cdot W_1) \cdot W_2) \cdot W_3.
 \]</div>
-<p class="sd-card-text">Здесь <span class="math notranslate nohighlight">\(\hat{y}\)</span> — вектор столбец размера <span class="math notranslate nohighlight">\([n \times 1]\)</span>, а матрицы весов обладают размерностями <span class="math notranslate nohighlight">\([2 \times 2]\)</span>, <span class="math notranslate nohighlight">\([2 \times 2]\)</span> и <span class="math notranslate nohighlight">\([2 \times 1]\)</span> соответственно.</p>
+<p class="sd-card-text">Здесь <span class="math notranslate nohighlight">\(\hat{y}\)</span> — вектор-столбец размера <span class="math notranslate nohighlight">\([n \times 1]\)</span>, а матрицы весов обладают размерностями <span class="math notranslate nohighlight">\([2 \times 2]\)</span>, <span class="math notranslate nohighlight">\([2 \times 2]\)</span> и <span class="math notranslate nohighlight">\([2 \times 1]\)</span> соответственно.</p>
 </div>
-</details><p><strong>б)</strong>  Выпишите все производные в том виде, в котором их было бы удобно использовать для алгоритма обратного распространения ошибки, а затем, сформулируйте сам алгоритм. Нарисуйте под него удобную схемку.</p>
+</details><p><strong>б)</strong>  Выпишите все производные в том виде, в котором их было бы удобно использовать для алгоритма обратного распространения ошибки, а затем сформулируйте сам алгоритм. Нарисуйте под него удобную схемку.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -568,7 +568,7 @@ O_1 = f(H_1) = f(X\cdot W_1).
 		&amp;  \frac{\partial L}{\partial W_2} = O_1^T \cdot d.
 	\end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Размер <span class="math notranslate nohighlight">\(d\)</span> был <span class="math notranslate nohighlight">\([n \times 1],\)</span> после персчёта стал <span class="math notranslate nohighlight">\([n \times 1] \cdot [1 \times 2] * [n \times 2] =  [n \times 2].\)</span> Поэлементное умножение на производную функции активации не повлияло на размер матрицы. Размер производной <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial W_2}\)</span> оказывается  <span class="math notranslate nohighlight">\([2 \times 2],\)</span> что совпадает с размером матрицы <span class="math notranslate nohighlight">\(W_2.\)</span></p>
+<p class="sd-card-text">Размер <span class="math notranslate nohighlight">\(d\)</span> был <span class="math notranslate nohighlight">\([n \times 1],\)</span> после пересчёта стал <span class="math notranslate nohighlight">\([n \times 1] \cdot [1 \times 2] * [n \times 2] =  [n \times 2].\)</span> Поэлементное умножение на производную функции активации не повлияло на размер матрицы. Размер производной <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial W_2}\)</span> оказывается  <span class="math notranslate nohighlight">\([2 \times 2],\)</span> что совпадает с размером матрицы <span class="math notranslate nohighlight">\(W_2.\)</span></p>
 <p class="sd-card-text">Осталась заключительная производная <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial W_1}\)</span>. Нам надо найти</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 

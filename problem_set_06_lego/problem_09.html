@@ -261,7 +261,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_07_rnn/problem_07.html">7. Лишние части</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбединг</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../problem_set_08_embeddings/intro_08.html">Листочек 8: тут будет листочек про эмбеддинг</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../problem_set_09_transformers/intro_09.html">Листочек 9: тут будет листочек про трансформеры</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_10_matrix_diff/intro_10.html">Листочек 10: матричное дифФфФфФференцирование</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_10_matrix_diff/problem_01.html">1. Учимся искать производные</a></li>
@@ -492,8 +492,8 @@ model.compile(optimizer=&#39;sgd&#39;, loss=&#39;mean_squared_error&#39;)
 <ul class="simple">
 <li><p class="sd-card-text">Инициализация нулями – зло, веса будут обновляться на одинаковые величины, а мы хотим сделать нейроны непохожими друг на друга.</p></li>
 <li><p class="sd-card-text">В качестве базового оптимизатора хорошо бы выбрать Adam, это бесплатно и ускоряет сходимость сетки.</p></li>
-<li><p class="sd-card-text">В нормализации по батчам в самом начале нет ничего плохого, она работает как StandartScaler.</p></li>
-<li><p class="sd-card-text">Переход от 128 нейронов к 1 слишком резкий, хочется идти более плавно, хотябы по степени двойки.</p></li>
+<li><p class="sd-card-text">В нормализации по батчам в самом начале нет ничего плохого, она работает как StandardScaler.</p></li>
+<li><p class="sd-card-text">Переход от 128 нейронов к 1 слишком резкий, хочется идти более плавно, хотя бы по степени двойки.</p></li>
 <li><p class="sd-card-text">Возможно, что у линейных слоёв нет функции активации, обычно ReLU стоит как её дефолтное значение, но лучше это лишний раз проверить.</p></li>
 </ul>
 </div>
@@ -521,13 +521,13 @@ model.compile(optimizer=&#39;rmsprop&#39;, loss=&#39;mean_squared_error&#39;)
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <ul class="simple">
-<li><p class="sd-card-text">Первый слой из 512 фильтров довольно бесполезен. Мы поначалу ищем простые паттерны и для их поиска должно хватать меньшего чесли фильтров. Есть смысл делать более большое число фильтров ближе к концу свёрточной сетки.</p></li>
+<li><p class="sd-card-text">Первый слой из 512 фильтров довольно бесполезен. Мы поначалу ищем простые паттерны, и для их поиска должно хватать меньшего числа фильтров. Есть смысл делать более большое число фильтров ближе к концу свёрточной сетки.</p></li>
 <li><p class="sd-card-text">У свёрток слишком большой размер. Обычно их пытаются делать максимально маленькими для экономии параметров. Поле обзора наращивают с помощью пулинга.</p></li>
 <li><p class="sd-card-text">Софтмакс в середине в качестве функции активации – очень неудачный выбор. Он ведёт себя как мягкий arg max и приводит к срабатыванию только одного нейрона из всего слоя.</p></li>
-<li><p class="sd-card-text">Дропаут после предсказания вероятностей уничножит нейросеть. Часть выходов будет зануляться, вероятности не будут давать в сумме единицу и кросс-энтропия будет улетать в бесконечность.</p></li>
+<li><p class="sd-card-text">Дропаут после предсказания вероятностей уничтожит нейросеть. Часть выходов будет зануляться, вероятности не будут давать в сумме единицу, и кросс-энтропия будет улетать в бесконечность.</p></li>
 </ul>
 </div>
-</details><p><strong>в)</strong> Решается задача классификация картинок размера  <span class="math notranslate nohighlight">\(100 \times 100\)</span> на <span class="math notranslate nohighlight">\(10\)</span> классов. Каждое изображение принадлежит только к одному классу.</p>
+</details><p><strong>в)</strong> Решается задача классификации картинок размера  <span class="math notranslate nohighlight">\(100 \times 100\)</span> на <span class="math notranslate nohighlight">\(10\)</span> классов. Каждое изображение принадлежит только к одному классу.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>model = Sequential()
 model.add(InputLayer([100, 100, 3]))
 for filters in [32, 64, 128, 256]:
@@ -550,7 +550,7 @@ model.compile(optimizer=&#39;adam&#39;, loss=&#39;sparse_categorical_accuracy&#3
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Эта сетка не соберётся, потому что у свёрток нет дополнения (padding). У картинки не хватит пикселей и мы получим на выходе ошибку.</p>
+<p class="sd-card-text">Эта сетка не соберётся, потому что у свёрток нет дополнения (padding). У картинки не хватит пикселей, и мы получим на выходе ошибку.</p>
 </div>
 </details><p><strong>г)</strong> Миша решает задачу классификации RGB-изображения  размера <span class="math notranslate nohighlight">\(100 \times 100\)</span> на <span class="math notranslate nohighlight">\(10\)</span> классов. Каждое изображение принадлежит только к одному классу.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>model = Sequential() 
