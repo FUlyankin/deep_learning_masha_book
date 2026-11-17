@@ -16,6 +16,8 @@ chapters:
   - file: problem_set_01_just_function/problem_08
   - file: problem_set_01_just_function/problem_09
   - file: problem_set_01_just_function/problem_10
+  - file: problem_set_01_just_function/problem_11
+  - file: problem_set_01_just_function/problem_12
 - file: problem_set_02_gradient/intro_02
   sections:
   - file: problem_set_02_gradient/problem_01
