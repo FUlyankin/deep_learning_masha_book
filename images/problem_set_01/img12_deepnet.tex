@@ -1,0 +1,53 @@
+\documentclass[border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+
+% Математические шрифты
+\usepackage{unicode-math}
+\setmathfont[math-style=upright]{[Neo Euler.otf]}
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+% один блок: два ReLU-нейрона и линейный сумматор, вместе считают T
+\newcommand{\Tblock}[1]{
+    \begin{scope}[xshift=#1]
+        % нейроны с иконкой ReLU
+        \draw [line width=1.pt] (0,0.45) rectangle (1.3,1.25);
+        \draw [line width=1.pt] (0.25,0.65) -- (0.65,0.65) -- (1.05,1.05);
+        \draw [line width=1.pt] (0,-1.25) rectangle (1.3,-0.45);
+        \draw [line width=1.pt] (0.25,-1.05) -- (0.65,-1.05) -- (1.05,-0.65);
+        % линейный сумматор
+        \draw [line width=1.pt] (1.3,0.85) -- (2.2,0.1);
+        \draw [line width=1.pt] (1.3,-0.85) -- (2.2,-0.1);
+        \draw [line width=1.pt,fill=white] (2.35,0) circle (0.25cm) node {$+$};
+        % стрелки на вход нейронов
+        \draw [line width=1.pt] (-0.8,0) -- (-0.45,0);
+        \draw [->, line width=1.pt] (-0.45,0) -- (-0.05,0.75);
+        \draw [->, line width=1.pt] (-0.45,0) -- (-0.05,-0.75);
+        % подпись блока
+        \draw (1,-1.9) node {$T$};
+    \end{scope}
+}
+
+\begin{document}
+    \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
+        \draw [line width=1.pt] (-1.3,0) circle (0.45cm) node {$x$};
+
+        \Tblock{0cm}
+        \draw [line width=1.pt] (2.6,0) -- (3.4,0);
+        \Tblock{4.2cm}
+        \draw [line width=1.pt] (6.8,0) -- (7.6,0);
+        \Tblock{8.4cm}
+
+        % многоточие и выход
+        \draw [line width=1.pt] (11,0) -- (11.4,0);
+        \foreach \dx in {11.8,12.2,12.6}{\fill (\dx,0) circle (1.8pt);}
+        \draw [->, line width=1.pt] (13,0) -- (13.9,0) node[right] {$\hat y = T^{(k)}(x)$};
+    \end{tikzpicture}
+\end{document}
