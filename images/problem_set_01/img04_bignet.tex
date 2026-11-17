@@ -1,0 +1,56 @@
+\documentclass[border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+
+% Математические шрифты
+\usepackage{unicode-math}
+\setmathfont[math-style=upright]{[Neo Euler.otf]}
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
+        % сначала связи, поверх них нейроны с белой заливкой
+        \foreach \xa/\xb in {0/2.4, 2.4/4.8, 4.8/7.2}{
+            \foreach \ya in {1.6,0.4,-2.0}{
+                \foreach \yb in {1.6,0.4,-2.0}{
+                    \draw [black!30, line width=0.6pt] (\xa,\ya) -- (\xb,\yb);
+                }
+            }
+        }
+        \foreach \ya in {1.6,0.4,-2.0}{
+            \draw [black!30, line width=0.6pt] (7.2,\ya) -- (9.6,0.4);
+        }
+
+        % входной слой
+        \draw [line width=1.pt,fill=white] (0,1.6) circle (0.45cm) node {$x_1$};
+        \draw [line width=1.pt,fill=white] (0,0.4) circle (0.45cm) node {$x_2$};
+        \foreach \dy in {-0.5,-0.8,-1.1}{\fill[fill=white] (0,\dy) circle (3.5pt);\fill (0,\dy) circle (1.8pt);}
+        \draw [line width=1.pt,fill=white] (0,-2.0) circle (0.45cm) node {$x_{12}$};
+
+        % скрытые слои
+        \foreach \x in {2.4,4.8,7.2}{
+            \draw [line width=1.pt,fill=white] (\x,1.6) circle (0.45cm);
+            \draw [line width=1.pt,fill=white] (\x,0.4) circle (0.45cm);
+            \foreach \dy in {-0.5,-0.8,-1.1}{\fill[fill=white] (\x,\dy) circle (3.5pt);\fill (\x,\dy) circle (1.8pt);}
+            \draw [line width=1.pt,fill=white] (\x,-2.0) circle (0.45cm);
+        }
+
+        % выход
+        \draw [line width=1.pt,fill=white] (9.6,0.4) circle (0.45cm);
+        \draw [->, line width=1.pt] (10.05,0.4) -- (11,0.4) node[right] {$\hat y$};
+
+        % размеры слоёв
+        \draw (0,-3.1) node {$12$};
+        \draw (2.4,-3.1) node {$300$};
+        \draw (4.8,-3.1) node {$200$};
+        \draw (7.2,-3.1) node {$100$};
+        \draw (9.6,-3.1) node {$1$};
+    \end{tikzpicture}
+\end{document}

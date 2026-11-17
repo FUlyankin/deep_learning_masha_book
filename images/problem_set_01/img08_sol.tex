@@ -1,0 +1,36 @@
+\documentclass[border=5pt]{standalone}
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+
+% шрифт с кириллицей для подписей
+\usepackage{fontspec}
+\setmainfont{Arial}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\definecolor{annored}{RGB}{220,30,30}
+
+\usetikzlibrary{calc,shapes,positioning,arrows.meta}
+
+\begin{document}
+    \begin{tikzpicture}
+        \node[anchor=south west,inner sep=0] (img) at (0,0) {\includegraphics[width=14cm]{img08_task.png}};
+        \begin{scope}[x={(img.south east)},y={(img.north west)}]
+            % нейрон первого слоя, который ничего не делает
+            \draw [annored, line width=1.4pt] (0.373,0.362) ellipse (0.028 and 0.045);
+            \draw [annored, line width=1.0pt, -{Stealth[length=2mm]}] (0.371,0.17) -- (0.371,0.30);
+            \node [annored, align=center, font=\footnotesize\bfseries] at (0.371,0.115) {Вообще ничего\\не делает!};
+
+            % тонкие связи с нулевыми весами
+            \draw [annored, line width=1.0pt, -{Stealth[length=2mm]}] (0.20,0.14) -- (0.30,0.33);
+            \node [annored, align=center, font=\footnotesize\bfseries] at (0.17,0.075) {Линия совсем тонкая,\\веса на ней нулевые};
+
+            % два одинаковых нейрона второго слоя
+            \draw [annored, line width=1.4pt] (0.627,0.53) ellipse (0.045 and 0.135);
+            \draw [annored, line width=1.0pt, -{Stealth[length=2mm]}] (0.73,0.33) -- (0.66,0.43);
+            \node [annored, align=center, font=\footnotesize\bfseries] at (0.77,0.28) {Одинаковые!};
+        \end{scope}
+    \end{tikzpicture}
+\end{document}

@@ -1,0 +1,50 @@
+\documentclass[border=10pt]{standalone}
+
+% пакеты для математики
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+
+\usepackage[british,russian]{babel} % выбор языка для документа
+
+% Математические шрифты
+\usepackage{unicode-math}
+\setmathfont[math-style=upright]{[Neo Euler.otf]}
+
+\usepackage{tikz}
+\usepackage{xcolor}
+
+\usetikzlibrary{calc,shapes,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[line cap=round,line join=round,x=3.2cm,y=1.8cm]
+        % T(x)
+        \begin{scope}
+            \draw [->, line width=1.pt] (-0.1,0) -- (1.2,0) node[below] {\small $x$};
+            \draw [->, line width=1.pt] (0,-0.2) -- (0,1.3);
+            \draw [line width=1.pt,dash pattern=on 3pt off 3pt] (0,1) -- (1,1);
+            \draw (0,1) node[left] {\small $1$};
+            \draw (1,0) node[below] {\small $1$};
+            \draw [line width=2.pt] (0,0) -- (0.5,1) -- (1,0);
+            \draw (0.5,-0.55) node {$T(x)$};
+        \end{scope}
+        % T(T(x))
+        \begin{scope}[xshift=5cm]
+            \draw [->, line width=1.pt] (-0.1,0) -- (1.2,0) node[below] {\small $x$};
+            \draw [->, line width=1.pt] (0,-0.2) -- (0,1.3);
+            \draw [line width=1.pt,dash pattern=on 3pt off 3pt] (0,1) -- (1,1);
+            \draw (0,1) node[left] {\small $1$};
+            \draw (1,0) node[below] {\small $1$};
+            \draw [line width=2.pt] (0,0) -- (0.25,1) -- (0.5,0) -- (0.75,1) -- (1,0);
+            \draw (0.5,-0.55) node {$T(T(x))$};
+        \end{scope}
+        % T(T(T(x)))
+        \begin{scope}[xshift=10cm]
+            \draw [->, line width=1.pt] (-0.1,0) -- (1.2,0) node[below] {\small $x$};
+            \draw [->, line width=1.pt] (0,-0.2) -- (0,1.3);
+            \draw [line width=1.pt,dash pattern=on 3pt off 3pt] (0,1) -- (1,1);
+            \draw (0,1) node[left] {\small $1$};
+            \draw (1,0) node[below] {\small $1$};
+            \draw [line width=2.pt] (0,0) -- (0.125,1) -- (0.25,0) -- (0.375,1) -- (0.5,0) -- (0.625,1) -- (0.75,0) -- (0.875,1) -- (1,0);
+            \draw (0.5,-0.55) node {$T(T(T(x)))$};
+        \end{scope}
+    \end{tikzpicture}
+\end{document}
