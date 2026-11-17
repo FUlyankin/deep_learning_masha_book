@@ -64,11 +64,11 @@
 \begin{minipage}{0.49\linewidth}
 \begin{center}
     \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
-    \clip(0,-5) rectangle (4,-0.5);
-    \draw [->, line width=1.pt] (0.3,-4.7)--(1.2,-4.7) node[right] {\small $x_1$};
-    \draw [->, line width=1.pt] (0.3,-4.7)--(0.3,-3.8) node[above] {\small $x_2$};
-    \draw (2,-1.25) node[anchor=north west] {\color{green}$1$};
-    \draw (0.3,-2.4) node[anchor=north west] {\color{red}$0$};
+    \clip(-0.5,-5.5) rectangle (4.8,-0.4);
+    \draw [->, line width=1.pt] (-0.3,-4.5) -- (4.5,-4.5) node[pos=0.96,below=5pt] {\small $x_1$};
+    \draw [->, line width=1.pt] (0.5,-5.3) -- (0.5,-0.7) node[pos=0.96,left=4pt] {\small $x_2$};
+    \draw (2.3,-1.4) node {\color{green}$1$};
+    \draw (1.1,-3.3) node {\color{red}$0$};
     \draw [line width=2.pt,dash pattern=on 3pt off 3pt] (0,-1)-- (4,-5);
     \end{tikzpicture}
 \end{center}
