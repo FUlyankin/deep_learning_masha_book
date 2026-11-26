@@ -60,11 +60,11 @@
             ymin = 0,
             ymax = 5,
             xlabel = $p$,
-            ylabel = $logloss$
+            ylabel = {logloss}
         ]
-        \addplot[domain=0:1, red, ultra thick,samples=500]{-ln(x)};
+        \addplot[domain=0.001:1, red, ultra thick,samples=500]{-ln(x)};
         \addlegendentry{$y = 1$};
-        \addplot[domain=-5:5, blue, ultra thick,samples=500]{-ln(1-x)};
+        \addplot[domain=0:0.999, blue, ultra thick,samples=500]{-ln(1-x)};
         \addlegendentry{$y = 0$};
         \end{axis}
     \end{tikzpicture}

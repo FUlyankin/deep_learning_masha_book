@@ -19,12 +19,12 @@
         \node[anchor=south west,inner sep=0] (img) at (0,0) {\includegraphics[width=14cm]{img08_task.png}};
         \begin{scope}[x={(img.south east)},y={(img.north west)}]
             % нейрон первого слоя, который ничего не делает
-            \draw [annored, line width=1.4pt] (0.373,0.362) ellipse (0.028 and 0.045);
-            \draw [annored, line width=1.0pt, -{Stealth[length=2mm]}] (0.371,0.17) -- (0.371,0.30);
+            \draw [annored, line width=1.4pt] (0.373,0.505) ellipse (0.028 and 0.045);
+            \draw [annored, line width=1.0pt, -{Stealth[length=2mm]}] (0.40,0.17) .. controls (0.47,0.30) and (0.46,0.45) .. (0.405,0.49);
             \node [annored, align=center, font=\footnotesize\bfseries] at (0.371,0.115) {Вообще ничего\\не делает!};
 
             % тонкие связи с нулевыми весами
-            \draw [annored, line width=1.0pt, -{Stealth[length=2mm]}] (0.20,0.14) -- (0.30,0.33);
+            \draw [annored, line width=1.0pt, -{Stealth[length=2mm]}] (0.20,0.14) -- (0.335,0.515);
             \node [annored, align=center, font=\footnotesize\bfseries] at (0.17,0.075) {Линия совсем тонкая,\\веса на ней нулевые};
 
             % два одинаковых нейрона второго слоя

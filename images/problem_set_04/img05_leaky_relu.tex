@@ -60,11 +60,11 @@
         ymin= -2,
         ymax= 2,
         xlabel = $t$,
-        ylabel = $ReLU(t)$
+        ylabel = $LReLU(t)$
     ]
     \addplot[domain=-2:0, red, thick,samples=500]{0.3*x};
-    \addplot[domain=-2:0, blue, dashed, ultra thick,samples=500]{-0.3};
-    \addlegendentry{$LReLU(t)$};
+    \addplot[domain=-2:0, blue, dashed, ultra thick,samples=500]{0.3};
+    \addlegendentry{$LReLU(t),\ \alpha = 0.3$};
     \addlegendentry{$LReLU'(t)$};
     \addplot[domain=0:2, red, thick,samples=500]{x};
     \addplot[domain=0:2, blue, dashed, ultra thick,samples=500]{1};
