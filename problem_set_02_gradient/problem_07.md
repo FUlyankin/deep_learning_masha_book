@@ -30,7 +30,7 @@
 Теперь найдём математическое ожидание 
 
 \begin{multline*}
-    \mathbb{E}(h_t) = \mathbb{E}\left( (1 - \beta_1) \sum_{i=1}^t \beta_1^{t-i} g_i \right) = \mathbb{E}(g_i) \cdot (1 - \beta_1) \cdot \sum_{i=1}^t \beta_1^{t-i} = \\ = \mathbb{E}(g_i) \cdot (1 - \beta_1) \cdot \frac{1 - \beta_1^t}{1 - \beta_1} = (1 - \beta_1^t) \cdot \mathbb{E}(g_i).
+    \mathbb{E}(h_t) = \mathbb{E}\left( (1 - \beta_1) \sum_{i=1}^t \beta_1^{t-i} g_i \right) = \mu \cdot (1 - \beta_1) \cdot \sum_{i=1}^t \beta_1^{t-i} = \\ = \mu \cdot (1 - \beta_1) \cdot \frac{1 - \beta_1^t}{1 - \beta_1} = (1 - \beta_1^t) \cdot \mu.
 \end{multline*}
     
 Получается, что нашу формулу пересчёта надо дополнительно поделить на $1 - \beta_1^t.$ По аналогии можно провести рассуждения для второго уравнения. 

@@ -6,15 +6,16 @@
 
 \begin{equation*}
 	\begin{pmatrix}
-		x_{11}, \ldots, x_{n1} \\
+		x_{11}, \ldots, x_{1m} \\
 		\ldots  \\ 
 		x_{n1}, \ldots, x_{nm}
 	\end{pmatrix}
 \end{equation*}
 
+Каждая строка этой матрицы --- одно наблюдение. Через $x_i$ будем обозначать $i$-ю строку, записанную в виде столбца размера $m \times 1$.
 
 ```{dropdown} Решение
-Плотность распределения для $m-$мерного вектора $y$ будет выглядеть как 
+Плотность распределения для $m-$мерного вектора $x$ будет выглядеть как 
 
 $$
 f(x \mid \mu, \Sigma) = \frac{1}{(\sqrt{2 \pi})^m \cdot \sqrt{\det \Sigma}} \cdot \exp \left( - \frac{1}{2} \cdot (x - \mu)^T \Sigma^{-1} (x - \mu) \right).
@@ -42,13 +43,13 @@ $$
 Найдём этот дифференциал. Не будем забывать, что дифференциал от константы нулевой, а также что дифференциал суммы равен сумме дифференциалов
 	
 \begin{multline*}
-	d f(\mu) = -\frac{1}{2} \cdot d \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) = -\frac{1}{2} \cdot \sum_{i=1}^n d[(x_i - \mu)^T \Sigma^{-1} (x_i - \mu)] = \\ = -\frac{1}{2} \cdot \sum_{i=1}^n d[(x_i - \mu)^T] \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d[(x_i - \mu)] = \\ =   \frac{1}{2} \cdot \sum_{i=1}^n d\mu^T \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d\mu.
+	d f(\mu) = -\frac{1}{2} \cdot d \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) = -\frac{1}{2} \cdot \sum_{i=1}^n d[(x_i - \mu)^T \Sigma^{-1} (x_i - \mu)] = \\ = -\frac{1}{2} \cdot \sum_{i=1}^n \left( d[(x_i - \mu)^T] \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d[(x_i - \mu)] \right) = \\ =   \frac{1}{2} \cdot \sum_{i=1}^n \left( d\mu^T \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d\mu \right).
 \end{multline*}
 	
-Первое слагаемое под суммой имеет размерность $1 \times m \cdot m \times m \cdot m \times 1$. Это константа. Если мы протранспонируем константу, ничего не изменится. Обратим внимание, что матрица $\Sigma$ симметричная и при транспонировании не меняется. Сделаем этот трюк 
+Первое слагаемое под суммой имеет размерность $1 \times m \cdot m \times m \cdot m \times 1$. Это скаляр. Если мы протранспонируем скаляр, ничего не изменится. Обратим внимание, что матрица $\Sigma$ симметричная и при транспонировании не меняется. Сделаем этот трюк 
 	
 \begin{multline*}
-	 \frac{1}{2} \cdot \sum_{i=1}^n d\mu^T \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d\mu = \\ = \frac{1}{2} \cdot \sum_{i=1}^n  (x_i - \mu)^T \Sigma^{-1}  d\mu  + (x_i - \mu)^T \Sigma^{-1} d\mu = \\ = \frac{1}{2} \cdot \sum_{i=1}^n  [(x_i - \mu)^T \Sigma^{-1}  + (x_i - \mu)^T \Sigma^{-1} ] d\mu =  \left[  \cdot \sum_{i=1}^n  (x_i - \mu)^T \Sigma^{-1} \right] d\mu 
+	 \frac{1}{2} \cdot \sum_{i=1}^n \left( d\mu^T \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d\mu \right) = \\ = \frac{1}{2} \cdot \sum_{i=1}^n  \left( (x_i - \mu)^T \Sigma^{-1}  d\mu  + (x_i - \mu)^T \Sigma^{-1} d\mu \right) = \\ = \frac{1}{2} \cdot \sum_{i=1}^n  [(x_i - \mu)^T \Sigma^{-1}  + (x_i - \mu)^T \Sigma^{-1} ] d\mu =  \left[ \sum_{i=1}^n  (x_i - \mu)^T \Sigma^{-1} \right] d\mu 
 \end{multline*}	
 	
 Получается, что $f'(\mu) = \sum_{i=1}^n   \Sigma^{-1} (x_i - \mu)$.  Приравняв производную к нулю и домножив обе части уравнения слева на $\Sigma$, получим оптимальное значение $\mu$: 
@@ -72,13 +73,13 @@ $$
 Эта функция бьёт с множества матриц в множество скаляров. Значит, дифференциал этой функции можно записать в виде: 
 
 $$
-d f(\Sigma) = tr (\nabla f^T dx).
+d f(\Sigma) = \text{tr} (\nabla f^T d\Sigma).
 $$
 
 Начнём с первого слагаемого. Для него нам понадобится вспомнить, как выглядит дифференциал для определителя
 
 $$
-- \frac{n}{2} \frac{1}{\det \Sigma}  d[\det \Sigma]  = - \frac{n}{2} \frac{1}{\det \Sigma}  tr( \det \Sigma \cdot \Sigma^{-T} d \Sigma) =   -  tr( \frac{n}{2} \cdot \Sigma^{-1} d \Sigma).
+- \frac{n}{2} \frac{1}{\det \Sigma}  d[\det \Sigma]  = - \frac{n}{2} \frac{1}{\det \Sigma}  \text{tr}( \det \Sigma \cdot \Sigma^{-1} d \Sigma) =   -  \text{tr}( \frac{n}{2} \cdot \Sigma^{-1} d \Sigma).
 $$
 
 Теперь поработаем со вторым слагаемым. В нём нас интересует дифференциал обратной матрицы
@@ -87,25 +88,25 @@ $$
 - \frac{1}{2} \sum_{i=1}^n (x_i - \mu)^T d[\Sigma^{-1}] (x_i - \mu) = \frac{1}{2} \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma \cdot \Sigma^{-1} (x_i - \mu). 
 $$
 	
-Под знаком суммы размерность каждого слагаемого $1 \times m \cdot m \times m \cdot m \times m \cdot m \times m \cdot m \times 1$. Это константа. Если мы возьмём от неё след, ничего не изменится. Взяв след, переставим внутри множители
+Под знаком суммы размерность каждого слагаемого $1 \times m \cdot m \times m \cdot m \times m \cdot m \times m \cdot m \times 1$. Это скаляр. Если мы возьмём от него след, ничего не изменится. Взяв след, переставим внутри множители
 
 $$
-\frac{1}{2} \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma \cdot \Sigma^{-1} (x_i - \mu)  = \frac{1}{2} \sum_{i=1}^n tr( \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma). 
+\frac{1}{2} \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma \cdot \Sigma^{-1} (x_i - \mu)  = \frac{1}{2} \sum_{i=1}^n \text{tr}( \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma). 
 $$
 
 Сумма следов -- след суммы. Объединяем наши слагаемые вместе. В первом множитель $n$ подменяем на сумму 
 
 $$
-d f(\Sigma) = tr \left( \left [ - \frac{1}{2} \sum_{i = 1}^n \Sigma^{-1} + \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1} \right] d \Sigma \right)
+d f(\Sigma) = \text{tr} \left( \frac{1}{2} \sum_{i = 1}^n \left [ - \Sigma^{-1} + \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1} \right] d \Sigma \right)
 $$
 
 Забираем себе из-под знака дифференциала производную. Под знаком суммы после транспонирования ничего не поменяется. Приравниваем производную к нулю, домножим справа каждое слагаемое на $\Sigma$. На четвёртой строчке домножим слева на $\Sigma$: 
 
 \begin{equation*}
 	\begin{aligned} 
-		 & \frac{1}{2} \sum_{i = 1}^n - \Sigma^{-1} + \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1}  = 0 \\
+		 & \frac{1}{2} \sum_{i = 1}^n \left[ - \Sigma^{-1} + \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1} \right] = 0 \\
 		 & - n \cdot \Sigma^{-1} + \sum_{i = 1}^n  \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1}  = 0 \\
-		 & - n + \Sigma^{-1} \sum_{i = 1}^n  (x_i - \mu) \cdot (x_i - \mu)^T = 0 \\
+		 & - n I + \Sigma^{-1} \sum_{i = 1}^n  (x_i - \mu) \cdot (x_i - \mu)^T = 0 \\
 		 & - n \Sigma+ \sum_{i = 1}^n  (x_i - \mu) \cdot (x_i - \mu)^T = 0 \\
 		 &  \Sigma  = \frac{1}{n} \sum_{i = 1}^n  (x_i - \mu) \cdot (x_i - \mu)^T 
 	\end{aligned}

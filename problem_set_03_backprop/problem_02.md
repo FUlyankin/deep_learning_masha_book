@@ -5,7 +5,7 @@
 ```{figure} ../images/problem_set_03/img02_task.png
 ---
 width: 80%
-name: one_dim_nn
+name: bp_chain_nn
 ---
 ```
 
@@ -19,22 +19,22 @@ $$
 $$
 ```
 
-__б)__ Предположим, что Маша решает задачу регрессии. Она прогоняет через нейросетку одно наблюдение. Она вычисляет значение функции потерь $L(w_1, w_2, w_3) = \frac{1}{2} \cdot (y - \hat y)^2$.  Найдите производные функции $L$ по всем весам $w_k$. 
+__б)__ Предположим, что Маша решает задачу регрессии. Она прогоняет через нейросетку одно наблюдение. Она вычисляет значение функции потерь $L(w_1, w_2, w_3) = \frac{1}{2} \cdot (\hat y - y)^2$.  Найдите производные функции $L$ по всем весам $w_k$. 
     	
 ```{dropdown} Решение
 Запишем функцию потерь и аккуратно найдём все производные
 
 $$
-L(w_1, w_2, w_3) = \frac{1}{2} \cdot (y - \hat y)^2 = \frac{1}{2} \cdot (y - f(f(x \cdot w_1) \cdot w_2) \cdot w_3)^2.
+L(w_1, w_2, w_3) = \frac{1}{2} \cdot (\hat y - y)^2 = \frac{1}{2} \cdot (f(f(x \cdot w_1) \cdot w_2) \cdot w_3 - y)^2.
 $$
 
 Делаем это по правилу взятия производной сложной функции
 
 \begin{equation*}
     \begin{aligned} 
-        & \frac{\partial L}{\partial w_3} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_3} =  (y - \hat{y})  \cdot f(f(x\cdot w_1) \cdot w_2) \\
-        & \frac{\partial L}{\partial w_2} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_2} =  (y - \hat{y}) \cdot  w_3 \cdot f'(f(x\cdot w_1) \cdot w_2) \cdot f(x\cdot w_1) \\
-        & \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_1} =  (y - \hat{y})  \cdot  w_3 \cdot f'(f(x\cdot w_1) \cdot w_2) \cdot w_2 \cdot  f'(x\cdot w_1) \cdot x \\
+        & \frac{\partial L}{\partial w_3} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_3} =  (\hat{y} - y)  \cdot f(f(x\cdot w_1) \cdot w_2) \\
+        & \frac{\partial L}{\partial w_2} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_2} =  (\hat{y} - y) \cdot  w_3 \cdot f'(f(x\cdot w_1) \cdot w_2) \cdot f(x\cdot w_1) \\
+        & \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_1} =  (\hat{y} - y)  \cdot  w_3 \cdot f'(f(x\cdot w_1) \cdot w_2) \cdot w_2 \cdot  f'(x\cdot w_1) \cdot x \\
     \end{aligned} 
 \end{equation*}
 ```
@@ -46,9 +46,9 @@ __в)__ В производных повторяются одни и те же �
 
 \begin{equation*}
     \begin{aligned} 
-    & \frac{\partial L}{\partial w_3} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_3} = \boxed{ (y - \hat{y}) } \cdot f(f(x\cdot w_1) \cdot w_2) \\
-    & \frac{\partial L}{\partial w_2} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_2} = \boxed{ (y - \hat{y})} \cdot \boxed{ w_3 \cdot f'(f(x\cdot w_1) \cdot w_2)} \cdot f(x\cdot w_1) \\
-    & \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_1} = \boxed{ (y - \hat{y}) } \cdot \boxed{ w_3 \cdot f'(f(x\cdot w_1) \cdot w_2)} \cdot w_2 \cdot  f'(x\cdot w_1) \cdot x \\
+    & \frac{\partial L}{\partial w_3} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_3} = \boxed{ (\hat{y} - y) } \cdot f(f(x\cdot w_1) \cdot w_2) \\
+    & \frac{\partial L}{\partial w_2} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_2} = \boxed{ (\hat{y} - y)} \cdot \boxed{ w_3 \cdot f'(f(x\cdot w_1) \cdot w_2)} \cdot f(x\cdot w_1) \\
+    & \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_1} = \boxed{ (\hat{y} - y) } \cdot \boxed{ w_3 \cdot f'(f(x\cdot w_1) \cdot w_2)} \cdot w_2 \cdot  f'(x\cdot w_1) \cdot x \\
     \end{aligned} 
 \end{equation*}
 

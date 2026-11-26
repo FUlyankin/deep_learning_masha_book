@@ -14,7 +14,7 @@ GREEN = "#008000"
 RED = "#D55E00"
 BLUE = "#0072B2"
 
-fig, axes = plt.subplots(1, 2, figsize=(11, 3.6))
+fig, axes = plt.subplots(1, 2, figsize=(11.8, 3.6))
 
 mom = np.array([2.8, 0.5])    # накопленная инерция
 grad_here = np.array([0.7, 1.5])   # шаг по градиенту в текущей точке
@@ -35,7 +35,7 @@ def vec(ax, start, delta, color, lw=2.4, ls="-", zorder=3):
 
 
 for ax in axes:
-    ax.set_xlim(-0.7, 4.4)
+    ax.set_xlim(-0.7, 4.9)
     ax.set_ylim(-0.6, 3.1)
     ax.set_xticks([])
     ax.set_yticks([])
@@ -48,11 +48,11 @@ ax.set_title("Momentum", fontsize=14)
 vec(ax, np.zeros(2), mom, GREEN, ls="--", lw=2.0)
 vec(ax, np.zeros(2), grad_here, RED)
 vec(ax, np.zeros(2), mom + grad_here, BLUE, lw=3.2, zorder=2)
-ax.annotate("инерция $\\alpha h_{t-1}$", mom * 0.55 + [0.08, -0.33],
+ax.annotate("инерция $-\\alpha h_{t-1}$", mom * 0.55 + [0.08, -0.33],
             fontsize=12, color=GREEN)
-ax.annotate("градиент в $w_{t-1}$", grad_here + [-1.35, 0.25],
+ax.annotate("антиградиент в $w_{t-1}$", grad_here + [-1.35, 0.25],
             fontsize=12, color=RED)
-ax.annotate("итоговый шаг $h_t$", (mom + grad_here) * 0.72 + [0.1, -0.05],
+ax.annotate("итоговый шаг $-h_t$", (mom + grad_here) * 0.72 + [0.4, -0.4],
             fontsize=12, color=BLUE)
 
 # --- Nesterov: сначала инерция, градиент считаем в новой точке ---
@@ -62,11 +62,11 @@ vec(ax, np.zeros(2), mom, GREEN, ls="--", lw=2.0)
 ax.scatter([mom[0]], [mom[1]], s=45, color="black", zorder=5)
 vec(ax, mom, grad_ahead, RED)
 vec(ax, np.zeros(2), mom + grad_ahead, BLUE, lw=3.2, zorder=2)
-ax.annotate("инерция $\\alpha h_{t-1}$", mom * 0.55 + [0.08, -0.33],
+ax.annotate("инерция $-\\alpha h_{t-1}$", mom * 0.55 + [0.08, -0.33],
             fontsize=12, color=GREEN)
-ax.annotate("градиент в точке\n$w_{t-1} - \\alpha h_{t-1}$",
-            mom + grad_ahead * 0.35 + [0.12, 0.05], fontsize=12, color=RED)
-ax.annotate("итоговый шаг $h_t$", (mom + grad_ahead) * 0.6 + [-0.25, 0.28],
+ax.annotate("антиградиент\nв точке\n$w_{t-1} - \\alpha h_{t-1}$",
+            mom + grad_ahead * 0.25 + [0.3, 0.0], fontsize=12, color=RED)
+ax.annotate("итоговый шаг $-h_t$", (-0.45, 1.85),
             fontsize=12, color=BLUE)
 
 fig.tight_layout()

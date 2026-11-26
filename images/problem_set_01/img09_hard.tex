@@ -50,51 +50,72 @@
 }
 
 \begin{document}
+    \begin{tikzpicture}[line cap=round,line join=round,x=3.0cm,y=1.2cm]
+        \draw [line width=1.2pt,dash pattern=on 3pt off 3pt] (0.5500,-2.45) -- (-0.6125,2.2);
+        \draw [line width=1.2pt,dash pattern=on 3pt off 3pt] (1.0500,-2.45) -- (-0.1125,2.2);
+        \draw [line width=1.2pt,dash pattern=on 3pt off 3pt] (1.5500,-2.45) -- (0.3875,2.2);
+        \draw [line width=1.2pt,dash pattern=on 3pt off 3pt] (2.0500,-2.45) -- (0.8875,2.2);
+        \draw [fill=blue] (0,0) circle (2.2pt);
+        \draw [fill=blue] (0,0.5) circle (2.2pt);
+        \draw [fill=blue] (0,1) circle (2.2pt);
+        \draw [fill=blue] (0,1.5) circle (2.2pt);
+        \path (0,-0.5) pic[red] {cross=2.2pt};
+        \path (0,-1) pic[red] {cross=2.2pt};
+        \path (0,-1.5) pic[red] {cross=2.2pt};
+        \path (0,-2) pic[red] {cross=2.2pt};
+        \path (0.5,0) pic[red] {cross=2.2pt};
+        \path (0.5,0.5) pic[red] {cross=2.2pt};
+        \path (0.5,1) pic[red] {cross=2.2pt};
+        \path (0.5,1.5) pic[red] {cross=2.2pt};
+        \draw [fill=blue] (0.5,-0.5) circle (2.2pt);
+        \draw [fill=blue] (0.5,-1) circle (2.2pt);
+        \draw [fill=blue] (0.5,-1.5) circle (2.2pt);
+        \draw [fill=blue] (0.5,-2) circle (2.2pt);
+        \draw [fill=blue] (1,0) circle (2.2pt);
+        \draw [fill=blue] (1,0.5) circle (2.2pt);
+        \draw [fill=blue] (1,1) circle (2.2pt);
+        \draw [fill=blue] (1,1.5) circle (2.2pt);
+        \path (1,-0.5) pic[red] {cross=2.2pt};
+        \path (1,-1) pic[red] {cross=2.2pt};
+        \path (1,-1.5) pic[red] {cross=2.2pt};
+        \path (1,-2) pic[red] {cross=2.2pt};
+        \path (1.5,0) pic[red] {cross=2.2pt};
+        \path (1.5,0.5) pic[red] {cross=2.2pt};
+        \path (1.5,1) pic[red] {cross=2.2pt};
+        \path (1.5,1.5) pic[red] {cross=2.2pt};
+        \draw [fill=blue] (1.5,-0.5) circle (2.2pt);
+        \draw [fill=blue] (1.5,-1) circle (2.2pt);
+        \draw [fill=blue] (1.5,-1.5) circle (2.2pt);
+        \draw [fill=blue] (1.5,-2) circle (2.2pt);
+        \draw (-0.9250,2.45) node {\color{red}$1$};
+        \draw (-0.4250,2.45) node {\color{blue}$0$};
+        \draw (0.0750,2.45) node {\color{red}$1$};
+        \draw (0.5750,2.45) node {\color{blue}$0$};
+        \draw (1.0750,2.45) node {\color{red}$1$};
+    \end{tikzpicture}
+    \hspace{1.2cm}
     \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
-        \draw [line width=1.pt] (-3,1.5) circle (0.5cm) node {$1$};
-        \draw [line width=1.pt] (-3,-0.5) circle (0.5cm) node {$x_1$};
-        \draw [line width=1.pt] (-3,-2.5) circle (0.5cm) node {$x_2$};	
-        
-        \draw [line width=1.pt] (-1,2)--(1,2)--(1,3)--(-1,3)--cycle;
-        \draw [line width=1.pt] (-0.7,2.2)--(0,2.2)--(0,2.8)--(0.7,2.8);
-        
-        \draw [line width=1.pt] (-1,0)--(1,0)--(1,1)--(-1,1)--cycle;
-        \draw [line width=1.pt] (-0.7,0.2)--(0,0.2)--(0,0.8)--(0.7,0.8);
-        
-        \draw [line width=1.pt] (-1,-2)--(1,-2)--(1,-1)--(-1,-1)--cycle;
-        \draw [line width=1.pt] (-0.7,-1.8)--(0,-1.8)--(0,-1.2)--(0.7,-1.2);
-        
-        \draw [line width=1.pt] (-1,-3)--(1,-3)--(1,-4)--(-1,-4)--cycle;
-        \draw [line width=1.pt] (-0.7,-3.8)--(0,-3.8)--(0,-3.2)--(0.7,-3.2);
-        
-        \draw [line width=1.pt] (-2.5,1.5) -- (-1,0.5);
-        \draw [line width=1.pt] (-2.5,1.5) -- (-1,2.5);
-        \draw [line width=1.pt] (-2.5,1.5) -- (-1,-1.5);
-        \draw [line width=1.pt] (-2.5,1.5) -- (-1,-3.5);
-        
-        \draw [line width=1.pt] (-2.5,-0.5) -- (-1,0.5);
-        \draw [line width=1.pt] (-2.5,-0.5) -- (-1,2.5);
-        \draw [line width=1.pt] (-2.5,-0.5) -- (-1,-1.5);
-        \draw [line width=1.pt] (-2.5,-0.5) -- (-1,-3.5);
+        \draw [line width=1.pt] (-3,0.8) circle (0.5cm) node {$x_1$};
+        \draw [line width=1.pt] (-3,-0.8) circle (0.5cm) node {$x_2$};
 
-        \draw [line width=1.pt] (-2.5,-2.5) -- (-1,0.5);
-        \draw [line width=1.pt] (-2.5,-2.5) -- (-1,2.5);
-        \draw [line width=1.pt] (-2.5,-2.5) -- (-1,-1.5);
-        \draw [line width=1.pt] (-2.5,-2.5) -- (-1,-3.5);
-        
-        \draw [line width=1.pt] (2,0)--(4,0)--(4,1)--(2,1)--cycle;
-        \draw [line width=1.pt] (2.3,0.2)--(3,0.2)--(3,0.8)--(3.7,0.8);
-        
-        \draw [line width=1.pt] (1,0.5) -- (2, 0.5);
-        \draw [line width=1.pt] (1,2.5) -- (2, 0.5);
-        \draw [line width=1.pt] (1,-1.5) -- (2, 0.5);
-        
-        \draw [line width=1.pt] (5,0)--(7,0)--(7,-1)--(5,-1)--cycle;
-        \draw [line width=1.pt] (5.3,-0.8)--(6,-0.8)--(6,-0.2)--(6.7,-0.2);
-        
-        \draw [line width=1.pt] (4,0.5) -- (5, -0.5);
-        \draw [line width=1.pt] (1,-3.5) -- (5, -0.5);
+        \foreach \y/\c in {2.4/0, 0.8/4, -0.8/8, -2.4/12}{
+            \draw [line width=1.pt] (-1,\y-0.5) rectangle (1.8,\y+0.5);
+            \draw (0.4,\y) node {$[4 x_1 + x_2 > \c]$};
+            \draw [line width=1.pt] (-2.5,0.8) -- (-1,\y);
+            \draw [line width=1.pt] (-2.5,-0.8) -- (-1,\y);
+        }
 
-        \draw [->] (7,-0.5) -- (8,-0.5) node[right] {$\hat y$};
+        \draw [line width=1.pt] (3.6,-0.5) rectangle (5.2,0.5);
+        \draw [line width=1.pt] (3.9,-0.3)--(4.4,-0.3)--(4.4,0.3)--(4.9,0.3);
+
+        \draw [line width=1.pt] (1.8,2.4) -- (3.6,0.3) node[pos=0.3,above right] {$-1$};
+        \draw [line width=1.pt] (1.8,0.8) -- (3.6,0.1) node[pos=0.35,above] {$2$};
+        \draw [line width=1.pt] (1.8,-0.8) -- (3.6,-0.1) node[pos=0.35,below] {$-4$};
+        \draw [line width=1.pt] (1.8,-2.4) -- (3.6,-0.3) node[pos=0.3,below right] {$8$};
+
+        \draw [line width=1.pt] (4.4,2.2) circle (0.5cm) node {$1$};
+        \draw [line width=1.pt] (4.4,1.7) -- (4.4,0.5) node[pos=0.5,right] {$0.5$};
+
+        \draw [->] (5.2,0) -- (6,0) node[right] {$\hat y$};
     \end{tikzpicture}
 \end{document}

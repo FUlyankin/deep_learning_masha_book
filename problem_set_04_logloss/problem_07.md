@@ -9,7 +9,7 @@
 
 __а)__ Во время обучения Маша увидела следующую динамику потерь. Что означает такая динамика? Что Маше следует сделать? 
 
-<img src="../images/problem_set_04/img07_loss_01.png" alt="dobronet_forward" width="95%" align="center">
+<img src="../images/problem_set_04/img07_loss_01.png" alt="динамика потерь на обучении и валидации" width="95%" align="center">
 
 ```{dropdown} Решение
 
@@ -19,7 +19,7 @@ __а)__ Во время обучения Маша увидела следующ�
 
 __б)__ А что означает такая динамика? Что можно сделать, чтобы с нейросеткой всё стало хорошо? 
 
-<img src="../images/problem_set_04/img07_loss_02.png" alt="dobronet_forward" width="95%" align="center">
+<img src="../images/problem_set_04/img07_loss_02.png" alt="динамика потерь на обучении и валидации" width="95%" align="center">
 
 
 ```{dropdown} Решение
