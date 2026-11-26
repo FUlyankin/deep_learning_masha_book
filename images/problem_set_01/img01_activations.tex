@@ -1,40 +1,49 @@
 \documentclass[border=10pt]{standalone}
-
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-
-% Математические шрифты
-\usepackage{unicode-math}
-\setmathfont[math-style=upright]{[Neo Euler.otf]}
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-\definecolor{blue}{RGB}{0,114,178}
-\definecolor{red}{RGB}{213,94,0}
-\definecolor{green}{RGB}{0,128,0}
-
-\usetikzlibrary{calc,shapes,positioning}
-
+\input{../dlbook_style}
 \begin{document}
-    \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
-        % сигмоида
-        \begin{scope}
-            \draw [->, line width=1.pt] (-3.5,0) -- (3.8,0) node[below] {\small $h$};
-            \draw [->, line width=1.pt] (0,-0.5) -- (0,2.8) node[left] {\small $f(h)$};
-            \draw [line width=1.pt,dash pattern=on 3pt off 3pt] (-3.3,2) -- (3.3,2);
-            \draw (0,2) node[above left] {\small $1$};
-            \draw [line width=1.5pt,smooth,samples=60,domain=-3.3:3.3] plot (\x,{2/(1+exp(-1.5*\x))});
-            \draw (0,-1.3) node {$f(h) = \dfrac{1}{1 + e^{-h}}$};
-        \end{scope}
-        % ReLU
-        \begin{scope}[xshift=9.5cm]
-            \draw [->, line width=1.pt] (-2.7,0) -- (3.0,0) node[below] {\small $h$};
-            \draw [->, line width=1.pt] (0,-0.5) -- (0,2.8) node[left] {\small $f(h)$};
-            \draw [line width=1.5pt] (-2.5,0) -- (0,0) -- (2.4,2.4);
-            \draw (0,-1.3) node {$f(h) = \max(0, h)$};
-        \end{scope}
-    \end{tikzpicture}
+\begin{tikzpicture}
+  \begin{axis}[
+    name=sigm,
+    at={(0,0)}, anchor=origin,
+    dlaxis,
+    dlgrid,
+    x=0.8cm, y=2.6cm,
+    xmin=-5.3, xmax=5.6,
+    ymin=-0.2, ymax=1.32,
+    xtick={-4,...,4},
+    ytick={0.5,1},
+    xticklabels={}, yticklabels={},
+    major tick length=0pt,
+    xlabel={$h$},
+    ylabel={$f(h)$},
+    every axis x label/.style={at={(axis cs:5.6,0)}, anchor=west, xshift=4pt, font=\large},
+    every axis y label/.style={at={(axis cs:0,1.32)}, anchor=south, yshift=2pt, font=\large},
+  ]
+    \addplot[plain, dash pattern=on 6pt off 4pt, domain=-5:5] {1};
+    \addplot[curveR, domain=-5:5, samples=300] {1/(1+exp(-x))};
+    \node[lbl, fill=white, inner sep=1.5pt, anchor=south east] at (axis cs:-0.08,1.04) {$1$};
+  \end{axis}
+  \node[font=\Large] at (0,-1.9) {$f(h) = \dfrac{1}{1 + e^{-h}}$};
+
+  \begin{axis}[
+    name=relu,
+    at={(11.5cm,0)}, anchor=origin,
+    dlaxis,
+    dlgrid,
+    x=1.15cm, y=1.15cm,
+    xmin=-2.7, xmax=2.9,
+    ymin=-0.5, ymax=2.8,
+    xtick={-2,...,2},
+    ytick={1,2},
+    xticklabels={}, yticklabels={},
+    major tick length=0pt,
+    xlabel={$h$},
+    ylabel={$f(h)$},
+    every axis x label/.style={at={(axis cs:2.9,0)}, anchor=west, xshift=4pt, font=\large},
+    every axis y label/.style={at={(axis cs:0,2.8)}, anchor=south, yshift=2pt, font=\large},
+  ]
+    \addplot[curveB] coordinates {(-2.5,0) (0,0) (2.4,2.4)};
+  \end{axis}
+  \node[font=\Large] at (11.5,-1.9) {$f(h) = \max(0, h)$};
+\end{tikzpicture}
 \end{document}

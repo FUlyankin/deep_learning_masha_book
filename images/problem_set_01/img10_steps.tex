@@ -1,42 +1,40 @@
 \documentclass[border=10pt]{standalone}
-
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-
-% Математические шрифты
-\usepackage{unicode-math}
-\setmathfont[math-style=upright]{[Neo Euler.otf]}
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-\definecolor{blue}{RGB}{0,114,178}
-
-\usetikzlibrary{calc,shapes,positioning}
-
+\input{../dlbook_style}
 \begin{document}
-    \begin{tikzpicture}[line cap=round,line join=round,x=1.6cm,y=1.6cm]
-        % ступеньки: высота равна значению функции в середине отрезка
-        \foreach \i in {0,...,11}{
-            \pgfmathsetmacro\a{\i*0.5}
-            \pgfmathsetmacro\m{\a+0.25}
-            \pgfmathsetmacro\b{1.5+0.7*sin(1.1*\m r)+0.35*sin(2.9*\m r)}
-            \draw [line width=0.8pt,fill=blue!20,draw=blue!70!black] (\a,0) rectangle (\a+0.5,\b);
-        }
-
-        % оси
-        \draw [->, line width=1.pt] (-0.3,0) -- (6.5,0) node[below] {\small $x$};
-        \draw [->, line width=1.pt] (0,-0.3) -- (0,2.9) node[left] {\small $f(x)$};
-
-        % сама функция
-        \draw [line width=1.5pt,smooth,samples=100,domain=0:6.2] plot (\x,{1.5+0.7*sin(1.1*\x r)+0.35*sin(2.9*\x r)});
-
-        % одна ступенька крупным планом
-        \draw [line width=1.pt] (3,-0.07) -- (3,0.07);
-        \draw [line width=1.pt] (3.5,-0.07) -- (3.5,0.07);
-        \draw (2.93,0) node[below] {\small $a_i$};
-        \draw (3.75,0) node[below] {\small $a_i + h$};
-    \end{tikzpicture}
+\begin{tikzpicture}[declare function={f(\x)=1.5+0.7*sin(1.1*\x r)+0.35*sin(2.9*\x r);}]
+  \begin{axis}[
+    dlaxis,
+    dlgrid,
+    width=14cm, height=7cm,
+    xmin=-0.3, xmax=6.5,
+    ymin=0, ymax=2.9,
+    xtick={0.5,1,...,6}, ytick={0.5,1,...,2.5},
+    xticklabels={}, yticklabels={},
+    major tick length=0pt,
+    xlabel={$x$},
+    ylabel={$f(x)$},
+    every axis x label/.style={at={(axis cs:6.5,0)}, anchor=west, xshift=4pt, font=\large},
+    every axis y label/.style={at={(axis cs:0,2.9)}, anchor=west, xshift=8pt, font=\large},
+  ]
+    \pgfplotsinvokeforeach{0,...,11}{
+      \pgfmathsetmacro\a{#1*0.5}
+      \pgfmathsetmacro\b{f(\a+0.25)}
+      \edef\temp{\noexpand\fill[fillblue] (axis cs:\a,0) rectangle (axis cs:\a+0.5,\b);}
+      \temp
+    }
+    \pgfplotsinvokeforeach{0,...,11}{
+      \pgfmathsetmacro\a{#1*0.5}
+      \pgfmathsetmacro\b{f(\a+0.25)}
+      \edef\temp{\noexpand\draw[blue, line width=1pt] (axis cs:\a,0) rectangle (axis cs:\a+0.5,\b);}
+      \temp
+    }
+    \draw[line width=1.2pt] (axis cs:0,0) -- (axis cs:6,0);
+    \draw[line width=1.2pt] (axis cs:0,-0.3) -- (axis cs:0,2.5);
+    \addplot[curve, domain=0:6.2, samples=200, smooth] {f(x)};
+    \draw[line width=1.4pt] (axis cs:3,-0.07) -- (axis cs:3,0.07);
+    \draw[line width=1.4pt] (axis cs:3.5,-0.07) -- (axis cs:3.5,0.07);
+    \node[lbl, anchor=north] at (axis cs:2.93,-0.09) {$a_i$};
+    \node[lbl, anchor=north] at (axis cs:3.78,-0.09) {$a_i + h$};
+  \end{axis}
+\end{tikzpicture}
 \end{document}

@@ -1,41 +1,27 @@
 \documentclass[border=10pt]{standalone}
-
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-
-% Математические шрифты
-\usepackage{unicode-math}
-\setmathfont[math-style=upright]{[Neo Euler.otf]}
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-\definecolor{blue}{RGB}{0,114,178}
-
-\usetikzlibrary{calc,shapes,positioning}
-
+\input{../dlbook_style}
 \begin{document}
-    \begin{tikzpicture}[line cap=round,line join=round,x=1.6cm,y=1.6cm]
-        % оси
-        \draw [->, line width=1.pt] (-0.3,0) -- (6.5,0) node[below] {\small $x$};
-        \draw [->, line width=1.pt] (0,-0.3) -- (0,2.9) node[left] {\small $f(x)$};
-
-        % сама функция
-        \draw [line width=1.5pt,smooth,samples=100,domain=0:6] plot (\x,{1.5+0.7*sin(1.1*\x r)+0.35*sin(2.9*\x r)});
-
-        % ломаная по узлам с шагом h
-        \draw [blue, line width=1.5pt] plot[samples at={0,0.75,...,6}] (\x,{1.5+0.7*sin(1.1*\x r)+0.35*sin(2.9*\x r)});
-
-        % узлы и засечки
-        \foreach \x in {0,0.75,...,6}{
-            \draw [line width=1.pt] (\x,-0.07) -- (\x,0.07);
-            \draw [blue, line width=1.pt, fill=white] (\x,{1.5+0.7*sin(1.1*\x r)+0.35*sin(2.9*\x r)}) circle (2.5pt);
-        }
-        \draw (-0.12,-0.1) node[below] {\small $a_0$};
-        \draw (0.75,-0.1) node[below] {\small $a_1$};
-        \draw (1.5,-0.1) node[below] {\small $a_2$};
-        \draw (6,-0.1) node[below] {\small $a_n$};
-    \end{tikzpicture}
+\begin{tikzpicture}
+  \begin{axis}[
+    dlaxis,
+    dlgrid,
+    width=14cm, height=7cm,
+    xmin=-0.3, xmax=6.5,
+    ymin=0, ymax=2.9,
+    xtick={0,0.75,...,6},
+    xticklabels={,$a_1$,$a_2$,,,,,,$a_n$},
+    ytick={0.5,1,...,2.5},
+    yticklabels={},
+    ytick style={draw=none},
+    xlabel={$x$},
+    ylabel={$f(x)$},
+    every axis x label/.style={at={(axis cs:6.5,0)}, anchor=west, xshift=4pt, font=\large},
+    every axis y label/.style={at={(axis cs:0,2.9)}, anchor=west, xshift=8pt, font=\large},
+  ]
+    \addplot[curve, domain=0:6, samples=200, smooth] {1.5+0.7*sin(deg(1.1*x))+0.35*sin(deg(2.9*x))};
+    \addplot[curveB, mark=*, mark size=4pt, mark options={hollow}, samples at={0,0.75,...,6}] {1.5+0.7*sin(deg(1.1*x))+0.35*sin(deg(2.9*x))};
+    \draw[line width=1.2pt] (axis cs:0,0) -- (axis cs:0,-0.3);
+    \node[lbl, anchor=north east, inner sep=2pt] at (axis cs:-0.02,-0.06) {$a_0$};
+  \end{axis}
+\end{tikzpicture}
 \end{document}

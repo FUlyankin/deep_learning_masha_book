@@ -1,61 +1,26 @@
-\documentclass[class=minimal,border=10pt]{standalone}
-
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
-\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-\usepackage[utf8]{inputenc}          % utf8 кодировка
-
-% Основные шрифты 
-% \usepackage{fontspec}         
-% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
-
-% Математические шрифты 
-\usepackage{unicode-math}     
-\setmathfont[math-style=upright]{[Neo Euler.otf]} 
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-% мои цвета https://www.artlebedev.ru/colors/
-\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{red}{rgb}{1,0,0.2} 
-% \definecolor{green}{rgb}{0,0.6,0} 
-\definecolor{purp}{rgb}{0.4,0,0.8} 
-
-\definecolor{blue}{RGB}{0,114,178}
-\definecolor{red}{RGB}{213,94,0}
-\definecolor{yellow}{RGB}{240,228,66}
-\definecolor{green}{RGB}{0,128, 0}
-
-\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
-\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
-
-
-% цвета из geogebra 
-\definecolor{litebrown}{rgb}{0.6,0.2,0}
-\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
-
-\usetikzlibrary{calc,shapes,positioning}
-
+\documentclass[border=10pt]{standalone}
+\input{../dlbook_style}
 \begin{document}
-    \begin{tikzpicture}
-    \tikzstyle{place}=[rectangle, draw=black, minimum size = 8mm]
-    \draw node at (0, 0) (input) {$(1, 1)$};
-    \draw node at (2.5, 0) (h1) {$(0, 0)$};
-    \draw node at (5, 0) (o1) {$(0.5, 0.5)$};
-    \draw node at (7.5, 0) (h2) {$(0, 0)$};
-    \draw node at (10, 0) (o2) {$(0.5, 0.5)$};
-    \draw node at (12.5, 0) (output) {$0.5$};
-    \draw node at (15, 0) (mse) {$0.5 \cdot (0.5 - 0)^2$};
-    
-    \draw [->]  (input) -- (h1) node[pos=.49, above] {$W_1$} ;
-    \draw [->]  (h1) -- (o1) node[pos=.49, above] {$\sigma$} ;
-    \draw [->]  (o1) -- (h2) node[pos=.49, above] {$W_2$} ;
-    \draw [->]  (h2) -- (o2) node[pos=.49, above] {$\sigma$} ;
-    \draw [->]  (o2) -- (output) node[pos=.49, above] {$W_3$} ;
-    \draw [->]  (output) to (mse);  
-    \end{tikzpicture}
+\begin{tikzpicture}
+  \tikzset{
+    op/.style={opnode, minimum width=14mm, minimum height=11mm, inner ysep=2pt},
+    back/.style={edge, red, dash pattern=on 5pt off 3.5pt},
+    dl/.style={wl, text=red},
+  }
+  \def\dx{4.4}
+  \node[op] (input) at (0*\dx, 0) {$(1, 1)$};
+  \node[op] (h1) at (1*\dx, 0) {$(0, 0)$};
+  \node[op] (o1) at (2*\dx, 0) {$(0.5, 0.5)$};
+  \node[op] (h2) at (3*\dx, 0) {$(0, 0)$};
+  \node[op] (o2) at (4*\dx, 0) {$(0.5, 0.5)$};
+  \node[op] (output) at (5*\dx, 0) {$0.5$};
+  \node[op] (mse) at (6*\dx, 0) {$0.5 \cdot (0.5 - 0)^2$};
+
+  \draw[edge] (input) -- node[wl, above=3pt] {$W_1$} (h1);
+  \draw[edge] (h1) -- node[wl, above=3pt] {$\sigma$} (o1);
+  \draw[edge] (o1) -- node[wl, above=3pt] {$W_2$} (h2);
+  \draw[edge] (h2) -- node[wl, above=3pt] {$\sigma$} (o2);
+  \draw[edge] (o2) -- node[wl, above=3pt] {$W_3$} (output);
+  \draw[edge] (output) -- (mse);
+\end{tikzpicture}
 \end{document}

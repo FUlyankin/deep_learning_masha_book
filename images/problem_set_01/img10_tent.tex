@@ -1,37 +1,30 @@
 \documentclass[border=10pt]{standalone}
-
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-
-% Математические шрифты
-\usepackage{unicode-math}
-\setmathfont[math-style=upright]{[Neo Euler.otf]}
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-\usetikzlibrary{calc,shapes,positioning}
-
+\input{../dlbook_style}
 \begin{document}
-    \begin{tikzpicture}[line cap=round,line join=round,x=2.0cm,y=2.0cm]
-        \draw [->, line width=1.pt] (-1.3,0) -- (3.5,0) node[below] {\small $x$};
-        \draw [->, line width=1.pt] (0,-0.4) -- (0,1.5) node[left] {\small $\hat y$};
-
-        % пунктир к вершине
-        \draw [line width=1.pt,dash pattern=on 3pt off 3pt] (0,1) -- (1,1) -- (1,0);
-        \draw (0,1) node[left] {\small $1$};
-        \draw (1,0) node[below] {\small $1$};
-        \draw (2,0) node[below] {\small $2$};
-        \draw (0,0) node[below left] {\small $0$};
-
-        % сама палатка
-        \draw [line width=2.pt] (-1.2,0) -- (0,0) -- (1,1) -- (2,0) -- (3.3,0);
-
-        % изломы
-        \foreach \p in {(0,0), (1,1), (2,0)}{
-            \draw [line width=1.pt,fill=white] \p circle (2.5pt);
-        }
-    \end{tikzpicture}
+\begin{tikzpicture}
+  \begin{axis}[
+    dlaxis,
+    dlgrid,
+    x=2cm, y=2cm,
+    xmin=-1.3, xmax=3.5,
+    ymin=-0.4, ymax=1.5,
+    xtick={-1,0,1,2,3},
+    xticklabels={{},{},$1$,$2$,{}},
+    ytick={0,1},
+    yticklabels={{},$1$},
+    hide obscured x ticks=false,
+    hide obscured y ticks=false,
+    xlabel={$x$},
+    ylabel={$\hat y$},
+    every axis x label/.style={at={(axis cs:3.5,0)}, anchor=west, xshift=4pt, font=\large},
+    every axis y label/.style={at={(axis cs:0,1.5)}, anchor=west, xshift=8pt, font=\large},
+  ]
+    \draw[plain, dash pattern=on 4pt off 3pt] (axis cs:0,1) -- (axis cs:1,1) -- (axis cs:1,0);
+    \addplot[curveB] coordinates {(-1.2,0) (0,0) (1,1) (2,0) (3.3,0)};
+    \node[lbl, anchor=north east] at (axis cs:0,0) {$0$};
+    \draw[hollow] (axis cs:0,0) circle (3pt);
+    \draw[hollow] (axis cs:1,1) circle (3pt);
+    \draw[hollow] (axis cs:2,0) circle (3pt);
+  \end{axis}
+\end{tikzpicture}
 \end{document}
