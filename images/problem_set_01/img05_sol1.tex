@@ -1,76 +1,26 @@
-\documentclass[class=minimal,border=10pt]{standalone}
-
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
-\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-\usepackage[utf8]{inputenc}          % utf8 кодировка
-
-% Основные шрифты 
-% \usepackage{fontspec}         
-% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
-
-% Математические шрифты 
-\usepackage{unicode-math}     
-\setmathfont[math-style=upright]{[Neo Euler.otf]} 
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-% мои цвета https://www.artlebedev.ru/colors/
-\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{red}{rgb}{1,0,0.2} 
-% \definecolor{green}{rgb}{0,0.6,0} 
-\definecolor{purp}{rgb}{0.4,0,0.8} 
-
-\definecolor{blue}{RGB}{0,114,178}
-\definecolor{red}{RGB}{213,94,0}
-\definecolor{yellow}{RGB}{240,228,66}
-\definecolor{green}{RGB}{0,128, 0}
-
-\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
-\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
-
-
-% цвета из geogebra 
-\definecolor{litebrown}{rgb}{0.6,0.2,0}
-\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
-
-\usetikzlibrary{calc,shapes,positioning}
-
+\documentclass[border=10pt]{standalone}
+\input{../dlbook_style}
 \begin{document}
-\begin{minipage}{0.49\linewidth}
-\begin{center}
-\begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
-\clip(-4,0) rectangle (3.5,4.5);
-\draw [line width=1.pt] (-3,4) circle (0.5cm) node {$1$};
-\draw [line width=1.pt] (-3,2.5) circle (0.5cm) node {$x_1$};
-\draw [line width=1.pt] (-3,1) circle (0.5cm) node {$x_2$};
+\begin{tikzpicture}
+\node[neuron] (b)  at (0,3) {$1$};
+\node[neuron] (x1) at (0,1.5) {$x_1$};
+\node[neuron] (x2) at (0,0) {$x_2$};
+\node[block, minimum width=24mm, minimum height=12mm] (f) at (4.2,1.5) {};
+\draw[plain] ($(f.center)+(-0.75,-0.3)$) -- ($(f.center)+(0,-0.3)$) -- ($(f.center)+(0,0.3)$) -- ($(f.center)+(0.75,0.3)$);
+\node[lbl, below=2mm of f] {$\gamma = 0$};
+\draw[edge] (b)  -- ($(f.west)+(0,0.3)$)  node[wl, pos=0.38] {$-1$};
+\draw[edge] (x1) -- (f.west)               node[wl, pos=0.38] {$1$};
+\draw[edge] (x2) -- ($(f.west)+(0,-0.3)$) node[wl, pos=0.38] {$1$};
+\draw[edge] (f.east) -- ++(1.2,0) node[lbl, right] {$h_1$};
 
-\draw [line width=1.pt] (-1,3)--(-1,2)--(1.5,2)--(1.5,3)--cycle;
-\draw [line width=1.pt] (-0.6,2.2)--(0.2,2.2)--(0.2,2.8)--(1,2.8);
-\draw (0.3,1.7) node {$\gamma = 0$};
-
-\draw [->, line width=1.pt] (-2.5,4)--(-1.1,2.7) node[pos=0.5,above] {\small $-1$};
-\draw [->, line width=1.pt] (-2.5,2.5)--(-1.1,2.5) node[pos=0.3,above] {\small $1$};
-\draw [->, line width=1.pt] (-2.5,1)--(-1.1,2.3) node[pos=0.5,below] {\small $1$};
-\draw [->, line width=1.pt] (1.5,2.5)--(2.5,2.5) node[pos=1,right] {$h_1$};
+\begin{axis}[dlaxis, axis on top, at={(9.0cm,-0.2cm)}, anchor=origin,
+    x=3cm, y=3cm, xmin=-0.3, xmax=1.45, ymin=-0.3, ymax=1.45,
+    xtick=\empty, ytick=\empty, xlabel={$x_1$}, ylabel={$x_2$}]
+\fill[fillgreen, fill opacity=0.7] (axis cs:-0.3,1.3) -- (axis cs:1.3,-0.3) -- (axis cs:1.35,-0.3) -- (axis cs:1.35,1.35) -- (axis cs:-0.3,1.35) -- cycle;
+\fill[fillred, fill opacity=0.7] (axis cs:-0.3,1.3) -- (axis cs:1.3,-0.3) -- (axis cs:-0.3,-0.3) -- cycle;
+\draw[black, line width=1.6pt, dashed] (axis cs:-0.17,1.17) -- (axis cs:1.17,-0.17);
+\node[font=\Large, text=green] at (axis cs:0.75,0.95) {$1$};
+\node[font=\Large, text=red] at (axis cs:0.25,0.35) {$0$};
+\end{axis}
 \end{tikzpicture}
-\end{center}
-\end{minipage}
-\hfill
-\begin{minipage}{0.49\linewidth}
-\begin{center}
-    \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
-    \clip(-0.5,-5.5) rectangle (4.8,-0.4);
-    \draw [->, line width=1.pt] (-0.3,-4.5) -- (4.5,-4.5) node[pos=0.96,below=5pt] {\small $x_1$};
-    \draw [->, line width=1.pt] (0.5,-5.3) -- (0.5,-0.7) node[pos=0.96,left=4pt] {\small $x_2$};
-    \draw (2.3,-1.4) node {\color{green}$1$};
-    \draw (1.1,-3.3) node {\color{red}$0$};
-    \draw [line width=2.pt,dash pattern=on 3pt off 3pt] (0,-1)-- (4,-5);
-    \end{tikzpicture}
-\end{center}
-\end{minipage}
 \end{document}

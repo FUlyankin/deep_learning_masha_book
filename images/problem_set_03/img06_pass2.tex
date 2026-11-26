@@ -1,64 +1,30 @@
-\documentclass[class=minimal,border=10pt]{standalone}
-
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
-\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-\usepackage[utf8]{inputenc}          % utf8 кодировка
-
-% Основные шрифты 
-% \usepackage{fontspec}         
-% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
-
-% Математические шрифты 
-\usepackage{unicode-math}     
-\setmathfont[math-style=upright]{[Neo Euler.otf]} 
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-% мои цвета https://www.artlebedev.ru/colors/
-\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{red}{rgb}{1,0,0.2} 
-% \definecolor{green}{rgb}{0,0.6,0} 
-\definecolor{purp}{rgb}{0.4,0,0.8} 
-
-\definecolor{blue}{RGB}{0,114,178}
-\definecolor{red}{RGB}{213,94,0}
-\definecolor{yellow}{RGB}{240,228,66}
-\definecolor{green}{RGB}{0,128, 0}
-
-\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
-\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
-
-
-% цвета из geogebra 
-\definecolor{litebrown}{rgb}{0.6,0.2,0}
-\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
-
-\usetikzlibrary{calc,shapes,positioning}
-
+\documentclass[border=10pt]{standalone}
+\input{../dlbook_style}
 \begin{document}
-    \begin{tikzpicture}
-    \draw node at (0, 0) (input) {$X$};
-    \draw node at (2, 0) (h1) {$H_1$};
-    \draw node at (4, 0) (o1) {$O_1$};
-    \draw node at (6, 0) (h2) {$H_2$};
-    \draw node at (8, 0) (o2) {$O_2$};
-    \draw node at (10, 0) (output) {$\hat{y}$};
-    \draw node at (12, 0) (mse) {$MSE$};
-    
-    \draw [->, dashed]   (h1)  -- (input) node[pos=.49, above] {\scriptsize $W_1^T$} ;
-    \draw [->, dashed]   (o1) -- (h1) node[pos=.49, above] {\scriptsize $O_1 (1-O_1)$} ;
-    \draw [->, dashed]   (h2) -- (o1) node[pos=.49, above] {\scriptsize $W_2^T$} ;
-    \draw [->, dashed]   (o2) -- (h2) node[pos=.49, above] {\scriptsize $O_2 (1 - O_2)$} ;
-    \draw [->, dashed]   (output) -- (o2)node[pos=.49, above] {\scriptsize $W_3^T$} ;
-    \draw [->, dashed]  (mse) -- (output) node[pos=.49, above] {\scriptsize $(\hat{y} - y)$} ;  
-    
-    \draw [->, dashed]  (9, -0.05) -- (9, -1.2)  node[pos=.49, right] {$O_2^T$} ;
-    \draw [->, dashed]  (5, -0.05) -- (5, -1.2)  node[pos=.49, right] {$O_1^T$} ;
-    \draw [->, dashed]  (1, -0.05) -- (1, -1.2)  node[pos=.49, right] {$X^T$} ;
-    \end{tikzpicture}
+\begin{tikzpicture}
+  \tikzset{
+    op/.style={opnode, minimum width=14mm, minimum height=11mm, inner ysep=2pt},
+    back/.style={edge, red, dash pattern=on 5pt off 3.5pt},
+    dl/.style={wl, text=red},
+  }
+  \def\dx{4.4}
+  \node[op] (input) at (0*\dx, 0) {$X$};
+  \node[op] (h1) at (1*\dx, 0) {$H_1$};
+  \node[op] (o1) at (2*\dx, 0) {$O_1$};
+  \node[op] (h2) at (3*\dx, 0) {$H_2$};
+  \node[op] (o2) at (4*\dx, 0) {$O_2$};
+  \node[op] (output) at (5*\dx, 0) {$\hat{y}$};
+  \node[op] (mse) at (6*\dx, 0) {$MSE$};
+
+  \draw[back] (h1) -- node[dl, above=3pt] {$W_1^T$} (input);
+  \draw[back] (o1) -- node[dl, above=3pt] {$O_1 (1-O_1)$} (h1);
+  \draw[back] (h2) -- node[dl, above=3pt] {$W_2^T$} (o1);
+  \draw[back] (o2) -- node[dl, above=3pt] {$O_2 (1 - O_2)$} (h2);
+  \draw[back] (output) -- node[dl, above=3pt] {$W_3^T$} (o2);
+  \draw[back] (mse) -- node[dl, above=3pt] {$(\hat{y} - y)$} (output);
+
+  \draw[back] (0.5*\dx, 0) -- node[dl, right=4pt] {$X^T$} (0.5*\dx, -2.2);
+  \draw[back] (2.5*\dx, 0) -- node[dl, right=4pt] {$O_1^T$} (2.5*\dx, -2.2);
+  \draw[back] (4.5*\dx, 0) -- node[dl, right=4pt] {$O_2^T$} (4.5*\dx, -2.2);
+\end{tikzpicture}
 \end{document}

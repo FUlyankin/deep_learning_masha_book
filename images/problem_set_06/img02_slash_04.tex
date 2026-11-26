@@ -1,103 +1,34 @@
-\documentclass[class=minimal,border=10pt]{standalone}
-
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
-\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-\usepackage[utf8]{inputenc}          % utf8 кодировка
-
-% Основные шрифты 
-% \usepackage{fontspec}         
-% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
-
-% Математические шрифты 
-\usepackage{unicode-math}     
-\setmathfont[math-style=upright]{[Neo Euler.otf]} 
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-% мои цвета https://www.artlebedev.ru/colors/
-\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{red}{rgb}{1,0,0.2} 
-% \definecolor{green}{rgb}{0,0.6,0} 
-\definecolor{purp}{rgb}{0.4,0,0.8} 
-
-\definecolor{blue}{RGB}{0,114,178}
-\definecolor{red}{RGB}{213,94,0}
-\definecolor{yellow}{RGB}{240,228,66}
-\definecolor{green}{RGB}{0,128, 0}
-
-\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
-\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
-
-
-% цвета из geogebra 
-\definecolor{litebrown}{rgb}{0.6,0.2,0}
-\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
-
-\usetikzlibrary{calc,shapes,positioning}
-
+\documentclass[border=10pt]{standalone}
+\input{../dlbook_style}
 \begin{document}
-    \begin{minipage}{0.2\linewidth} 
-    \centering
-        \begin{tikzpicture}[scale=.8,every node/.style={minimum size=1cm}, on grid]
-                \draw[fill=green,opacity=0.4] (0,-1) rectangle (4,3);
-                \draw[draw=green,thick] (0,-1) grid (4,3);
-                \draw[line width=1.5pt, draw=red] (0,1)--(0,3)--(2,3)--(2,1)--cycle;
-                \draw[line width=1.5pt, draw=red] (1,0)--(1,2)--(3,2)--(3,0)--cycle;
-                \node (00) at (0.5,2.5) {1};
-                \node (01) at (1.5,2.5) {0};
-                \node (02) at (2.5,2.5) {0};
-                \node (03) at (3.5,2.5) {0};
-                
-                \node (10) at (0.5,1.5) {0};
-                \node (11) at (1.5,1.5) {1};
-                \node (12) at (2.5,1.5) {0};
-                \node (13) at (3.5,1.5) {0};
-                
-                \node (20) at (0.5,0.5) {0};
-                \node (21) at (1.5,0.5) {0};
-                \node (22) at (2.5,0.5) {0};
-                \node (23) at (3.5,0.5) {0};
-                
-                \node (30) at (0.5,-0.5) {0};
-                \node (31) at (1.5,-0.5) {0};
-                \node (32) at (2.5,-0.5) {0};
-                \node (33) at (3.5,-0.5) {0};
-        \end{tikzpicture}
-    \end{minipage} 
-    $\times$
-    \begin{minipage}{0.1\linewidth} 
-        \centering
-        \begin{tikzpicture}[scale=.7,every node/.style={minimum size=1cm}, on grid]
-                \draw[fill=blue,opacity=0.4] (0,0) rectangle (2,2);
-                \draw[draw=blue,thick] (0,0) grid (2,2);
-                \node (10) at (0.5,1.5) {1};
-                \node (11) at (1.5,1.5) {0};
-                \node (20) at (0.5,0.5) {0};
-                \node (21) at (1.5,0.5) {1};
-        \end{tikzpicture}
-    \end{minipage} 
-    \mbox{ } $ = $
-    \begin{minipage}{0.2\linewidth} 
-        \centering
-        \begin{tikzpicture}[scale=.8,every node/.style={minimum size=1cm}, on grid]
-                \draw[fill=green,opacity=0.4] (0,0) rectangle (3,3);
-                \draw[draw=green,thick] (0,0) grid (3,3);
-                \draw[line width=1.5pt, draw=red] (1,1)--(2,1)--(2,2)--(1,2)--cycle;
-                \draw[line width=1.5pt, draw=red] (0,2)--(1,2)--(1,3)--(0,3)--cycle;
-                \node (00) at (0.5,2.5) {2};
-                \node (01) at (1.5,2.5) {0};
-                \node (02) at (2.5,2.5) {0};
-                \node (10) at (0.5,1.5) {0};
-                \node (11) at (1.5,1.5) {1};
-                \node (12) at (2.5,1.5) {0};
-                \node (20) at (0.5,0.5) {0};
-                \node (21) at (1.5,0.5) {0};
-                \node (22) at (2.5,0.5) {0};
-        \end{tikzpicture}
-    \end{minipage} 
+\begin{tikzpicture}[x=8mm, y=8mm]
+  \tikzset{
+    imgcell/.style={cell, fill=fillgreen},
+    wincell/.style={cell, fill=fillred},
+    kercell/.style={cell, fill=fillblue},
+    window/.style={draw=red, line width=2.2pt, line join=round},
+  }
+  \foreach \row [count=\i from 0] in {{1,0,0,0},{0,1,0,0},{0,0,0,0},{0,0,0,0}}
+    \foreach \v [count=\j from 0] in \row {
+      \pgfmathtruncatemacro\inwin{or(and(\i<2, \j<2), and(and(\i>=1, \i<3), and(\j>=1, \j<3)))}
+      \ifnum\inwin=1 \def\cs{wincell}\else\def\cs{imgcell}\fi
+      \node[\cs] at (\j, -\i) {$\v$};
+    }
+  \draw[window] (-0.5, 0.5) rectangle (1.5, -1.5);
+  \draw[window] (0.5, -0.5) rectangle (2.5, -2.5);
+  \node[font=\Large] at (4.25, -1.5) {$\ast$};
+  \foreach \row [count=\i from 1] in {{1,0},{0,1}}
+    \foreach \v [count=\j from 0] in \row
+      \node[kercell] at (5.5+\j, -\i) {$\v$};
+  \draw[window] (5, -0.5) rectangle (7, -2.5);
+  \node[font=\Large] at (7.75, -1.5) {$=$};
+  \foreach \row [count=\i from 0] in {{2,0,0},{0,1,0},{0,0,0}}
+    \foreach \v [count=\j from 0] in \row {
+      \pgfmathtruncatemacro\hit{or(and(\i==0, \j==0), and(\i==1, \j==1))}
+      \ifnum\hit=1 \def\cs{wincell}\else\def\cs{imgcell}\fi
+      \node[\cs] at (9+\j, -0.5-\i) {$\v$};
+    }
+  \draw[window] (8.5, 0) rectangle (9.5, -1);
+  \draw[window] (9.5, -1) rectangle (10.5, -2);
+\end{tikzpicture}
 \end{document}

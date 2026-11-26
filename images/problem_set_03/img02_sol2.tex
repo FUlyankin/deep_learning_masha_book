@@ -1,64 +1,30 @@
-\documentclass[class=minimal,border=10pt]{standalone}
-
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}  
-\mathtoolsset{showonlyrefs=true}  % Показывать номера только у тех формул, на которые есть \eqref{} в тексте.
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-\usepackage[utf8]{inputenc}          % utf8 кодировка
-
-% Основные шрифты 
-% \usepackage{fontspec}         
-% \setmainfont{Linux Libertine O}  % задаёт основной шрифт документа
-
-% Математические шрифты 
-\usepackage{unicode-math}     
-\setmathfont[math-style=upright]{[Neo Euler.otf]} 
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-% мои цвета https://www.artlebedev.ru/colors/
-\definecolor{titleblue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{blue}{rgb}{0.2,0.4,0.6} 
-% \definecolor{red}{rgb}{1,0,0.2} 
-% \definecolor{green}{rgb}{0,0.6,0} 
-\definecolor{purp}{rgb}{0.4,0,0.8} 
-
-\definecolor{blue}{RGB}{0,114,178}
-\definecolor{red}{RGB}{213,94,0}
-\definecolor{yellow}{RGB}{240,228,66}
-\definecolor{green}{RGB}{0,128, 0}
-
-\definecolor{amethyst}{rgb}{0.6, 0.4, 0.8}
-\definecolor{junglegreen}{rgb}{0.16, 0.67, 0.53}
-
-
-% цвета из geogebra 
-\definecolor{litebrown}{rgb}{0.6,0.2,0}
-\definecolor{darkbrown}{rgb}{0.75,0.75,0.75}
-
-\usetikzlibrary{calc,shapes,positioning}
-
+\documentclass[border=10pt]{standalone}
+\input{../dlbook_style}
 \begin{document}
-    \begin{tikzpicture}
-        \draw node at (0, 0) (input) {$x$};
-        \draw node at (2, 0) (h1) {$h_1$};
-        \draw node at (4, 0) (o1) {$o_1$};
-        \draw node at (6, 0) (h2) {$h_2$};
-        \draw node at (8, 0) (o2) {$o_2$};
-        \draw node at (10, 0) (output) {$\hat{y} $};
-        \draw node at (12, 0) (mse) {$MSE$};
-        
-        \draw [->, dashed]   (h1)  -- (input) node[pos=.49, above] {$\frac{\partial h_1}{\partial x}$} ;
-        \draw [->, dashed]   (o1) -- (h1) node[pos=.49, above] {$\frac{\partial o_1}{\partial h_1}$} ;
-        \draw [->, dashed]   (h2) -- (o1) node[pos=.49, above] {$\frac{\partial h_2}{\partial o_1}$} ;
-        \draw [->, dashed]   (o2) -- (h2) node[pos=.49, above] {$\frac{\partial o_2}{\partial h_2}$} ;
-        \draw [->, dashed]   (output) -- (o2)node[pos=.49, above] {$\frac{\partial \hat{y}}{\partial o_2}$} ;
-        \draw [->, dashed]  (mse) -- (output) node[pos=.49, above] {$\frac{\partial L}{\partial \hat{y}} $} ;   
-        
-        \draw [->, dashed]  (9, -0.05) -- (9, -1.2)  node[pos=.49, right] {$\frac{\partial \hat{y}}{\partial w_3} = o_2$} ;
-        \draw [->, dashed]  (5, -0.05) -- (5, -1.2)  node[pos=.49, right] {$\frac{\partial h_2}{\partial w_2} = o_1$} ;
-        \draw [->, dashed]  (1, -0.05) -- (1, -1.2)  node[pos=.49, right] {$\frac{\partial h_1}{\partial w_1} = x$} ;
-    \end{tikzpicture}
+\begin{tikzpicture}
+  \tikzset{
+    op/.style={opnode, minimum width=14mm, minimum height=11mm, inner ysep=2pt},
+    back/.style={edge, red, dash pattern=on 5pt off 3.5pt},
+    dl/.style={wl, text=red},
+  }
+  \def\dx{3.2}
+  \node[op] (input) at (0*\dx, 0) {$x$};
+  \node[op] (h1) at (1*\dx, 0) {$h_1$};
+  \node[op] (o1) at (2*\dx, 0) {$o_1$};
+  \node[op] (h2) at (3*\dx, 0) {$h_2$};
+  \node[op] (o2) at (4*\dx, 0) {$o_2$};
+  \node[op] (output) at (5*\dx, 0) {$\hat y$};
+  \node[op] (mse) at (6*\dx, 0) {$MSE$};
+
+  \draw[back] (h1) -- node[dl, above=3pt] {$\dfrac{\partial h_1}{\partial x}$} (input);
+  \draw[back] (o1) -- node[dl, above=3pt] {$\dfrac{\partial o_1}{\partial h_1}$} (h1);
+  \draw[back] (h2) -- node[dl, above=3pt] {$\dfrac{\partial h_2}{\partial o_1}$} (o1);
+  \draw[back] (o2) -- node[dl, above=3pt] {$\dfrac{\partial o_2}{\partial h_2}$} (h2);
+  \draw[back] (output) -- node[dl, above=3pt] {$\dfrac{\partial \hat y}{\partial o_2}$} (o2);
+  \draw[back] (mse) -- node[dl, above=3pt] {$\dfrac{\partial L}{\partial \hat y}$} (output);
+
+  \draw[back] (0.5*\dx, 0) -- node[dl, right=4pt] {$\dfrac{\partial h_1}{\partial w_1} = x$} (0.5*\dx, -2.2);
+  \draw[back] (2.5*\dx, 0) -- node[dl, right=4pt] {$\dfrac{\partial h_2}{\partial w_2} = o_1$} (2.5*\dx, -2.2);
+  \draw[back] (4.5*\dx, 0) -- node[dl, right=4pt] {$\dfrac{\partial \hat y}{\partial w_3} = o_2$} (4.5*\dx, -2.2);
+\end{tikzpicture}
 \end{document}

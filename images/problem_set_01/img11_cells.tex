@@ -1,87 +1,36 @@
 \documentclass[border=10pt]{standalone}
+\input{../dlbook_style}
+\newcommand{\cellsaxis}[1]{%
+\begin{axis}[dlaxis, axis on top, at={(#1,0cm)}, anchor=origin,
+    x=1cm, y=1cm, xmin=-0.3, xmax=5.3, ymin=-0.3, ymax=4.3,
+    xtick=\empty, ytick=\empty, xlabel={$x_1$}, ylabel={$x_2$}]
+\addplot[cls1] coordinates {(2.2,2.2) (2.9,1.7) (2.4,2.7) (3.3,2.3) (1.7,1.9)};
+\addplot[cls0] coordinates {(0.6,0.5) (0.5,3.4) (4.4,0.6) (4.5,3.4) (2.4,0.4)
+    (0.4,1.9) (4.6,1.9) (2.6,3.7) (1.1,2.9) (3.9,1.1)};
+\end{axis}}
+\begin{document}
+\begin{tikzpicture}
+\draw[curve, rotate around={20:(2.5,2.1)}] (2.5,2.1) ellipse (1.3 and 0.85);
+\cellsaxis{0cm}
 
-% пакеты для математики
-\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
-
-\usepackage[british,russian]{babel} % выбор языка для документа
-
-% Математические шрифты
-\usepackage{unicode-math}
-\setmathfont[math-style=upright]{[Neo Euler.otf]}
-
-\usepackage{tikz}
-\usepackage{xcolor}
-
-\definecolor{blue}{RGB}{0,114,178}
-\definecolor{red}{RGB}{213,94,0}
-
-\usetikzlibrary{calc,shapes,positioning}
-
-% рисование крестов
-% https://tex.stackexchange.com/questions/123760/draw-crosses-in-tikz
-\tikzset{
-    cross/.pic = {
-    \draw[line width=2.pt, rotate = 45] (-#1,0) -- (#1,0);
-    \draw[line width=2.pt, rotate = 45] (0,-#1) -- (0, #1);
+\begin{scope}[xshift=6.6cm]
+\foreach \i in {0,...,19}{
+    \foreach \j in {0,...,15}{
+        \pgfmathsetmacro\cx{\i*0.25+0.125}
+        \pgfmathsetmacro\cy{\j*0.25+0.125}
+        \pgfmathsetmacro\dx{\cx-2.5}
+        \pgfmathsetmacro\dy{\cy-2.1}
+        \pgfmathsetmacro\u{\dx*cos(20)+\dy*sin(20)}
+        \pgfmathsetmacro\v{-\dx*sin(20)+\dy*cos(20)}
+        \pgfmathsetmacro\inside{((\u/1.3)^2+(\v/0.85)^2) < 1 ? 1 : 0}
+        \ifdim \inside pt > 0pt
+            \fill[fillred, fill opacity=0.7] (\i*0.25,\j*0.25) rectangle (\i*0.25+0.25,\j*0.25+0.25);
+        \fi
     }
 }
-
-% точки обоих классов, чтобы панели совпадали
-\newcommand{\classpoints}{
-    \path (2.2,2.2) pic[red] {cross=4pt};
-    \path (2.9,1.7) pic[red] {cross=4pt};
-    \path (2.4,2.7) pic[red] {cross=4pt};
-    \path (3.3,2.3) pic[red] {cross=4pt};
-    \path (1.7,1.9) pic[red] {cross=4pt};
-    \draw [fill=blue] (0.6,0.5) circle (4pt);
-    \draw [fill=blue] (0.5,3.4) circle (4pt);
-    \draw [fill=blue] (4.4,0.6) circle (4pt);
-    \draw [fill=blue] (4.5,3.4) circle (4pt);
-    \draw [fill=blue] (2.4,0.4) circle (4pt);
-    \draw [fill=blue] (0.4,1.9) circle (4pt);
-    \draw [fill=blue] (4.6,1.9) circle (4pt);
-    \draw [fill=blue] (2.6,3.7) circle (4pt);
-    \draw [fill=blue] (1.1,2.9) circle (4pt);
-    \draw [fill=blue] (3.9,1.1) circle (4pt);
-}
-
-\begin{document}
-    \begin{minipage}{0.47\linewidth}
-    \begin{center}
-        \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
-        \draw [->, line width=1.pt] (-0.3,0) -- (5.3,0) node[below] {\small $x_1$};
-        \draw [->, line width=1.pt] (0,-0.3) -- (0,4.3) node[left] {\small $x_2$};
-        \draw [line width=1.5pt, rotate around={20:(2.5,2.1)}] (2.5,2.1) ellipse (1.3 and 0.85);
-        \classpoints
-        \end{tikzpicture}
-    \end{center}
-    \end{minipage}
-    \hfill
-    \begin{minipage}{0.47\linewidth}
-    \begin{center}
-        \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
-        % клетки, центр которых попал внутрь границы
-        \foreach \i in {0,...,19}{
-            \foreach \j in {0,...,15}{
-                \pgfmathsetmacro\cx{\i*0.25+0.125}
-                \pgfmathsetmacro\cy{\j*0.25+0.125}
-                \pgfmathsetmacro\dx{\cx-2.5}
-                \pgfmathsetmacro\dy{\cy-2.1}
-                \pgfmathsetmacro\u{\dx*cos(20)+\dy*sin(20)}
-                \pgfmathsetmacro\v{-\dx*sin(20)+\dy*cos(20)}
-                \pgfmathsetmacro\inside{((\u/1.3)^2+(\v/0.85)^2) < 1 ? 1 : 0}
-                \ifdim \inside pt > 0pt
-                    \draw [fill=red!25, draw=none] (\i*0.25,\j*0.25) rectangle (\i*0.25+0.25,\j*0.25+0.25);
-                \fi
-            }
-        }
-        % миллиметровка
-        \draw [black!30, line width=0.4pt, step=0.25] (0,0) grid (5,4);
-        \draw [->, line width=1.pt] (-0.3,0) -- (5.3,0) node[below] {\small $x_1$};
-        \draw [->, line width=1.pt] (0,-0.3) -- (0,4.3) node[left] {\small $x_2$};
-        \draw [line width=1.pt, dash pattern=on 3pt off 3pt, rotate around={20:(2.5,2.1)}] (2.5,2.1) ellipse (1.3 and 0.85);
-        \classpoints
-        \end{tikzpicture}
-    \end{center}
-    \end{minipage}
+\draw[grey, line width=0.4pt, step=0.25] (0,0) grid (5,4);
+\draw[black, line width=1.6pt, dashed, rotate around={20:(2.5,2.1)}] (2.5,2.1) ellipse (1.3 and 0.85);
+\end{scope}
+\cellsaxis{6.6cm}
+\end{tikzpicture}
 \end{document}
