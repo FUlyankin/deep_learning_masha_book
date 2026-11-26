@@ -41,26 +41,33 @@
 \usetikzlibrary{calc,shapes,positioning}
 
 \begin{document}
-	\begin{tikzpicture}[line cap=round,line join=round]
-		\draw [line width=1.pt] (-3.5, 0.5) circle (0.5cm) node {$x$};
-		\draw [line width=1.pt] (0.5, 3.2) circle (0.5cm) node {$1$};
-		\draw [line width=1.pt] (0.5, -2.2) circle (0.5cm) node {$1$};
-
+	\begin{tikzpicture}
+		\draw [line width=1.pt] (-3.6, 1.5) circle (0.5cm) node {$x$};
+		\draw [line width=1.pt] (-3.6, -0.5) circle (0.5cm) node {$1$};
+			
 		\draw [line width=1.pt] (-1,1)--(2,1)--(2,2)--(-1,2)--cycle;
-		\draw (0.5, 1.5) node {$[x < a_i + h]$};
+		\draw (-0.3, 1.5) node[right] {$[x < a_i]$};
 
 		\draw [line width=1.pt] (-1,-1)--(2,-1)--(2,0)--(-1,0)--cycle;
-		\draw (0.5, -0.5) node {$[x < a_i]$};
+		\draw (-0.8, -0.5) node[right] {$[x > a_i + h]$};
 
-		\draw [line width=1.pt] (-3,0.5) -- (-1,1.5) node[pos=0.5,above left] {$-1$};
-		\draw [line width=1.pt] (-3,0.5) -- (-1,-0.5) node[pos=0.5,below left] {$-1$};
-		\draw [line width=1.pt] (0.5,2.7) -- (0.5,2) node[pos=0.5,right] {$a_i + h$};
-		\draw [line width=1.pt] (0.5,-1.7) -- (0.5,-1) node[pos=0.5,right] {$a_i$};
+		\draw [line width=1.pt] (-3.1,1.5) -- (-1,1.5) node[pos=0.5, above] {$-1$};
+		\draw [line width=1.pt] (-3.1,1.5) -- (-1,-0.5) node[pos=0.2, right, xshift=2pt] {$1$};
+		\draw [line width=1.pt] (-3.1,-0.5) -- (-1,1.5) node[pos=0.2, right, xshift=2pt] {$a_i$};
+		\draw [line width=1.pt] (-3.1,-0.5) -- (-1,-0.5) node[pos=0.5, below] {$-(a_i + h)$};
 
-		\draw [line width=1.pt] (2,1.5) -- (3.6,0.68) node[pos=0.5,above right] {$b_i$};
-		\draw [line width=1.pt] (2,-0.5) -- (3.6,0.32) node[pos=0.5,below right] {$-b_i$};
-		\draw [line width=1.pt] (3.85,0.5) circle (0.35cm) node {$+$};
+		\draw [line width=1.pt] (3,0)--(5,0)--(5,1)--(3,1)--cycle;
+		\draw [line width=1.pt] (3.3,0.2)--(4,0.2)--(4,0.8)--(4.7,0.8);
+		\draw [line width=1.pt] (2,1.5) -- (3,0.5);
+		\draw (3, 1.5) node[left] {$-1$};
+		\draw [line width=1.pt] (2,-0.5) -- (3,0.5);
+		\draw (3, -0.5) node[left] {$-1$};
 
-		\draw [->] (4.2,0.5) -- (5.2,0.5) node[right] {$\hat y$};
+		\draw [line width=1.pt] (4, 2.5) circle (0.5cm) node {$1$};
+		\draw [line width=1.pt] (4,2) -- (4,1);
+		\draw (4, 1.5) node[right] {$1$};
+
+		\draw [->] (5,0.5) -- (6,0.5);
+		\draw (5.2, 0.8)  node[right] {$b_i$};
 	\end{tikzpicture}
 \end{document}
