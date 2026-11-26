@@ -50,37 +50,16 @@
 }
 
 \begin{document}
-    \begin{minipage}{0.45\linewidth}
-    \begin{center}
         \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
         
-        \draw [->, line width=1.pt] (-0.3,0) --(3.5,0) node[below] {\small $x_1$}; 
-        \draw [->, line width=1.pt] (0,-0.3) --(0,3.5) node[left] {\small $x_2$}; 
+        \draw [->, line width=1.pt] (-0.3,0) --(3.5,0) node[below] {$x_1$}; 
+        \draw [->, line width=1.pt] (0,-0.3) --(0,3.5) node[left] {$x_2$}; 
         
         \draw [fill=blue] (0,0) circle (4pt);
         \path (0,2) pic[red] {cross=4pt};
         \path (2,0) pic[red] {cross=4pt};
         \draw [fill=blue] (2,2) circle (4pt);
-        \draw [line width=2.pt,dash pattern=on 3pt off 3pt] (-0.4,1.6)-- (1.6,-0.4);
-        \draw [line width=1.pt] (-0.4,3.2)-- (3.2,-0.4);
+        \draw [line width=2.pt,dash pattern=on 3pt off 3pt] (-0.4,1.4)-- (1.4,-0.4) node[right] {$x_1 \cup x_2$};
+        \draw [line width=1.pt] (3.2,-0.2)-- (0.1,2.9) node[right] {$x_1 \cap x_2$};
         \end{tikzpicture}
-    \end{center}
-    \end{minipage}
-    \hfill 
-    \begin{minipage}{0.45\linewidth}
-    \begin{center}
-        \begin{tikzpicture}[line cap=round,line join=round,x=1.0cm,y=1.0cm]
-        
-        \draw [->, line width=1.pt] (-0.3,0) --(3.5,0) node[below] {\small $x_1$}; 
-        \draw [->, line width=1.pt] (0,-0.3) --(0,3.5) node[left] {\small $x_2$}; 
-        
-        \draw [fill=blue] (0,0) circle (4pt);
-        \path (0,2) pic[red] {cross=4pt};
-        \path (2,0) pic[red] {cross=4pt};
-        \draw [fill=blue] (2,2) circle (4pt);
-        \draw [line width=2.pt,dash pattern=on 3pt off 3pt] (-0.3,1)-- (2.7,1);
-        \draw [line width=1.pt] (1,-0.3)-- (1,2.7);
-        \end{tikzpicture}
-    \end{center}
-    \end{minipage}
 \end{document}
