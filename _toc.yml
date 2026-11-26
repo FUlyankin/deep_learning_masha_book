@@ -26,6 +26,7 @@ chapters:
   - file: problem_set_02_gradient/problem_04
   - file: problem_set_02_gradient/problem_05
   - file: problem_set_02_gradient/problem_06
+  - file: problem_set_02_gradient/problem_07
 - file: problem_set_03_backprop/intro_03
   sections:
   - file: problem_set_03_backprop/problem_01
@@ -82,11 +83,7 @@ chapters:
   - file: problem_set_07_rnn/problem_06
   - file: problem_set_07_rnn/problem_07
 - file: problem_set_08_embeddings/intro_08
-  # sections:
-  # - file: problem_set_07_rnn/problem_01
 - file: problem_set_09_transformers/intro_09
-  # sections:
-  # - file: problem_set_07_rnn/problem_01
 - file: problem_set_10_matrix_diff/intro_10
   sections:
   - file: problem_set_10_matrix_diff/problem_01
