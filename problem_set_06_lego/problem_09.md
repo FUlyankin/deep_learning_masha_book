@@ -4,39 +4,47 @@
 
 __а)__ Миша решает задачу регрессии. Он предсказывает цены на недвижимость. На вход в нейросеть подаётся $39$ регрессоров. 
 
-	model = Sequential()
-	model.add(InputLayer([39])
-	model.add(BatchNormalization())
-	model.add(Dense(128, kernel_initializer=keras.initializers.zeros()))
-	model.add(Dense(1))
-	model.compile(optimizer='sgd', loss='mean_squared_error')
+```python
+import torch
+from torch import nn
 
+model = nn.Sequential(
+    nn.BatchNorm1d(39),
+    nn.Linear(39, 128),
+    nn.Linear(128, 1),
+)
+nn.init.zeros_(model[1].weight)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+loss_fn = nn.MSELoss()
+```
 
 ```{dropdown} Решение
-- Инициализация нулями -- зло, веса будут обновляться на одинаковые величины, а мы хотим сделать нейроны непохожими друг на друга.
+- Инициализация нулями -- зло, веса будут обновляться пропорционально друг другу, а мы хотим сделать нейроны непохожими друг на друга.
 - В качестве базового оптимизатора хорошо бы выбрать Adam, это бесплатно и ускоряет сходимость сетки.
 - В нормализации по батчам в самом начале нет ничего плохого, она работает как StandardScaler.
 - Переход от 128 нейронов к 1 слишком резкий, хочется идти более плавно, хотя бы по степени двойки.
-- Возможно, что у линейных слоёв нет функции активации, обычно ReLU стоит как её дефолтное значение, но лучше это лишний раз проверить.
+- У линейных слоёв нет функции активации, сам по себе `nn.Linear` её не применяет.
 
 ```
 
 __б)__ Миша решает задачу классификации картинок размера $28 \times 28$ на $10$ классов. Каждое изображение принадлежит только к одному классу.
 
-	model = Sequential()
-	model.add(InputLayer([28, 28, 1]))
-	model.add(Conv2D(filters=512, kernel_size=(10, 10)))
-	model.add(Activation('relu'))
-	model.add(MaxPool2D(pool_size=(2, 2)))
-	model.add(Flatten())
-	model.add(Dense(100))
-	model.add(Activation('softmax'))
-	model.add(Dropout(0.1))
-	model.add(Dense(10))
-	model.add(Activation('softmax'))
-	model.add(Dropout(0.1))
-	model.compile(optimizer='rmsprop', loss='mean_squared_error')
-
+```python
+model = nn.Sequential(
+    nn.Conv2d(1, 512, kernel_size=10),
+    nn.ReLU(),
+    nn.MaxPool2d(2),
+    nn.Flatten(),
+    nn.Linear(512 * 9 * 9, 100),
+    nn.Softmax(dim=1),
+    nn.Dropout(0.1),
+    nn.Linear(100, 10),
+    nn.Softmax(dim=1),
+    nn.Dropout(0.1),
+)
+optimizer = torch.optim.RMSprop(model.parameters())
+loss_fn = nn.MSELoss()
+```
 
 ```{dropdown} Решение
 - Первый слой из 512 фильтров довольно бесполезен. Мы поначалу ищем простые паттерны, и для их поиска должно хватать меньшего числа фильтров. Есть смысл делать более большое число фильтров ближе к концу свёрточной сетки.
@@ -48,19 +56,28 @@ __б)__ Миша решает задачу классификации карти
 
 __в)__ Решается задача классификации картинок размера  $100 \times 100$ на $10$ классов. Каждое изображение принадлежит только к одному классу.
 
-	model = Sequential()
-	model.add(InputLayer([100, 100, 3]))
-	for filters in [32, 64, 128, 256]:
-		model.add(Conv2D(filters, kernel_size=(5, 5)))
-		model.add(Conv2D(filters, kernel_size=(1, 1)))
-		model.add(MaxPooling2D(pool_size=(3, 3)))
-		model.add(Activation('relu'))
-		model.add(BatchNormalization())
-	model.add(Flatten())
-	model.add(Dense(100, activation='relu'))
-	model.add(Dropout(0.5))
-	model.add(Dense(10, activation='softmax'))
-	model.compile(optimizer='adam', loss='sparse_categorical_accuracy')
+```python
+layers, in_channels = [], 3
+for filters in [32, 64, 128, 256]:
+    layers += [
+        nn.Conv2d(in_channels, filters, kernel_size=5),
+        nn.Conv2d(filters, filters, kernel_size=1),
+        nn.MaxPool2d(3),
+        nn.ReLU(),
+        nn.BatchNorm2d(filters),
+    ]
+    in_channels = filters
+model = nn.Sequential(
+    *layers,
+    nn.Flatten(),
+    nn.LazyLinear(100),
+    nn.ReLU(),
+    nn.Dropout(0.5),
+    nn.Linear(100, 10),
+)
+optimizer = torch.optim.Adam(model.parameters())
+loss_fn = nn.CrossEntropyLoss()
+```
 
 ```{dropdown} Решение
 Эта сетка не соберётся, потому что у свёрток нет дополнения (padding). У картинки не хватит пикселей, и мы получим на выходе ошибку. 
@@ -70,27 +87,30 @@ __в)__ Решается задача классификации картино�
 
 __г)__ Миша решает задачу классификации RGB-изображения  размера $100 \times 100$ на $10$ классов. Каждое изображение принадлежит только к одному классу.
 
-	model = Sequential() 
-    model.add(InputLayer([100, 100, 3]))
-        
-    model.add(Conv2D(filters=512, kernel_size=(3, 3), kernel_initializer="glorot_uniform")) 
-    model.add(Activation('relu'))
-    model.add(MaxPool2D(pool_size=(2, 2)))
-        
-    model.add(Conv2D(filters=128, kernel_size=(3, 3), kernel_initializer="glorot_uniform")) 
-    model.add(Activation('relu'))
-        
-    model.add(Conv2D(filters=32, kernel_size=(3, 3), kernel_initializer="glorot_uniform"))
-    model.add(Conv2D(filters=32, kernel_size=(1, 1), kernel_initializer="glorot_uniform"))
-    model.add(MaxPool2D(pool_size=(10, 10)))
-        
-    model.add(Flatten())
-    model.add(Dense(64))
-    model.add(Dropout(rate=1))
-    model.add(Dense(10))
-    model.add(Activation('sigmoid'))
-    model.add(Dropout(rate=0.5))
+```python
+model = nn.Sequential(
+    nn.Conv2d(3, 512, kernel_size=3),
+    nn.ReLU(),
+    nn.MaxPool2d(2),
 
+    nn.Conv2d(512, 128, kernel_size=3),
+    nn.ReLU(),
+
+    nn.Conv2d(128, 32, kernel_size=3),
+    nn.Conv2d(32, 32, kernel_size=1),
+    nn.MaxPool2d(10),
+
+    nn.Flatten(),
+    nn.Linear(32 * 4 * 4, 64),
+    nn.Dropout(p=1),
+    nn.Linear(64, 10),
+    nn.Sigmoid(),
+    nn.Dropout(p=0.5),
+)
+for layer in model.modules():
+    if isinstance(layer, nn.Conv2d):
+        nn.init.xavier_uniform_(layer.weight)
+```
 
 ```{dropdown} Решение
 
@@ -99,11 +119,11 @@ __г)__ Миша решает задачу классификации RGB-изо
 - 512 фильтров размера 3x3 в первом слое -- очень много. Как правило, для квадрата 3x3 пикселя кодируются 32-64 фильтров.
 - Уменьшение числа фильтров вглубь по сети -- не очень эффективно, сеть "теряет capacity" -- последующие слои могут не уместить всю полезную информацию из предыдущих. Лучше начать с малого и увеличивать.
 - Пулинг 10x10 -- огромный размер, изображение станет меньше размера фильтра. Да и в целом это неэффективно.
-- Неправильная инициализация для релу, нужна инициализация Хе.
+- Неправильная инициализация для релу (`xavier_uniform_`), нужна инициализация Хе (`kaiming_uniform_`).
 - Свёртка 1x1 -- вообще она имеет смысл, но в коде перед ней нет нелинейности, поэтому это лишнее линейное преобразование.
 - Дропаут на вероятности в самом конце - сломает функцию потерь и будет мешать обучаться хоть чему-то.
 - Дропаут равный единице в середине убьёт сетку.
-- Нет активации между линейными слоями (обычно она в дефолтных параметрах, но тем не менее).
+- Нет активации между линейными слоями (сами по себе `nn.Linear` и `nn.Conv2d` её не применяют).
 - Не ошибка, но можно несколько оптимизировать вычисления, если переставить ReLU после Max Pooling, а результат будет эквивалентный.
 - На последнем слое должен быть softmax, так как мы работаем с 10 классами.
 ```

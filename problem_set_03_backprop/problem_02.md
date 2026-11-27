@@ -32,9 +32,9 @@ $$
 
 \begin{equation*}
     \begin{aligned} 
-        & \frac{\partial L}{\partial w_3} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_3} =  (y - \hat{y})  \cdot f(f(x\cdot w_1) \cdot w_2) \\
-        & \frac{\partial L}{\partial w_2} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_2} =  (y - \hat{y}) \cdot  w_3 \cdot f'(f(x\cdot w_1) \cdot w_2) \cdot f(x\cdot w_1) \\
-        & \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_1} =  (y - \hat{y})  \cdot  w_3 \cdot f'(f(x\cdot w_1) \cdot w_2) \cdot w_2 \cdot  f'(x\cdot w_1) \cdot x \\
+        & \frac{\partial L}{\partial w_3} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_3} =  (\hat{y} - y)  \cdot f(f(x\cdot w_1) \cdot w_2) \\
+        & \frac{\partial L}{\partial w_2} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_2} =  (\hat{y} - y) \cdot  w_3 \cdot f'(f(x\cdot w_1) \cdot w_2) \cdot f(x\cdot w_1) \\
+        & \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_1} =  (\hat{y} - y)  \cdot  w_3 \cdot f'(f(x\cdot w_1) \cdot w_2) \cdot w_2 \cdot  f'(x\cdot w_1) \cdot x \\
     \end{aligned} 
 \end{equation*}
 ```
@@ -46,9 +46,9 @@ __в)__ В производных повторяются одни и те же �
 
 \begin{equation*}
     \begin{aligned} 
-    & \frac{\partial L}{\partial w_3} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_3} = \boxed{ (y - \hat{y}) } \cdot f(f(x\cdot w_1) \cdot w_2) \\
-    & \frac{\partial L}{\partial w_2} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_2} = \boxed{ (y - \hat{y})} \cdot \boxed{ w_3 \cdot f'(f(x\cdot w_1) \cdot w_2)} \cdot f(x\cdot w_1) \\
-    & \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_1} = \boxed{ (y - \hat{y}) } \cdot \boxed{ w_3 \cdot f'(f(x\cdot w_1) \cdot w_2)} \cdot w_2 \cdot  f'(x\cdot w_1) \cdot x \\
+    & \frac{\partial L}{\partial w_3} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_3} = \boxed{ (\hat{y} - y) } \cdot f(f(x\cdot w_1) \cdot w_2) \\
+    & \frac{\partial L}{\partial w_2} =  \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_2} = \boxed{ (\hat{y} - y)} \cdot \boxed{ w_3 \cdot f'(f(x\cdot w_1) \cdot w_2)} \cdot f(x\cdot w_1) \\
+    & \frac{\partial L}{\partial w_1} = \frac{\partial L}{\partial \hat y} \cdot \frac{\partial \hat y}{\partial w_1} = \boxed{ (\hat{y} - y) } \cdot \boxed{ w_3 \cdot f'(f(x\cdot w_1) \cdot w_2)} \cdot w_2 \cdot  f'(x\cdot w_1) \cdot x \\
     \end{aligned} 
 \end{equation*}
 
@@ -62,7 +62,7 @@ __в)__ В производных повторяются одни и те же �
     \end{aligned} 
 \end{equation*}
 
-Проблема в том, что такой подход из-за постоянных перевычислений будет работать долго, за $O(m^2)$, где $m$ -- глубина нейронной сетки. Алгоритм обратного распространения ошибки помогает более аккуратно считать производную и ускорить обучение нейросетей. 
+Проблема в том, что такой подход из-за постоянных перевычислений будет работать долго, за $O(m^2)$, где $m$ --- глубина нейронной сетки. Алгоритм обратного распространения ошибки помогает более аккуратно считать производную и ускорить обучение нейросетей. 
 ```
 
 __г)__ Выпишите все производные в том виде, в котором их было бы удобно использовать для алгоритма обратного распространения ошибки, а затем сформулируйте сам алгоритм. Нарисуйте под него удобную схемку.
@@ -150,5 +150,5 @@ $$
 	\end{aligned}
 \end{equation*}
 
-Если бы нейросетка была бы глубже, мы смогли бы переиспользовать $d$ на следующих слоях. Каждую производную мы нашли ровно один раз. **Это и есть алгоритм обратного распространения ошибки.** Одна его итерация отрабатывает за $O(m),$ где $m$ -- глубина нейронной сетки. В случае матриц происходит всё ровно то же самое, но дополнительно надо проследить за всеми размерностями и более аккуратно перемножить матрицы.
+Если бы нейросетка была бы глубже, мы смогли бы переиспользовать $d$ на следующих слоях. Каждую производную мы нашли ровно один раз. **Это и есть алгоритм обратного распространения ошибки.** Одна его итерация отрабатывает за $O(m),$ где $m$ --- глубина нейронной сетки. В случае матриц происходит всё ровно то же самое, но дополнительно надо проследить за всеми размерностями и более аккуратно перемножить матрицы.
 ```

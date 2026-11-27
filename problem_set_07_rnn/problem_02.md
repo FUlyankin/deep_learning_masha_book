@@ -1,12 +1,12 @@
 # 2. Туда и обратно 
 
-Маша хочет сделать шаг обратного распространения ошибки через рекуррентную ячейку для последовательности $y_0 = 0, y_1=1, y_2 = -1, y_3 =2$. Скрытое состояние инициализировано как $h_0 = 0$. Все веса инициализированы как $0.5$. Во всех уравнениях, описывающих ячейку, нет констант. В качестве функций активации Маша использует $ReLU$. В качестве функции потерь Маша использует $MSE$. 
+Маша хочет сделать шаг обратного распространения ошибки через рекуррентную ячейку для последовательности $y_0 = 0, y_1=1, y_2 = -1, y_3 =2$. Скрытое состояние инициализировано как $h_0 = 0$. Все веса инициализированы как $0.5$. Во всех уравнениях, описывающих ячейку, нет констант. В качестве функций активации Маша использует $ReLU$. В качестве функции потерь Маша использует сумму квадратов ошибок. 
 
 
 ```{figure} ../images/problem_set_07/img02_rnn.png
 ---
 width: 25%
-name: rnn
+name: rnn-neuron-numbers
 ---
 ```
 
@@ -19,7 +19,7 @@ __а)__ Сделайте прямой шаг через ячейку. Для к�
 
 <img src="../images/problem_set_07/img02_rnn_flatten.png" alt="dobronet_forward" width="50%" align="center">
 
-Когда мы строим прогнозы, мы движемся слева направо и сверху вниз. Чтобы сделать прямой шаг, нам нужно подставить соответствующие значения в формулы пересчёта
+Когда мы строим прогнозы, мы движемся слева направо и снизу вверх. Чтобы сделать прямой шаг, нам нужно подставить соответствующие значения в формулы пересчёта
 
 \begin{equation*} 
 	\begin{aligned}
@@ -32,15 +32,15 @@ __а)__ Сделайте прямой шаг через ячейку. Для к�
 
 |  $t$       |    $0$    |    $1$    |    $2$    |    $3$    |
 |:----------:|:---------:|:---------:|:---------:|:---------:|
-|  $h_t$     |    $0$    |    $0$    |    $0.5$  |  $0.375$  |
-| $\hat y_t$ |     -     |    $0$    | $0.25$    |  $0.1875$ |
+|  $h_t$     |    $0$    |    $0$    |    $0.5$  |    $0$    |
+| $\hat y_t$ |     -     |    $0$    | $0.25$    |    $0$    |
 |  $y_t$     |    $0$    |    $1$    |    $-1$   |    $2$    |
-|  $L_t$     |     -     |    $1$    |  $1.5625$ |  $3.285$  |
+|  $L_t$     |     -     |    $1$    |  $1.5625$ |    $4$    |
 
 Получаем итоговое значение ошибки нашего нейрона на всей последовательности
 
 $$
-L = L_1 + L_2 + L_3 = 1 + 1.5625 + 3.285 = 5.8475.
+L = L_1 + L_2 + L_3 = 1 + 1.5625 + 4 = 6.5625.
 $$
 
 Именно его нам надо будет уменьшать в ходе обратного распространения ошибки. 
@@ -58,7 +58,7 @@ __б)__ Выпишите для рекуррентного нейрона про
 Это означает, что наша производная разваливается в сумму производных
 
 $$
-\frac{\partial L}{\partial u} = \sum_{t=0}^T \frac{\partial L_t}{\partial u}.
+\frac{\partial L}{\partial u} = \sum_{t=1}^T \frac{\partial L_t}{\partial u}.
 $$
 
 Посмотрим на одно слагаемое. 
@@ -115,7 +115,7 @@ $$
 Итоговая производная имеет вид 
 
 $$
-\frac{\partial L_t}{\partial w} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot \frac{\partial \hat{y}_t}{\partial h_t} \cdot \sum_{i=0}^t \left( \prod_{i=k+1}^t  \frac{\partial h_i}{\partial h_{i-1}} \right) \cdot  \frac{\partial h_k}{\partial w}.
+\frac{\partial L_t}{\partial w} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot \frac{\partial \hat{y}_t}{\partial h_t} \cdot \sum_{k=1}^t \left( \prod_{i=k+1}^t  \frac{\partial h_i}{\partial h_{i-1}} \right) \cdot  \frac{\partial h_k}{\partial w}.
 $$
 
 **Осталась заключительная производная по весу $v$** 
@@ -124,15 +124,15 @@ $$
 \frac{\partial L_t}{\partial v} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot \frac{\partial \hat{y}_t}{\partial h_t} \cdot \frac{\partial h_t}{\partial v}.
 $$
 
-В ходе взятия этой производной мы нигде не упираемся в $h_{t-1},$ поэтому назад во времени идти не нужно. Давайте подставим соответствующие части уравнений и получим ответ 
+В ходе взятия этой производной мы снова упираемся в $h_{t-1},$ поэтому назад во времени идти тоже нужно. Давайте подставим соответствующие части уравнений и получим ответ 
 
 $$
-\frac{\partial L_t}{\partial v} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot f'_y(\ldots) \cdot u \cdot f'_h(\ldots) \cdot y_{t-1}
+\frac{\partial L_t}{\partial v} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot f'_y(\ldots) \cdot u \cdot \sum_{k=1}^t \left( \prod_{i=k+1}^t  \frac{\partial h_i}{\partial h_{i-1}} \right) \cdot f'_h(\ldots) \cdot y_{k-1}
 $$
 
 ```
 
-__в)__ Сделайте шаг обратного распространения ошибки по весу $u$
+__в)__ Сделайте шаг обратного распространения ошибки по весу $u$ со скоростью обучения $\gamma = 0.1$
 
 
 ```{dropdown} Решение
@@ -148,20 +148,20 @@ $$
 	\begin{aligned}
 		& \frac{\partial L_1}{\partial u} = \frac{\partial L_1}{\partial \hat{y}} \cdot f'(\ldots) \cdot h_1 = -2 \cdot (1 - 0) \cdot 0 \cdot 0 = 0 \\
     	& \frac{\partial L_2}{\partial u} = \frac{\partial L_2}{\partial \hat{y}} \cdot f'(\ldots) \cdot h_2 = -2 \cdot (-1 - 0.25) \cdot 1 \cdot 0.5 = 1.25 \\
-    	& \frac{\partial L_3}{\partial u} = \frac{\partial L_3}{\partial \hat{y}} \cdot f'(\ldots) \cdot h_3 = -2 \cdot (2 - 0.1875) \cdot 1 \cdot 0.375 = -1.36.
+    	& \frac{\partial L_3}{\partial u} = \frac{\partial L_3}{\partial \hat{y}} \cdot f'(\ldots) \cdot h_3 = -2 \cdot (2 - 0) \cdot 0 \cdot 0 = 0.
 	\end{aligned}
 \end{equation*} 
 
 Получается, что 
 
 $$
-\frac{\partial L}{\partial U} = \frac{\partial L_1}{\partial U} + \frac{\partial L_2}{\partial U} + \frac{\partial L_3}{\partial U} = 0 + 1.25 - 1.36 = -0.11
+\frac{\partial L}{\partial u} = \frac{\partial L_1}{\partial u} + \frac{\partial L_2}{\partial u} + \frac{\partial L_3}{\partial u} = 0 + 1.25 + 0 = 1.25
 $$
 
 В итоге 
 
 $$
-u_1 = u_0 - \gamma \cdot  \frac{\partial L}{\partial u} = 0.5 - 0.1 \cdot (-0.11) = 0.511
+u_1 = u_0 - \gamma \cdot  \frac{\partial L}{\partial u} = 0.5 - 0.1 \cdot 1.25 = 0.375
 $$
 
 По весам $w$ и $v$ также можно сделать шаг обратного распространения ошибки, но расчёты будут более неприятными.
