@@ -7,7 +7,7 @@
 ```{figure} ../images/problem_set_06/img01_conv.png
 ---
 width: 700px
-name: regression
+name: conv-picture
 ---
 ```
 __а)__  Сделайте свёртку картинки без сдвигов и дополнений. К тому, что получилось, примените max pooling и average pooling размера $3 \times 3$.
@@ -51,7 +51,7 @@ $$
 **Avg pooling:**
 
 $$
-\frac{1}{9} \cdot (12 + 12 + 17 + 15 + 19 + 21 + 18 + 18 + 24) = 17.3
+\frac{1}{9} \cdot (12 + 12 + 17 + 15 + 19 + 21 + 18 + 18 + 24) \approx 17.33
 $$
 
 ```

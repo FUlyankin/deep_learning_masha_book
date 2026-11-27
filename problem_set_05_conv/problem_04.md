@@ -9,7 +9,7 @@ __а)__ В мире Маши на картинках могут быть нар�
 ```{figure} ../images/problem_set_06/img04_cross_zero.png
 ---
 width: 600px
-name: regression
+name: cross-zero
 ---
 ```
 

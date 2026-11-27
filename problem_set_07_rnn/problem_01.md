@@ -26,7 +26,7 @@ $$
 ```{figure} ../images/problem_set_07/img01_arima.png
 ---
 width: 15%
-name: rnn
+name: ar-neuron
 ---
 ```
 
@@ -35,7 +35,7 @@ name: rnn
 ```{figure} ../images/problem_set_07/img01_rnn.png
 ---
 width: 25%
-name: rnn
+name: rnn-neuron
 ---
 ```
 
@@ -48,7 +48,7 @@ name: rnn
 \begin{equation*} 
 	\begin{aligned}
 		& h_t = b_h + v \cdot y_{t-1} + w \cdot h_{t-1} \\
-		& y_t = b_y + u \cdot h_t.
+		& \hat{y}_t = b_y + u \cdot h_t.
 	\end{aligned}
 \end{equation*} 
 
@@ -61,7 +61,7 @@ name: rnn
 \begin{equation*} 
 	\begin{aligned}
 		& h_t = f_h(b_h + v \cdot y_{t-1} + w \cdot h_{t-1}) \\
-		& y_t = f_y(b_y + u \cdot h_t).
+		& \hat{y}_t = f_y(b_y + u \cdot h_t).
 	\end{aligned}
 \end{equation*} 
 
