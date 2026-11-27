@@ -1,0 +1,51 @@
+\documentclass[border=10pt]{standalone}
+\input{../dlbook_style}
+\begin{document}
+\begin{tikzpicture}[x={(1cm,0cm)}, y={(0.15cm,0.35cm)}, z={(0cm,1cm)}, line join=round]
+  \newcommand{\slab}[3]{%
+    \fill[fillgreen] (-#2,-#2,#1) -- (#2,-#2,#1) -- (#2,#2,#1) -- (-#2,#2,#1) -- cycle;
+    \foreach \t in {#3} {
+      \draw[black, line width=0.8pt] (\t,-#2,#1) -- (\t,#2,#1);
+      \draw[black, line width=0.8pt] (-#2,\t,#1) -- (#2,\t,#1);
+    }}
+  \newcommand{\win}[3]{%
+    \fill[fillred] (-#2,-#2,#1) -- (#2,-#2,#1) -- (#2,#2,#1) -- (-#2,#2,#1) -- cycle;
+    \foreach \t in {#3} {
+      \draw[black, line width=0.8pt] (\t,-#2,#1) -- (\t,#2,#1);
+      \draw[black, line width=0.8pt] (-#2,\t,#1) -- (#2,\t,#1);
+    }
+    \draw[red, line width=2.2pt] (-#2,-#2,#1) -- (#2,-#2,#1) -- (#2,#2,#1) -- (-#2,#2,#1) -- cycle;}
+
+  \slab{0}{2.5}{-1.5,-0.5,...,1.5}
+  \win{0}{1.5}{-0.5,0.5}
+  \foreach \s/\r in {1/1}
+    \draw[mBlueD, line width=1pt, dash pattern=on 4pt off 3pt] (2.5*\s,2.5*\r,0) -- (1.5*\s,1.5*\r,3.0);
+
+  \slab{3.0}{1.5}{-0.5,0.5}
+  \win{3.0}{0.5}{}
+  \draw[red, line width=1.4pt] (1.5,1.5,0) -- (0.5,0.5,3.0);
+  \draw[red, line width=1.4pt] (-1.5,-1.5,0) -- (-0.5,-0.5,3.0);
+  \draw[red, line width=1.4pt] (1.5,-1.5,0) -- (0.5,-0.5,3.0);
+  \foreach \s/\r in {-1/-1, 1/-1}
+    \draw[mBlueD, line width=1pt, dash pattern=on 4pt off 3pt] (2.5*\s,2.5*\r,0) -- (1.5*\s,1.5*\r,3.0);
+  \foreach \s/\r in {1/1}
+    \draw[mBlueD, line width=1pt, dash pattern=on 4pt off 3pt] (1.5*\s,1.5*\r,3.0) -- (0.5*\s,0.5*\r,5.4);
+
+  \filldraw[fill=fillblue, draw=blue, line width=2.2pt] (-0.5,-0.5,5.4) -- (0.5,-0.5,5.4) -- (0.5,0.5,5.4) -- (-0.5,0.5,5.4) -- cycle;
+  \foreach \s/\r in {-1/-1, 1/-1}
+    \draw[mBlueD, line width=1pt, dash pattern=on 4pt off 3pt] (1.5*\s,1.5*\r,3.0) -- (0.5*\s,0.5*\r,5.4);
+  \draw[blue, line width=2.2pt] (-1.5,-1.5,3.0) -- (1.5,-1.5,3.0) -- (1.5,1.5,3.0) -- (-1.5,1.5,3.0) -- cycle;
+  \draw[blue, line width=2.2pt] (-2.5,-2.5,0) -- (2.5,-2.5,0) -- (2.5,2.5,0) -- (-2.5,2.5,0) -- cycle;
+
+  \node[lbl, anchor=east] (c2) at (-3.6,0,5.4) {вторая свёртка $3 \times 3$};
+  \node[lbl, anchor=east] (c1) at (-3.6,0,3.0) {первая свёртка $3 \times 3$};
+  \node[lbl, anchor=east] (c0) at (-3.6,0,0) {картинка $5 \times 5$};
+  \draw[edge] (c2.east) -- (-0.7,0,5.4);
+  \draw[edge] (c1.east) -- (-1.7,0,3.0);
+  \draw[edge] (c0.east) -- (-2.7,0,0);
+  \node[lbl, anchor=west, blue] (f2) at (3.8,0,5.4) {поле обзора $5 \times 5$};
+  \node[lbl, anchor=west, red, align=left] (f1) at (3.8,0,3.0) {поле обзора $3 \times 3$\\(receptive field)};
+  \draw[edge, blue] (f2.west) -- (0.7,0,5.4);
+  \draw[edge, red] (f1.west) -- (1.7,0,3.0);
+\end{tikzpicture}
+\end{document}

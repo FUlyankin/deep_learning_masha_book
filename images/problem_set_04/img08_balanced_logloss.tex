@@ -1,0 +1,21 @@
+\documentclass[border=10pt]{standalone}
+\input{../dlbook_style}
+\begin{document}
+\begin{tikzpicture}
+  \begin{axis}[
+    dlaxis,
+    dlgrid,
+    axis x line=bottom, axis y line=left,
+    width=10cm, height=7cm,
+    ybar, bar width=1.6cm,
+    xmin=-0.6, xmax=1.6, ymin=0, ymax=0.9,
+    xtick={0,1}, ytick={0,0.25,0.5,0.75},
+    yticklabel style={/pgf/number format/fixed, /pgf/number format/precision=2},
+    xlabel={$y$}, ylabel={доля наблюдений},
+    every axis x label/.style={at={(axis cs:1.6,0)}, anchor=west, xshift=4pt, font=\large},
+    every axis y label/.style={at={(axis cs:-0.6,0.9)}, anchor=south west, font=\large},
+  ]
+    \addplot[draw=blue, fill=fillblue, line width=1.2pt] coordinates {(0,0.75) (1,0.25)};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
