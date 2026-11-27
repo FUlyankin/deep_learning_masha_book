@@ -1,0 +1,23 @@
+\documentclass[border=10pt]{standalone}
+\input{../dlbook_style}
+\begin{document}
+\begin{tikzpicture}[scale=1.25]
+  \fill[fillgreen, opacity=0.7] (0,0) rectangle (3.6,3.2);
+  \fill[fillgreen, opacity=0.7] (0,0) rectangle (-3.6,-3.2);
+  \node[green, font=\Large, align=center] at (1.8,1.6) {допустимые\\направления\\шага};
+  \node[green, font=\Large, align=center] at (-1.8,-1.6) {допустимые\\направления\\шага};
+  \draw[line width=1.2pt, -{Stealth[length=2.6mm]}] (-3.6,0) -- (3.9,0) node[right, font=\large] {$w_1$};
+  \draw[line width=1.2pt, -{Stealth[length=2.6mm]}] (0,-3.2) -- (0,3.5) node[above, font=\large] {$w_2$};
+  \draw[blue, line width=1.6pt, -{Stealth[length=3mm]}] (0,0) -- (3.2,-3.2);
+  \node[blue, font=\Large, align=left, anchor=north west] at (3.3,-2.6) {оптимальный\\вектор $w$};
+  \draw[red, line width=1.4pt, -{Stealth[length=2.2mm]}]
+    (0,0) -- ++(0.95,0.15);
+  \foreach \k in {0,...,3} {
+    \draw[red, line width=1.4pt, -{Stealth[length=2.2mm]}] (0.95+0.8*\k,0.15-0.8*\k) -- ++(-0.15,-0.95);
+    \ifnum\k<3
+      \draw[red, line width=1.4pt, -{Stealth[length=2.2mm]}] (0.8+0.8*\k,-0.8-0.8*\k) -- ++(0.95,0.15);
+    \fi
+  }
+  \node[red, font=\Large, anchor=west] at (1.95,-0.45) {зигзаг};
+\end{tikzpicture}
+\end{document}

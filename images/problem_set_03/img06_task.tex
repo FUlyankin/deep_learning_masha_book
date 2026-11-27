@@ -9,14 +9,14 @@
   \node[neuron] (x1) at (0, 0) {$x_1$};
   \node[neuron] (x2) at (0, -2.6) {$x_2$};
 
-  \node[block] (a1) at (3.8, 0) {$f(t)$};
-  \node[block] (a2) at (3.8, -2.6) {$f(t)$};
+  \node[block] (a1) at (3.8, 0) {$\sigma(t)$};
+  \node[block] (a2) at (3.8, -2.6) {$\sigma(t)$};
 
-  \node[block] (b1) at (7.8, 0) {$f(t)$};
-  \node[block] (b2) at (7.8, -2.6) {$f(t)$};
+  \node[block] (b1) at (7.8, 0) {$\sigma(t)$};
+  \node[block] (b2) at (7.8, -2.6) {$\sigma(t)$};
 
   \node[junction] (s) at (10.6, -1.3) {};
-  \node[lbl, font=\Large, anchor=west] (y) at (11.9, -1.3) {$y$};
+  \node[lbl, font=\Large, anchor=west] (y) at (11.9, -1.3) {$\hat y$};
 
   \draw[edge] (x1) -- node[wl, pos=0.5] {$w_{11}^1$} (a1.west);
   \draw[edge] (x2) -- node[wl, pos=0.5] {$w_{22}^1$} (a2.west);
