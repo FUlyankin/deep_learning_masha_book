@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -477,7 +479,7 @@ document.write(`
 \[
 \text{logloss} =  -(y_i \cdot \ln p_i + (1 - y_i) \cdot \ln (1 - p_i)).
 \]</div>
-<p>Под <span class="math notranslate nohighlight">\(p_i\)</span> имеется в виду <span class="math notranslate nohighlight">\(\mathbb{P}(y_i = 1 \mid x)\)</span>.</p>
+<p>Под <span class="math notranslate nohighlight">\(p_i\)</span> имеется в виду <span class="math notranslate nohighlight">\(\mathbb{P}(y_i = 1 \mid x_i)\)</span>.</p>
 <p><strong>а)</strong> Нарисуйте логистические потери для <span class="math notranslate nohighlight">\(y_i = 1\)</span> и <span class="math notranslate nohighlight">\(y_i = 0\)</span> на графике. По оси абсцисс отложите <span class="math notranslate nohighlight">\(p_i\)</span>, а по оси ординат значение функции потерь. Объясните, зачем от <span class="math notranslate nohighlight">\(p_i\)</span> нужно брать логарифм. Почему нельзя оптимизировать вместо logloss функцию</p>
 <div class="math notranslate nohighlight">
 \[
@@ -492,7 +494,7 @@ document.write(`
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Если <span class="math notranslate nohighlight">\(y_i = 1,\)</span> от нашей функции потерь останется только первое слагаемое, <span class="math notranslate nohighlight">\(-\ln p_i\)</span>. Если <span class="math notranslate nohighlight">\(y_i = 0\)</span>, останется только второе слагаемое, <span class="math notranslate nohighlight">\(-\ln (1 - p_i)\)</span>. Изобразим их на графике</p>
 <a class="reference internal image-reference" href="../_images/img02_logloss.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_logloss.png" style="width: 50%;" /></a>
-<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(y_i = 1,\)</span> мы хотим, чтобы <span class="math notranslate nohighlight">\(p_i = \mathbb{P}(y_i = 1 \mid x)\)</span> было как можно больше. Если <span class="math notranslate nohighlight">\(p_i\)</span> оказалось маленьким, штраф большой, если <span class="math notranslate nohighlight">\(p_i\)</span> оказалось большим, штраф будет маленьким. При этом чем ближе <span class="math notranslate nohighlight">\(p_i\)</span> к единице, тем меньше мы его хотим увеличить. Такую нелинейность штрафа нам даёт логарифм. При <span class="math notranslate nohighlight">\(y_i = 0\)</span> логика точно такая же, но уже с <span class="math notranslate nohighlight">\(\mathbb{P}(y_i = 0 \mid x)\)</span>.</p>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(y_i = 1,\)</span> мы хотим, чтобы <span class="math notranslate nohighlight">\(p_i = \mathbb{P}(y_i = 1 \mid x_i)\)</span> было как можно больше. Если <span class="math notranslate nohighlight">\(p_i\)</span> оказалось маленьким, штраф большой, если <span class="math notranslate nohighlight">\(p_i\)</span> оказалось большим, штраф будет маленьким. При этом чем ближе <span class="math notranslate nohighlight">\(p_i\)</span> к единице, тем меньше мы его хотим увеличить. Такую нелинейность штрафа нам даёт логарифм. При <span class="math notranslate nohighlight">\(y_i = 0\)</span> логика точно такая же, но уже с <span class="math notranslate nohighlight">\(\mathbb{P}(y_i = 0 \mid x_i)\)</span>.</p>
 <p class="sd-card-text">Если мы сделаем штраф линейным, у такой функции потерь будет много проблем. Во-первых, пропадает нелинейность. Прирост ошибки в каждой точке одинаковый. Нам бы хотелось за мелкие ошибки штрафовать несерьёзно.</p>
 <p class="sd-card-text">Во-вторых, из-за линейности такую функцию сложно оптимизировать. В-третьих, выхлоп модели нельзя будет интерпретировать как <span class="math notranslate nohighlight">\(\mathbb{P}(y = 1 \mid x).\)</span> Это можно формально доказать. Мы займёмся этим в последней задачке этого листочка.</p>
 </div>
@@ -510,7 +512,7 @@ document.write(`
 \[\begin{equation*}
 	\begin{aligned}
 		&amp; z_i = w_0 + w_1 x_i, \\
-		&amp; p_i = \mathbb{P}(y_i = 1 \mid x) = \sigma(z_i) = \frac{1}{1 + e^{-(w_0 + w_1 x_i)}}.
+		&amp; p_i = \mathbb{P}(y_i = 1 \mid x_i) = \sigma(z_i) = \frac{1}{1 + e^{-(w_0 + w_1 x_i)}}.
 	\end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">Это обычная логистическая регрессия. Иначе говоря, это нейронная сеть, которая состоит из одного нейрона с сигмоидой в качестве функции активации.</p>
@@ -565,7 +567,7 @@ document.write(`
 \text{logloss} =  - \frac{1}{n} \sum_{i=1}^n \sum_{k=1}^K [y_i = k] \cdot \ln \frac{e^{w_k^Tx_i}}{\sum_{j=1}^{K} e^{w_j^Tx_i}}.
 \]</div>
 <p class="sd-card-text">Здесь <span class="math notranslate nohighlight">\([y_i = k]\)</span> принимает значение, равное единице, когда <span class="math notranslate nohighlight">\(y_i = k,\)</span> в остальных случаях это ноль.</p>
-<p class="sd-card-text">Иногда числа, которые выплёвывает softmax слой, интерпретируют как вероятность. Так можно делать не всегда. Выход нейросети всегда можно откалибровать так, чтобы он стал вероятностью.</p>
+<p class="sd-card-text">Иногда числа, которые выплёвывает softmax слой, интерпретируют как вероятность. Так можно делать не всегда. Выход нейросети можно откалибровать так, чтобы он стал ближе к вероятности.</p>
 <p class="sd-card-text">В задаче классификации откалиброванным алгоритмом называют такой алгоритм, для которого доля положительных примеров (на основе реальных меток классов) для предсказаний в окрестности произвольной вероятности <span class="math notranslate nohighlight">\(p\)</span> совпадает с этим значением <span class="math notranslate nohighlight">\(p\)</span>. Например, если взять объекты, для которых предсказанные вероятности близки к 0.7, то окажется, что среди них 70% принадлежат положительному классу.</p>
 <p class="sd-card-text">Подробнее про калибровку алгоритмов можно почитать <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2022-fall/seminars/sem06-probs-quantile.pdf">в конспекте по МО-1 с ФКН.</a></p>
 </div>
@@ -581,7 +583,7 @@ document.write(`
 <p class="sd-card-text">Применим softmax к первому наблюдению</p>
 <div class="math notranslate nohighlight">
 \[
-\left( \frac{e^{1}}{e^{1} + e^{-2} + e^{0}}, \frac{e^{-2}}{e^{1} + e^{-2} + e^{0}}, \frac{e^{0}}{e^{1} + e^{-2} + e^{0}} \right) \approx (0.7, 0.03, 0.27).
+\left( \frac{e^{1}}{e^{1} + e^{-2} + e^{0}}, \frac{e^{-2}}{e^{1} + e^{-2} + e^{0}}, \frac{e^{0}}{e^{1} + e^{-2} + e^{0}} \right) \approx (0.7, 0.04, 0.26).
 \]</div>
 <p class="sd-card-text">По аналогии</p>
 <div class="math notranslate nohighlight">
@@ -647,7 +649,7 @@ document.write(`
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">При поиске softmax мы ищем экспоненты, в памяти компьютера может произойти переполнение из-за больших чисел. Возникнут бесконечности и оптимизация нейронной сетки умрёт.</p>
-<p class="sd-card-text">Если добавить ко всем входам нейронки одинаковую константу, значение softmax не изменится</p>
+<p class="sd-card-text">Если добавить ко всем входам softmax одинаковую константу, значение softmax не изменится</p>
 <div class="math notranslate nohighlight">
 \[
 \frac{e^{z_i + c}}{\sum_{k=1}^K e^{z_k + c}} = \frac{ e^c \cdot e^{z_i } }{e^c \cdot \sum_{k=1}^K e^{z_k} }   = 	\frac{e^{z_i}}{\sum_{k=1}^K e^{z_k }}.
@@ -671,7 +673,7 @@ document.write(`
 \[
 p_i = \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}.
 \]</div>
-<p class="sd-card-text">На вход в softmax идёт <span class="math notranslate nohighlight">\(k\)</span> элементов, на выходе получается <span class="math notranslate nohighlight">\(k\)</span> элементов. Нам надо взять производную каждого по каждому. Получается, что производная softmax – это матрица размера <span class="math notranslate nohighlight">\(k \times k.\)</span> У нас будет две ситуации: <span class="math notranslate nohighlight">\(i = j\)</span> и <span class="math notranslate nohighlight">\(i \ne j\)</span>. Начнём с <span class="math notranslate nohighlight">\(i = j\)</span></p>
+<p class="sd-card-text">На вход в softmax идёт <span class="math notranslate nohighlight">\(K\)</span> элементов, на выходе получается <span class="math notranslate nohighlight">\(K\)</span> элементов. Нам надо взять производную каждого по каждому. Получается, что производная softmax – это матрица размера <span class="math notranslate nohighlight">\(K \times K.\)</span> У нас будет две ситуации: <span class="math notranslate nohighlight">\(i = j\)</span> и <span class="math notranslate nohighlight">\(i \ne j\)</span>. Начнём с <span class="math notranslate nohighlight">\(i = j\)</span></p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
 \frac{\partial p_i}{\partial z_j} = \frac{\partial  \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}}{\partial z_j}&amp;= \frac{e^{z_i} \sum_{k=1}^K e^{z_k} - e^{z_j}e^{z_i}}{\left( \sum_{k=1}^K e^{z_k}\right)^2} \\ &amp;= \frac{e^{z_i} \left( \sum_{k=1}^K e^{z_k} - e^{z_j}\right )}{\left( \sum_{k=1}^K e^{z_k}\right)^2} \\ &amp;= \frac{ e^{z_j} }{\sum_{k=1}^K e^{z_k} } \cdot \frac{\left( \sum_{k=1}^K e^{z_k} - e^{z_j}\right ) }{\sum_{k=1}^K e^{z_k} } \\ &amp;= p_i \cdot (1-p_j).
@@ -694,7 +696,7 @@ p_i = \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}.
 <p class="sd-card-text">Давайте для удобства перепишем метки классов в OHE виде. Если <span class="math notranslate nohighlight">\(y_i = k,\)</span> мы будем представлять его в виде вектора, где на <span class="math notranslate nohighlight">\(k-\)</span>ой позиции стоит единица. Остальные элементы будут нулевыми. В этом пункте везде под <span class="math notranslate nohighlight">\(y_i\)</span> мы будем иметь в виду такой вектор. Для одного наблюдения logloss можно записать как</p>
 <div class="math notranslate nohighlight">
 \[
-\text{logloss} = -\sum_{k=1}^K y_i \cdot \ln p_i.
+\text{logloss} = -\sum_{k=1}^K y_k \cdot \ln p_k.
 \]</div>
 <p class="sd-card-text">Берём производную</p>
 <div class="amsmath math notranslate nohighlight">
@@ -712,8 +714,8 @@ p_i = \frac{e^{z_i}}{\sum_{k=1}^K e^{z_k}}.
 	&amp;= p_j \left( y_j +  \sum_{k \ne j} y_k\right) - y_j \\
 	&amp;= p_j \sum_{k = 1}^K y_k  - y_j = p_j - y_j.
 \end{align*}\]</div>
-<p class="sd-card-text">Функция <span class="math notranslate nohighlight">\(\text{logloss}\)</span> бьёт из векторов <span class="math notranslate nohighlight">\(z\)</span> в константы. Производной будет вектор размера <span class="math notranslate nohighlight">\(K\)</span>. Ровно такой вектор у нас и получается, то есть <span class="math notranslate nohighlight">\(p - y\)</span>.</p>
-<p class="sd-card-text">Мы нашли производную для одного наблюдения. Когда наблюдений становится много, мы должны просуммировать все потери по ним. Производная суммы будет равна сумме производных.</p>
+<p class="sd-card-text">Функция <span class="math notranslate nohighlight">\(\text{logloss}\)</span> бьёт из векторов <span class="math notranslate nohighlight">\(z\)</span> в числа. Производной будет вектор размера <span class="math notranslate nohighlight">\(K\)</span>. Ровно такой вектор у нас и получается, то есть <span class="math notranslate nohighlight">\(p - y\)</span>.</p>
+<p class="sd-card-text">Мы нашли производную для одного наблюдения. Когда наблюдений становится много, мы должны усреднить все потери по ним. Производная среднего будет равна среднему производных.</p>
 </div>
 </details><hr class="footnotes docutils" />
 <aside class="footnote-list brackets">

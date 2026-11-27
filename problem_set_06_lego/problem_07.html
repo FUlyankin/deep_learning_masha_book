@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -492,23 +494,23 @@ w_i \sim U \left[ - \frac{1}{\sqrt{n_{in}}};  \frac{1}{\sqrt{n_{in}}}  \right].
 <p class="sd-card-text">Найдём дисперсию веса</p>
 <div class="math notranslate nohighlight">
 \[
-Var(w_i) = \frac{1}{12} \cdot \left( \frac{1}{\sqrt{n_{in}} + \frac{1}{\sqrt{n_{in}}}} \right)^2 = \frac{1}{3 \cdot n_{in}} 
+Var(w_i) = \frac{1}{12} \cdot \left( \frac{1}{\sqrt{n_{in}}} + \frac{1}{\sqrt{n_{in}}} \right)^2 = \frac{1}{3 \cdot n_{in}} 
 \]</div>
 <p class="sd-card-text">Мы используем линейный слой с симметричной функцией активации. Мы можем сгенерировать веса так, чтобы они были независимы друг от друга и от наблюдений. Наблюдения считаем независимыми друг от друга. Тогда</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
-Var(h_i) = Var \left(\sum_{i = 1}^{n_{in}} w_i x_i \right) = \\ = \sum_{i = 1}^{n_{in}} Var(w_i \cdot x_i) = \\ =  \sum_{i = 1}^{n_{in}} \mathbb{E}^2(x_i) \cdot Var(w_i) + Var(x_i) \cdot \mathbb{E}^2(w_i) + Var(x_i) \cdot Var(w_i).
+Var(h) = Var \left(\sum_{i = 1}^{n_{in}} w_i x_i \right) = \\ = \sum_{i = 1}^{n_{in}} Var(w_i \cdot x_i) = \\ =  \sum_{i = 1}^{n_{in}} \mathbb{E}^2(x_i) \cdot Var(w_i) + Var(x_i) \cdot \mathbb{E}^2(w_i) + Var(x_i) \cdot Var(w_i).
 \end{multline*}\]</div>
 <p class="sd-card-text">Мы воспользовались тут формулой для <a class="reference external" href="https://en.wikipedia.org/wiki/Variance#Product_of_independent_variables">дисперсии произведения независимых случайных величин.</a></p>
 <p class="sd-card-text">Наша функция активации симметрична, значит, <span class="math notranslate nohighlight">\(\mathbb{E}(x_i) = 0\)</span>. Будем инициализировать веса из распределения с нулевым средним, тогда <span class="math notranslate nohighlight">\(\mathbb{E}(w_i) = 0.\)</span> Воспользуемся тем, что все слагаемые распределены одинаково, а их у нас <span class="math notranslate nohighlight">\(n_{in}\)</span> штук</p>
 <div class="math notranslate nohighlight">
 \[
-Var(h_i) = \sum_{i = 1}^{n_{in}} Var(x_i) \cdot Var(w_i) = n_{in} \cdot Var(x_i) \cdot Var(w_i).
+Var(h) = \sum_{i = 1}^{n_{in}} Var(x_i) \cdot Var(w_i) = n_{in} \cdot Var(x_i) \cdot Var(w_i).
 \]</div>
 <p class="sd-card-text">Получается, что</p>
 <div class="math notranslate nohighlight">
 \[
-Var(h_i) = n_{in} \cdot Var(x_i) \frac{1}{3 \cdot n_{in}}  = \frac{1}{3} \cdot Var(x_i).
+Var(h) = n_{in} \cdot Var(x_i) \frac{1}{3 \cdot n_{in}}  = \frac{1}{3} \cdot Var(x_i).
 \]</div>
 <p class="sd-card-text">Дисперсия будет падать при переходе от выхода предыдущего слоя к выходу нового слоя в три раза.</p>
 </div>
@@ -520,8 +522,8 @@ Var(h_i) = n_{in} \cdot Var(x_i) \frac{1}{3 \cdot n_{in}}  = \frac{1}{3} \cdot V
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Нам надо, чтобы <span class="math notranslate nohighlight">\(Var(h_i) = Var(x_i).\)</span> Значит, надо взять распределение с дисперсией <span class="math notranslate nohighlight">\(\frac{1}{n_{in}}\)</span>.</p>
-<p class="sd-card-text">Если речь идёт про нормальное распределение, нам подойдёт</p>
+<p class="sd-card-text">Нам надо, чтобы <span class="math notranslate nohighlight">\(Var(h) = Var(x_i).\)</span> Значит, надо взять распределение с дисперсией <span class="math notranslate nohighlight">\(\frac{1}{n_{in}}\)</span>.</p>
+<p class="sd-card-text">Если речь идёт про равномерное распределение, нам подойдёт</p>
 <div class="math notranslate nohighlight">
 \[
 w_i \sim U \left[ - \frac{\sqrt{3}}{\sqrt{n_{in}}};  \frac{\sqrt{3}}{\sqrt{n_{in}}}  \right].
@@ -541,7 +543,7 @@ w_i \sim U \left[ - \frac{\sqrt{3}}{\sqrt{n_{in}}};  \frac{\sqrt{3}}{\sqrt{n_{in
 w_i \sim N \left(0, \frac{1}{n_{in}} \right).
 \]</div>
 </div>
-</details><p><strong>г)</strong> При прямом распространении ошибки на вход в нейрон идёт <span class="math notranslate nohighlight">\(n_{in}\)</span> слагаемых. При обратном распространении ошибки на вход в нейрон идёт <span class="math notranslate nohighlight">\(n_{out}\)</span> градиентов.</p>
+</details><p><strong>г)</strong> При прямом распространении на вход в нейрон идёт <span class="math notranslate nohighlight">\(n_{in}\)</span> слагаемых. При обратном распространении ошибки на вход в нейрон идёт <span class="math notranslate nohighlight">\(n_{out}\)</span> градиентов.</p>
 <p>Количество весов от слоя к слою сильно колеблется, получается, если мы будем пытаться делать дисперсию неизменной при прямом шаге, она будет либо расти, либо падать при обратном. Невозможно поддерживать обе дисперсии неизменными. Нужен компромисс между этими шагами. Предложите его.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -551,7 +553,7 @@ w_i \sim N \left(0, \frac{1}{n_{in}} \right).
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">При прямом шаге надо поддерживать дисперсию <span class="math notranslate nohighlight">\(\frac{1}{n_{in}}\)</span>. При обратном надо поддерживать дисперсию <span class="math notranslate nohighlight">\(\frac{1}{n_{out}}\)</span>.</p>
-<p class="sd-card-text">Можно инициализировать веса из распределения с дисперсией <span class="math notranslate nohighlight">\(\frac{2}{n_{in} + n_{out}}\)</span>. Такая инициализация называется <strong>инициализацией Ксавие (или Глорота).</strong><a class="footnote-reference brackets" href="#statia-xav" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<p class="sd-card-text">Можно инициализировать веса из распределения с дисперсией <span class="math notranslate nohighlight">\(\frac{2}{n_{in} + n_{out}}\)</span>. Такая инициализация называется <strong>инициализацией Ксавье (или Глорота).</strong><a class="footnote-reference brackets" href="#statia-xav" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 </div>
 </details><!-- Внутри нейрона в качестве функции активации используется ReLU. На вход идёт $10$ признаков. В качестве инициализации для весов используется нормальное распределение, $N(0,1)$. С какой вероятностью нейрон будет выдавать на выход нулевое наблюдение, если 
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>7. Избыток &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
+    <title>7. Ещё немного про XoR &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
   
   
   
@@ -57,11 +57,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'problem_set_01_just_function/problem_07';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="8. Минималочка" href="problem_08.html" />
-    <link rel="prev" title="6. Ещё немного про XoR" href="problem_06.html" />
+    <link rel="next" title="8. Избыток" href="problem_08.html" />
+    <link rel="prev" title="6. Логические функции" href="problem_06.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -181,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -454,7 +458,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>7. Избыток</h1>
+    <h1>7. Ещё немного про XoR</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -468,13 +472,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>7. Избыток<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>На сайте <a class="reference external" href="http://playground.tensorflow.org">playground.tensorflow.org</a> Маша стала играться с простенькими нейросетками и  обучила для решения задачи классификации трёхслойного монстра.</p>
-<p>Голубым цветом обозначен первый класс, рыжим второй. Внутри каждого нейрона визуализирована та разделяющая поверхность, которую он выстраивает. Так, первый слой ищет разделяющую линию. Второй слой пытается из этих линий выстроить более сложные фигуры и так далее. Чем ярче связь между нейронами, тем больше весовой коэффициент, относящийся к ней. Синие связи — положительные, рыжие — отрицательные. Чем тусклее связь, тем он ближе к нулю. Маша заметила, что с её архитектурой что-то не так. Какие у неё проблемы?</p>
-<figure class="align-default" id="net-ex-sol">
-<a class="reference internal image-reference" href="../_images/img07_task.png"><img alt="../_images/img07_task.png" src="../_images/img07_task.png" style="width: 95%;" /></a>
-</figure>
+  <section class="tex2jax_ignore mathjax_ignore" id="xor">
+<h1>7. Ещё немного про XoR<a class="headerlink" href="#xor" title="Link to this heading">#</a></h1>
+<p>Маша заметила, что на XoR ушло очень много персептронов. Она поняла, что первые два персептрона пытаются построить для третьего нелинейные признаки, которых нейросетке не хватает.</p>
+<p><strong>а)</strong> Маша решила самостоятельно добавить персептрону вход <span class="math notranslate nohighlight">\(x_3 = x_1 \cdot x_2\)</span> и реализовать XoR одним персептроном. Можно ли это сделать?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -482,8 +483,57 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Нейросетка Маши оказалась избыточной. Во-первых, можно увидеть, что на первом слое есть нейрон, который вообще ничего не делает. Связи, которые идут к нему от входов, настолько тусклые (коэффициенты при них равны нулю), что их даже не видно на картинке. От этого нейрона смело можно избавиться и сделать архитектуру проще.  Во-вторых, можно заметить, что на последнем слое у нас есть два одинаковых нейрона. Один из них смело можно выбрасывать.</p>
-<a class="reference internal image-reference" href="../_images/img07_sol.png"><img alt="net_ex_sol" class="align-center" src="../_images/img07_sol.png" style="width: 95%;" /></a>
+<p class="sd-card-text">Маша обратила внимание на очень важную штуку. Нам не хватает признаков, чтобы реализовать XoR за один нейрон. Поэтому первый слой нейросетки сам их для нас придумывает. Чем глубже нейросетку мы построим, тем более сложные и абстрактные признаки она будет выделять из данных. Если добавить ко входу <span class="math notranslate nohighlight">\(x_3 = x_1 \cdot x_2\)</span>, мы сделаем за нейросетку часть её работы и сможем обойтись одним нейроном. Например, вот таким:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat y = [x_1 + x_2 - 2\cdot x_1 \cdot x_2 - 0.5 &gt; 0]
+\]</div>
+<p class="sd-card-text">Такая линия как раз будет задавать две пересекающиеся прямые.</p>
+<figure class="align-default" id="xor-features">
+<a class="reference internal image-reference" href="../_images/img07_xor.png"><img alt="../_images/img07_xor.png" src="../_images/img07_xor.png" style="width: 30%;" /></a>
+</figure>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; x_1 + x_2 - 2x_1x_2 - 0.5 = 0 \\
+&amp; 2x_1 + 2x_2 - 4x_1 x_2 - 1 = 0 \\ 
+&amp; 2x_1(1 - 2 x_2) + 2 x_2 - 1 = 0 \\
+&amp; (1 - 2 x_2) \cdot (2 x_1 - 1) = 0
+\end{aligned}
+\end{equation*}\]</div>
+<p class="sd-card-text">Получаем два решения. Прямую <span class="math notranslate nohighlight">\(x_2 = 0.5\)</span> и прямую <span class="math notranslate nohighlight">\(x_1 = 0.5\)</span>.</p>
+</div>
+</details><p><strong>б)</strong> Паша предложил зайти с другой стороны и собрать XoR вообще без ступенек — только из <span class="math notranslate nohighlight">\(ReLU\)</span>-нейронов и линейного выхода. Он подсказал Маше, что пригодится модуль разности. Оказывается, его можно записать через ReLU как</p>
+<div class="math notranslate nohighlight">
+\[
+|x_1 - x_2| = \max(0, x_1 - x_2) + \max(0, x_2 - x_1).
+\]</div>
+<p>Реализует ли такая сетка XoR, если <span class="math notranslate nohighlight">\(x_1, x_2 \in \{0, 1\}\)</span>? Сколько нейронов ушло? А что сетка выдаст при <span class="math notranslate nohighlight">\(x_1 = 0.3\)</span> и <span class="math notranslate nohighlight">\(x_2 = 0.7\)</span>?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Сначала докажем формулу. Если <span class="math notranslate nohighlight">\(x_1 \ge x_2\)</span>, то первый максимум равен <span class="math notranslate nohighlight">\(x_1 - x_2\)</span>, а второй — нулю, и сумма равна <span class="math notranslate nohighlight">\(x_1 - x_2 = |x_1 - x_2|\)</span>. Если <span class="math notranslate nohighlight">\(x_1 &lt; x_2\)</span> — всё ровно наоборот. Формула верна для любых входов.</p>
+<p class="sd-card-text">Теперь подставим наши четыре точки</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{aligned}
+&amp; |0 - 0| = 0, \\
+&amp; |1 - 1| = 0, \\ 
+&amp; |1 - 0| = 1, \\
+&amp; |0 - 1| = 1,
+\end{aligned}
+\end{equation*}\]</div>
+<p class="sd-card-text">это в точности таблица истинности XoR.</p>
+<p class="sd-card-text">Получилась сетка из двух <span class="math notranslate nohighlight">\(ReLU\)</span>-нейронов в скрытом слое — <span class="math notranslate nohighlight">\(\max(0, x_1 - x_2)\)</span> и <span class="math notranslate nohighlight">\(\max(0, x_2 - x_1)\)</span> — и линейного выхода с весами <span class="math notranslate nohighlight">\(1\)</span> и <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p class="sd-card-text">Вышло даже меньше, чем три нейрона со ступеньками из прошлой задачки.</p>
+<p class="sd-card-text">А теперь самое интересное. При <span class="math notranslate nohighlight">\(x_1 = 0.3\)</span> и <span class="math notranslate nohighlight">\(x_2 = 0.7\)</span> сетка выдаст <span class="math notranslate nohighlight">\(|0.3 - 0.7| = 0.4\)</span>.</p>
+<p class="sd-card-text">Ступенчатая сетка из задачки про логические функции в этой же точке выдала бы ровно <span class="math notranslate nohighlight">\(1\)</span> — проверьте. Обе сетки идеально решают XoR на четырёх обучающих точках, но между этими точками ведут себя совершенно по-разному: одна рисует пирамиду, другая — ступенчатые плато.</p>
+<p class="sd-card-text">Четыре точки вообще ничего не говорят о том, что должно происходить между ними. Поведение сетки там определяется не данными, а устройством самой сетки — какие активации мы взяли и как соединили нейроны.</p>
+<p class="sd-card-text">Запомните это ощущение: «модель идеальна на обучающих примерах» и «модель ведёт себя разумно на новых входах» — два совсем разных утверждения. К этой мысли мы ещё не раз вернёмся, когда будем обсуждать переобучение.</p>
 </div>
 </details></section>
 
@@ -523,7 +573,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">6. Ещё немного про XoR</p>
+        <p class="prev-next-title">6. Логические функции</p>
       </div>
     </a>
     <a class="right-next"
@@ -531,7 +581,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">8. Минималочка</p>
+        <p class="prev-next-title">8. Избыток</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

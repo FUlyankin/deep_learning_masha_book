@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -491,10 +493,10 @@ document.write(`
 <p class="sd-card-text">В зависимости от того, какая выборка оказалась у нас в руках, могут получаться разные оценки параметров модели. При разных обучающих выборках эмпирические потери могут принимать разные значения при одних и тех же параметрах модели. Эмпирическая функция потерь — это случайная величина. На самом деле, нам хотелось бы оптимизировать математическое ожидание ошибки</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{E}(L(y, a(x)) \mid x).
+\mathbb{E}(L(y, a(x))).
 \]</div>
 <p class="sd-card-text">Мы его не знаем, поэтому для его оценки мы используем эмпирические потери. Почему можно это делать? Эмпирические потери — это выборочное среднее. По закону больших чисел оно должно при больших значениях <span class="math notranslate nohighlight">\(n\)</span> сходиться к математическому ожиданию.</p>
-<p class="sd-card-text">Ошибка на обучающей выборке <span class="math notranslate nohighlight">\(\frac{1}{n} \cdot \sum_{i=1}^{n} L(y_i, a(x_i))\)</span> — это эмпирическая оценка ожидаемых потерь <span class="math notranslate nohighlight">\(\mathbb{E}(L(y, a(x)) \mid x)\)</span>. Этот факт позволяет по-новому взглянуть на старые функции потерь. Минимизируя <span class="math notranslate nohighlight">\(\mathbb{E}(L(y, a) \mid x)\)</span> по прогнозам, <span class="math notranslate nohighlight">\(a\)</span>, можно понять, что именно прогнозирует наш алгоритм.</p>
+<p class="sd-card-text">Ошибка на обучающей выборке <span class="math notranslate nohighlight">\(\frac{1}{n} \cdot \sum_{i=1}^{n} L(y_i, a(x_i))\)</span> — это эмпирическая оценка ожидаемых потерь <span class="math notranslate nohighlight">\(\mathbb{E}(L(y, a(x)))\)</span>. Этот факт позволяет по-новому взглянуть на старые функции потерь. Минимизируя <span class="math notranslate nohighlight">\(\mathbb{E}(L(y, a) \mid x)\)</span> по прогнозам, <span class="math notranslate nohighlight">\(a\)</span>, можно понять, что именно прогнозирует наш алгоритм.</p>
 <p class="sd-card-text">Будем считать, что для данных задана вероятностная модель <span class="math notranslate nohighlight">\(p(y \mid x)\)</span>. Посмотрим на то, где мы достигаем оптимума с точки зрения математического ожидания.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -511,7 +513,7 @@ document.write(`
 a = p = \mathbb{P}(y = 1 \mid x).
 \]</div>
 </div>
-</details><p><strong>б)</strong>  <span class="math notranslate nohighlight">\(L(y, b(x)) = \mid y - a(x) \mid\)</span></p>
+</details><p><strong>б)</strong>  <span class="math notranslate nohighlight">\(L(y, a(x)) = \mid y - a(x) \mid\)</span></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -537,7 +539,7 @@ a = p = \mathbb{P}(y = 1 \mid x).
 </ul>
 <p class="sd-card-text">Такие прогнозы не позволяют нам предсказать корректную вероятность в точке <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </div>
-</details><p><strong>в)</strong>  <span class="math notranslate nohighlight">\(L(y, b(x)) = y \cdot \ln a(x) + (1 - y) \cdot \ln (1 - a(x))\)</span></p>
+</details><p><strong>в)</strong>  <span class="math notranslate nohighlight">\(L(y, a(x)) = -y \cdot \ln a(x) - (1 - y) \cdot \ln (1 - a(x))\)</span></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -549,8 +551,8 @@ a = p = \mathbb{P}(y = 1 \mid x).
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(L(y, a)\)</span></p></th>
-<th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(\ln a\)</span></p></th>
-<th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(\ln(1 -a)\)</span></p></th>
+<th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(-\ln a\)</span></p></th>
+<th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(-\ln(1 -a)\)</span></p></th>
 </tr>
 </thead>
 <tbody>
@@ -563,16 +565,16 @@ a = p = \mathbb{P}(y = 1 \mid x).
 <p class="sd-card-text">Запишем математическое ожидание функции потерь</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{E} \left[ L(y, a) \mid x \right] = p \cdot \ln a + (1 - p) \cdot \ln (1 - a).
+\mathbb{E} \left[ L(y, a) \mid x \right] = -p \cdot \ln a - (1 - p) \cdot \ln (1 - a).
 \]</div>
 <p class="sd-card-text">Продифференцируем по <span class="math notranslate nohighlight">\(a\)</span></p>
 <div class="math notranslate nohighlight">
 \[
-\frac{p}{a} - \frac{(1 - p)}{(1 - a)} = 0.
+-\frac{p}{a} + \frac{(1 - p)}{(1 - a)} = 0.
 \]</div>
-<p class="sd-card-text">Решаем уравнение и получаем, что <span class="math notranslate nohighlight">\(a = p = \mathbb{P}(y = 1 \mid x).\)</span></p>
+<p class="sd-card-text">Решаем уравнение и получаем, что <span class="math notranslate nohighlight">\(a = p = \mathbb{P}(y = 1 \mid x).\)</span><a class="footnote-reference brackets" href="#shad" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
 </div>
-</details><p><strong>г)</strong>  <span class="math notranslate nohighlight">\(L(y, b(x)) = y \cdot a(x) + (1 - y) \cdot (1 - a(x))\)</span></p>
+</details><p><strong>г)</strong>  <span class="math notranslate nohighlight">\(L(y, a(x)) = -y \cdot a(x) - (1 - y) \cdot (1 - a(x))\)</span></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -584,8 +586,8 @@ a = p = \mathbb{P}(y = 1 \mid x).
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(L(y, a)\)</span></p></th>
-<th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(a\)</span></p></th>
-<th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(1 -a\)</span></p></th>
+<th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(-a\)</span></p></th>
+<th class="head text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(-(1 -a)\)</span></p></th>
 </tr>
 </thead>
 <tbody>
@@ -598,17 +600,17 @@ a = p = \mathbb{P}(y = 1 \mid x).
 <p class="sd-card-text">Запишем математическое ожидание функции потерь</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{E} \left[ L(y, a) \mid x \right] = p \cdot a + (1 - p) \cdot (1 - a).
+\mathbb{E} \left[ L(y, a) \mid x \right] = -p \cdot a - (1 - p) \cdot (1 - a).
 \]</div>
 <p class="sd-card-text">Это линейная функция. У нас не получится найти её оптимум, взяв производную. Немного перепишем математическое ожидание</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{E} \left[ L(y, a) \mid x \right]  = a \cdot (2p - 1) + (1 - p) \to \min_{a}.
+\mathbb{E} \left[ L(y, a) \mid x \right]  = -a \cdot (2p - 1) - (1 - p) \to \min_{a}.
 \]</div>
 <p class="sd-card-text">Мы можем влиять только на выбор <span class="math notranslate nohighlight">\(a\)</span>. Нам надо его выбрать так, чтобы минимизировать выражение.</p>
 <ul class="simple">
-<li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\((2p - 1) &gt; 0\)</span>, надо выбрать <span class="math notranslate nohighlight">\(a = 0\)</span>.</p></li>
-<li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\((2p - 1) &lt; 0,\)</span> надо выбрать <span class="math notranslate nohighlight">\(a = 1\)</span>.</p></li>
+<li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\((2p - 1) &gt; 0\)</span>, надо выбрать <span class="math notranslate nohighlight">\(a = 1\)</span>.</p></li>
+<li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\((2p - 1) &lt; 0,\)</span> надо выбрать <span class="math notranslate nohighlight">\(a = 0\)</span>.</p></li>
 <li><p class="sd-card-text">Если <span class="math notranslate nohighlight">\((2p - 1) = 0\)</span>, то есть <span class="math notranslate nohighlight">\(p = 0.5\)</span>, нам безразлично, каким выбрать <span class="math notranslate nohighlight">\(a\)</span>.</p></li>
 </ul>
 <p class="sd-card-text">Алгоритм не будет прогнозировать вероятности.</p>
@@ -618,6 +620,10 @@ a = p = \mathbb{P}(y = 1 \mid x).
 <aside class="footnote brackets" id="ml01" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
 <p>Задачка скопирована и немного дополнена из <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2022-fall/seminars/sem06-probs-quantile.pdf">семинара по МО-1 с ФКН</a></p>
+</aside>
+<aside class="footnote brackets" id="shad" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
+<p>Также более подробно про калибровку можно почитать в <a class="reference external" href="https://ml-handbook.ru/chapters/prob_calibration/intro">учебнике по МО от ШАД</a></p>
 </aside>
 </aside>
 </section>

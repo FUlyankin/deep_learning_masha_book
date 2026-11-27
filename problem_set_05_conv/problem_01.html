@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -474,7 +476,7 @@ document.write(`
 <h1>1. Свёртка своими руками<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>Растровая картинка – это набор пикселей. Каждый пиксель описывается числом. Чем больше число, тем ярче этот пиксель. Шкалы, измеряющие яркость, бывают разными. Иногда это числа от 0 до 255, иногда это числа между нулём и единицей.</p>
 <p>У Маши есть картинка (зелёная) и свёртка (голубая), которую она хочет применить к этой картинке<a class="footnote-reference brackets" href="#proof-note" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
-<figure class="align-default" id="regression">
+<figure class="align-default" id="conv-picture">
 <a class="reference internal image-reference" href="../_images/img01_conv.png"><img alt="../_images/img01_conv.png" src="../_images/img01_conv.png" style="width: 700px;" /></a>
 </figure>
 <p><strong>а)</strong>  Сделайте свёртку картинки без сдвигов и дополнений. К тому, что получилось, примените max pooling и average pooling размера <span class="math notranslate nohighlight">\(3 \times 3\)</span>.</p>
@@ -507,7 +509,7 @@ document.write(`
 <p class="sd-card-text"><strong>Avg pooling:</strong></p>
 <div class="math notranslate nohighlight">
 \[
-\frac{1}{9} \cdot (12 + 12 + 17 + 15 + 19 + 21 + 18 + 18 + 24) = 17.3
+\frac{1}{9} \cdot (12 + 12 + 17 + 15 + 19 + 21 + 18 + 18 + 24) \approx 17.33
 \]</div>
 </div>
 </details><p><strong>б)</strong>  Примените к исходной картинке свёртку с параметром сдвига (stride), равным <span class="math notranslate nohighlight">\(2\)</span>.</p>

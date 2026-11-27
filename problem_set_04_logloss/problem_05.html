@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -494,7 +496,7 @@ ReLU'(t) = \begin{cases} 1, \quad t \ge 0 \\ 0, \quad t &lt; 0.\end{cases}
 \[
 H = max(XW + b, 0).
 \]</div>
-<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(b\)</span> инициализировано отрицательным числом, нейрон сразу умирает. Чтобы этого не произошло, нужно инициализировать константу <span class="math notranslate nohighlight">\(b\)</span> перед обучением каким-то большим положительным числом. На практике оказывается, что ReLU работает довольно хорошо.</p>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(b\)</span> инициализировано большим по модулю отрицательным числом, нейрон может сразу умереть. Чтобы этого не произошло, константу <span class="math notranslate nohighlight">\(b\)</span> перед обучением инициализируют нулём или каким-то небольшим положительным числом. На практике оказывается, что ReLU работает довольно хорошо.</p>
 </div>
 </details><p><strong>б)</strong> Как у ReLU дела с центрированием относительно нуля?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -524,7 +526,7 @@ LReLU(t) = \begin{cases} t, &amp;t \ge 0 \\ \alpha \cdot t, &amp;t &lt; 0. \end{
 <p class="sd-card-text">Возьмём производную</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-LReLU'(t) = \begin{cases} 1, \quad t \ge 0 \\ -0.3, \quad t &lt; 0.\end{cases}
+LReLU'(t) = \begin{cases} 1, \quad t \ge 0 \\ 0.3, \quad t &lt; 0.\end{cases}
 \end{split}\]</div>
 <p class="sd-card-text">Нарисуем функцию активации и её производную на графике.</p>
 <a class="reference internal image-reference" href="../_images/img05_leaky_relu.png"><img alt="dobronet_forward" class="align-center" src="../_images/img05_leaky_relu.png" style="width: 95%;" /></a>
@@ -557,10 +559,10 @@ ELU'(t) = \begin{cases} 1, &amp;t \ge 0 \\ \alpha \cdot e^t, &amp;t &lt; 0.  \en
 </details><p>Функцией SELU (Scaled Exponential Linear Units activation) называется</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-f(t) = \lambda \cdot \begin{cases} t, t \ge 0 \\ \alpha \cdot (e^t - 1), t &lt; 0.  \end{cases}
+f(t) = \lambda \cdot \begin{cases} t, &amp; t \ge 0 \\ \alpha \cdot (e^t - 1), &amp; t &lt; 0.  \end{cases}
 \end{split}\]</div>
-<p>В качестве констант авторы статьи про эту функцию предлагают использовать <span class="math notranslate nohighlight">\(\alpha = 1.67733, \lambda = 1.0507\)</span>. Они захардкожены.</p>
-<p><strong>д)</strong> Когда мы обучаем линейную модель градиентным спуском, мы нормализуем перед этим данные. Зачем мы это делаем? Как думаете, почему эта функция называется нормализованной (scaled)?</p>
+<p>В качестве констант авторы статьи про эту функцию предлагают использовать <span class="math notranslate nohighlight">\(\alpha = 1.6733, \lambda = 1.0507\)</span>. Они захардкожены.</p>
+<p><strong>д)</strong> Когда мы обучаем линейную модель градиентным спуском, мы нормализуем перед этим данные. Зачем мы это делаем? Как думаете, почему сети с этой функцией называют самонормализующимися (self-normalizing)?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -570,7 +572,7 @@ f(t) = \lambda \cdot \begin{cases} t, t \ge 0 \\ \alpha \cdot (e^t - 1), t &lt; 
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">В машинном обучении используются разные способы нормирования данных. Один из них заключается в том, что мы вычитаем из наших наблюдений среднее и делим их на стандартное отклонение. В пространстве нормализованных признаков градиентный спуск отрабатывает эффективнее.</p>
 <p class="sd-card-text">Было бы классно, если бы после каждого слоя, внутри нашей сетки, данные оказывались нормализованы. Тогда бы градиентный спуск работал эффективнее. В будущих листочках мы будем говорить про технику, которая следит за нормировкой выходов каждого слоя. Она называется <strong>нормализацией по батчам.</strong></p>
-<p class="sd-card-text">Функция активации SELU обладает свойством самонормализации. Выходы всех слоёв нейронной сети будут распределены со средним ноль и дисперсией, равной единице. Это позволяет не использовать в нейросетках нормализацию по батчам. Более того, авторы в статье доказывают, что SELU не способствует взрыву или затуханию градиентов. Правда выводы и доказательства занимают под сотню страниц.<a class="footnote-reference brackets" href="#statia2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
+<p class="sd-card-text">Функция активации SELU обладает свойством самонормализации. Выходы слоёв нейронной сети будут стремиться к распределению со средним ноль и дисперсией, равной единице. Это позволяет не использовать в нейросетках нормализацию по батчам. Более того, авторы в статье доказывают, что SELU не способствует взрыву или затуханию градиентов. Правда выводы и доказательства занимают под сотню страниц.<a class="footnote-reference brackets" href="#statia2" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a></p>
 <p class="sd-card-text">Если вы используете SELU, важно не забыть поставить в качестве инициализатора весов инициализацию Лекуна. Если вы собираетесь использовать Dropout, лучше взять AlphaDropout. Это разновидность dropout, которая поддерживает нулевое среднее и единичную дисперсию.</p>
 <p class="sd-card-text">В таком случае самонормализация будет работать корректно. Подробнее про инициализацию и Dropout мы поговорим в одном из следующих листочков.</p>
 </div>
@@ -595,9 +597,9 @@ Swish(t) = t \cdot \sigma(\beta \cdot t).
 <p class="sd-card-text">При <span class="math notranslate nohighlight">\(\beta \to 0\)</span> мы получаем линейную функцию <span class="math notranslate nohighlight">\(\frac{t}{2}.\)</span> При <span class="math notranslate nohighlight">\(\beta \to \infty\)</span> сигмоида превращается в ступеньку и принимает значение либо <span class="math notranslate nohighlight">\(0\)</span>, либо <span class="math notranslate nohighlight">\(1\)</span>. Из-за домножения на <span class="math notranslate nohighlight">\(t\)</span> получается ReLU.</p>
 <p class="sd-card-text">Параметр <span class="math notranslate nohighlight">\(\beta\)</span> обучается и выбирает позицию между этих двух крайностей и решает, нужна ли слою активация или нет.</p>
 </div>
-</details><p>Конечно же, на этом учёные не остановились и продолжили придумывать более интересные функции активации. В 2019 году они опять начали заниматься перебором и получили соперника Swish под названием Mish.<a class="footnote-reference brackets" href="#statia5" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
+</details><p>Конечно же, на этом учёные не остановились и продолжили придумывать более интересные функции активации. В 2019 году появился соперник Swish под названием Mish.<a class="footnote-reference brackets" href="#statia5" id="id4" role="doc-noteref"><span class="fn-bracket">[</span>4<span class="fn-bracket">]</span></a></p>
 <p>В 2021 году учёные попробовали обобщить все эти функции, а потом получить из этого обобщения что-нибудь интересное. Так родилось целое семейство саморегулирующихся функций активации, ACON (Activate or Not), а для исследования открылась целая область.<a class="footnote-reference brackets" href="#statia6" id="id5" role="doc-noteref"><span class="fn-bracket">[</span>5<span class="fn-bracket">]</span></a></p>
-<p><strong>Это, конечно, всё офигенно, а что делать на практике?</strong> Начните с ReLU, аккуратно инициализируйте веса и настраивайте скорость обучения. Дальше имеет смысл попробовать ELU/SELU. Если есть время на эксперименты, можно попробовать что-то более экстравагантное. Довольно приятно заменить одну функцию активации на другую и выиграть в качестве целый процент. Ни в коем случае не используйте тангенс и сигмоиду.</p>
+<p><strong>Это, конечно, всё офигенно, а что делать на практике?</strong> Начните с ReLU, аккуратно инициализируйте веса и настраивайте скорость обучения. Дальше имеет смысл попробовать ELU/SELU. Если есть время на эксперименты, можно попробовать что-то более экстравагантное. Довольно приятно заменить одну функцию активации на другую и выиграть в качестве целый процент. Ни в коем случае не используйте тангенс и сигмоиду в скрытых слоях глубоких сетей.</p>
 <p>Также почитайте небольшой обзор функций активации.<a class="footnote-reference brackets" href="#statia3" id="id6" role="doc-noteref"><span class="fn-bracket">[</span>6<span class="fn-bracket">]</span></a></p>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">

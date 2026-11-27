@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>8. Минималочка &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
+    <title>8. Избыток &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
   
   
   
@@ -57,13 +57,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'problem_set_01_just_function/problem_08';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9. Универсальный регрессор" href="problem_09.html" />
-    <link rel="prev" title="7. Избыток" href="problem_07.html" />
+    <link rel="next" title="9. Минималочка" href="problem_09.html" />
+    <link rel="prev" title="7. Ещё немного про XoR" href="problem_07.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,13 +181,15 @@
 <li class="toctree-l2"><a class="reference internal" href="problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -456,7 +456,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>8. Минималочка</h1>
+    <h1>8. Избыток</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -471,12 +471,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>8. Минималочка<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Шестилетняя сестрёнка ворвалась в квартиру Маши и разрисовала ей все обои.</p>
-<figure class="align-default" id="oboi">
-<a class="reference internal image-reference" href="../_images/img08_oboi.png"><img alt="../_images/img08_oboi.png" src="../_images/img08_oboi.png" style="width: 95%;" /></a>
+<h1>8. Избыток<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>На сайте <a class="reference external" href="https://playground.tensorflow.org">playground.tensorflow.org</a> Маша стала играться с простенькими нейросетками и  обучила для решения задачи классификации трёхслойного монстра.</p>
+<p>Голубым цветом обозначен первый класс, рыжим второй. Внутри каждого нейрона визуализирована та разделяющая поверхность, которую он выстраивает. Так, первый слой ищет разделяющую линию. Второй слой пытается из этих линий выстроить более сложные фигуры и так далее. Чем ярче связь между нейронами, тем больше весовой коэффициент, относящийся к ней. Синие связи — положительные, рыжие — отрицательные. Чем тусклее связь, тем вес ближе к нулю. Маша заметила, что с её архитектурой что-то не так. Какие у неё проблемы?</p>
+<figure class="align-default" id="playground-task">
+<a class="reference internal image-reference" href="../_images/img08_task.png"><img alt="../_images/img08_task.png" src="../_images/img08_task.png" style="width: 95%;" /></a>
 </figure>
-<p>Маша по жизни оптимистка. Поэтому она увидела не дополнительные траты на ремонт, а четыре задачи классификации. И теперь в её голове вопрос, сколько минимально нейронов нужно, чтобы эти задачи решить.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -484,26 +484,10 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>1)</strong> Нам надо выделить треугольник. Всё, что внутри, будет относиться к первому классу. Получается, что на первом слое надо три нейрона. Каждый из них настроим так, что, если мы попадаем внутрь треугольника, он выдаёт <span class="math notranslate nohighlight">\(1\)</span>. Тогда на втором слое будет достаточно одного нейрона, который удостоверится, что все три результата с первого слоя оказались равны <span class="math notranslate nohighlight">\(1\)</span>. Вернитесь к предыдущей задаче, сходите на сайт с демкой и постройте оптимальную нейросетку.</p>
-<a class="reference internal image-reference" href="../_images/img08_triangle.png"><img alt="triangle" class="align-center" src="../_images/img08_triangle.png" style="width: 95%;" /></a>
-<p class="sd-card-text"><strong>2)</strong> Первый слой должен построить нам три линии. Это три нейрона. Второй слой должен принять решение, в какой из полос мы оказались. Будем считать, что, если мы попали направо, нейрон выдаёт единицу. Если мы попали налево, ноль. В качестве функции активации используем единичную ступеньку.</p>
-<a class="reference internal image-reference" href="../_images/img08_krest.png"><img alt="krest" class="align-center" src="../_images/img08_krest.png" style="width: 95%;" /></a>
-<p class="sd-card-text">Вопрос в том, хватит ли нам на втором слое одного нейрона для того, чтобы обработать все четыре возможные ситуации. Нам нужно, чтобы выполнялись следующие условия</p>
-<div class="amsmath math notranslate nohighlight">
-\[\begin{equation*}
-    \begin{cases} 
-    &amp; f(1 \cdot w_1 + 1 \cdot w_2 + 1 \cdot w_3) = 1 \\ 
-    &amp; f(1 \cdot w_1 + 0 \cdot w_2 + 0 \cdot w_3) = 1 \\
-    &amp; f(1 \cdot w_1 + 1 \cdot w_2 + 0 \cdot w_3) = 0 \\
-    &amp; f(0 \cdot w_1 + 0 \cdot w_2 + 0 \cdot w_3) = 0 \\
-    \end{cases}.
-\end{equation*}\]</div>
-<p class="sd-card-text">Для того, чтобы со вторым уравнением всё было хорошо, возьмём <span class="math notranslate nohighlight">\(w_1 = 1.\)</span> Тогда вес <span class="math notranslate nohighlight">\(w_2\)</span> надо взять отрицательным, а <span class="math notranslate nohighlight">\(w_3\)</span> положительным, например, <span class="math notranslate nohighlight">\(w_2 = -2\)</span>, а <span class="math notranslate nohighlight">\(w_3 = 4\)</span>. Тогда один нейрон на внешнем слое решит нашу задачу. Выходит, что всего надо задействовать 4 нейрона.</p>
-<p class="sd-card-text"><strong>3)</strong> Оценим число нейронов сверху. Перед нами две <span class="math notranslate nohighlight">\(XoR\)</span> задачи, которые лежат рядом друг с другом. Для решения каждой надо <span class="math notranslate nohighlight">\(3\)</span> нейрона. Чтобы объединить получившиеся решения, нужен ещё один нейрон. Получается трёхслойная сетка с <span class="math notranslate nohighlight">\(7\)</span> нейронами.</p>
-<p class="sd-card-text">Если мы попробуем подойти к задаче так же, как в предыдущем пункте, на втором слое мы получим несовместимую систему из уравнений. То есть третьего слоя точно не избежать.</p>
-<p class="sd-card-text">Можно первым слоем построить <span class="math notranslate nohighlight">\(3\)</span> линии, вторым решить задачу из предыдущего пункта, а на третьем добавить информацию о том, выше горизонтальной линии мы оказались или ниже. Тогда мы потратим <span class="math notranslate nohighlight">\(6\)</span> нейронов. Нейросетка получится неполносвязной.</p>
-<a class="reference internal image-reference" href="../_images/img08_hard.png"><img alt="triangle" class="align-center" src="../_images/img08_hard.png" style="width: 70%;" /></a>
-<p class="sd-card-text"><strong>4)</strong> Думайте, рассуждайте, а автор умывает руки.</p>
+<p class="sd-card-text">Нейросетка Маши оказалась избыточной. Во-первых, можно увидеть, что на первом слое есть нейрон, который вообще ничего не делает. Связи, которые идут к нему от входов, настолько тусклые (коэффициенты при них равны нулю), что их даже не видно на картинке. От этого нейрона смело можно избавиться и сделать архитектуру проще.  Во-вторых, можно заметить, что на последнем скрытом слое у нас есть два одинаковых нейрона. Один из них смело можно выбрасывать.</p>
+<figure class="align-default" id="playground-sol">
+<a class="reference internal image-reference" href="../_images/img08_sol.png"><img alt="../_images/img08_sol.png" src="../_images/img08_sol.png" style="width: 95%;" /></a>
+</figure>
 </div>
 </details></section>
 
@@ -543,7 +527,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">7. Избыток</p>
+        <p class="prev-next-title">7. Ещё немного про XoR</p>
       </div>
     </a>
     <a class="right-next"
@@ -551,7 +535,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">9. Универсальный регрессор</p>
+        <p class="prev-next-title">9. Минималочка</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

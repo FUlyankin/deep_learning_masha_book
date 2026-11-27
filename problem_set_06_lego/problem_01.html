@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -510,17 +512,17 @@ H_2 = D \odot f(H_1 \cdot W + b).
 <p class="sd-card-text">Без дропаута шаг обратного распространения ошибки выглядит как</p>
 <div class="math notranslate nohighlight">
 \[
-\underset{[n \times k]}{\frac{\partial L}{\partial H_1}} = \underset{[n \times d]}{\frac{\partial L}{\partial H_2}} \cdot \underset{[d \times k]}{W^T} \odot \underset{[n \times k]}{f'(H_1 \cdot W + b)}.
+\underset{[n \times d]}{\frac{\partial L}{\partial H_1}} = \left(\underset{[n \times k]}{\frac{\partial L}{\partial H_2}} \odot \underset{[n \times k]}{f'(H_1 \cdot W + b)}\right) \cdot \underset{[k \times d]}{W^T}.
 \]</div>
 <p class="sd-card-text">В скобках подписаны размерности. Для слоя с дропаутом шаг обратного распространения ошибки выглядит как</p>
 <div class="math notranslate nohighlight">
 \[
-\underset{[n \times k]}{\frac{\partial L}{\partial H_1}} = \underset{[n \times d]}{\frac{\partial L}{\partial H_2}} \cdot \underset{[d \times k]}{W^T} \odot \underset{[n \times k]}{f'(H_1 \cdot W + b)} \odot \underset{[n \times k]}{D}.
+\underset{[n \times d]}{\frac{\partial L}{\partial H_1}} = \left(\underset{[n \times k]}{\frac{\partial L}{\partial H_2}} \odot \underset{[n \times k]}{f'(H_1 \cdot W + b)} \odot \underset{[n \times k]}{D}\right) \cdot \underset{[k \times d]}{W^T}.
 \]</div>
 <p class="sd-card-text">Получается, что градиенты по занулившимся нейронам зануляются, и сетка игнорирует их при шаге обратного распространения ошибки. Производная по весам слоя выглядит как</p>
 <div class="math notranslate nohighlight">
 \[
-\underset{[d \times k]}{\frac{\partial L}{\partial W}} = \underset{[d \times n]}{H_1^T} \cdot \underset{[n \times k]}{\frac{\partial L}{\partial H_1}} 
+\underset{[d \times k]}{\frac{\partial L}{\partial W}} = \underset{[d \times n]}{H_1^T} \cdot \left(\underset{[n \times k]}{\frac{\partial L}{\partial H_2}} \odot \underset{[n \times k]}{f'(H_1 \cdot W + b)} \odot \underset{[n \times k]}{D}\right) 
 \]</div>
 <p class="sd-card-text">Именно на эту величину делается шаг градиентного спуска.</p>
 </div>
@@ -533,10 +535,10 @@ H_2 = D \odot f(H_1 \cdot W + b).
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Дропаут позволяет бороться с коадаптацией нейронов. При обучении мы зануляем часть выходов, тем самым мы изменяем только часть параметров, и нейроны учатся более независимо.</p>
-<p class="sd-card-text">Более того, Хинтону и его соавторам удалось показать, что дропаут эквивалентен усреднению всех тех моделей, которые получались на каждом шаге случайным выбрасыванием отдельных нейронов. Иначе говоря, мы усредняем <span class="math notranslate nohighlight">\(2^N\)</span> возможных моделей, где <span class="math notranslate nohighlight">\(N\)</span> – число нейронов, которые могут быть выкинуты или оставлены.</p>
+<p class="sd-card-text">Более того, Хинтону и его соавторам<a class="footnote-reference brackets" href="#statia-dropout" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> удалось показать, что дропаут эквивалентен усреднению всех тех моделей, которые получались на каждом шаге случайным выбрасыванием отдельных нейронов. Иначе говоря, мы усредняем <span class="math notranslate nohighlight">\(2^N\)</span> возможных моделей, где <span class="math notranslate nohighlight">\(N\)</span> – число нейронов, которые могут быть выкинуты или оставлены.</p>
 </div>
 </details><p><strong>в)</strong> Дропаут выплёвывает случайные выходы. Не очень понятно, как применять слой на стадии тестирования. Пусть у нас есть два нейрона, каждый из которых мы отключаем с вероятностью <span class="math notranslate nohighlight">\(0.4\)</span>.</p>
-<figure class="align-default" id="regression">
+<figure class="align-default" id="dropout-two-neurons">
 <a class="reference internal image-reference" href="../_images/img01_dropout.png"><img alt="../_images/img01_dropout.png" src="../_images/img01_dropout.png" style="width: 30%;" /></a>
 </figure>
 <p>Нейроны выплёвывают <span class="math notranslate nohighlight">\(x_1\)</span> и <span class="math notranslate nohighlight">\(x_2\)</span>. Дальше мы складываем их с весами <span class="math notranslate nohighlight">\(w_1\)</span> и <span class="math notranslate nohighlight">\(w_2\)</span> и получаем выход <span class="math notranslate nohighlight">\(h\)</span>.</p>
@@ -586,7 +588,7 @@ H_2 = (1 - p) \cdot f(H_1 \cdot W + b).
 <p class="sd-card-text">Производная для линейного слоя без дропаута выглядит как</p>
 <div class="math notranslate nohighlight">
 \[
-\underset{[d \times k]}{\frac{\partial L}{\partial W}} = \underset{[d \times n]}{H_1^T} \cdot \underset{[n \times k]}{\frac{\partial L}{\partial H_1}}.
+\underset{[d \times k]}{\frac{\partial L}{\partial W}} = \underset{[d \times n]}{H_1^T} \cdot \left(\underset{[n \times k]}{\frac{\partial L}{\partial H_2}} \odot \underset{[n \times k]}{f'(H_1 \cdot W + b)}\right).
 \]</div>
 <p class="sd-card-text">Шаг градиентного спуска выглядит как</p>
 <div class="math notranslate nohighlight">
@@ -598,7 +600,7 @@ W_t = W_{t - 1} - \eta_t \cdot \frac{\partial L}{\partial W}(W_{t-1}).
 \[
 W_t = W_{t - 1} - \eta_t \cdot \frac{1}{1-p} \cdot \frac{\partial L}{\partial W}(W_{t-1}).
 \]</div>
-<p class="sd-card-text">Получается, что скорость обучения дополнительно домножается на коэффициент <span class="math notranslate nohighlight">\(\frac{1}{1-p} \ge 1.\)</span> Получается, что величина шага увеличивается.</p>
+<p class="sd-card-text">Получается, что скорость обучения дополнительно домножается на коэффициент <span class="math notranslate nohighlight">\(\frac{1}{1-p} \ge 1.\)</span> Получается, что по сравнению с обычным дропаутом величина шага увеличивается.</p>
 </div>
 </details><p><strong>е)</strong> Предположим, что Маша решила после первого слоя добавить в свою сетку Dropout c вероятностью <span class="math notranslate nohighlight">\(p\)</span>.  Какова вероятность того, что отключится весь слой?</p>
 <p>Пусть случайная величина <span class="math notranslate nohighlight">\(N\)</span> — это число включённых нейронов. Найдите её математическое ожидание и дисперсию. Если Маша хочет оставить четверть работающих нейронов, какое значение <span class="math notranslate nohighlight">\(p\)</span> она должна поставить?</p>
@@ -655,20 +657,20 @@ h = \frac{1}{1 - p} \cdot d \cdot x.
 <p class="sd-card-text">Дисперсия изменится</p>
 <div class="math notranslate nohighlight">
 \[
-\text{Var}(h) = \text{Var} \left( \frac{1}{1 - p} \cdot d \cdot x  \right) = \frac{1}{(1 - p)^2} \cdot  \text{Var}(d) \cdot \text{Var}(x) = \frac{p}{(1 - p)} \cdot \mathbb{E}(x).
+\text{Var}(h) = \text{Var} \left( \frac{1}{1 - p} \cdot d \cdot x  \right) = \frac{\text{Var}(x)}{1 - p} + \frac{p}{1 - p} \cdot \mathbb{E}^2(x).
 \]</div>
-<p class="sd-card-text">Если мы будем домножать выход на <span class="math notranslate nohighlight">\(\frac{1-p}{p}\)</span>, мы сломаем среднее. Более того, это изменит вероятность дропаута.</p>
+<p class="sd-card-text">Если мы будем домножать выход на <span class="math notranslate nohighlight">\(\sqrt{1-p}\)</span>, мы сломаем среднее. Более того, это изменит вероятность дропаута.</p>
 <p class="sd-card-text">При нормализации мы сдвигаем случайную величину на какую-то константу и умножаем её на какую-то константу. По аналогии можно поступить с выходом из дропаута.</p>
-<p class="sd-card-text">Примерно это делают авторы функции активации SELU в своей статье.<a class="footnote-reference brackets" href="#statia5" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> Не обходится без хитростей, взятых из воздуха.</p>
-<p class="sd-card-text">Нам нужно нулевое математическое ожидание. Дропаут выдаёт на выход либо единицы, либо нули, нулевого математического ожидания никак тут не получишь. Авторы говорят, что SELU в отрицательной области</p>
+<p class="sd-card-text">Примерно это делают авторы функции активации SELU в своей статье.<a class="footnote-reference brackets" href="#statia5" id="id3" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a> Не обходится без хитростей, взятых из воздуха.</p>
+<p class="sd-card-text">Нам нужно нулевое математическое ожидание. Дропаут выдаёт на выход либо единицы, либо нули, а у SELU дефолтное значение – не ноль. Авторы говорят, что SELU в отрицательной области</p>
 <div class="math notranslate nohighlight">
 \[
 \lim_{t \to -\infty} SELU(t) = - \alpha \cdot \lambda = \alpha'.
 \]</div>
-<p class="sd-card-text">Можно попробовать взять <span class="math notranslate nohighlight">\(- \alpha'\)</span> в качестве нового дефолтного значения для дропаута и заставить его работать по формуле</p>
+<p class="sd-card-text">Можно попробовать взять <span class="math notranslate nohighlight">\(\alpha'\)</span> в качестве нового дефолтного значения для дропаута и заставить его работать по формуле</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-d(t) = \begin{cases}h, &amp; 1 - p \\ \alpha', &amp; p. \end{cases}
+d(t) = \begin{cases}x, &amp; 1 - p \\ \alpha', &amp; p. \end{cases}
 \end{split}\]</div>
 <p class="sd-card-text">Дальше нам надо сдвинуть выход слоя на константу <span class="math notranslate nohighlight">\(b\)</span> и умножить на константу <span class="math notranslate nohighlight">\(a\)</span></p>
 <div class="math notranslate nohighlight">
@@ -684,15 +686,19 @@ d(t) \cdot a + b
 <p class="sd-card-text">Решив эту систему уравнений, можно получить, что</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{align*}
-&amp; a = (p + (\alpha')^2 \cdot p \cdot (1 - p))^{-0.5} \\
-&amp; b = - (p + (\alpha')^2 \cdot p \cdot (1 - p))^{-0.5} \cdot ((1-p)\alpha').
+&amp; a = ((1 - p) + (\alpha')^2 \cdot p \cdot (1 - p))^{-0.5} \\
+&amp; b = - ((1 - p) + (\alpha')^2 \cdot p \cdot (1 - p))^{-0.5} \cdot (p \cdot \alpha').
 \end{align*}\]</div>
 <p class="sd-card-text">Такое преобразование оставит эффект разреженности от дропаута и сохранит нормализованные данные. Авторы называют его <strong>Alpha Dropout.</strong></p>
 </div>
 </details><hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="statia5" role="doc-footnote">
+<aside class="footnote brackets" id="statia-dropout" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://jmlr.org/papers/volume15/srivastava14a/srivastava14a.pdf">Dropout: A Simple Way to Prevent Neural Networks from Overfitting</a></p>
+</aside>
+<aside class="footnote brackets" id="statia5" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">2</a><span class="fn-bracket">]</span></span>
 <p><a class="reference external" href="https://arxiv.org/pdf/1706.02515.pdf">Self-Normalizing Neural Networks</a></p>
 </aside>
 </aside>

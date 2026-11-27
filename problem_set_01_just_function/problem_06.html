@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. Ещё немного про XoR &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
+    <title>6. Логические функции &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'problem_set_01_just_function/problem_06';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="7. Избыток" href="problem_07.html" />
-    <link rel="prev" title="5. Логические функции" href="problem_05.html" />
+    <link rel="next" title="7. Ещё немного про XoR" href="problem_07.html" />
+    <link rel="prev" title="5. Армия регрессий" href="problem_05.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -456,7 +458,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>6. Ещё немного про XoR</h1>
+    <h1>6. Логические функции</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -470,9 +472,76 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="xor">
-<h1>6. Ещё немного про XoR<a class="headerlink" href="#xor" title="Link to this heading">#</a></h1>
-<p>Маша заметила, что на XoR ушло очень много персептронов. Она поняла, что первые два персептрона пытаются построить для третьего нелинейные признаки, которых нейросетке не хватает. Она решила самостоятельно добавить персептрону вход <span class="math notranslate nohighlight">\(x_3 = x_1 \cdot x_2\)</span> и реализовать XoR одним персептроном. Можно ли это сделать?</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>6. Логические функции<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>Маша вчера поссорилась с Пашей. Он сказал, что у неё нет логики. Чтобы доказать Паше обратное, Маша нашла теорему, которая говорит о том, что с помощью нейросетки можно аппроксимировать почти любую функцию, и теперь собирается заняться аппроксимацией логических функций. Для начала она взяла самые простые логические функции, заданные следующими таблицами истинности</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(x_1\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(x_2\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(x_1 \cap x_2\)</span></p></th>
+<th class="head"><p></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(x_1\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(x_2\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(x_1 \cup x_2\)</span></p></th>
+<th class="head"><p></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(x_1\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(x_2\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(x_1 \text{ XoR } x_2\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>Первые два столбика идут на вход, третий получается на выходе. Первая операция — логическое «и», вторая — «или».   Операция из третьей таблицы называется «исключающим или», XoR. Если внимательно приглядеться, то можно заметить, что XoR — это то же самое, что и <span class="math notranslate nohighlight">\([x_1 \ne x_2].\)</span> Квадратные скобки обозначают индикатор. Он выдаёт <span class="math notranslate nohighlight">\(1\)</span>, если внутри него стоит правда, и <span class="math notranslate nohighlight">\(0\)</span>, если ложь. Такая запись называется скобкой Айверсона. Попробуйте записать через неё единичную ступеньку Хевисайда, а затем помогите Маше с нейросетями.<a class="footnote-reference brackets" href="#expressiveness-note" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -480,25 +549,48 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Маша обратила внимание на очень важную штуку. Нам не хватает признаков, чтобы реализовать XoR за один нейрон. Поэтому первый слой нейросетки сам их для нас придумывает. Чем глубже нейросетку мы построим, тем более сложные и абстрактные признаки она будет выделять из данных. Если добавить ко входу <span class="math notranslate nohighlight">\(x_3 = x_1 \cdot x_2\)</span>, мы сделаем за нейросетку часть её работы и сможем обойтись одним нейроном. Например, вот таким:</p>
+<p class="sd-card-text">Начнём со ступеньки. Через скобку Айверсона она записывается одной строчкой:</p>
 <div class="math notranslate nohighlight">
 \[
-\hat y = [x_1 + x_2 - 2\cdot x_1 \cdot x_2 - 0.5 &gt; 0]
+f(h) = [h &gt; 0].
 \]</div>
-<p class="sd-card-text">Такая линия как раз будет задавать две скрещивающиеся прямые.</p>
-<a class="reference internal image-reference" href="../_images/img06_xor.png"><img alt="xor_features" class="align-center" src="../_images/img06_xor.png" style="width: 30%;" /></a>
+<p class="sd-card-text">В предыдущем упражнении мы уже построили нейрон для пересечения. Он располагался на последнем слое нейросети. Посмотрим на тот же нейрон под другим углом.</p>
+<figure class="align-default" id="logic-sol-and">
+<a class="reference internal image-reference" href="../_images/img06_sol1.png"><img alt="../_images/img06_sol1.png" src="../_images/img06_sol1.png" style="width: 95%;" /></a>
+</figure>
+<p class="sd-card-text">Если нарисовать все наши четыре точки на плоскости, становится ясно, что мы хотим отделить точку <span class="math notranslate nohighlight">\((1,1)\)</span> от всех остальных. Сделать это можно большим числом способов. Например, в нейроне выше задана линия <span class="math notranslate nohighlight">\(x_2 = 1.5 - x_1\)</span>. Подойдёт и любая другая линия, отделяющая <span class="math notranslate nohighlight">\((1,1)\)</span> от остальных точек. Пропустим ради приличия точки через наш нейрон и убедимся, что он работает корректно:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \begin{aligned}
-&amp; x_1 + x_2 - 2x_1x_2 - 0.5 = 0 \\
-&amp; 2x_1 + 2x_2 - 4x_1 x_2 - 1 = 0 \\ 
-&amp; 2x_1(1 - 2 x_2) + 2 x_2 - 1 = 0 \\
-&amp; (1 - 2 x_2) \cdot (2 x_1 - 1) = 0
+&amp; [-1.5 + 1 + 1 &gt; 0] = [0.5 &gt; 0] = 1 \\
+&amp; [-1.5 + 0 + 0 &gt; 0] = [-1.5 &gt; 0] = 0 \\
+&amp; [-1.5 + 0 + 1 &gt; 0] = [-0.5 &gt; 0] = 0 \\
+&amp; [-1.5 + 1 + 0 &gt; 0] = [-0.5 &gt; 0] = 0 \\
 \end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Получаем два решения. Прямую <span class="math notranslate nohighlight">\(x_2 = 0.5\)</span> и прямую <span class="math notranslate nohighlight">\(x_1 = 0.5\)</span>.</p>
+<p class="sd-card-text">С объединением та же ситуация, только на этот раз линия должна пройти чуть ниже. Подойдёт <span class="math notranslate nohighlight">\(x_2 = 0.5 - x_1\)</span>.</p>
+<figure class="align-default" id="logic-sol-or">
+<a class="reference internal image-reference" href="../_images/img06_sol2.png"><img alt="../_images/img06_sol2.png" src="../_images/img06_sol2.png" style="width: 95%;" /></a>
+</figure>
+<p class="sd-card-text">С третьей операцией, исключающим или, начинаются проблемы. Чтобы разделить точки, нужно строить две линии. Сделать это можно многими способами. Но линий всегда будет две. Надо посмотреть первым слоем нейросетки, где мы оказались относительно каждой из линий, а вторым слоем соединить результаты.</p>
+<figure class="align-default" id="logic-sol-xor">
+<a class="reference internal image-reference" href="../_images/img06_sol3.png"><img alt="../_images/img06_sol3.png" src="../_images/img06_sol3.png" style="width: 45%;" /></a>
+</figure>
+<p class="sd-card-text">Можно даже записать эту нейросеть через объединение и пересечение:</p>
+<div class="math notranslate nohighlight">
+\[
+\hat y = [1 \cdot (x_1 \cup x_2) - 1 \cdot (x_1 \cap x_2) - 0.5 &gt; 0]
+\]</div>
+<p class="sd-card-text">Нейрон <span class="math notranslate nohighlight">\((x_1 \cup x_2)\)</span> выясняет, по какую сторону от пунктирной линии мы оказались, нейрон <span class="math notranslate nohighlight">\(x_1 \cap x_2\)</span> делает то же самое для сплошной линии. А дальше мы просто объединяем результат. Получается, что <span class="math notranslate nohighlight">\(XoR\)</span> можно описать двухслойной нейронной сетью.</p>
 </div>
-</details></section>
+</details><hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="expressiveness-note" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>О том, насколько выразительны нейросетки и какие булевы и не только функции они умеют представлять, есть хороший конспект курса CSC311 университета Торонто: <a class="reference external" href="https://www.teach.cs.toronto.edu/~csc311notes/neural_networks/expressiveness.html">Expressiveness of Neural Networks</a>.</p>
+</aside>
+</aside>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -536,7 +628,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">5. Логические функции</p>
+        <p class="prev-next-title">5. Армия регрессий</p>
       </div>
     </a>
     <a class="right-next"
@@ -544,7 +636,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">7. Избыток</p>
+        <p class="prev-next-title">7. Ещё немного про XoR</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

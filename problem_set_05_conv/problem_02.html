@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -473,7 +475,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>2. Классификатор слэшей<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>У Маши есть куча картинок размера <span class="math notranslate nohighlight">\(4 \times 4,\)</span> на которых нарисованы прямые и обратные слэши.</p>
-<figure class="align-default" id="regression">
+<figure class="align-default" id="slashes">
 <a class="reference internal image-reference" href="../_images/img02_slash_01.png"><img alt="../_images/img02_slash_01.png" src="../_images/img02_slash_01.png" style="width: 350px;" /></a>
 </figure>
 <p>Маша хочет классифицировать все картинки на два класса. Помогите ей придумать для этого алгоритм, который будет состоять из свёртки и пулинга.</p>
@@ -486,7 +488,7 @@ document.write(`
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Нужно придумать свёртку так, чтобы она находила либо прямые, либо обратные слэши. В примере ниже мы применили свёртку к исходной картинке и получили новую картинку. В ней записана информация о том, что именно свёртка разглядела на исходной картинке. Результат применения свёртки – это составные признаки, полученные из исходной картинки (feature map).</p>
 <a class="reference internal image-reference" href="../_images/img02_slash_02.png"><img alt="cnn9" class="align-center" src="../_images/img02_slash_02.png" style="height: 200px;" /></a>
-<p class="sd-card-text">Попробуем применить эту же свёртку к обратному слэшу.</p>
+<p class="sd-card-text">Попробуем применить эту же свёртку к прямому слэшу.</p>
 <a class="reference internal image-reference" href="../_images/img02_slash_03.png"><img alt="cnn9" class="align-center" src="../_images/img02_slash_03.png" style="height: 200px;" /></a>
 <p class="sd-card-text">Видно, что для обратного слэша в результате применения свёртки есть число <span class="math notranslate nohighlight">\(2\)</span>. Для прямого слэша максимальное число – это единица. Попробуем передвинуть обратный слэш в какое-нибудь другое место и посмотрим, что получится после применения свёртки.</p>
 <a class="reference internal image-reference" href="../_images/img02_slash_04.png"><img alt="cnn9" class="align-center" src="../_images/img02_slash_04.png" style="height: 200px;" /></a>
@@ -496,9 +498,9 @@ document.write(`
 <li><p class="sd-card-text">Находим на получившейся картинке максимальное число.</p></li>
 <li><p class="sd-card-text">Если это двойка, у нас обратный слэш, если единица, у нас прямой слэш.</p></li>
 </ol>
-<p class="sd-card-text">Такой алгоритм будет работать независимо от того, где именно находится наш слэш. Получается, что свёртка – инвариантна к местоположению объекта на картинке. Каждая свёртка пытается искать на изображении какой-то конкретный образ. Если на изображении, полученном после применения свёртки, у нас есть большие числа, они сигнализируют о том, что свёртка нашла то, что искала.</p>
-<p class="sd-card-text">Обратите внимание, что, если бы наши слэши были бы размера <span class="math notranslate nohighlight">\(3 \times 3,\)</span> свёртка размера <span class="math notranslate nohighlight">\(2 \times 2\)</span> не могла бы найти их. Зато две применённые по очереди свёртки спокойно бы справились с такой задачей. Это происходит из-за того, что свёртка <span class="math notranslate nohighlight">\(2 \times 2\)</span> не охватывает нужную нам часть изображения полностью. Она видит только квадрат размера <span class="math notranslate nohighlight">\(2 \times 2\)</span>.</p>
-<p class="sd-card-text">Вторая свёртка применяется к уже свёрнутому изображению. В каждой клетке у нас записано число, которое представляет из себя сумму четырёх пикселей. Получается, что вторая свёртка косвенно, через первую свёртку, будет понимать, что находится в квадрате размера <span class="math notranslate nohighlight">\(4 \times 4\)</span>.</p>
+<p class="sd-card-text">Такой алгоритм будет работать независимо от того, где именно находится наш слэш. Получается, что свёртка вместе с максимумом – инвариантна к местоположению объекта на картинке. Каждая свёртка пытается искать на изображении какой-то конкретный образ. Если на изображении, полученном после применения свёртки, у нас есть большие числа, они сигнализируют о том, что свёртка нашла то, что искала.</p>
+<p class="sd-card-text">Обратите внимание, что, если бы наши слэши были бы размера <span class="math notranslate nohighlight">\(3 \times 3,\)</span> свёртка размера <span class="math notranslate nohighlight">\(2 \times 2\)</span> не смогла бы отличить их от коротких слэшей. Зато две применённые по очереди свёртки спокойно бы справились с такой задачей. Это происходит из-за того, что свёртка <span class="math notranslate nohighlight">\(2 \times 2\)</span> не охватывает нужную нам часть изображения полностью. Она видит только квадрат размера <span class="math notranslate nohighlight">\(2 \times 2\)</span>.</p>
+<p class="sd-card-text">Вторая свёртка применяется к уже свёрнутому изображению. В каждой клетке у нас записано число, которое представляет из себя сумму четырёх пикселей. Получается, что вторая свёртка косвенно, через первую свёртку, будет понимать, что находится в квадрате размера <span class="math notranslate nohighlight">\(3 \times 3\)</span>.</p>
 <p class="sd-card-text">Область, которую разглядели наши свёртки, называют <strong>полем обзора (receptive field).</strong> В одной из следующих задач мы узнаем, что, если просто применять свёртки друг за другом, мы будем растить поле обзора слишком долго. Чтобы это происходило быстрее, обычно используют пулинг.</p>
 </div>
 </details></section>

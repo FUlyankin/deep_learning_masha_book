@@ -182,13 +182,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -471,7 +473,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>7. Матричный лагранжиан<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Найдите симметричную матрицу <span class="math notranslate nohighlight">\(X\)</span>, наиболее близкую к матрице <span class="math notranslate nohighlight">\(A\)</span> по норме Фробениуса, <span class="math notranslate nohighlight">\(\sum_{i,j} (x_{ij} - a_{ij})^2\)</span>. Тут мы просто из каждого элемента вычитаем каждый и смотрим на сумму квадратов таких разностей. То есть решите задачку условной матричной минимизации</p>
+<p>Найдите симметричную матрицу <span class="math notranslate nohighlight">\(X\)</span>, наиболее близкую к матрице <span class="math notranslate nohighlight">\(A\)</span> по норме Фробениуса, <span class="math notranslate nohighlight">\(\sum_{i,j} (x_{ij} - a_{ij})^2\)</span>. Тут мы просто из каждого элемента вычитаем соответствующий и смотрим на сумму квадратов таких разностей. То есть решите задачку условной матричной минимизации</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 	\begin{cases}
@@ -486,7 +488,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Надо будет выписать лагранжиан.  А ещё пригодится тот факт, что <span class="math notranslate nohighlight">\(\sum_{i,j} (x_{ij} - a_{ij})^2 = ||X-A||^2 =  tr((X-A)^T (X-A))\)</span>.</p>
+<p class="sd-card-text">Надо будет выписать лагранжиан.  А ещё пригодится тот факт, что <span class="math notranslate nohighlight">\(\sum_{i,j} (x_{ij} - a_{ij})^2 = ||X-A||^2 =  \operatorname{tr}((X-A)^T (X-A))\)</span>.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -498,22 +500,22 @@ document.write(`
 <p class="sd-card-text">Выписываем лагранжиан</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
-\mathscr{L} = \sum_{i,j} (x_{ij} - a_{ij})^2 + \sum_{ij} \lambda_{ij} (x_{ij} - x_{ji}) = \\ = tr((X-A)^T (X-A)) + tr(\Lambda^T (X - X^T)) = \\ = tr(X^TX) - 2 tr(X^TA) + tr(A^TA) + tr(\Lambda^T (X - X^T))
+\mathscr{L} = \sum_{i,j} (x_{ij} - a_{ij})^2 + \sum_{ij} \lambda_{ij} (x_{ij} - x_{ji}) = \\ = \operatorname{tr}((X-A)^T (X-A)) + \operatorname{tr}(\Lambda^T (X - X^T)) = \\ = \operatorname{tr}(X^TX) - 2 \operatorname{tr}(X^TA) + \operatorname{tr}(A^TA) + \operatorname{tr}(\Lambda^T (X - X^T))
 \end{multline*}\]</div>
 <p class="sd-card-text">Найдём все необходимые нам дифференциалы</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
-    &amp; d[tr(X^TX)] = tr(d(X^TX))  = tr(X^T dX) + tr(dX^T X) = tr(2 X^T dX) \\
-    &amp; d[tr(X^TA)] = tr(A^T dX) \\
-    &amp; d[tr(\Lambda^TX)] = tr(\Lambda^T dX) \\
-    &amp; d[tr(\Lambda^TX^T)] = tr(\Lambda dX) \\
+    &amp; d[\operatorname{tr}(X^TX)] = \operatorname{tr}(d(X^TX))  = \operatorname{tr}(X^T dX) + \operatorname{tr}(dX^T X) = \operatorname{tr}(2 X^T dX) \\
+    &amp; d[\operatorname{tr}(X^TA)] = \operatorname{tr}(A^T dX) \\
+    &amp; d[\operatorname{tr}(\Lambda^TX)] = \operatorname{tr}(\Lambda^T dX) \\
+    &amp; d[\operatorname{tr}(\Lambda^TX^T)] = \operatorname{tr}(\Lambda dX) \\
     \end{aligned} 
 \end{equation*}\]</div>
 <p class="sd-card-text">Выписываем в явном виде производную по <span class="math notranslate nohighlight">\(X\)</span></p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial \mathscr{L}}{\partial X} = 2X^T - 2A^T + \Lambda^T - \Lambda = 0
+\left(\frac{\partial \mathscr{L}}{\partial X}\right)^T = 2X^T - 2A^T + \Lambda^T - \Lambda = 0
 \]</div>
 <p class="sd-card-text">Нужно избавиться от <span class="math notranslate nohighlight">\(\Lambda\)</span>, давайте транспонируем уравнение</p>
 <div class="math notranslate nohighlight">

@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -490,7 +492,7 @@ document.write(`
 \]</div>
 </div>
 </details><p><strong>б)</strong> Маша вместо полносвязной сетки использует свёрточную. На первом шаге делается <span class="math notranslate nohighlight">\(6\)</span> свёрток размера <span class="math notranslate nohighlight">\(5 \times 5\)</span>. На втором шаге делается max-pooling размера <span class="math notranslate nohighlight">\(2 \times 2\)</span>. На третьем <span class="math notranslate nohighlight">\(16\)</span> свёрток размера <span class="math notranslate nohighlight">\(5\times 5\)</span>. На четвёртом max-pooling размера <span class="math notranslate nohighlight">\(2 \times 2\)</span>. На пятом картинка вытягивается в длинный вектор. Далее идут три полносвязных слоя размеров <span class="math notranslate nohighlight">\(120, 84, 10\)</span>. В конце делается softmax. После каждой свёртки и полносвязного слоя, кроме последнего, в качестве функции активации используется <span class="math notranslate nohighlight">\(ReLU.\)</span></p>
-<figure class="align-default" id="regression">
+<figure class="align-default" id="lenet">
 <a class="reference internal image-reference" href="../_images/img06_nn.png"><img alt="../_images/img06_nn.png" src="../_images/img06_nn.png" style="width: 650px;" /></a>
 </figure>
 <p>Какого размера будут выходы из каждого слоя?  Сколько параметров необходимо будет оценить в такой модели?</p>
@@ -517,20 +519,20 @@ document.write(`
 <p class="sd-card-text">Если у нас чёрно-белая картинка <span class="math notranslate nohighlight">\(Image\)</span> и мы применяем к ней свёртку <span class="math notranslate nohighlight">\(K\)</span> размера <span class="math notranslate nohighlight">\(k \times k\)</span>, тогда на выходе мы будем получать клетки нового изображения по формуле</p>
 <div class="math notranslate nohighlight">
 \[
-out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}   K[i, j] \cdot Image[x + i, y + j].
+out[x, y] = \sum_{i = 0}^{k-1}  \sum_{j = 0}^{k-1}   K[i, j] \cdot Image[x + i, y + j].
 \]</div>
 <p class="sd-card-text">Если у изображения несколько каналов, к каждому из них мы применяем одни и те же веса, а затем делаем по ним суммирование</p>
 <div class="math notranslate nohighlight">
 \[
-out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}  \sum_{c= 1}^{C}  K[i, j] \cdot Image[x + i, y + j, c]
+out[x, y] = \sum_{i = 0}^{k-1}  \sum_{j = 0}^{k-1}  \sum_{c= 1}^{C}  K[i, j] \cdot Image[x + i, y + j, c]
 \]</div>
-<p class="sd-card-text">Также можно использовать ядра с дополнительной размерностью по числу каналов. Так можно поступать с цветными изображениями либо с фичами, которые получаются внутри сети после применения нескольких свёрток. Давайте посчитаем для нашей нейросети количество параметров для ситуации, когда мы используем для каждого канала одну и ту же свёртку.</p>
+<p class="sd-card-text">Также можно использовать ядра с дополнительной размерностью по числу каналов. Так можно поступать с цветными изображениями либо с фичами, которые получаются внутри сети после применения нескольких свёрток. Давайте посчитаем для нашей нейросети количество параметров для ситуации, когда мы используем для каждого канала свою свёртку.</p>
 <p class="sd-card-text">Например, у нас на первом слое к картинке применяется <span class="math notranslate nohighlight">\(6\)</span> свёрток размера <span class="math notranslate nohighlight">\(5 \times 5\)</span> и на выходе у нас получается параллелепипед из циферок. К нему мы будем применять именно второй вариант свёртки.</p>
 <p class="sd-card-text">Подсчитаем число параметров, которые нам надо оценить, для каждого слоя:</p>
 <ul class="simple">
 <li><p class="sd-card-text">для первой свёртки это <span class="math notranslate nohighlight">\((5 \cdot 5 + 1) \cdot 6 = 156\)</span> весов</p></li>
 <li><p class="sd-card-text">у пулинга нет параметров, мы просто выбираем максимум из квадратиков размера <span class="math notranslate nohighlight">\(2 \times 2\)</span>.</p></li>
-<li><p class="sd-card-text">для второй свёртки это <span class="math notranslate nohighlight">\((5 \cdot 5 + 1) \cdot 16 = 416\)</span></p></li>
+<li><p class="sd-card-text">для второй свёртки это <span class="math notranslate nohighlight">\((5 \cdot 5 \cdot 6 + 1) \cdot 16 = 2416\)</span></p></li>
 <li><p class="sd-card-text">у пулинга снова нет параметров</p></li>
 <li><p class="sd-card-text">у вытягивания нет параметров</p></li>
 <li><p class="sd-card-text">у полносвязных слоёв окажется</p></li>
@@ -542,7 +544,7 @@ out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}  \sum_{c= 1}^{C}  K[i, j] \cdot
 <p class="sd-card-text">Итоговое количество параметров будет</p>
 <div class="math notranslate nohighlight">
 \[
-41854 + 416 + 156 = 42426.
+41854 + 2416 + 156 = 44426.
 \]</div>
 <p class="sd-card-text">При этом нейросеть покажет на порядок лучшее качество, чем полносвязная.</p>
 </div>
@@ -570,14 +572,14 @@ out[x, y] = \sum_{i = -k}^{k}  \sum_{j = -k}^{k}  \sum_{c= 1}^{C}  K[i, j] \cdot
 <p class="sd-card-text">Число параметров, которое нам надо оценить на свёрточных слоях, не изменится</p>
 <div class="math notranslate nohighlight">
 \[
-156 + 416 = 572.
+156 + 2416 = 2572.
 \]</div>
 <p class="sd-card-text">Для полносвязных слоёв количество параметров будет другим, так как выход из последнего свёрточного слоя изменил размерность</p>
 <div class="math notranslate nohighlight">
 \[
 784 \cdot 120 + 120 + 120 \cdot 84 + 84 + 84 \cdot 10 + 10 = 105214
 \]</div>
-<p class="sd-card-text">Итого получаем <span class="math notranslate nohighlight">\(105786\)</span> параметров.</p>
+<p class="sd-card-text">Итого получаем <span class="math notranslate nohighlight">\(107786\)</span> параметров.</p>
 </div>
 </details><p><strong>г)</strong> Маша использует ту же самую архитектуру, но все свёртки делает с параметром сдвига (stride) равным <span class="math notranslate nohighlight">\(2\)</span>. Как изменится число оцениваемых параметров? Какого размера будут выходы из каждого слоя?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">

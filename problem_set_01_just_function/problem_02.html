@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -472,7 +474,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>2. От картинки к формуле<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Добродум хочет понять, насколько сильно будет заполнена кофейня в следующие выходные. Для этого он обучил нейросетку. На вход она принимает три фактора: температуру за окном, <span class="math notranslate nohighlight">\(x_1\)</span>, факт наличия на Тверской митинга, <span class="math notranslate nohighlight">\(x_2\)</span>, и пол баристы на смене, <span class="math notranslate nohighlight">\(x_3\)</span> (где мужчина - 0, а женщина - 1).  В качестве функции активации Добродум использует ReLU.</p>
+<p>Добродум хочет понять, насколько сильно будет заполнена кофейня в следующие выходные. Для этого он обучил нейросетку. На вход она принимает три фактора: температуру за окном, <span class="math notranslate nohighlight">\(x_1\)</span>, факт наличия на улице митинга, <span class="math notranslate nohighlight">\(x_2\)</span>, и пол баристы на смене, <span class="math notranslate nohighlight">\(x_3\)</span> (где мужчина — 0, а женщина — 1).  В качестве функции активации Добродум использует ReLU.</p>
 <figure class="align-default" id="dobronet">
 <a class="reference internal image-reference" href="../_images/img02_dobronet.png"><img alt="../_images/img02_dobronet.png" src="../_images/img02_dobronet.png" style="width: 70%;" /></a>
 </figure>
@@ -485,7 +487,9 @@ document.write(`
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Будем постепенно идти по сетке и делать вычисления.</p>
-<a class="reference internal image-reference" href="../_images/img02_dobronet_sol.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_dobronet_sol.png" style="width: 70%;" /></a>
+<figure class="align-default" id="dobronet-forward">
+<a class="reference internal image-reference" href="../_images/img02_dobronet_sol.png"><img alt="../_images/img02_dobronet_sol.png" src="../_images/img02_dobronet_sol.png" style="width: 70%;" /></a>
+</figure>
 <p class="sd-card-text">Подаём все значения в первый нейрон, получаем</p>
 <div class="math notranslate nohighlight">
 \[

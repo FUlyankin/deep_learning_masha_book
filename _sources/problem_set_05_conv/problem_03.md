@@ -5,14 +5,14 @@
 ```{figure} ../images/problem_set_06/img03_kernels.png
 ---
 width: 600px
-name: regression
+name: kernels-01
 ---
 ```
 
 ```{figure} ../images/problem_set_06/img03_kernels2.png
 ---
 width: 600px
-name: regression
+name: kernels-02
 ---
 ```
 

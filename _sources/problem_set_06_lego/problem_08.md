@@ -11,7 +11,7 @@ $$
 h_{11} = x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1.
 $$
 
-Будем считать, что веса инициализируются независимо от данных, поэтому случайные величины $x_{i}$ и $w{jk}$ независимы друг от друга. Будем генерировать веса независимо друг от друга. Тогда
+Будем считать, что веса инициализируются независимо от данных, поэтому случайные величины $x_{i}$ и $w_{jk}$ независимы друг от друга. Будем генерировать веса независимо друг от друга. Тогда
 
 \begin{multline*}
 	\mathbb{E}(h_{11}) = \mathbb{E}(x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1) = \\ = \mathbb{E}(x_{11} w_{11}) + \mathbb{E}(x_{12} w_{21}) + \ldots + \mathbb{E}(x_{1k} w_{k1}) + \mathbb{E}(b_1) = \\ = \mathbb{E}(x_{11}) \cdot \mathbb{E}(w_{11}) + \mathbb{E}(x_{12}) \cdot \mathbb{E}(w_{21}) + \ldots + \mathbb{E}(x_{1k}) \cdot \mathbb{E}(w_{k1}) + \mathbb{E}(b_1) = 0
@@ -20,7 +20,7 @@ $$
 Все $\mathbb{E}(x_{ij}) = 0$, значит, математическое ожидание весов может быть любым. Математическое ожидание $\mathbb{E}(b_1)$ надо сделать нулевым. Посмотрим на дисперсию
 
 \begin{multline*}
-	\text{Var}(h_{11}) = \text{Var}(x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1) = \\ = \text{Var}(x_{11} w_{11}) + \text{Var}(x_{12} w_{21}) + \ldots + \text{Var}(x_{1k} w_{k1}) + \text{Var}(b_1) = \\ = \text{Var}(x_{11}) \cdot \text{Var}(w_{11}) + \text{Var}(x_{12}) \cdot \text{Var}(w_{21}) + \ldots + \text{Var}(x_{1k}) \cdot \text{Var}(w_{k1}) + \text{Var}(b_1) = \\ = 1 \cdot s + 1 \cdot s + \ldots + 1\ cdot s + s = \sigma^2.
+	\text{Var}(h_{11}) = \text{Var}(x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1) = \\ = \text{Var}(x_{11} w_{11}) + \text{Var}(x_{12} w_{21}) + \ldots + \text{Var}(x_{1k} w_{k1}) + \text{Var}(b_1) = \\ = \text{Var}(x_{11}) \cdot \text{Var}(w_{11}) + \text{Var}(x_{12}) \cdot \text{Var}(w_{21}) + \ldots + \text{Var}(x_{1k}) \cdot \text{Var}(w_{k1}) + \text{Var}(b_1) = \\ = 1 \cdot s + 1 \cdot s + \ldots + 1 \cdot s + s = \sigma^2.
 \end{multline*}
 
 Получается, что $$s = \frac{\sigma^2}{k + 1}.$$
@@ -47,12 +47,12 @@ $$
 p_{1,2} = 0.5 \cdot (1 \pm \sqrt{1 - 4 \sigma^2/(k + 1)}).
 $$
 
-У нас нет никаких гарантий, чтобы $0 \le p \le 1.$ Было бы хорошо перетащить всю дисперсию в $b$, а для $w_{jk}$ выбрать более нейтральное распределение. Пусть $w_{jk}$ принимает значения $1$ и $-1$ с вероятностями $0.5$. Тогда $\mathbb{E}(w_{jk}) = 0, \text{Var}(w_{jk}) = 0.25.$ 
+У нас нет никаких гарантий, чтобы $0 \le p \le 1.$ Было бы хорошо перетащить всю дисперсию в $b$, а для $w_{jk}$ выбрать более нейтральное распределение. Пусть $w_{jk}$ принимает значения $1$ и $-1$ с вероятностями $0.5$. Тогда $\mathbb{E}(w_{jk}) = 0, \text{Var}(w_{jk}) = 1.$ 
 
-Получается, что $\text{Var}(h_1) = \frac{k}{4} + s = \sigma^2.$ Отсюда получаем, что параметр $b$ надо инициализировать как 
+Получается, что $\text{Var}(h_1) = k + s = \sigma^2.$ Отсюда получаем, что параметр $b$ надо инициализировать как 
 
 $$
-b \sim N \left(0, \sigma^2 - \frac{k}{4} \right).
+b \sim N \left(0, \sigma^2 - k \right).
 $$
 
 ```
@@ -79,13 +79,13 @@ $$
 Посмотрим на дисперсию
 
 $$
-\text{Var}(h_i) = \frac{a^2}{12} \cdot \text{Var}(w_{11}) + \frac{a^2}{12}  \cdot \text{Var}(w_{21}) + \ldots + \frac{a^2}{12}  \cdot \text{Var}(w_{k1}) + \text{Var}(b_1) = \sigma^2.
+\text{Var}(h_i) = \frac{a^2}{3} \cdot \text{Var}(w_{11}) + \frac{a^2}{3}  \cdot \text{Var}(w_{21}) + \ldots + \frac{a^2}{3}  \cdot \text{Var}(w_{k1}) + \text{Var}(b_1) = \sigma^2.
 $$
 
 То есть 
 
 $$
-\frac{a^2}{12} \cdot k \cdot s_w + s_b = \sigma^2.
+\frac{a^2}{3} \cdot k \cdot s_w + s_b = \sigma^2.
 $$
 
 Нам нужно, чтобы каждое произведение $x_{ij} \cdot w_{jk}$ было нормально распределено. Наблюдения распределены равномерно. Нам надо выбрать распределение весов так, чтобы произведение дало нам  нормальное распределение. 
@@ -107,10 +107,10 @@ $$
 Получается
 
 \begin{multline*}
-f_X(x) =\int_0^{a} z \cdot \frac{1}{\sqrt{2 \pi}} \cdot e^{- \dfrac{z^2 \cdot x^2}{2}} \cdot \frac{1}{a} dz = \\ = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \int_0^{a} z \cdot \cdot e^{- \dfrac{z^2 \cdot x^2}{2}} dz = \\ = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \frac{1}{x^2} \cdot (1 - e^{- \dfrac{(ax)^2}{2}}).
+f_X(x) =\int_0^{a} z \cdot \frac{1}{\sqrt{2 \pi}} \cdot e^{- \dfrac{z^2 \cdot x^2}{2}} \cdot \frac{1}{a} dz = \\ = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \int_0^{a} z \cdot e^{- \dfrac{z^2 \cdot x^2}{2}} dz = \\ = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \frac{1}{x^2} \cdot (1 - e^{- \dfrac{(ax)^2}{2}}).
 \end{multline*}
 
-Для взятия интеграла мы воспользовались интегрированием по частям. Получается, что плотность нашего распределения должна иметь вид 
+Для взятия интеграла мы воспользовались заменой переменной. Получается, что плотность нашего распределения должна иметь вид 
 
 $$
 f_w(x) = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \frac{1}{x^2} \cdot (1 - e^{- \dfrac{(ax)^2}{2}}), \quad x \in (-\infty, +\infty).

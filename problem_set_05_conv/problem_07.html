@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -610,7 +612,7 @@ m_n = 2^{n + 1} - 1.
 <p class="sd-card-text">Надо аккуратно решить уравнение</p>
 <div class="math notranslate nohighlight">
 \[
-m_{n-1} = \frac{m_n - (s - 1) - \dfrac{k-1}{2}}{d}.
+m_{n-1} = \frac{\dfrac{m_n - k}{s} + 1}{d}.
 \]</div>
 <p class="sd-card-text">Читатель при желании может сделать это и запушить решение сюда.</p>
 </div>
@@ -628,7 +630,7 @@ m_{n-1} = \frac{m_n - (s - 1) - \dfrac{k-1}{2}}{d}.
 <p class="sd-card-text">Получается, что поле обзора меняется так же, как у свёртки размера <span class="math notranslate nohighlight">\(5 \times 5,\)</span> но часть клеток мы игнорируем при расчёте итогового значения. Найдём число клеток, которое мы будем либо сворачивать, либо игнорировать такой свёрткой при одной операции. Свёртка прикладывается к <span class="math notranslate nohighlight">\(k\)</span> числам, между этими числами у нас есть зазор, который состоит из <span class="math notranslate nohighlight">\((k - 1) \cdot (r-1)\)</span> числа. Получается, что мы охватываем <span class="math notranslate nohighlight">\(k + (k - 1) \cdot (r - 1)\)</span> число. Подставим это выражение в формулу обычной свёртки вместо <span class="math notranslate nohighlight">\(k\)</span> и получим требуемую формулу</p>
 <div class="math notranslate nohighlight">
 \[
-[k + (k - 1) \cdot (r - 1) - 1)\cdot n + 1] \times [k + (k - 1) \cdot (r - 1) - 1) \cdot n + 1].
+[(k + (k - 1) \cdot (r - 1) - 1)\cdot n + 1] \times [(k + (k - 1) \cdot (r - 1) - 1) \cdot n + 1].
 \]</div>
 </div>
 </details><p><strong>ж)</strong> Пусть Маша делает после каждого свёрточного слоя нормализацию по батчам. Как это повлияет на поле обзора? А если Маша делает между слоями остаточные связи (skip-connection)?</p>

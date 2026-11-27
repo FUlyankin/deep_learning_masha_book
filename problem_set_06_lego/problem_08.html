@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -486,7 +488,7 @@ document.write(`
 \[
 h_{11} = x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1.
 \]</div>
-<p class="sd-card-text">Будем считать, что веса инициализируются независимо от данных, поэтому случайные величины <span class="math notranslate nohighlight">\(x_{i}\)</span> и <span class="math notranslate nohighlight">\(w{jk}\)</span> независимы друг от друга. Будем генерировать веса независимо друг от друга. Тогда</p>
+<p class="sd-card-text">Будем считать, что веса инициализируются независимо от данных, поэтому случайные величины <span class="math notranslate nohighlight">\(x_{i}\)</span> и <span class="math notranslate nohighlight">\(w_{jk}\)</span> независимы друг от друга. Будем генерировать веса независимо друг от друга. Тогда</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
 	\mathbb{E}(h_{11}) = \mathbb{E}(x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1) = \\ = \mathbb{E}(x_{11} w_{11}) + \mathbb{E}(x_{12} w_{21}) + \ldots + \mathbb{E}(x_{1k} w_{k1}) + \mathbb{E}(b_1) = \\ = \mathbb{E}(x_{11}) \cdot \mathbb{E}(w_{11}) + \mathbb{E}(x_{12}) \cdot \mathbb{E}(w_{21}) + \ldots + \mathbb{E}(x_{1k}) \cdot \mathbb{E}(w_{k1}) + \mathbb{E}(b_1) = 0
@@ -494,7 +496,7 @@ h_{11} = x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1.
 <p class="sd-card-text">Все <span class="math notranslate nohighlight">\(\mathbb{E}(x_{ij}) = 0\)</span>, значит, математическое ожидание весов может быть любым. Математическое ожидание <span class="math notranslate nohighlight">\(\mathbb{E}(b_1)\)</span> надо сделать нулевым. Посмотрим на дисперсию</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
-	\text{Var}(h_{11}) = \text{Var}(x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1) = \\ = \text{Var}(x_{11} w_{11}) + \text{Var}(x_{12} w_{21}) + \ldots + \text{Var}(x_{1k} w_{k1}) + \text{Var}(b_1) = \\ = \text{Var}(x_{11}) \cdot \text{Var}(w_{11}) + \text{Var}(x_{12}) \cdot \text{Var}(w_{21}) + \ldots + \text{Var}(x_{1k}) \cdot \text{Var}(w_{k1}) + \text{Var}(b_1) = \\ = 1 \cdot s + 1 \cdot s + \ldots + 1\ cdot s + s = \sigma^2.
+	\text{Var}(h_{11}) = \text{Var}(x_{11} w_{11} + x_{12} w_{21} + \ldots + x_{1k} w_{k1} + b_1) = \\ = \text{Var}(x_{11} w_{11}) + \text{Var}(x_{12} w_{21}) + \ldots + \text{Var}(x_{1k} w_{k1}) + \text{Var}(b_1) = \\ = \text{Var}(x_{11}) \cdot \text{Var}(w_{11}) + \text{Var}(x_{12}) \cdot \text{Var}(w_{21}) + \ldots + \text{Var}(x_{1k}) \cdot \text{Var}(w_{k1}) + \text{Var}(b_1) = \\ = 1 \cdot s + 1 \cdot s + \ldots + 1 \cdot s + s = \sigma^2.
 \end{multline*}\]</div>
 <p class="sd-card-text">Получается, что $<span class="math notranslate nohighlight">\(s = \frac{\sigma^2}{k + 1}.\)</span>$</p>
 <p class="sd-card-text">Мы хотим, чтобы итоговое распределение оказалось нормальным. Для этого распределение каждого слагаемого должно быть нормальным. Можно инициализировать параметр <span class="math notranslate nohighlight">\(b\)</span> как <span class="math notranslate nohighlight">\(b \sim N \left(0, \frac{\sigma^2}{k + 1} \right).\)</span> Для весов <span class="math notranslate nohighlight">\(w\)</span> нормальное распределение не подойдёт, так как в таком случае мы будем умножать друг на друга два нормальных распределения и на выходе получим распределение из совершенно другого семейства.</p>
@@ -514,11 +516,11 @@ p^2 - p + \frac{\sigma^2}{k + 1} = 0.
 \[
 p_{1,2} = 0.5 \cdot (1 \pm \sqrt{1 - 4 \sigma^2/(k + 1)}).
 \]</div>
-<p class="sd-card-text">У нас нет никаких гарантий, чтобы <span class="math notranslate nohighlight">\(0 \le p \le 1.\)</span> Было бы хорошо перетащить всю дисперсию в <span class="math notranslate nohighlight">\(b\)</span>, а для <span class="math notranslate nohighlight">\(w_{jk}\)</span> выбрать более нейтральное распределение. Пусть <span class="math notranslate nohighlight">\(w_{jk}\)</span> принимает значения <span class="math notranslate nohighlight">\(1\)</span> и <span class="math notranslate nohighlight">\(-1\)</span> с вероятностями <span class="math notranslate nohighlight">\(0.5\)</span>. Тогда <span class="math notranslate nohighlight">\(\mathbb{E}(w_{jk}) = 0, \text{Var}(w_{jk}) = 0.25.\)</span></p>
-<p class="sd-card-text">Получается, что <span class="math notranslate nohighlight">\(\text{Var}(h_1) = \frac{k}{4} + s = \sigma^2.\)</span> Отсюда получаем, что параметр <span class="math notranslate nohighlight">\(b\)</span> надо инициализировать как</p>
+<p class="sd-card-text">У нас нет никаких гарантий, чтобы <span class="math notranslate nohighlight">\(0 \le p \le 1.\)</span> Было бы хорошо перетащить всю дисперсию в <span class="math notranslate nohighlight">\(b\)</span>, а для <span class="math notranslate nohighlight">\(w_{jk}\)</span> выбрать более нейтральное распределение. Пусть <span class="math notranslate nohighlight">\(w_{jk}\)</span> принимает значения <span class="math notranslate nohighlight">\(1\)</span> и <span class="math notranslate nohighlight">\(-1\)</span> с вероятностями <span class="math notranslate nohighlight">\(0.5\)</span>. Тогда <span class="math notranslate nohighlight">\(\mathbb{E}(w_{jk}) = 0, \text{Var}(w_{jk}) = 1.\)</span></p>
+<p class="sd-card-text">Получается, что <span class="math notranslate nohighlight">\(\text{Var}(h_1) = k + s = \sigma^2.\)</span> Отсюда получаем, что параметр <span class="math notranslate nohighlight">\(b\)</span> надо инициализировать как</p>
 <div class="math notranslate nohighlight">
 \[
-b \sim N \left(0, \sigma^2 - \frac{k}{4} \right).
+b \sim N \left(0, \sigma^2 - k \right).
 \]</div>
 </div>
 </details><p><strong>б)</strong> Пусть <span class="math notranslate nohighlight">\(x_{ij} \sim U[0; a].\)</span> Какое распределение можно использовать для инициализации <span class="math notranslate nohighlight">\(W\)</span> и <span class="math notranslate nohighlight">\(b\)</span>?</p>
@@ -543,12 +545,12 @@ b \sim N \left(0, \sigma^2 - \frac{k}{4} \right).
 <p class="sd-card-text">Посмотрим на дисперсию</p>
 <div class="math notranslate nohighlight">
 \[
-\text{Var}(h_i) = \frac{a^2}{12} \cdot \text{Var}(w_{11}) + \frac{a^2}{12}  \cdot \text{Var}(w_{21}) + \ldots + \frac{a^2}{12}  \cdot \text{Var}(w_{k1}) + \text{Var}(b_1) = \sigma^2.
+\text{Var}(h_i) = \frac{a^2}{3} \cdot \text{Var}(w_{11}) + \frac{a^2}{3}  \cdot \text{Var}(w_{21}) + \ldots + \frac{a^2}{3}  \cdot \text{Var}(w_{k1}) + \text{Var}(b_1) = \sigma^2.
 \]</div>
 <p class="sd-card-text">То есть</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{a^2}{12} \cdot k \cdot s_w + s_b = \sigma^2.
+\frac{a^2}{3} \cdot k \cdot s_w + s_b = \sigma^2.
 \]</div>
 <p class="sd-card-text">Нам нужно, чтобы каждое произведение <span class="math notranslate nohighlight">\(x_{ij} \cdot w_{jk}\)</span> было нормально распределено. Наблюдения распределены равномерно. Нам надо выбрать распределение весов так, чтобы произведение дало нам  нормальное распределение.</p>
 <p class="sd-card-text">Давайте найдём плотность этого распределения. Из курса по теории вероятностей можно вспомнить формулу для плотности распределения частного <a class="footnote-reference brackets" href="#gnedenko" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
@@ -565,9 +567,9 @@ f_Y(y) = \begin{cases} \frac{1}{a}, y \in [0; a] \\ 0, \text{ иначе}. \end{
 <p class="sd-card-text">Получается</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
-f_X(x) =\int_0^{a} z \cdot \frac{1}{\sqrt{2 \pi}} \cdot e^{- \dfrac{z^2 \cdot x^2}{2}} \cdot \frac{1}{a} dz = \\ = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \int_0^{a} z \cdot \cdot e^{- \dfrac{z^2 \cdot x^2}{2}} dz = \\ = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \frac{1}{x^2} \cdot (1 - e^{- \dfrac{(ax)^2}{2}}).
+f_X(x) =\int_0^{a} z \cdot \frac{1}{\sqrt{2 \pi}} \cdot e^{- \dfrac{z^2 \cdot x^2}{2}} \cdot \frac{1}{a} dz = \\ = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \int_0^{a} z \cdot e^{- \dfrac{z^2 \cdot x^2}{2}} dz = \\ = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \frac{1}{x^2} \cdot (1 - e^{- \dfrac{(ax)^2}{2}}).
 \end{multline*}\]</div>
-<p class="sd-card-text">Для взятия интеграла мы воспользовались интегрированием по частям. Получается, что плотность нашего распределения должна иметь вид</p>
+<p class="sd-card-text">Для взятия интеграла мы воспользовались заменой переменной. Получается, что плотность нашего распределения должна иметь вид</p>
 <div class="math notranslate nohighlight">
 \[
 f_w(x) = \frac{1}{a \cdot \sqrt{2 \pi}}  \cdot \frac{1}{x^2} \cdot (1 - e^{- \dfrac{(ax)^2}{2}}), \quad x \in (-\infty, +\infty).

@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -488,13 +490,13 @@ document.write(`
 <p class="sd-card-text">Результаты работы слоя Ильи и слоя Алекса будут одинаковые. Если мы поменяем местами ReLU и max-pooling, результат от этого не изменится.</p>
 <p class="sd-card-text">Однако в случае Алекса мы сделаем дофига лишних расчётов. Мы посчитаем ReLU от ячеек, которые пулинг удалит. Не очень понятно, зачем нам это нужно. Ячейка Ильи более экономна.</p>
 <p class="sd-card-text">Джеффри, в своей ячейке, решил проигнорировать нелинейность в виде ReLU. Если Max-pooling выплюнет положительное число, ReLU ничего не сделает и не внесёт никакой дополнительной нелинейности в работу пулинга.</p>
-<p class="sd-card-text">Если мы будем подавать на вход в наш слой только положительные числа, ReLU абсолютно бесполезна. Если предыдущие свёртки создали нам отрицательные пиксели, ReLU их занулит и внесёт дополнительную нелинейность в нашу архитектуру.</p>
+<p class="sd-card-text">Если все выходы свёртки положительны, ReLU абсолютно бесполезна. Если предыдущие свёртки создали нам отрицательные пиксели, ReLU их занулит и внесёт дополнительную нелинейность в нашу архитектуру.</p>
 <p class="sd-card-text">Обычно пиксели картинки, которую подают на вход в нейросеть, нормируют на отрезок <span class="math notranslate nohighlight">\([-1, 1]\)</span>. В такой ситуации нелинейность в виде ReLU чаще срабатывает и архитектура становится более выразительной. Однако причина такой нормировки заключается в другом.</p>
 <p class="sd-card-text">Если на вход в слой сетки пойдут только положительные числа, тогда градиенты по параметрам этого слоя будут иметь один и тот же знак. Движение по ним будет идти в одну и ту же сторону.</p>
 <p class="sd-card-text">Пусть у нас есть два параметра. По одному надо двигаться в положительную сторону, а по второму в отрицательную (голубая стрелка). Наши градиенты никогда не будут оказываться разных знаков. Они оба всегда будут либо положительными, либо отрицательными. Из-за этого движение будет идти зигзагами. В точку оптимума мы будем идти дольше.</p>
-<a class="reference internal image-reference" href="../_images/img10_gr_update.png"><img alt="triangle" class="align-center" src="../_images/img10_gr_update.png" style="height: 350px;" /></a>
+<a class="reference internal image-reference" href="../_images/img01_gr_update.png"><img alt="triangle" class="align-center" src="../_images/img01_gr_update.png" style="height: 350px;" /></a>
 <p class="sd-card-text">Чтобы избежать этого и получать в слой входы разных знаков, нам нужна нормировка пикселей на отрезок <span class="math notranslate nohighlight">\([-1, 1]\)</span>. Таким образом мы ускоряем сходимость обучения нашей сетки. С аналогичной проблемой мы сталкивались в листочке про функции активации. Нам хотелось, чтобы они были центрированы относительно нуля.</p>
-<p class="sd-card-text">Картинка взята из курса <a class="reference external" href="http://cs231n.stanford.edu/index.html">cs231n.</a></p>
+<p class="sd-card-text">Картинка нарисована по мотивам курса <a class="reference external" href="http://cs231n.stanford.edu/index.html">cs231n.</a></p>
 </div>
 </details></section>
 

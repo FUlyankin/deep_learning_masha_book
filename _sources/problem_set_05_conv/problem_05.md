@@ -6,7 +6,7 @@
 ```{figure} ../images/problem_set_06/img05_picture.png
 ---
 width: 200px
-name: regression
+name: picture-4x4
 ---
 ```
 
@@ -93,7 +93,7 @@ X = (x_{11}, x_{12}, x_{13}, x_{14},
 В матрице весов мы должны занулить все неиспользуемые веса, а также не забыть, что одни и те же веса дублируются в матрице несколько раз
 
 \begin{equation*}
- W^T = \begin{pmatrix}
+ W = \begin{pmatrix}
     w_{11} & 0 & 0 & 0\\
     w_{12} & w_{11} & 0 & 0\\
     w_{13} & w_{12} & 0 & 0\\

@@ -16,7 +16,7 @@ $$
 __б)__ Найдите для первого слоя производную выхода по входу. При обратном движении по нейросетке в первый слой пришёл накопленный градиент
 
 $$
-d = \begin{pmatrix} -0.5 & 0 \\ 0 & 0 \end{pmatrix}.
+d = \begin{pmatrix} -0.25 & 0 \\ 0 & 0 \end{pmatrix}.
 $$
 
 Каким будет новое накопленное значение градиента, которое выплюнет из себя линейный слой? По какой формуле делается backward pass? 
@@ -24,13 +24,13 @@ $$
 __в)__ Второй слой нейросетки --- функция активации, $ReLU.$ По какой формуле делается forward pass? Сделайте его для матрицы 
 
 $$
-H_1 = \begin{pmatrix} 2 & -0.5 \\ 0 & 1 \end{pmatrix}.
+H_1 = \begin{pmatrix} 2 & -1 \\ 0 & 1 \end{pmatrix}.
 $$
 
 __г)__ Найдите для второго слоя производную выхода по входу. При обратном движении по нейросетке во второй слой пришёл накопленный градиент 
 
 $$
-d = \begin{pmatrix} -0.5 & -1 \\ 0 & 0 \end{pmatrix}.
+d = \begin{pmatrix} -0.25 & -0.5 \\ 0 & 0 \end{pmatrix}.
 $$
 
 Каким будет новое накопленное значение градиента, которое выплюнет из себя $ReLU$?  По какой формуле делается backward pass? 
@@ -42,7 +42,7 @@ $$
 O_1 =\begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}.
 $$
 
-__е)__ Найдите для третьего слоя производную выхода по входу. При обратном движении по нейросетке в третий слой пришёл накопленный градиент $d = (-1, 0)^T$. Каким будет новое накопленное значение градиента, которое выплюнет из себя линейный слой? 
+__е)__ Найдите для третьего слоя производную выхода по входу. При обратном движении по нейросетке в третий слой пришёл накопленный градиент $d = (-0.5, 0)^T$. Каким будет новое накопленное значение градиента, которое выплюнет из себя линейный слой? 
 
 __ё)__ Мы решаем задачу регрессии. В качестве функции ошибки мы используем 
 
@@ -61,7 +61,7 @@ __з)__ Пусть скорость обучения $\gamma = 1$.  Сделай
 
 __и)__ Посидела Маша, посидела и поняла, что неправильно она всё делает. В реальности перед ней не задача регрессии, а задача классификации. Маша применила к выходу из нейросетки сигмоиду. Как будет для неё выглядеть forward pass? 
 
-__к)__  В качестве функции потерь Маша использует $logloss.$ Как для этой функции потерь выглядит forward pass? Сделайте его. 
+__к)__  В качестве функции потерь Маша использует $logloss.$ Как для этой функции потерь выглядит forward pass? Сделайте его для $y_1 = 0, y_2 = 1.$ 
 
 __л)__ Найдите для $logloss$ производную прогнозов по входу в сигмоиду. Как будет выглядеть backward pass, если $y_1 = 0, y_2 = 1?$ Как поменяется оставшаяся часть алгоритма обратного распространения ошибки? 
 
@@ -70,8 +70,8 @@ __л)__ Найдите для $logloss$ производную прогнозо�
 
 \begin{equation*}
     \begin{aligned} 
-    & H_1 = X \cdot W_1 = \begin{pmatrix} 1 & 2 \\ -1 & 2 \end{pmatrix} \cdot \begin{pmatrix} 1 & -1 \\ 0.5 & 0 \end{pmatrix} =  \begin{pmatrix} 2 & -0.5 \\ 0 & 1 \end{pmatrix} \\
-    & O_1 = ReLU(H_1) = \begin{pmatrix} \max(0,2) & \max(0,-0.5) \\ \max(0,0) & \max(0,1) \end{pmatrix} = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix} \\
+    & H_1 = X \cdot W_1 = \begin{pmatrix} 1 & 2 \\ -1 & 2 \end{pmatrix} \cdot \begin{pmatrix} 1 & -1 \\ 0.5 & 0 \end{pmatrix} =  \begin{pmatrix} 2 & -1 \\ 0 & 1 \end{pmatrix} \\
+    & O_1 = ReLU(H_1) = \begin{pmatrix} \max(0,2) & \max(0,-1) \\ \max(0,0) & \max(0,1) \end{pmatrix} = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix} \\
     & \hat{y} = O_1 \cdot W_2 = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} 0.5 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \\ 
     & MSE = \frac{1}{4} \cdot ((1 - 2)^2 + (1 - 1)^2) = 0.25
     \end{aligned}
@@ -81,7 +81,7 @@ __л)__ Найдите для $logloss$ производную прогнозо�
 
 \begin{equation*}
     \begin{aligned} 
-    & \frac{\partial MSE}{\partial \hat y} = \begin{pmatrix} \hat y_1 - y_1  \\ \hat y_2 - y_2 \end{pmatrix} = \begin{pmatrix} -1 \\ 0 \end{pmatrix} \\ 
+    & \frac{\partial MSE}{\partial \hat y} = \frac{1}{2} \begin{pmatrix} \hat y_1 - y_1  \\ \hat y_2 - y_2 \end{pmatrix} = \begin{pmatrix} -0.5 \\ 0 \end{pmatrix} \\ 
     & \frac{\partial\hat y}{\partial O_1} = W_2^T = (0.5, 1) \qquad  \frac{\partial\hat y}{\partial W_2} = O_1^T = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix} \\
     & \frac{\partial O_1}{\partial H_1} = [H_{ij} > 0] = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} \\
     & \frac{\partial H_1}{\partial X} = W_1^T = \begin{pmatrix} 1 & 0.5 \\ -1 & 0 \end{pmatrix} \qquad  \frac{\partial H_1}{\partial W_1} = X^T = \begin{pmatrix} 1 & -1 \\ 2 & 2 \end{pmatrix}
@@ -92,10 +92,10 @@ __л)__ Найдите для $logloss$ производную прогнозо�
 
 \begin{equation*}
     \begin{aligned} 
-    & d = \begin{pmatrix} -1 \\ 0 \end{pmatrix} \\ 
-    & \frac{\partial MSE}{\partial W_2} =  O_1^T \cdot d = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} -1 \\ 0 \end{pmatrix} = \begin{pmatrix} -2 \\ 0 \end{pmatrix}\\
-    & d = d \cdot W_2^T \odot [H_{ij} > 0] = \begin{pmatrix} -1 \\ 0 \end{pmatrix}  \cdot (0.5, 1) \odot \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} -0.5 & 0 \\ 0 & 0 \end{pmatrix} \\
-    & \frac{\partial MSE}{\partial W_1} =  X^T \cdot d = \begin{pmatrix} 1 & -1 \\ 2 & 2 \end{pmatrix} \cdot \begin{pmatrix} -0.5 & 0 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} -0.5 & 0 \\ -1 & 0 \end{pmatrix} \\
+    & d = \begin{pmatrix} -0.5 \\ 0 \end{pmatrix} \\ 
+    & \frac{\partial MSE}{\partial W_2} =  O_1^T \cdot d = \begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix} \cdot \begin{pmatrix} -0.5 \\ 0 \end{pmatrix} = \begin{pmatrix} -1 \\ 0 \end{pmatrix}\\
+    & d = d \cdot W_2^T \odot [H_{ij} > 0] = \begin{pmatrix} -0.5 \\ 0 \end{pmatrix}  \cdot (0.5, 1) \odot \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} -0.25 & 0 \\ 0 & 0 \end{pmatrix} \\
+    & \frac{\partial MSE}{\partial W_1} =  X^T \cdot d = \begin{pmatrix} 1 & -1 \\ 2 & 2 \end{pmatrix} \cdot \begin{pmatrix} -0.25 & 0 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} -0.25 & 0 \\ -0.5 & 0 \end{pmatrix} \\
     \end{aligned}
 \end{equation*}
 
@@ -103,12 +103,12 @@ __л)__ Найдите для $logloss$ производную прогнозо�
 
 \begin{equation*}
     \begin{aligned} 
-      & W_1 = \begin{pmatrix} 1 & -1 \\ 0.5 & 0 \end{pmatrix} - \gamma \cdot \begin{pmatrix} -0.5 & 0 \\ -1 & 0 \end{pmatrix}\\
-      & W_2 = \begin{pmatrix} 0.5 \\ 1 \end{pmatrix}  - \gamma \cdot \begin{pmatrix} - 2 \\ 0 \end{pmatrix}.
+      & W_1 = \begin{pmatrix} 1 & -1 \\ 0.5 & 0 \end{pmatrix} - \gamma \cdot \begin{pmatrix} -0.25 & 0 \\ -0.5 & 0 \end{pmatrix}\\
+      & W_2 = \begin{pmatrix} 0.5 \\ 1 \end{pmatrix}  - \gamma \cdot \begin{pmatrix} - 1 \\ 0 \end{pmatrix}.
     \end{aligned}
 \end{equation*}
 
-Меняем MSE на logloss и добавляем сигмоиду. Производная для сигмоиды выглядит как 
+Меняем MSE на logloss и добавляем сигмоиду. Производная для logloss выглядит как 
 
 \begin{equation*}
     \begin{aligned} 
@@ -122,7 +122,7 @@ __л)__ Найдите для $logloss$ производную прогнозо�
 \begin{equation*}
     \begin{aligned} 
     & O_2 = \sigma(\hat y) = \begin{pmatrix} 0.73 \\ 0.73 \end{pmatrix} \qquad  \frac{\partial O_2}{\partial \hat y} = O_2 \cdot (1 - O_2) \approx \begin{pmatrix} 0.2 \\ 0.2 \end{pmatrix} \\ 
-    & \frac{\partial logloss}{\partial \hat p} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \qquad \frac{\partial logloss}{\partial \hat y} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \odot \begin{pmatrix} 0.2 \\ 0.2 \end{pmatrix} = \begin{pmatrix} 0.74 \\ -0.28 \end{pmatrix}
+    & \frac{\partial logloss}{\partial \hat p} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \qquad \frac{\partial logloss}{\partial \hat y} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \odot \begin{pmatrix} 0.2 \\ 0.2 \end{pmatrix} \approx \begin{pmatrix} 0.73 \\ -0.27 \end{pmatrix}
     \end{aligned}
 \end{equation*}
 

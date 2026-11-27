@@ -48,7 +48,7 @@ $$
 Воспользуемся правилом взятия производной сложной функции и производной скалярного произведения
 
 \begin{multline*}
-	\nabla_w \log \left(1 + \exp(-y \langle w, x \rangle) \right) = \\ = \frac{1}{1 + \exp(-y \langle w, x \rangle)} \nabla_w \left(1 + \exp(-y \langle w, x \rangle) \right) = \\ = \frac{1}{1 + \exp(-y \langle w, x \rangle)} exp(-y \langle w, x \rangle) \nabla_w \left(-y \langle w, x \rangle \right) = \\ = -\frac{1}{1 + \exp(-y \langle w, x \rangle)} \exp(-y \langle w, x \rangle) y x = \\ = \left\{ \sigma(z) = \frac{1}{1 + \exp(-z)} \right\} = \\ = - \sigma(-y \langle w, x \rangle) y x
+	\nabla_w \log \left(1 + \exp(-y \langle w, x \rangle) \right) = \\ = \frac{1}{1 + \exp(-y \langle w, x \rangle)} \nabla_w \left(1 + \exp(-y \langle w, x \rangle) \right) = \\ = \frac{1}{1 + \exp(-y \langle w, x \rangle)} \exp(-y \langle w, x \rangle) \nabla_w \left(-y \langle w, x \rangle \right) = \\ = -\frac{1}{1 + \exp(-y \langle w, x \rangle)} \exp(-y \langle w, x \rangle) y x = \\ = \left\{ \sigma(z) = \frac{1}{1 + \exp(-z)} \right\} = \\ = - \sigma(-y \langle w, x \rangle) y x
 \end{multline*}
 ```
 

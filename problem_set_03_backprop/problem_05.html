@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -473,7 +475,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>5. Бэкпроп в матричном виде<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>У Маши есть нейросеть с картинки ниже, где <span class="math notranslate nohighlight">\(w_{ij}^k\)</span> — веса для <span class="math notranslate nohighlight">\(k-\)</span>го слоя, <span class="math notranslate nohighlight">\(f(t)\)</span> — какая-то функция активации. Маша хочет научиться делать для такой нейронной сетки градиентный спуск.</p>
-<figure class="align-default" id="one-dim-nn">
+<figure class="align-default" id="bp-matrix-nn">
 <a class="reference internal image-reference" href="../_images/img05_task.png"><img alt="../_images/img05_task.png" src="../_images/img05_task.png" style="width: 95%;" /></a>
 </figure>
 <div class="admonition seealso">
@@ -509,15 +511,15 @@ document.write(`
 \[
 \hat{y}_i = w_1^3 \cdot o^2_{i1} + w_2^3 \cdot o^2_{i2}.
 \]</div>
-<p class="sd-card-text">Подставим вместо <span class="math notranslate nohighlight">\(o^2_{1i}\)</span> и <span class="math notranslate nohighlight">\(o^2_{2i}\)</span> результат вычисления предыдущих слоёв</p>
+<p class="sd-card-text">Подставим вместо <span class="math notranslate nohighlight">\(o^2_{i1}\)</span> и <span class="math notranslate nohighlight">\(o^2_{i2}\)</span> результат вычисления предыдущих слоёв</p>
 <div class="math notranslate nohighlight">
 \[
-\hat{y}_i = w_1^3 \cdot f( w^1_{12} \cdot o^1_{i1} +  w^1_{22} \cdot o^1_{i2}) + w_2^3 \cdot f( w^1_{12} \cdot o^1_{i1} +  w^1_{22} \cdot o^1_{i2}).
+\hat{y}_i = w_1^3 \cdot f( w^2_{11} \cdot o^1_{i1} +  w^2_{21} \cdot o^1_{i2}) + w_2^3 \cdot f( w^2_{12} \cdot o^1_{i1} +  w^2_{22} \cdot o^1_{i2}).
 \]</div>
 <p class="sd-card-text">Подставим результат вычисления первого слоя</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
-\hat{y}_i = w_1^3 \cdot f( w^1_{12} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^1_{22} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})) + \\ + w_2^3 \cdot f( w^1_{12} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^1_{22} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})).
+\hat{y}_i = w_1^3 \cdot f( w^2_{11} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^2_{21} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})) + \\ + w_2^3 \cdot f( w^2_{12} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^2_{22} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})).
 \end{multline*}\]</div>
 <p class="sd-card-text">Мы записали нашу нейросеть в виде сложной функции. Выглядит ужасно.</p>
 <p class="sd-card-text">Давайте перепишем всё то же самое более компактно, в матричном виде. Начнём с первого слоя. На самом деле, чтобы найти строчку <span class="math notranslate nohighlight">\((h^1_{i1}, h^1_{i2})\)</span>, мы делаем матричное умножение. Строчку <span class="math notranslate nohighlight">\((x_{i1},  x_{i2})\)</span> мы умножаем на матрицу весов <span class="math notranslate nohighlight">\(W_1\)</span></p>

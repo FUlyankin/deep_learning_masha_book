@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>10. Число параметров &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
+    <title>10. Горы и универсальный регрессор &#8212; Тятя! Тятя! Нейросети заменили продавца!</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'problem_set_01_just_function/problem_10';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Листочек 2: пятьдесят оттенков градиентного спуска" href="../problem_set_02_gradient/intro_02.html" />
-    <link rel="prev" title="9. Универсальный регрессор" href="problem_09.html" />
+    <link rel="next" title="11. Универсальный классификатор" href="problem_11.html" />
+    <link rel="prev" title="9. Минималочка" href="problem_09.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -456,7 +458,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>10. Число параметров</h1>
+    <h1>10. Горы и универсальный регрессор</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -471,8 +473,59 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>10. Число параметров<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Та, кому принадлежит машин лёрнинг, собирается обучить полносвязную нейронную сеть для решения задачи регрессии. На вход в ней идёт <span class="math notranslate nohighlight">\(12\)</span> переменных, в сетке есть <span class="math notranslate nohighlight">\(3\)</span> скрытых слоя. В первом слое <span class="math notranslate nohighlight">\(300\)</span> нейронов, во втором <span class="math notranslate nohighlight">\(200\)</span>, в третьем <span class="math notranslate nohighlight">\(100\)</span>.  Сколько параметров предстоит обучить Маше?</p>
+<h1>10. Горы и универсальный регрессор<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<p>Маша доказала Паше, что у неё всё в полном порядке с логикой, а теперь, разогревшись горами, собирается доказать ему, что с помощью нейронной сетки можно приблизить любую функцию <span class="math notranslate nohighlight">\(f(x)\)</span>, непрерывную на отрезке <span class="math notranslate nohighlight">\([a, b]\)</span>, со сколь угодно большой точностью<a class="footnote-reference brackets" href="#proof-note" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p><strong>а)</strong> Соберите показательство из ступенек: в качестве функции активации используйте единичную ступеньку Хевисайда.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Подсказка<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Вспомните, что любую непрерывную на отрезке функцию можно приблизить кусочно-постоянной функцией (лесенкой из ступенек). Осознайте, как с помощью пары нейронов можно описать одну ступеньку. Соедините все ступеньки в сумму с помощью выходного нейрона.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Не нужно воспринимать эту задачку как строгое доказательство. Скорее, это <strong>«показательство».</strong> Мы хотим приблизить функцию <span class="math notranslate nohighlight">\(f(x)\)</span> с какой-то точностью. Будем делать это с помощью кусочно-постоянных ступенек. Чем выше точность, тем больше будем рисовать ступенек.</p>
+<figure class="align-default" id="approx-steps">
+<a class="reference internal image-reference" href="../_images/img10_steps.png"><img alt="../_images/img10_steps.png" src="../_images/img10_steps.png" style="width: 95%;" /></a>
+</figure>
+<p class="sd-card-text">Высоту ступеньки определяют по-разному. Чаще всего, как значение функции в середине выбранного отрезка, <span class="math notranslate nohighlight">\(b_i = f(\frac{a_i + a_{i+1}}{2})\)</span>. Тогда всю функцию целиком можно приблизить суммой</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) \approx \sum_{i=1}^n f \left( \frac{a_i + a_{i+1}}{2} \right) \cdot [a_i \le x &lt; a_{i+1}].
+\]</div>
+<p class="sd-card-text">Давайте попробуем описать с помощью нейрона одну из ступенек. Пусть высота этой ступеньки равна <span class="math notranslate nohighlight">\(b_i\)</span>. Шагать по оси <span class="math notranslate nohighlight">\(x\)</span> мы будем с фиксированным шагом <span class="math notranslate nohighlight">\(h\)</span>, поэтому <span class="math notranslate nohighlight">\(a_{i+1} = a_i + h\)</span>.</p>
+<figure class="align-default" id="approx-one-step">
+<a class="reference internal image-reference" href="../_images/img10_one_step.png"><img alt="../_images/img10_one_step.png" src="../_images/img10_one_step.png" style="width: 30%;" /></a>
+</figure>
+<p class="sd-card-text">Если <span class="math notranslate nohighlight">\(x\)</span>, для которого мы ищем <span class="math notranslate nohighlight">\(f(x)\)</span>, попадает в полуинтервал, на котором задана наша ступенька, мы будем приближать <span class="math notranslate nohighlight">\(f(x)\)</span> этой ступенькой. Ступенька состоит из двух линий. Выходит, что она будет описываться двумя нейронами. Если мы внутри ступеньки, значит, <span class="math notranslate nohighlight">\(a_i \le x &lt; a_i + h\)</span>. Пара нейронов должна сравнить <span class="math notranslate nohighlight">\(x\)</span> с <span class="math notranslate nohighlight">\(a_i\)</span> и <span class="math notranslate nohighlight">\(a_i + h.\)</span> Можно записать попадание <span class="math notranslate nohighlight">\(x\)</span> в ступеньку следующим образом:</p>
+<div class="math notranslate nohighlight">
+\[
+1 - [x &lt; a_i] - [x \ge a_i + h]
+\]</div>
+<p class="sd-card-text">Если оба условия — неправда, получаем <span class="math notranslate nohighlight">\(1\)</span>. Мы в ступеньке. Если хотя бы одно из них выполнено — мы вылетаем за ступеньку. Одновременно оба условия никогда не выполняются. Нейрон-ступенька умеет проверять только строгие неравенства, поэтому заменим <span class="math notranslate nohighlight">\([x \ge a_i + h]\)</span> на <span class="math notranslate nohighlight">\(1 - [x &lt; a_i + h]\)</span>, и попадание в ступеньку станет <span class="math notranslate nohighlight">\([x &lt; a_i + h] - [x &lt; a_i]\)</span>. Нарисуем это в виде сетки. В качестве функции активации используем единичную ступеньку.</p>
+<figure class="align-default" id="approx-step-net">
+<a class="reference internal image-reference" href="../_images/img10_net.png"><img alt="../_images/img10_net.png" src="../_images/img10_net.png" style="width: 70%;" /></a>
+</figure>
+<p class="sd-card-text">Нарисуем такую сетку для каждой ступеньки. Если мы попали в ступеньку, сетка будет выплёвывать со второго слоя единичку. Там мы будем умножать её на <span class="math notranslate nohighlight">\(b_i\)</span> и посылать на внешний слой.</p>
+<p class="sd-card-text">Мы всегда будем попадать только в одну из ступенек, значит, только один из блоков выдаст нам <span class="math notranslate nohighlight">\(1\)</span>. Все остальные выдадут <span class="math notranslate nohighlight">\(0\)</span>. На внешнем слое нам остаётся только просуммировать всё, что к нам пришло, и выдать ответ.</p>
+<p class="sd-card-text">Чем больше ступенек мы добавляем в модель, тем точнее наша аппроксимация. Можно немного поколдовать с получившейся архитектурой и удалить из неё части, которые друг друга дублируют.</p>
+<p class="sd-card-text">Обратите внимание: мы честно работаем на отрезке. На всей числовой прямой конечная сетка не справится: сумма конечного числа ступенек ограничена, а, например, <span class="math notranslate nohighlight">\(f(x) = x\)</span> — нет. За пределами отрезка наша конструкция живёт своей жизнью.</p>
+</div>
+</details><p>Паша ворчит: «В современных сетках ступеньку никто не использует. Все берут <span class="math notranslate nohighlight">\(ReLU\)</span>». Он требует переделать показательство.</p>
+<p>Маша обнаружила, что с помощью всего трёх нейронов можно нарисовать гору:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \max(0, x) - 2 \cdot \max(0, x - 1) + \max(0, x - 2)
+\]</div>
+<p><strong>б)</strong> Нарисуйте график этой функции, не используя компьютер. Сколько у неё линейных участков? В каких точках она меняет наклон?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -480,13 +533,80 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Нам нужно решить комбинаторную задачку. Связи в нашей сетке проведены между всеми нейронами. Не забываем учесть, что у каждого нейрона есть константа. Получается, что всего параметров будет</p>
+<p class="sd-card-text">Каждый <span class="math notranslate nohighlight">\(ReLU\)</span> — это кусочно-линейная функция с одним изломом. Изломы сидят в точках, где аргумент максимума обнуляется: <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(x = 1\)</span> и <span class="math notranslate nohighlight">\(x = 2\)</span>. Эти точки режут числовую прямую на четыре куска. Пройдёмся по ним слева направо и выясним, какие максимумы «включены»:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+f(x) = \begin{cases} 
+0, &amp; x &lt; 0 \\
+x, &amp; 0 \le x &lt; 1 \\
+x - 2 \cdot (x - 1) = 2 - x, &amp; 1 \le x &lt; 2 \\
+x - 2 \cdot (x - 1) + (x - 2) = 0, &amp; x \ge 2. \\
+\end{cases}
+\end{equation*}\]</div>
+<p class="sd-card-text">Получилась гора: график поднимается из нуля до вершины в точке <span class="math notranslate nohighlight">\((1, 1)\)</span>, спускается обратно и снова лежит на нуле.</p>
+<figure class="align-default" id="relu-tent">
+<a class="reference internal image-reference" href="../_images/img10_tent.png"><img alt="../_images/img10_tent.png" src="../_images/img10_tent.png" style="width: 60%;" /></a>
+</figure>
+<p class="sd-card-text">Всего у функции четыре линейных участка, а наклон меняется в трёх точках: <span class="math notranslate nohighlight">\(x = 0\)</span>, <span class="math notranslate nohighlight">\(x = 1\)</span> и <span class="math notranslate nohighlight">\(x = 2\)</span>. Обратите внимание: каждый <span class="math notranslate nohighlight">\(ReLU\)</span>-нейрон внёс в график ровно один свой излом.</p>
+</div>
+</details><p><strong>в)</strong> А что будет, если оставить только два нейрона и выбросить из формулы последнее слагаемое:</p>
 <div class="math notranslate nohighlight">
 \[
-(12 + 1) \cdot 300 + (300 + 1) \cdot 200 + (200 + 1) \cdot 100 + (100 + 1) \cdot 1.
+g(x) = \max(0, x) - 2 \cdot \max(0, x - 1)?
 \]</div>
+<p>Нарисуйте график. Получится ли нарисовать гору двумя <span class="math notranslate nohighlight">\(ReLU\)</span>-нейронами?</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Снова пройдёмся по кускам:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+g(x) = \begin{cases} 
+0, &amp; x &lt; 0 \\
+x, &amp; 0 \le x &lt; 1 \\
+2 - x, &amp; x \ge 1. \\
+\end{cases}
+\end{equation*}\]</div>
+<p class="sd-card-text">До точки <span class="math notranslate nohighlight">\(x = 2\)</span> всё выглядит как прежняя гора, но дальше график не останавливается на нуле, а уезжает вниз: гасить наклон <span class="math notranslate nohighlight">\(-1\)</span> больше некому.</p>
+<figure class="align-default" id="relu-two-neurons">
+<a class="reference internal image-reference" href="../_images/img10_two_relu.png"><img alt="../_images/img10_two_relu.png" src="../_images/img10_two_relu.png" style="width: 60%;" /></a>
+</figure>
+<p class="sd-card-text">Вышла не гора, а ломаная: два излома, три линейных участка. Каждый нейрон меняет наклон графика ровно один раз, поэтому двум нейронам доступны только два излома. А горе — «ноль, подъём, спуск, снова ноль» — нужно три. Третий нейрон из пункта б) как раз дежурит в точке <span class="math notranslate nohighlight">\(x = 2\)</span> и доворачивает наклон обратно к нулю.</p>
+<p class="sd-card-text">Вообще, сумма <span class="math notranslate nohighlight">\(m\)</span> штук <span class="math notranslate nohighlight">\(ReLU\)</span> от одного входа — это всегда ломаная, и изломов у неё не больше <span class="math notranslate nohighlight">\(m\)</span>. Зато, подбирая веса, такими ломаными можно нарисовать всё что угодно. Сейчас мы этим воспользуемся.</p>
 </div>
-</details></section>
+</details><p><strong>г)</strong> Осталось дело за малым — приблизить функцию <span class="math notranslate nohighlight">\(f(x)\)</span> непрерывной ломаной с помощью ReLU. Сделайте это.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Итак, приблизим <span class="math notranslate nohighlight">\(f(x)\)</span> ломаной, а потом соберём эту ломаную из нейронов.</p>
+<p class="sd-card-text">Разобьём отрезок на <span class="math notranslate nohighlight">\(n\)</span> кусков длины <span class="math notranslate nohighlight">\(h\)</span> с узлами <span class="math notranslate nohighlight">\(a_0 &lt; a_1 &lt; \ldots &lt; a_n\)</span> и проведём ломаную через точки <span class="math notranslate nohighlight">\((a_i, f(a_i))\)</span>.</p>
+<figure class="align-default" id="approx-broken-line">
+<a class="reference internal image-reference" href="../_images/img10_broken_line.png"><img alt="../_images/img10_broken_line.png" src="../_images/img10_broken_line.png" style="width: 95%;" /></a>
+</figure>
+<p class="sd-card-text">Обозначим наклон её <span class="math notranslate nohighlight">\(i\)</span>-го звена <span class="math notranslate nohighlight">\(k_i = \frac{f(a_{i+1}) - f(a_i)}{h}\)</span>. Тогда вся ломаная записывается одной формулой</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = f(a_0) + k_0 \cdot \max(0, x - a_0) + \sum_{i=1}^{n-1} (k_i - k_{i-1}) \cdot \max(0, x - a_i).
+\]</div>
+<p class="sd-card-text">Каждый <span class="math notranslate nohighlight">\(ReLU\)</span>-нейрон «включается» в своём узле <span class="math notranslate nohighlight">\(a_i\)</span> и доворачивает наклон с <span class="math notranslate nohighlight">\(k_{i-1}\)</span> на <span class="math notranslate nohighlight">\(k_i\)</span>. Получилась сетка с одним скрытым слоем из <span class="math notranslate nohighlight">\(n\)</span> нейронов и линейным выходом. Проверьте: ломаная через узлы <span class="math notranslate nohighlight">\((0,0)\)</span>, <span class="math notranslate nohighlight">\((1,1)\)</span>, <span class="math notranslate nohighlight">\((2,0)\)</span> — это ровно функция <span class="math notranslate nohighlight">\(g(x)\)</span> из пункта в).</p>
+<p class="sd-card-text">Чем мельче шаг, тем точнее ломаная повторяет непрерывную функцию. В отличие от ступенек, приближение получилось без «лесенки» — само непрерывное. Так что и со ступенькой, и с <span class="math notranslate nohighlight">\(ReLU\)</span> нейросетка остаётся универсальным регрессором.</p>
+</div>
+</details><hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="proof-note" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="http://neuralnetworksanddeeplearning.com/chap4.html">Визуальное доказательство того, что нейросеть может аппроксимировать любую функцию.</a> В этом доказательстве вместо ступенек активно используются сигмоиды. Рекомендую изучить его после решения задачки.</p>
+</aside>
+</aside>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -524,15 +644,15 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">9. Универсальный регрессор</p>
+        <p class="prev-next-title">9. Минималочка</p>
       </div>
     </a>
     <a class="right-next"
-       href="../problem_set_02_gradient/intro_02.html"
+       href="problem_11.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Листочек 2: пятьдесят оттенков градиентного спуска</p>
+        <p class="prev-next-title">11. Универсальный классификатор</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

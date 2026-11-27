@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -473,19 +475,22 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="weight-decay">
 <h1>3. Weight Decay<a class="headerlink" href="#weight-decay" title="Link to this heading">#</a></h1>
 <p>В случае <span class="math notranslate nohighlight">\(l_2\)</span>-регуляризации, к базовой функции потерь добавляют дополнительное слагаемое и вместо функционала</p>
-<p>[
-L(w) = \frac{1}{n} \cdot \sum\limits_{i=1}^{n} \nabla_w L(y_i, x_i, w)
-]</p>
+<div class="math notranslate nohighlight">
+\[
+L(w) = \frac{1}{n} \cdot \sum\limits_{i=1}^{n} L(y_i, x_i, w)
+\]</div>
 <p>оптимизируют функционал</p>
-<p>[
+<div class="math notranslate nohighlight">
+\[
 Q_\lambda(w) = L(w) + \frac{1}{2}\lambda \cdot ||w||^2_2.
-]</p>
+\]</div>
 <p>Будем считать, что регуляризатор наложен на все веса нейронной сети. Обычно регуляризатор добавляют к функции потерь, чтобы избежать переобучения. Градиентный спуск можно переписать с учётом регуляризатора немного в другом виде. Такой вид называется <strong>weight decay.</strong></p>
 <p>В пакетах для обучения нейронных сеток у оптимизаторов обычно есть такой параметр. Давайте проделаем это переписывание для нескольких разных градиентных спусков.</p>
 <p><strong>а)</strong> Выпишите шаг momentum-SGD для такой модели. Выразите получившийся шаг в виде</p>
-<p>[
+<div class="math notranslate nohighlight">
+\[
 w_t = g(\lambda) \cdot w_{t-1} - \eta_t \cdot h(\nabla_w L(w_{t-1}))
-]</p>
+\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -494,24 +499,26 @@ w_t = g(\lambda) \cdot w_{t-1} - \eta_t \cdot h(\nabla_w L(w_{t-1}))
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Один шаг momentum-SGD выглядит как</p>
-<p class="sd-card-text">[
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{cases}
-g_t = \nabla_w Q(w_{t-1}) + \lambda \cdot w_{t-1} \
-m_t = \mu \cdot m_{t-1} + g_t\
-w_t = w_{t-1} - \eta_t \cdot m_t \
+	g_t = \nabla_w L(w_{t-1}) + \lambda \cdot w_{t-1} \\
+	m_t = \mu \cdot m_{t-1} + g_t\\
+	w_t = w_{t-1} - \eta_t \cdot m_t \\
 \end{cases}
-]</p>
+\end{split}\]</div>
 <p class="sd-card-text">Подставим первую строку во вторую, а вторую в третью</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
-w_t = w_{t-1} - \eta_t \cdot (\mu \cdot m_{t-1} + \nabla_w L(w_{t-1}) + \lambda \cdot w_{t-1}) = \\ =\alert{\underbrace{(1-\eta_t\cdot \lambda)}_{&lt;1}}\cdot w_{t-1} - \eta_t\cdot(\mu\cdot m_{t-1} + \nabla_w L(w_{t-1}))
+w_t = w_{t-1} - \eta_t \cdot (\mu \cdot m_{t-1} + \nabla_w L(w_{t-1}) + \lambda \cdot w_{t-1}) = \\ =\underbrace{(1-\eta_t\cdot \lambda)}_{&lt;1}\cdot w_{t-1} - \eta_t\cdot(\mu\cdot m_{t-1} + \nabla_w L(w_{t-1}))
 \end{multline*}\]</div>
-<p class="sd-card-text">Получается, что, когда мы добавляем к модели <span class="math notranslate nohighlight">\(l_2\)</span> регуляризацию, мы делаем каждый шаг градиентного спуска по старому градиенту без регуляризатора, но из новых весов. Мы сдвигаем старые веса на какую-то константу и движемся из неё. Этот параметр в оптимизаторах называется weight decay. Обычно при обучении нейронных сетей вместо регуляризации используют его.</p>
+<p class="sd-card-text">Получается, что, когда мы добавляем к модели <span class="math notranslate nohighlight">\(l_2\)</span> регуляризацию, мы делаем каждый шаг градиентного спуска по старому градиенту без регуляризатора, но из новых весов. Мы умножаем старые веса на какую-то константу и движемся из неё. Этот параметр в оптимизаторах называется weight decay. Обычно при обучении нейронных сетей вместо регуляризации используют его.</p>
 </div>
 </details><p><strong>б)</strong> Выпишите шаг Adam для такой модели. Выразите получившийся шаг в виде</p>
-<p>[
+<div class="math notranslate nohighlight">
+\[
 w_t = g(\lambda) \cdot w_{t-1} - \eta_t \cdot h(\nabla_w L(w_{t-1}))
-]</p>
+\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -520,34 +527,46 @@ w_t = g(\lambda) \cdot w_{t-1} - \eta_t \cdot h(\nabla_w L(w_{t-1}))
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Один шаг Adam выглядит как</p>
-<p class="sd-card-text">[
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{cases}
-g_t = \nabla_w Q(w_{t-1}) + \lambda \cdot w_{t-1} \
-m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \
-v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2\
-\hat{m}_t = \frac{1}{1-\beta_1^t} \cdot m_t \
-\hat{v}<em>t = \frac{1}{1-\beta_2^t}v_t \
-w_t = w</em>{t-1} -\eta_t \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}
+	g_t = \nabla_w L(w_{t-1}) + \lambda \cdot w_{t-1} \\
+	m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \\
+	v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2\\
+	\hat{m}_t = \frac{1}{1-\beta_1^t} \cdot m_t \\
+	\hat{v}_t = \frac{1}{1-\beta_2^t}v_t \\
+	w_t = w_{t-1} -\eta_t \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}
 \end{cases}
-]</p>
+\end{split}\]</div>
 <p class="sd-card-text">Сделаем все подстановки и получим</p>
-<p class="sd-card-text">[
-\Rightarrow w_t = w_{t-1} - \eta_t \cdot \frac{m_t}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}<em>t} + \varepsilon} = \ = w_t = w</em>{t-1} - \eta_t \cdot \frac{\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}<em>t} + \varepsilon} = \ =w_t = w</em>{t-1} - \eta_t \cdot \frac{\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot (\nabla_w Q(w_{t-1}) + \lambda \cdot w_{t-1})}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}<em>t} + \varepsilon} =\=w</em>{t-1}\cdot \left(\underbrace{1}_{\text{вектор единиц}} - \frac{\eta_t \cdot \lambda\cdot (1-\beta_1)}{1-\beta_1^t} \cdot \underbrace{\frac{1}{\sqrt{\hat{v}<em>t}+\varepsilon}}</em>{(*)}\right) -\dots
-]</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+	\Rightarrow w_t = w_{t-1} - \eta_t \cdot \frac{m_t}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}_t} + \varepsilon} = \\ = w_{t-1} - \eta_t \cdot \frac{\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}_t} + \varepsilon} = \\ =w_{t-1} - \eta_t \cdot \frac{\beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot (\nabla_w L(w_{t-1}) + \lambda \cdot w_{t-1})}{1-\beta_1^t} \cdot \frac{1}{\sqrt{\hat{v}_t} + \varepsilon} =\\=w_{t-1}\cdot \left(\underbrace{1}_{\text{вектор единиц}} - \frac{\eta_t \cdot \lambda\cdot (1-\beta_1)}{1-\beta_1^t} \cdot \underbrace{\frac{1}{\sqrt{\hat{v}_t}+\varepsilon}}_{(*)}\right) -\dots
+\end{split}\]</div>
 <p class="sd-card-text"><span class="math notranslate nohighlight">\((*) \Rightarrow\)</span> регуляризация работает по-разному — разные веса будут по-разному затухать.
 В случае с Adam мы слишком хорошо оптимизируемся <span class="math notranslate nohighlight">\(\Rightarrow\)</span> обязательно переобучаемся.</p>
-<p class="sd-card-text">Выпишем уравнения для AdamW</p>
-<p class="sd-card-text">\begin{cases}
-g_t = \nabla_w Q(w_{t-1}) \
-m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \
-v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2\
-\hat{m}_t = \frac{1}{1-\beta_1^t} \cdot m_t \
-\hat{v}<em>t = \frac{1}{1-\beta_2^t}v_t \
-w_t = (1-\eta_t\cdot\lambda)\cdot w</em>{t-1} -\eta_t \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}
-\end{cases}</p>
+<p class="sd-card-text">Выпишем уравнения для AdamW<a class="footnote-reference brackets" href="#statia" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{cases}
+g_t = \nabla_w L(w_{t-1}) \\
+m_t = \beta_1 \cdot m_{t-1} + (1-\beta_1) \cdot g_t \\
+v_t = \beta_2 \cdot v_{t-1} + (1-\beta_2) \cdot g_t^2\\
+\hat{m}_t = \frac{1}{1-\beta_1^t} \cdot m_t \\
+\hat{v}_t = \frac{1}{1-\beta_2^t}v_t \\
+w_t = (1-\eta_t\cdot\lambda)\cdot w_{t-1} -\eta_t \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}
+\end{cases}
+\end{split}\]</div>
 <p class="sd-card-text">В дефолтном Adam мы учитываем weight decay в <span class="math notranslate nohighlight">\(g_t\)</span>,  а в модификации AdamW — в самом шаге обновления весов <span class="math notranslate nohighlight">\(w_t\)</span>, отдельно от градиента.</p>
 </div>
-</details></section>
+</details><hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="statia" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://arxiv.org/pdf/1711.05101.pdf">DECOUPLED WEIGHT DECAY REGULARIZATION</a></p>
+</aside>
+</aside>
+</section>
 
     <script type="text/x-thebe-config">
     {

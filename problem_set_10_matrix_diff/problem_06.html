@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -477,7 +479,7 @@ document.write(`
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 	\begin{pmatrix}
-		x_{11}, \ldots, x_{n1} \\
+		x_{11}, \ldots, x_{1m} \\
 		\ldots  \\ 
 		x_{n1}, \ldots, x_{nm}
 	\end{pmatrix}
@@ -489,7 +491,7 @@ document.write(`
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Плотность распределения для <span class="math notranslate nohighlight">\(m-\)</span>мерного вектора <span class="math notranslate nohighlight">\(y\)</span> будет выглядеть как</p>
+<p class="sd-card-text">Плотность распределения для <span class="math notranslate nohighlight">\(m-\)</span>мерного вектора <span class="math notranslate nohighlight">\(x\)</span> будет выглядеть как</p>
 <div class="math notranslate nohighlight">
 \[
 f(x \mid \mu, \Sigma) = \frac{1}{(\sqrt{2 \pi})^m \cdot \sqrt{\det \Sigma}} \cdot \exp \left( - \frac{1}{2} \cdot (x - \mu)^T \Sigma^{-1} (x - \mu) \right).
@@ -514,10 +516,10 @@ df(\mu) = \nabla f^T d \mu.
 \[\begin{multline*}
 	d f(\mu) = -\frac{1}{2} \cdot d \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} (x_i - \mu) = -\frac{1}{2} \cdot \sum_{i=1}^n d[(x_i - \mu)^T \Sigma^{-1} (x_i - \mu)] = \\ = -\frac{1}{2} \cdot \sum_{i=1}^n d[(x_i - \mu)^T] \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d[(x_i - \mu)] = \\ =   \frac{1}{2} \cdot \sum_{i=1}^n d\mu^T \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d\mu.
 \end{multline*}\]</div>
-<p class="sd-card-text">Первое слагаемое под суммой имеет размерность <span class="math notranslate nohighlight">\(1 \times m \cdot m \times m \cdot m \times 1\)</span>. Это константа. Если мы протранспонируем константу, ничего не изменится. Обратим внимание, что матрица <span class="math notranslate nohighlight">\(\Sigma\)</span> симметричная и при транспонировании не меняется. Сделаем этот трюк</p>
+<p class="sd-card-text">Первое слагаемое под суммой имеет размерность <span class="math notranslate nohighlight">\(1 \times m \cdot m \times m \cdot m \times 1\)</span>. Это скаляр. Если мы протранспонируем скаляр, ничего не изменится. Обратим внимание, что матрица <span class="math notranslate nohighlight">\(\Sigma\)</span> симметричная и при транспонировании не меняется. Сделаем этот трюк</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{multline*}
-	 \frac{1}{2} \cdot \sum_{i=1}^n d\mu^T \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d\mu = \\ = \frac{1}{2} \cdot \sum_{i=1}^n  (x_i - \mu)^T \Sigma^{-1}  d\mu  + (x_i - \mu)^T \Sigma^{-1} d\mu = \\ = \frac{1}{2} \cdot \sum_{i=1}^n  [(x_i - \mu)^T \Sigma^{-1}  + (x_i - \mu)^T \Sigma^{-1} ] d\mu =  \left[  \cdot \sum_{i=1}^n  (x_i - \mu)^T \Sigma^{-1} \right] d\mu 
+	 \frac{1}{2} \cdot \sum_{i=1}^n d\mu^T \Sigma^{-1} (x_i - \mu) + (x_i - \mu)^T \Sigma^{-1} d\mu = \\ = \frac{1}{2} \cdot \sum_{i=1}^n  (x_i - \mu)^T \Sigma^{-1}  d\mu  + (x_i - \mu)^T \Sigma^{-1} d\mu = \\ = \frac{1}{2} \cdot \sum_{i=1}^n  [(x_i - \mu)^T \Sigma^{-1}  + (x_i - \mu)^T \Sigma^{-1} ] d\mu =  \left[ \sum_{i=1}^n  (x_i - \mu)^T \Sigma^{-1} \right] d\mu 
 \end{multline*}\]</div>
 <p class="sd-card-text">Получается, что <span class="math notranslate nohighlight">\(f'(\mu) = \sum_{i=1}^n   \Sigma^{-1} (x_i - \mu)\)</span>.  Приравняв производную к нулю и домножив обе части уравнения слева на <span class="math notranslate nohighlight">\(\Sigma\)</span>, получим оптимальное значение <span class="math notranslate nohighlight">\(\mu\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -537,27 +539,27 @@ f(\Sigma) = - \frac{n}{2} \ln \det \Sigma - \frac{1}{2} \sum_{i=1}^n (x_i - \mu)
 <p class="sd-card-text">Эта функция бьёт с множества матриц в множество скаляров. Значит, дифференциал этой функции можно записать в виде:</p>
 <div class="math notranslate nohighlight">
 \[
-d f(\Sigma) = tr (\nabla f^T dx).
+d f(\Sigma) = \operatorname{tr} (\nabla f^T d\Sigma).
 \]</div>
 <p class="sd-card-text">Начнём с первого слагаемого. Для него нам понадобится вспомнить, как выглядит дифференциал для определителя</p>
 <div class="math notranslate nohighlight">
 \[
-- \frac{n}{2} \frac{1}{\det \Sigma}  d[\det \Sigma]  = - \frac{n}{2} \frac{1}{\det \Sigma}  tr( \det \Sigma \cdot \Sigma^{-T} d \Sigma) =   -  tr( \frac{n}{2} \cdot \Sigma^{-1} d \Sigma).
+- \frac{n}{2} \frac{1}{\det \Sigma}  d[\det \Sigma]  = - \frac{n}{2} \frac{1}{\det \Sigma}  \operatorname{tr}( \det \Sigma \cdot \Sigma^{-1} d \Sigma) =   -  \operatorname{tr}( \frac{n}{2} \cdot \Sigma^{-1} d \Sigma).
 \]</div>
 <p class="sd-card-text">Теперь поработаем со вторым слагаемым. В нём нас интересует дифференциал обратной матрицы</p>
 <div class="math notranslate nohighlight">
 \[
 - \frac{1}{2} \sum_{i=1}^n (x_i - \mu)^T d[\Sigma^{-1}] (x_i - \mu) = \frac{1}{2} \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma \cdot \Sigma^{-1} (x_i - \mu). 
 \]</div>
-<p class="sd-card-text">Под знаком суммы размерность каждого слагаемого <span class="math notranslate nohighlight">\(1 \times m \cdot m \times m \cdot m \times m \cdot m \times m \cdot m \times 1\)</span>. Это константа. Если мы возьмём от неё след, ничего не изменится. Взяв след, переставим внутри множители</p>
+<p class="sd-card-text">Под знаком суммы размерность каждого слагаемого <span class="math notranslate nohighlight">\(1 \times m \cdot m \times m \cdot m \times m \cdot m \times m \cdot m \times 1\)</span>. Это скаляр. Если мы возьмём от него след, ничего не изменится. Взяв след, переставим внутри множители</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{1}{2} \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma \cdot \Sigma^{-1} (x_i - \mu)  = \frac{1}{2} \sum_{i=1}^n tr( \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma). 
+\frac{1}{2} \sum_{i=1}^n (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma \cdot \Sigma^{-1} (x_i - \mu)  = \frac{1}{2} \sum_{i=1}^n \operatorname{tr}( \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1} \cdot  d \Sigma). 
 \]</div>
 <p class="sd-card-text">Сумма следов – след суммы. Объединяем наши слагаемые вместе. В первом множитель <span class="math notranslate nohighlight">\(n\)</span> подменяем на сумму</p>
 <div class="math notranslate nohighlight">
 \[
-d f(\Sigma) = tr \left( \left [ - \frac{1}{2} \sum_{i = 1}^n \Sigma^{-1} + \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1} \right] d \Sigma \right)
+d f(\Sigma) = \operatorname{tr} \left( \left [ \frac{1}{2} \sum_{i = 1}^n - \Sigma^{-1} + \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1} \right] d \Sigma \right)
 \]</div>
 <p class="sd-card-text">Забираем себе из-под знака дифференциала производную. Под знаком суммы после транспонирования ничего не поменяется. Приравниваем производную к нулю, домножим справа каждое слагаемое на <span class="math notranslate nohighlight">\(\Sigma\)</span>. На четвёртой строчке домножим слева на <span class="math notranslate nohighlight">\(\Sigma\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
@@ -565,7 +567,7 @@ d f(\Sigma) = tr \left( \left [ - \frac{1}{2} \sum_{i = 1}^n \Sigma^{-1} + \Sigm
 	\begin{aligned} 
 		 &amp; \frac{1}{2} \sum_{i = 1}^n - \Sigma^{-1} + \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1}  = 0 \\
 		 &amp; - n \cdot \Sigma^{-1} + \sum_{i = 1}^n  \Sigma^{-1} (x_i - \mu) \cdot (x_i - \mu)^T \Sigma^{-1}  = 0 \\
-		 &amp; - n + \Sigma^{-1} \sum_{i = 1}^n  (x_i - \mu) \cdot (x_i - \mu)^T = 0 \\
+		 &amp; - n I_m + \Sigma^{-1} \sum_{i = 1}^n  (x_i - \mu) \cdot (x_i - \mu)^T = 0 \\
 		 &amp; - n \Sigma+ \sum_{i = 1}^n  (x_i - \mu) \cdot (x_i - \mu)^T = 0 \\
 		 &amp;  \Sigma  = \frac{1}{n} \sum_{i = 1}^n  (x_i - \mu) \cdot (x_i - \mu)^T 
 	\end{aligned}

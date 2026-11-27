@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -491,11 +493,11 @@ y_i =  b + w x_i.
 y_t = b + w y_{t-1}.
 \]</div>
 <p>Можно изобразить такую модель на картинке следующим образом:</p>
-<figure class="align-default" id="id1">
+<figure class="align-default" id="ar-neuron">
 <a class="reference internal image-reference" href="../_images/img01_arima.png"><img alt="../_images/img01_arima.png" src="../_images/img01_arima.png" style="width: 15%;" /></a>
 </figure>
 <p>Давайте попробуем перейти от неё к рекуррентному нейрону по аналогии с линейной моделью. На картинке рекуррентный нейрон можно изобразить следующим образом:</p>
-<figure class="align-default" id="id2">
+<figure class="align-default" id="rnn-neuron">
 <a class="reference internal image-reference" href="../_images/img01_rnn.png"><img alt="../_images/img01_rnn.png" src="../_images/img01_rnn.png" style="width: 25%;" /></a>
 </figure>
 <p>Выпишите уравнения, описывающие рекуррентный нейрон. На картинке не отмечены места, где используются функции активации. Додумайте сами, где в уравнениях нужна нелинейность. Можно ли ограничиться только одним уравнением?</p>
@@ -511,7 +513,7 @@ y_t = b + w y_{t-1}.
 \[\begin{equation*} 
 	\begin{aligned}
 		&amp; h_t = b_h + v \cdot y_{t-1} + w \cdot h_{t-1} \\
-		&amp; y_t = b_y + u \cdot h_t.
+		&amp; \hat{y}_t = b_y + u \cdot h_t.
 	\end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">В первом уравнении обновляется скрытое состояние нейрона. Оно учитывает в себе информацию обо всём, что до этого происходило в последовательности. Во втором уравнении на базе скрытого состояния мы строим прогноз.</p>
@@ -521,7 +523,7 @@ y_t = b + w y_{t-1}.
 \[\begin{equation*} 
 	\begin{aligned}
 		&amp; h_t = f_h(b_h + v \cdot y_{t-1} + w \cdot h_{t-1}) \\
-		&amp; y_t = f_y(b_y + u \cdot h_t).
+		&amp; \hat{y}_t = f_y(b_y + u \cdot h_t).
 	\end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">В принципе, для прогнозирования необязательно применять функцию активации, но если мы это сделаем, модель станет более выразительной.</p>

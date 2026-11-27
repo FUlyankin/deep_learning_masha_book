@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -473,14 +475,14 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>4. Больше производных<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <p>Найдите следующие производные:</p>
-<p><strong>а)</strong> <span class="math notranslate nohighlight">\(f(X) = tr(AXB)\)</span>, где матрица <span class="math notranslate nohighlight">\(A\)</span> размера <span class="math notranslate nohighlight">\(p \times m\)</span>, матрица <span class="math notranslate nohighlight">\(B\)</span> размера <span class="math notranslate nohighlight">\(n \times p\)</span>, матрица <span class="math notranslate nohighlight">\(X\)</span> размера <span class="math notranslate nohighlight">\(m \times n\)</span>.</p>
-<p><strong>б)</strong>  <span class="math notranslate nohighlight">\(f(X) = tr(AX^TX)\)</span>, где матрица <span class="math notranslate nohighlight">\(A\)</span> размера <span class="math notranslate nohighlight">\(n \times n\)</span>, матрица <span class="math notranslate nohighlight">\(X\)</span> размера <span class="math notranslate nohighlight">\(m \times n\)</span>.</p>
-<p><strong>в)</strong> <span class="math notranslate nohighlight">\(f(X) = \ln det X\)</span></p>
-<p><strong>г)</strong> <span class="math notranslate nohighlight">\(f(X) = tr(AX^TXBX^{-T})\)</span></p>
-<p><strong>д)</strong> <span class="math notranslate nohighlight">\(f(X) = det(X^TAX)\)</span></p>
+<p><strong>а)</strong> <span class="math notranslate nohighlight">\(f(X) = \operatorname{tr}(AXB)\)</span>, где матрица <span class="math notranslate nohighlight">\(A\)</span> размера <span class="math notranslate nohighlight">\(p \times m\)</span>, матрица <span class="math notranslate nohighlight">\(B\)</span> размера <span class="math notranslate nohighlight">\(n \times p\)</span>, матрица <span class="math notranslate nohighlight">\(X\)</span> размера <span class="math notranslate nohighlight">\(m \times n\)</span>.</p>
+<p><strong>б)</strong>  <span class="math notranslate nohighlight">\(f(X) = \operatorname{tr}(AX^TX)\)</span>, где матрица <span class="math notranslate nohighlight">\(A\)</span> размера <span class="math notranslate nohighlight">\(n \times n\)</span>, матрица <span class="math notranslate nohighlight">\(X\)</span> размера <span class="math notranslate nohighlight">\(m \times n\)</span>.</p>
+<p><strong>в)</strong> <span class="math notranslate nohighlight">\(f(X) = \ln \det X\)</span></p>
+<p><strong>г)</strong> <span class="math notranslate nohighlight">\(f(X) = \operatorname{tr}(AX^TXBX^{-T})\)</span></p>
+<p><strong>д)</strong> <span class="math notranslate nohighlight">\(f(X) = \det(X^TAX)\)</span></p>
 <p><strong>е)</strong> <span class="math notranslate nohighlight">\(f(x) = x^TAb\)</span>, где матрица <span class="math notranslate nohighlight">\(A\)</span> размера <span class="math notranslate nohighlight">\(n \times n\)</span>, вектора <span class="math notranslate nohighlight">\(x\)</span> и <span class="math notranslate nohighlight">\(b\)</span> размера <span class="math notranslate nohighlight">\(n \times 1\)</span>.</p>
 <p><strong>ж)</strong> <span class="math notranslate nohighlight">\(f(A) = x^TAb\)</span>.</p>
-<p>Проверить правильность своего решения можно в <a class="reference external" href="http://www.matrixcalculus.org/">матричном калькуляторе</a>. Не забывайте, что <span class="math notranslate nohighlight">\(tr(A) = tr(A^T)\)</span> и что под знаком следа можно циклически переставлять матрицы, если размерность не ломается.</p>
+<p>Проверить правильность своего решения можно в <a class="reference external" href="https://www.matrixcalculus.org/">матричном калькуляторе</a>. Не забывайте, что <span class="math notranslate nohighlight">\(\operatorname{tr}(A) = \operatorname{tr}(A^T)\)</span> и что под знаком следа можно циклически переставлять матрицы, если размерность не ломается.</p>
 </section>
 
     <script type="text/x-thebe-config">

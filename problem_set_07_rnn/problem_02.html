@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -472,8 +474,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>2. Туда и обратно<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Маша хочет сделать шаг обратного распространения ошибки через рекуррентную ячейку для последовательности <span class="math notranslate nohighlight">\(y_0 = 0, y_1=1, y_2 = -1, y_3 =2\)</span>. Скрытое состояние инициализировано как <span class="math notranslate nohighlight">\(h_0 = 0\)</span>. Все веса инициализированы как <span class="math notranslate nohighlight">\(0.5\)</span>. Во всех уравнениях, описывающих ячейку, нет констант. В качестве функций активации Маша использует <span class="math notranslate nohighlight">\(ReLU\)</span>. В качестве функции потерь Маша использует <span class="math notranslate nohighlight">\(MSE\)</span>.</p>
-<figure class="align-default" id="rnn">
+<p>Маша хочет сделать шаг обратного распространения ошибки через рекуррентную ячейку для последовательности <span class="math notranslate nohighlight">\(y_0 = 0, y_1=1, y_2 = -1, y_3 =2\)</span>. Скрытое состояние инициализировано как <span class="math notranslate nohighlight">\(h_0 = 0\)</span>. Все веса инициализированы как <span class="math notranslate nohighlight">\(0.5\)</span>. Во всех уравнениях, описывающих ячейку, нет констант. В качестве функций активации Маша использует <span class="math notranslate nohighlight">\(ReLU\)</span>. В качестве функции потерь Маша использует сумму квадратов ошибок.</p>
+<figure class="align-default" id="rnn-neuron-numbers">
 <a class="reference internal image-reference" href="../_images/img02_rnn.png"><img alt="../_images/img02_rnn.png" src="../_images/img02_rnn.png" style="width: 25%;" /></a>
 </figure>
 <p><strong>а)</strong> Сделайте прямой шаг через ячейку. Для каждого элемента последовательности постройте прогноз. Посчитайте значение ошибки.</p>
@@ -486,7 +488,7 @@ document.write(`
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Рекуррентную сеть можно рассматривать как несколько копий одной и той же сети, каждая из которых передаёт информацию последующей копии. Веса для всех копий одинаковые.</p>
 <a class="reference internal image-reference" href="../_images/img02_rnn_flatten.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_rnn_flatten.png" style="width: 50%;" /></a>
-<p class="sd-card-text">Когда мы строим прогнозы, мы движемся слева направо и сверху вниз. Чтобы сделать прямой шаг, нам нужно подставить соответствующие значения в формулы пересчёта</p>
+<p class="sd-card-text">Когда мы строим прогнозы, мы движемся слева направо и снизу вверх. Чтобы сделать прямой шаг, нам нужно подставить соответствующие значения в формулы пересчёта</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*} 
 	\begin{aligned}
@@ -509,13 +511,13 @@ document.write(`
 <td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
 <td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
 <td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0.5\)</span></p></td>
-<td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0.375\)</span></p></td>
+<td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(\hat y_t\)</span></p></td>
 <td class="text-center"><p class="sd-card-text">-</p></td>
 <td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
 <td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0.25\)</span></p></td>
-<td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0.1875\)</span></p></td>
+<td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(y_t\)</span></p></td>
 <td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(0\)</span></p></td>
@@ -527,14 +529,14 @@ document.write(`
 <td class="text-center"><p class="sd-card-text">-</p></td>
 <td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(1\)</span></p></td>
 <td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(1.5625\)</span></p></td>
-<td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(3.285\)</span></p></td>
+<td class="text-center"><p class="sd-card-text"><span class="math notranslate nohighlight">\(4\)</span></p></td>
 </tr>
 </tbody>
 </table>
 <p class="sd-card-text">Получаем итоговое значение ошибки нашего нейрона на всей последовательности</p>
 <div class="math notranslate nohighlight">
 \[
-L = L_1 + L_2 + L_3 = 1 + 1.5625 + 3.285 = 5.8475.
+L = L_1 + L_2 + L_3 = 1 + 1.5625 + 4 = 6.5625.
 \]</div>
 <p class="sd-card-text">Именно его нам надо будет уменьшать в ходе обратного распространения ошибки.</p>
 </div>
@@ -551,7 +553,7 @@ L = L_1 + L_2 + L_3 = 1 + 1.5625 + 3.285 = 5.8475.
 <p class="sd-card-text">Это означает, что наша производная разваливается в сумму производных</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial L}{\partial u} = \sum_{t=0}^T \frac{\partial L_t}{\partial u}.
+\frac{\partial L}{\partial u} = \sum_{t=1}^T \frac{\partial L_t}{\partial u}.
 \]</div>
 <p class="sd-card-text">Посмотрим на одно слагаемое.</p>
 <a class="reference internal image-reference" href="../_images/img02_backprop_L2.png"><img alt="dobronet_forward" class="align-center" src="../_images/img02_backprop_L2.png" style="width: 50%;" /></a>
@@ -596,20 +598,20 @@ L = L_1 + L_2 + L_3 = 1 + 1.5625 + 3.285 = 5.8475.
 <p class="sd-card-text">Итоговая производная имеет вид</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial L_t}{\partial w} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot \frac{\partial \hat{y}_t}{\partial h_t} \cdot \sum_{i=0}^t \left( \prod_{i=k+1}^t  \frac{\partial h_i}{\partial h_{i-1}} \right) \cdot  \frac{\partial h_k}{\partial w}.
+\frac{\partial L_t}{\partial w} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot \frac{\partial \hat{y}_t}{\partial h_t} \cdot \sum_{k=1}^t \left( \prod_{i=k+1}^t  \frac{\partial h_i}{\partial h_{i-1}} \right) \cdot  \frac{\partial h_k}{\partial w}.
 \]</div>
 <p class="sd-card-text"><strong>Осталась заключительная производная по весу <span class="math notranslate nohighlight">\(v\)</span></strong></p>
 <div class="math notranslate nohighlight">
 \[
 \frac{\partial L_t}{\partial v} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot \frac{\partial \hat{y}_t}{\partial h_t} \cdot \frac{\partial h_t}{\partial v}.
 \]</div>
-<p class="sd-card-text">В ходе взятия этой производной мы нигде не упираемся в <span class="math notranslate nohighlight">\(h_{t-1},\)</span> поэтому назад во времени идти не нужно. Давайте подставим соответствующие части уравнений и получим ответ</p>
+<p class="sd-card-text">В ходе взятия этой производной мы снова упираемся в <span class="math notranslate nohighlight">\(h_{t-1},\)</span> поэтому назад во времени идти тоже нужно. Давайте подставим соответствующие части уравнений и получим ответ</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial L_t}{\partial v} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot f'_y(\ldots) \cdot u \cdot f'_h(\ldots) \cdot y_{t-1}
+\frac{\partial L_t}{\partial v} = \frac{\partial L_t}{\partial \hat{y}_t} \cdot f'_y(\ldots) \cdot u \cdot \sum_{k=1}^t \left( \prod_{i=k+1}^t  \frac{\partial h_i}{\partial h_{i-1}} \right) \cdot f'_h(\ldots) \cdot y_{k-1}
 \]</div>
 </div>
-</details><p><strong>в)</strong> Сделайте шаг обратного распространения ошибки по весу <span class="math notranslate nohighlight">\(u\)</span></p>
+</details><p><strong>в)</strong> Сделайте шаг обратного распространения ошибки по весу <span class="math notranslate nohighlight">\(u\)</span> со скоростью обучения <span class="math notranslate nohighlight">\(\gamma = 0.1\)</span></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -628,18 +630,18 @@ L = L_1 + L_2 + L_3 = 1 + 1.5625 + 3.285 = 5.8475.
 	\begin{aligned}
 		&amp; \frac{\partial L_1}{\partial u} = \frac{\partial L_1}{\partial \hat{y}} \cdot f'(\ldots) \cdot h_1 = -2 \cdot (1 - 0) \cdot 0 \cdot 0 = 0 \\
     	&amp; \frac{\partial L_2}{\partial u} = \frac{\partial L_2}{\partial \hat{y}} \cdot f'(\ldots) \cdot h_2 = -2 \cdot (-1 - 0.25) \cdot 1 \cdot 0.5 = 1.25 \\
-    	&amp; \frac{\partial L_3}{\partial u} = \frac{\partial L_3}{\partial \hat{y}} \cdot f'(\ldots) \cdot h_3 = -2 \cdot (2 - 0.1875) \cdot 1 \cdot 0.375 = -1.36.
+    	&amp; \frac{\partial L_3}{\partial u} = \frac{\partial L_3}{\partial \hat{y}} \cdot f'(\ldots) \cdot h_3 = -2 \cdot (2 - 0) \cdot 0 \cdot 0 = 0.
 	\end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">Получается, что</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{\partial L}{\partial U} = \frac{\partial L_1}{\partial U} + \frac{\partial L_2}{\partial U} + \frac{\partial L_3}{\partial U} = 0 + 1.25 - 1.36 = -0.11
+\frac{\partial L}{\partial u} = \frac{\partial L_1}{\partial u} + \frac{\partial L_2}{\partial u} + \frac{\partial L_3}{\partial u} = 0 + 1.25 + 0 = 1.25
 \]</div>
 <p class="sd-card-text">В итоге</p>
 <div class="math notranslate nohighlight">
 \[
-u_1 = u_0 - \gamma \cdot  \frac{\partial L}{\partial u} = 0.5 - 0.1 \cdot (-0.11) = 0.511
+u_1 = u_0 - \gamma \cdot  \frac{\partial L}{\partial u} = 0.5 - 0.1 \cdot 1.25 = 0.375
 \]</div>
 <p class="sd-card-text">По весам <span class="math notranslate nohighlight">\(w\)</span> и <span class="math notranslate nohighlight">\(v\)</span> также можно сделать шаг обратного распространения ошибки, но расчёты будут более неприятными.</p>
 </div>

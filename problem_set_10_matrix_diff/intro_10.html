@@ -181,13 +181,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -470,7 +472,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>Листочек 10: матричное дифФфФфФференцирование<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<a class="reference internal image-reference" href="../_images/img_tree.png"><img alt="triangle" class="align-center" src="../_images/img_tree.png" style="height: 70px;" /></a>
+<a class="reference internal image-reference" href="../_images/img_tree.png"><img alt="transposed_tree" class="align-center" src="../_images/img_tree.png" style="height: 70px;" /></a>
 <blockquote class="epigraph">
 <div><p>It’s going down, I’m yelling timber, You better move, you better dance.</p>
 <p class="attribution">—Джек и бобовый стебель (1890)</p>
@@ -478,7 +480,7 @@ document.write(`
 <p>Эта часть виньетки необязательна для изучения. В ней мы подробно поговорим про матричные производные. С их помощью удобно заниматься оптимизацией, в том числе алгоритмом обратного распространения ошибки.</p>
 <p>Зачем нам нужно научиться искать матричные производные? <strong>Машинное обучение – это сплошная оптимизация.</strong> В нём мы постоянно вынуждены искать минимум какой-нибудь функции потерь. Матричные производные довольно сильно в этом помогают.</p>
 <p>Часть задач я взял из <a class="reference external" href="https://github.com/bdemeshev/mlearn_pro/blob/master/mlearn_pro.pdf">задачника Бориса Демешева.</a> Часть задач я взял из <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2022-fall/homeworks-theory/homework-theory-02-derivatives.pdf">теоретического дз ФКН.</a> Часть задач я взял из семинара ШАД. Часть задач я придумал и добавил в книгу и в <a class="reference external" href="https://github.com/esokolov/ml-course-hse/blob/master/2022-fall/seminars/sem03-vector-diff.pdf">конспекты ФКН.</a>  Можете почитать его. Там всё то же самое и даже больше.</p>
-<p>Также можно почитать книгу <a class="reference external" href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf">The Matrix Cookbook</a> и воспользоваться <a class="reference external" href="http://www.matrixcalculus.org/">матричным калькулятором.</a></p>
+<p>Также можно почитать книгу <a class="reference external" href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf">The Matrix Cookbook</a> и воспользоваться <a class="reference external" href="https://www.matrixcalculus.org/">матричным калькулятором.</a></p>
 <div class="toctree-wrapper compound">
 </div>
 </section>

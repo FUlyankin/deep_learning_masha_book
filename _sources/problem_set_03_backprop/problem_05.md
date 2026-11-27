@@ -6,7 +6,7 @@
 ```{figure} ../images/problem_set_03/img05_task.png
 ---
 width: 95%
-name: one_dim_nn
+name: bp_matrix_nn
 ---
 ```
 
@@ -42,16 +42,16 @@ $$
 \hat{y}_i = w_1^3 \cdot o^2_{i1} + w_2^3 \cdot o^2_{i2}.
 $$
 
-Подставим вместо $o^2_{1i}$ и $o^2_{2i}$ результат вычисления предыдущих слоёв
+Подставим вместо $o^2_{i1}$ и $o^2_{i2}$ результат вычисления предыдущих слоёв
 
 $$
-\hat{y}_i = w_1^3 \cdot f( w^1_{12} \cdot o^1_{i1} +  w^1_{22} \cdot o^1_{i2}) + w_2^3 \cdot f( w^1_{12} \cdot o^1_{i1} +  w^1_{22} \cdot o^1_{i2}).
+\hat{y}_i = w_1^3 \cdot f( w^2_{11} \cdot o^1_{i1} +  w^2_{21} \cdot o^1_{i2}) + w_2^3 \cdot f( w^2_{12} \cdot o^1_{i1} +  w^2_{22} \cdot o^1_{i2}).
 $$
 
 Подставим результат вычисления первого слоя 
 
 \begin{multline*}
-\hat{y}_i = w_1^3 \cdot f( w^1_{12} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^1_{22} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})) + \\ + w_2^3 \cdot f( w^1_{12} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^1_{22} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})).
+\hat{y}_i = w_1^3 \cdot f( w^2_{11} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^2_{21} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})) + \\ + w_2^3 \cdot f( w^2_{12} \cdot f( w^1_{11} \cdot x_{i1} +  w^1_{21} \cdot x_{i2}) +  w^2_{22} \cdot f( w^1_{12} \cdot x_{i1} +  w^1_{22} \cdot x_{i2})).
 \end{multline*}
 
 Мы записали нашу нейросеть в виде сложной функции. Выглядит ужасно. 

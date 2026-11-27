@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -485,18 +487,18 @@ X =\begin{pmatrix} 1 &amp; 2 \\ -1 &amp; 2 \end{pmatrix}.
 <p><strong>б)</strong> Найдите для первого слоя производную выхода по входу. При обратном движении по нейросетке в первый слой пришёл накопленный градиент</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-d = \begin{pmatrix} -0.5 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}.
+d = \begin{pmatrix} -0.25 &amp; 0 \\ 0 &amp; 0 \end{pmatrix}.
 \end{split}\]</div>
 <p>Каким будет новое накопленное значение градиента, которое выплюнет из себя линейный слой? По какой формуле делается backward pass?</p>
 <p><strong>в)</strong> Второй слой нейросетки — функция активации, <span class="math notranslate nohighlight">\(ReLU.\)</span> По какой формуле делается forward pass? Сделайте его для матрицы</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-H_1 = \begin{pmatrix} 2 &amp; -0.5 \\ 0 &amp; 1 \end{pmatrix}.
+H_1 = \begin{pmatrix} 2 &amp; -1 \\ 0 &amp; 1 \end{pmatrix}.
 \end{split}\]</div>
 <p><strong>г)</strong> Найдите для второго слоя производную выхода по входу. При обратном движении по нейросетке во второй слой пришёл накопленный градиент</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-d = \begin{pmatrix} -0.5 &amp; -1 \\ 0 &amp; 0 \end{pmatrix}.
+d = \begin{pmatrix} -0.25 &amp; -0.5 \\ 0 &amp; 0 \end{pmatrix}.
 \end{split}\]</div>
 <p>Каким будет новое накопленное значение градиента, которое выплюнет из себя <span class="math notranslate nohighlight">\(ReLU\)</span>?  По какой формуле делается backward pass?</p>
 <p><strong>д)</strong>
@@ -505,7 +507,7 @@ d = \begin{pmatrix} -0.5 &amp; -1 \\ 0 &amp; 0 \end{pmatrix}.
 \[\begin{split}
 O_1 =\begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix}.
 \end{split}\]</div>
-<p><strong>е)</strong> Найдите для третьего слоя производную выхода по входу. При обратном движении по нейросетке в третий слой пришёл накопленный градиент <span class="math notranslate nohighlight">\(d = (-1, 0)^T\)</span>. Каким будет новое накопленное значение градиента, которое выплюнет из себя линейный слой?</p>
+<p><strong>е)</strong> Найдите для третьего слоя производную выхода по входу. При обратном движении по нейросетке в третий слой пришёл накопленный градиент <span class="math notranslate nohighlight">\(d = (-0.5, 0)^T\)</span>. Каким будет новое накопленное значение градиента, которое выплюнет из себя линейный слой?</p>
 <p><strong>ё)</strong> Мы решаем задачу регрессии. В качестве функции ошибки мы используем</p>
 <div class="math notranslate nohighlight">
 \[
@@ -515,7 +517,7 @@ MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
 <p><strong>ж)</strong>  Чему равна производная <span class="math notranslate nohighlight">\(MSE\)</span> по прогнозу? Каким будет накопленное значение градиента, которое <span class="math notranslate nohighlight">\(MSE\)</span> выплюнет из себя в предыдущий слой нейросетки?</p>
 <p><strong>з)</strong> Пусть скорость обучения <span class="math notranslate nohighlight">\(\gamma = 1\)</span>.  Сделайте для весов нейросети шаг градиентного спуска.</p>
 <p><strong>и)</strong> Посидела Маша, посидела и поняла, что неправильно она всё делает. В реальности перед ней не задача регрессии, а задача классификации. Маша применила к выходу из нейросетки сигмоиду. Как будет для неё выглядеть forward pass?</p>
-<p><strong>к)</strong>  В качестве функции потерь Маша использует <span class="math notranslate nohighlight">\(logloss.\)</span> Как для этой функции потерь выглядит forward pass? Сделайте его.</p>
+<p><strong>к)</strong>  В качестве функции потерь Маша использует <span class="math notranslate nohighlight">\(logloss.\)</span> Как для этой функции потерь выглядит forward pass? Сделайте его для <span class="math notranslate nohighlight">\(y_1 = 0, y_2 = 1.\)</span></p>
 <p><strong>л)</strong> Найдите для <span class="math notranslate nohighlight">\(logloss\)</span> производную прогнозов по входу в сигмоиду. Как будет выглядеть backward pass, если <span class="math notranslate nohighlight">\(y_1 = 0, y_2 = 1?\)</span> Как поменяется оставшаяся часть алгоритма обратного распространения ошибки?</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -528,8 +530,8 @@ MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
-    &amp; H_1 = X \cdot W_1 = \begin{pmatrix} 1 &amp; 2 \\ -1 &amp; 2 \end{pmatrix} \cdot \begin{pmatrix} 1 &amp; -1 \\ 0.5 &amp; 0 \end{pmatrix} =  \begin{pmatrix} 2 &amp; -0.5 \\ 0 &amp; 1 \end{pmatrix} \\
-    &amp; O_1 = ReLU(H_1) = \begin{pmatrix} \max(0,2) &amp; \max(0,-0.5) \\ \max(0,0) &amp; \max(0,1) \end{pmatrix} = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \\
+    &amp; H_1 = X \cdot W_1 = \begin{pmatrix} 1 &amp; 2 \\ -1 &amp; 2 \end{pmatrix} \cdot \begin{pmatrix} 1 &amp; -1 \\ 0.5 &amp; 0 \end{pmatrix} =  \begin{pmatrix} 2 &amp; -1 \\ 0 &amp; 1 \end{pmatrix} \\
+    &amp; O_1 = ReLU(H_1) = \begin{pmatrix} \max(0,2) &amp; \max(0,-1) \\ \max(0,0) &amp; \max(0,1) \end{pmatrix} = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \\
     &amp; \hat{y} = O_1 \cdot W_2 = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \cdot \begin{pmatrix} 0.5 \\ 1 \end{pmatrix} = \begin{pmatrix} 1 \\ 1 \end{pmatrix} \\ 
     &amp; MSE = \frac{1}{4} \cdot ((1 - 2)^2 + (1 - 1)^2) = 0.25
     \end{aligned}
@@ -538,7 +540,7 @@ MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
-    &amp; \frac{\partial MSE}{\partial \hat y} = \begin{pmatrix} \hat y_1 - y_1  \\ \hat y_2 - y_2 \end{pmatrix} = \begin{pmatrix} -1 \\ 0 \end{pmatrix} \\ 
+    &amp; \frac{\partial MSE}{\partial \hat y} = \frac{1}{2} \begin{pmatrix} \hat y_1 - y_1  \\ \hat y_2 - y_2 \end{pmatrix} = \begin{pmatrix} -0.5 \\ 0 \end{pmatrix} \\ 
     &amp; \frac{\partial\hat y}{\partial O_1} = W_2^T = (0.5, 1) \qquad  \frac{\partial\hat y}{\partial W_2} = O_1^T = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \\
     &amp; \frac{\partial O_1}{\partial H_1} = [H_{ij} &gt; 0] = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \\
     &amp; \frac{\partial H_1}{\partial X} = W_1^T = \begin{pmatrix} 1 &amp; 0.5 \\ -1 &amp; 0 \end{pmatrix} \qquad  \frac{\partial H_1}{\partial W_1} = X^T = \begin{pmatrix} 1 &amp; -1 \\ 2 &amp; 2 \end{pmatrix}
@@ -548,21 +550,21 @@ MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
-    &amp; d = \begin{pmatrix} -1 \\ 0 \end{pmatrix} \\ 
-    &amp; \frac{\partial MSE}{\partial W_2} =  O_1^T \cdot d = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \cdot \begin{pmatrix} -1 \\ 0 \end{pmatrix} = \begin{pmatrix} -2 \\ 0 \end{pmatrix}\\
-    &amp; d = d \cdot W_2^T \odot [H_{ij} &gt; 0] = \begin{pmatrix} -1 \\ 0 \end{pmatrix}  \cdot (0.5, 1) \odot \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} = \begin{pmatrix} -0.5 &amp; 0 \\ 0 &amp; 0 \end{pmatrix} \\
-    &amp; \frac{\partial MSE}{\partial W_1} =  X^T \cdot d = \begin{pmatrix} 1 &amp; -1 \\ 2 &amp; 2 \end{pmatrix} \cdot \begin{pmatrix} -0.5 &amp; 0 \\ 0 &amp; 0 \end{pmatrix} = \begin{pmatrix} -0.5 &amp; 0 \\ -1 &amp; 0 \end{pmatrix} \\
+    &amp; d = \begin{pmatrix} -0.5 \\ 0 \end{pmatrix} \\ 
+    &amp; \frac{\partial MSE}{\partial W_2} =  O_1^T \cdot d = \begin{pmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} \cdot \begin{pmatrix} -0.5 \\ 0 \end{pmatrix} = \begin{pmatrix} -1 \\ 0 \end{pmatrix}\\
+    &amp; d = d \cdot W_2^T \odot [H_{ij} &gt; 0] = \begin{pmatrix} -0.5 \\ 0 \end{pmatrix}  \cdot (0.5, 1) \odot \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; 1 \end{pmatrix} = \begin{pmatrix} -0.25 &amp; 0 \\ 0 &amp; 0 \end{pmatrix} \\
+    &amp; \frac{\partial MSE}{\partial W_1} =  X^T \cdot d = \begin{pmatrix} 1 &amp; -1 \\ 2 &amp; 2 \end{pmatrix} \cdot \begin{pmatrix} -0.25 &amp; 0 \\ 0 &amp; 0 \end{pmatrix} = \begin{pmatrix} -0.25 &amp; 0 \\ -0.5 &amp; 0 \end{pmatrix} \\
     \end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">Делаем шаг градиентного спуска</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
-      &amp; W_1 = \begin{pmatrix} 1 &amp; -1 \\ 0.5 &amp; 0 \end{pmatrix} - \gamma \cdot \begin{pmatrix} -0.5 &amp; 0 \\ -1 &amp; 0 \end{pmatrix}\\
-      &amp; W_2 = \begin{pmatrix} 0.5 \\ 1 \end{pmatrix}  - \gamma \cdot \begin{pmatrix} - 2 \\ 0 \end{pmatrix}.
+      &amp; W_1 = \begin{pmatrix} 1 &amp; -1 \\ 0.5 &amp; 0 \end{pmatrix} - \gamma \cdot \begin{pmatrix} -0.25 &amp; 0 \\ -0.5 &amp; 0 \end{pmatrix}\\
+      &amp; W_2 = \begin{pmatrix} 0.5 \\ 1 \end{pmatrix}  - \gamma \cdot \begin{pmatrix} - 1 \\ 0 \end{pmatrix}.
     \end{aligned}
 \end{equation*}\]</div>
-<p class="sd-card-text">Меняем MSE на logloss и добавляем сигмоиду. Производная для сигмоиды выглядит как</p>
+<p class="sd-card-text">Меняем MSE на logloss и добавляем сигмоиду. Производная для logloss выглядит как</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
     \begin{aligned} 
@@ -575,7 +577,7 @@ MSE = \frac{1}{2n} \sum (\hat y_i - y_i)^2.
 \[\begin{equation*}
     \begin{aligned} 
     &amp; O_2 = \sigma(\hat y) = \begin{pmatrix} 0.73 \\ 0.73 \end{pmatrix} \qquad  \frac{\partial O_2}{\partial \hat y} = O_2 \cdot (1 - O_2) \approx \begin{pmatrix} 0.2 \\ 0.2 \end{pmatrix} \\ 
-    &amp; \frac{\partial logloss}{\partial \hat p} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \qquad \frac{\partial logloss}{\partial \hat y} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \odot \begin{pmatrix} 0.2 \\ 0.2 \end{pmatrix} = \begin{pmatrix} 0.74 \\ -0.28 \end{pmatrix}
+    &amp; \frac{\partial logloss}{\partial \hat p} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \qquad \frac{\partial logloss}{\partial \hat y} \approx \begin{pmatrix} 3.7 \\ -1.4 \end{pmatrix} \odot \begin{pmatrix} 0.2 \\ 0.2 \end{pmatrix} \approx \begin{pmatrix} 0.73 \\ -0.27 \end{pmatrix}
     \end{aligned}
 \end{equation*}\]</div>
 <p class="sd-card-text">Дальше алгоритм делается ровно так же, только в качестве стартового <span class="math notranslate nohighlight">\(d\)</span> используется <span class="math notranslate nohighlight">\(logloss'_{\hat y},\)</span> а не <span class="math notranslate nohighlight">\(MSE'_{\hat y}.\)</span></p>

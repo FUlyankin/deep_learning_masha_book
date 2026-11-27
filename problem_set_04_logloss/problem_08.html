@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -495,7 +497,7 @@ document.write(`
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Маша увидела, что в выборке есть серьёзный дисбаланс. Первый класс встречается в три раза реже нулевого. Из-за этого Маша решила искусственно увеличить значение каждого слагаемого с <span class="math notranslate nohighlight">\(\ln p_i\)</span> для первого класса в три раза.</p>
-<p class="sd-card-text">Если хочется сделать такое в <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, можно внутри <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> поставить <code class="docutils literal notranslate"><span class="pre">weighted</span> <span class="pre">=</span> <span class="pre">'balanced'</span></code>. Тогда он сам рассчитает, насколько велик дисбаланс в тренировочной выборке и увеличит одно из слагаемых.</p>
+<p class="sd-card-text">Если хочется сделать такое в <code class="docutils literal notranslate"><span class="pre">sklearn</span></code>, можно внутри <code class="docutils literal notranslate"><span class="pre">LogisticRegression</span></code> поставить <code class="docutils literal notranslate"><span class="pre">class_weight</span> <span class="pre">=</span> <span class="pre">'balanced'</span></code>. Тогда он сам рассчитает, насколько велик дисбаланс в тренировочной выборке и увеличит одно из слагаемых.</p>
 <p class="sd-card-text">Если целевой класс встречается редко, наша модель может довольно сильно деградировать и начать везде выдавать нули.</p>
 </div>
 </details><p><strong>б)</strong> Маша прочитала в статье про функцию потерь Focal Loss.<a class="footnote-reference brackets" href="#fl-note" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> Её обычно используют при решении задачи детекции изображений.</p>

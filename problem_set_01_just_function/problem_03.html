@@ -62,7 +62,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'problem_set_01_just_function/problem_03';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="4. Армия регрессий" href="problem_04.html" />
+    <link rel="next" title="4. Число параметров" href="problem_04.html" />
     <link rel="prev" title="2. От картинки к формуле" href="problem_02.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -477,7 +479,7 @@ document.write(`
 \[
 y = \max(0, 4 \cdot \max(0, 3 \cdot x_1 + 4 \cdot x_2 + 1) + 2 \cdot \max(0, 3 \cdot x_1 + 2 \cdot x_2 + 7) + 6)
 \]</div>
-<p>Теперь она хочет, чтобы кто-нибудь из её адептов нарисовал её в виде нейросетки. Нарисуйте.</p>
+<p><strong>а)</strong> Теперь она хочет, чтобы кто-нибудь из её адептов нарисовал её в виде нейросетки. Нарисуйте.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -496,7 +498,44 @@ y = \max(0, 4 \cdot \max(0, 3 \cdot x_1 + 4 \cdot x_2 + 1) + 2 \cdot \max(0, 3 \
 y = \max(0, {\color{red} 4} \cdot \underbrace{\max(0, 3 \cdot x_1 +  4 \cdot x_2 + 1)}_{h_1} + {\color{red} 2} \cdot \underbrace{\max(0, {\color{purple} 3} \cdot x_1 + {\color{purple} 2} \cdot x_2 + {\color{purple} 7})}_{h_2} + {\color{red} 6})
 \]</div>
 <p class="sd-card-text">Получается, что на первом слое находится два нейрона, которые передают свои выходы в третий:</p>
-<a class="reference internal image-reference" href="../_images/img03_net.png"><img alt="dobronet_forward" class="align-center" src="../_images/img03_net.png" style="width: 70%;" /></a>
+<figure class="align-default" id="formula-to-net">
+<a class="reference internal image-reference" href="../_images/img03_net.png"><img alt="../_images/img03_net.png" src="../_images/img03_net.png" style="width: 70%;" /></a>
+</figure>
+</div>
+</details><p><strong>б)</strong> Маша нарисовала нейросеть и гордится количеством нейронов. Миша подозревает, что один из них устроился в сеть по знакомству и совершенно бесполезен. Найдите его и докажите, что он не влияет на ответ.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Бесполезен внешний <span class="math notranslate nohighlight">\(ReLU\)</span>. Выходы скрытых нейронов — это результаты применения <span class="math notranslate nohighlight">\(ReLU\)</span>, поэтому <span class="math notranslate nohighlight">\(h_1 \ge 0\)</span> и <span class="math notranslate nohighlight">\(h_2 \ge 0\)</span>. Веса последнего нейрона положительные, значит</p>
+<div class="math notranslate nohighlight">
+\[
+4 \cdot h_1 + 2 \cdot h_2 + 6 \ge 6 &gt; 0.
+\]</div>
+<p class="sd-card-text">Аргумент внешнего <span class="math notranslate nohighlight">\(ReLU\)</span> всегда положителен, и максимум с нулём ничего не отсекает:</p>
+<div class="math notranslate nohighlight">
+\[
+y = 4 \cdot h_1 + 2 \cdot h_2 + 6.
+\]</div>
+<p class="sd-card-text">Внешнюю функцию активации можно безболезненно удалить — на последнем слое сетка Маши линейна.</p>
+</div>
+</details><p><strong>в)</strong> Помогите Маше починить сетку: поменяйте в формуле знак одного из весов и свободного члена так, чтобы внешний <span class="math notranslate nohighlight">\(ReLU\)</span> перестал быть бесполезным.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Решение<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Возьмём, например, функцию</p>
+<div class="math notranslate nohighlight">
+\[
+y = \max(0, 4 \cdot h_1 - 2 \cdot h_2 - 6).
+\]</div>
+<p class="sd-card-text">Теперь аргумент внешнего <span class="math notranslate nohighlight">\(ReLU\)</span> может оказаться отрицательным. Скажем, если <span class="math notranslate nohighlight">\(h_1 = 0\)</span>, внутри максимума будет <span class="math notranslate nohighlight">\(-2 \cdot h_2 - 6 &lt; 0\)</span>, и сетка выдаст <span class="math notranslate nohighlight">\(0\)</span>. А при больших <span class="math notranslate nohighlight">\(h_1\)</span> она продолжит работать как линейная функция.</p>
 </div>
 </details></section>
 
@@ -544,7 +583,7 @@ y = \max(0, {\color{red} 4} \cdot \underbrace{\max(0, 3 \cdot x_1 +  4 \cdot x_2
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">4. Армия регрессий</p>
+        <p class="prev-next-title">4. Число параметров</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

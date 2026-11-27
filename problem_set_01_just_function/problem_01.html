@@ -183,13 +183,15 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -472,11 +474,11 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>1. От регрессии к нейросетке<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
-<p>Однажды вечером, по пути с работы, Маша зашла в свою любимую кофейню на Тверской. Там, на стене, она обнаружила интересную картину:</p>
+<p>Однажды вечером, по пути с работы, Маша зашла в свою любимую кофейню. Там, на стене, она обнаружила интересную картину:</p>
 <figure class="align-default" id="regression">
 <a class="reference internal image-reference" href="../_images/img01_regr.png"><img alt="../_images/img01_regr.png" src="../_images/img01_regr.png" style="width: 30%;" /></a>
 </figure>
-<p>Хозяин кофейни, Добродум, объяснил Маше, что это Покрас Лампас нарисовал линейную регрессию, и её легко можно переписать в виде формулы: <span class="math notranslate nohighlight">\(y_i = w_0 + w_1 \cdot x_i.\)</span> Пока Добродум готовил кофе, Маша накидала у себя на бумажке новую картинку:</p>
+<p>Хозяин кофейни, Добродум, объяснил Маше, что это модный художник из NY нарисовал линейную регрессию, и её легко можно переписать в виде формулы: <span class="math notranslate nohighlight">\(y_i = w_0 + w_1 \cdot x_i.\)</span> Пока Добродум готовил кофе, Маша накидала у себя на бумажке новую картинку:</p>
 <figure class="align-default" id="two-layer-regression">
 <a class="reference internal image-reference" href="../_images/img01_dobronet.png"><img alt="../_images/img01_dobronet.png" src="../_images/img01_dobronet.png" style="width: 30%;" /></a>
 </figure>
@@ -521,7 +523,16 @@ y = w_1 \cdot f(w_{11} + w_{21} \cdot x)  + w_2 \cdot f(w_{12} + w_{22} \cdot x)
 \[
 ReLU(h) = \max(0, h).
 \]</div>
-<p class="sd-card-text">У такой функции активации много других приятных свойств. Мы их обсудим более подробно в четвёртом листочке.</p>
+<figure class="align-default" id="activations">
+<a class="reference internal image-reference" href="../_images/img01_activations.png"><img alt="../_images/img01_activations.png" src="../_images/img01_activations.png" style="width: 90%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">сигмоида и ReLU</span><a class="headerlink" href="#activations" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p class="sd-card-text">Она почти линейная, выглядит как уголочек, но этого в нейросетях оказывается достаточно. А вот сигмоида в глубоких сетках ведёт себя не очень хорошо и приводит к параличу нейронных сетей. Что это значит — выясним немного позже, когда начнём считать градиенты.</p>
+<figure class="align-default" id="doge-relu">
+<a class="reference internal image-reference" href="../_images/doge.png"><img alt="../_images/doge.png" src="../_images/doge.png" style="width: 55%;" /></a>
+</figure>
 </div>
 </details></section>
 

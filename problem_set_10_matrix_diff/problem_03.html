@@ -183,13 +183,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_01.html">1. От регрессии к нейросетке</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_02.html">2. От картинки к формуле</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_03.html">3. Из формулы в картинку</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Армия регрессий</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Логические функции</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Ещё немного про XoR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Избыток</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Минималочка</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Универсальный регрессор</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_04.html">4. Число параметров</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_05.html">5. Армия регрессий</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_06.html">6. Логические функции</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_07.html">7. Ещё немного про XoR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_08.html">8. Избыток</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_09.html">9. Минималочка</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_10.html">10. Горы и универсальный регрессор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_11.html">11. Универсальный классификатор</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_set_01_just_function/problem_12.html">12. Зачем нужна глубина</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../problem_set_02_gradient/intro_02.html">Листочек 2: пятьдесят оттенков градиентного спуска</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -477,7 +479,7 @@ document.write(`
 \[
 L(w) = (y - Xw)^T(y - Xw) \to \min_{w}.
 \]</div>
-<p><strong>а)</strong> Найдите <span class="math notranslate nohighlight">\(L(w)\)</span>, выведите формулу для оптимального <span class="math notranslate nohighlight">\(w\)</span>.</p>
+<p><strong>а)</strong> Найдите <span class="math notranslate nohighlight">\(dL(w)\)</span>, выведите формулу для оптимального <span class="math notranslate nohighlight">\(w\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Решение<div class="sd-summary-down docutils">
@@ -485,7 +487,7 @@ L(w) = (y - Xw)^T(y - Xw) \to \min_{w}.
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Ради интереса убедимся, что перед нами в качестве функции потерь используется именно MSE, в качестве <span class="math notranslate nohighlight">\(x_i\)</span> будем обозначать <span class="math notranslate nohighlight">\(i-\)</span>ую строчку матрицы <span class="math notranslate nohighlight">\(X\)</span></p>
+<p class="sd-card-text">Ради интереса убедимся, что перед нами в качестве функции потерь используется именно MSE, в качестве <span class="math notranslate nohighlight">\(x_i\)</span> будем обозначать <span class="math notranslate nohighlight">\(i-\)</span>ую строчку матрицы <span class="math notranslate nohighlight">\(X\)</span>, записанную в виде столбца</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 (y - Xw)^T(y - Xw) = \begin{pmatrix} y_1 - x_1^Tw &amp;  \ldots &amp; y_n - x_n^Tw \end{pmatrix} \begin{pmatrix} y_1 - x_1^Tw \\  \ldots \\ y_n - x_n^Tw \end{pmatrix}   = \sum_{i=1}^n (y_i - x_i^Tw)^2.
@@ -495,7 +497,7 @@ L(w) = (y - Xw)^T(y - Xw) \to \min_{w}.
 \[\begin{multline*}
 d L = d[(y - Xw)^T(y - Xw)] = \\ = d[(y - Xw)^T] \cdot (y - Xw) + (y - Xw)^T \cdot d[(y - Xw)] = \\ = d[(-Xw)^T] (y - Xw) - (y - Xw)^TX \cdot dw = \\ = - dw^T X^T (y - Xw) - (y - Xw)^TX dw = -2 (y - Xw)^TX dw.
 \end{multline*}\]</div>
-<p class="sd-card-text">Тут мы воспользовались тем, что <span class="math notranslate nohighlight">\( dw^T X^T (y - Xw)\)</span> это скаляр и его можно транспонировать. Производная найдена.</p>
+<p class="sd-card-text">Тут мы воспользовались тем, что <span class="math notranslate nohighlight">\( dw^T X^T (y - Xw)\)</span> это скаляр и его можно транспонировать. Производная найдена. Приравняем производную к нулю, чтобы найти минимум для <span class="math notranslate nohighlight">\(w\)</span>. Получается система уравнений</p>
 <div class="math notranslate nohighlight">
 \[
 2X^T(y-Xw) = 0 \qquad  X^Ty = X^TX w \qquad w = (X^TX)^{-1} X^Ty.
@@ -513,9 +515,9 @@ d L = d[(y - Xw)^T(y - Xw)] = \\ = d[(y - Xw)^T] \cdot (y - Xw) + (y - Xw)^T \cd
 <p class="sd-card-text">Шаг градиентного спуска будет выглядеть как</p>
 <div class="math notranslate nohighlight">
 \[
-w_t = w_{t-1} + \gamma \cdot 2X^T(y-Xw).
+w_t = w_{t-1} + \gamma \cdot 2X^T(y-Xw_{t-1}).
 \]</div>
-<p class="sd-card-text">Здесь <span class="math notranslate nohighlight">\(\gamma\)</span> — это скорость обучения. Приравняем производную к нулю, чтобы найти минимум для <span class="math notranslate nohighlight">\(w\)</span>. Получается система уравнений</p>
+<p class="sd-card-text">Здесь <span class="math notranslate nohighlight">\(\gamma\)</span> — это скорость обучения.</p>
 </div>
 </details><p><strong>в)</strong> Найдите <span class="math notranslate nohighlight">\(d^2L(w)\)</span>. Убедитесь, что мы действительно в точке минимума.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -555,12 +557,12 @@ L(w) = (y - Xw)^T(y - Xw) + \lambda w^Tw,
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 \begin{aligned}
-	&amp; dL = 2 (y - Xw)^TX dw + 2\lambda w^T dw \\ 
+	&amp; dL = -2 (y - Xw)^TX dw + 2\lambda w^T dw \\ 
 	&amp; \nabla_w L(w) = 2 X^T (Xw - y) + 2\lambda w \\
 	&amp; w = (X^TX + \lambda I)^{-1} X^Ty \\
 	&amp; w_t = w_{t-1} - \gamma \cdot (2 X^T (Xw_{t-1} - y) + 2\lambda w_{t-1}) \\
-	&amp; d^2 L = d{w^T}(2X^TX + 2\lambda)dw \\
-	&amp; H = 2X^TX + 2\lambda \text{ положительно определена}
+	&amp; d^2 L = d{w^T}(2X^TX + 2\lambda I)dw \\
+	&amp; H = 2X^TX + 2\lambda I \text{ положительно определена}
 \end{aligned} 
 \end{equation*}\]</div>
 </div>
